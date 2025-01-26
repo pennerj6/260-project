@@ -34,7 +34,7 @@ Haochen Dong
 ## **Meeting Info**
 #### Meeting Specs: 
 <ul>
-  <li>January 16, 2025</li>
+  <li>Thursday January 16, 2025</li>
   <ul>
     <li>Duration: 45 minutes</li>
         <ol>1:30pm to 2:15pm<ol>

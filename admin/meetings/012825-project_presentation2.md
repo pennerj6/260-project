@@ -10,7 +10,7 @@
 
 [Meeting Notes](#meeting-notes)
 
-[Previous Meeting](https://github.com/pennerj6/260-project/blob/main/admin/meetings/012325-project_proposal.md)
+[Previous Meeting](https://github.com/pennerj6/260-project/blob/main/admin/meetings/012325-project_presentation.md)
 
 ## **Team 19 Members**
 <ul>

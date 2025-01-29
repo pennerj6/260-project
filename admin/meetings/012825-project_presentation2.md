@@ -48,7 +48,7 @@ Haochen Dong
 
 #### Meeting Type: 
 <ul>
-  <li>Meeting to review proposal feedback & discuss project presentation/video. </li>
+  <li>Meeting to review proposal feedback & discuss project presentation/video.</li>
 </ul>	
 
 ## **Attendance**
@@ -70,15 +70,15 @@ Haochen Dong
 <b>Updates</b>
 <ul>
     <ul>
-        <li>TO BE UPDATED DURING MEETING.</li>
+        <li>Changed RQ's to match TA's feedback</li>
     </ul>
     
 </ul>
 <b>Tasks to be completed</b>
 <ul>
     <ul>
-        <li>Attend Office Hours for feedback.</li>
-        <li>Individially Record Presentation.</li>
-        <li>Edit video and post as Unlisted Youtube Video and submit link</li>
+        <li>Individially Record Presentation and send to Sahil for editing.</li>
+        <li>Edit videos and post as Unlisted Youtube Video and submit link</li>
+        <li><a href="https://youtu.be/Pjk7qOgJLds">Here is the posted Youtube Video!</a></li>
     </ul>
 </ul>

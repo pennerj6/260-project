@@ -59,7 +59,7 @@ Haochen Dong
 - [x] Jordan Penner
 - [x] Manami Nakagawa
 - [x] David Chu
-- [] Haochen Dong
+- [ ] Haochen Dong
 
 
 ## **Agenda**

@@ -76,31 +76,45 @@ Haochen Dong
 </ul>
 <b>Tasks to be completed</b>
 <ul>
-    **Phase 1**
-    <ul>
-        <li>Step 1:</li>
-          <li>- Connect to Github Open Source Discussion database.</li>
-        <li>Step 2:</li>
-          <li>- Extract the RAW data as csv OR xlsx file into our repo. (note: need to handle strings w/ commas)</li>
-          <li>- Analyze and annotate the raw data. (what columns are available, what is relavent, etc.)</li>
-          <li>- Transform data to clean up outliers/not needed columns</li>
-          <li>- Load the csv or xlsx data into our repo to be used by our python script</li>
-    </ul>
-    **Phase 2**
-    <ul>
-        <li>Step 3:</li>
-          <li>- Research for exisitng toxicity algorithm: In python, create script where given a string determine the percentage it is likely a toxic message.</li>
-          <li>- Create a test JSON file where we can have UNIT tests.</li>
-    </ul>
-    **Phase 3**
-    <ul>
-        <li>Step 4:</li>
-          <li>- Combine the data from Phase 1 into the toxicity algorithm in Phase 2.</li>
-          <li>- Create a test JSON file where we can have UNIT tests.</li>
-    </ul>
-    **Phase 4**
-    <ul>
-        <li>Step 5:</li>
-          <li>- Concurrently work on Progress Report PDF assignment.</li>
-    </ul>
+    <li><b>Phase 1</b>
+        <ul>
+            <li>Step 1:</li>
+            <ul>
+                <li>- Connect to Github Open Source Discussion database.</li>
+            </ul>
+            <li>Step 2:</li>
+            <ul>
+                <li>- Extract the RAW data as csv OR xlsx file into our repo. (note: need to handle strings w/ commas)</li>
+                <li>- Analyze and annotate the raw data. (what columns are available, what is relevant, etc.)</li>
+                <li>- Transform data to clean up outliers/not needed columns</li>
+                <li>- Load the csv or xlsx data into our repo to be used by our python script</li>
+            </ul>
+        </ul>
+    </li>
+    <li><b>Phase 2</b>
+        <ul>
+            <li>Step 3:</li>
+            <ul>
+                <li>- Research for existing toxicity algorithm: In python, create a script where, given a string, determine the percentage it is likely a toxic message.</li>
+                <li>- Create a test JSON file where we can have UNIT tests.</li>
+            </ul>
+        </ul>
+    </li>
+    <li><b>Phase 3</b>
+        <ul>
+            <li>Step 4:</li>
+            <ul>
+                <li>- Combine the data from Phase 1 into the toxicity algorithm in Phase 2.</li>
+                <li>- Create a test JSON file where we can have UNIT tests.</li>
+            </ul>
+        </ul>
+    </li>
+    <li><b>Phase 4</b>
+        <ul>
+            <li>Step 5:</li>
+            <ul>
+                <li>- Concurrently work on Progress Report PDF assignment.</li>
+            </ul>
+        </ul>
+    </li>
 </ul>

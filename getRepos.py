@@ -67,15 +67,15 @@ def filter_repositories(repositories):
         # if pr_count >= 10 and contributors_count >= 5 and issues_count>=10 and 90 <= activity_duration.days < 180:
         if pr_count >= 5:
             filtered_repos.append({
-                "title": details["title"],
-                "url": details["url"],
+                "repo_name": details["repo_name"],
+                "repo_url": details["repo_url"],
                 "created_at": details["created_at"],
                 "last_update": details["last_update"],
                 "pr_count": pr_count,
                 "issues_count": issues_count,
                 "contributors_count": contributors_count
             })
-            print(f"Matched: {details['title']} (Issues: {issues_count}, Contributors: {contributors_count})")
+            print(f"Matched: {details['repo_name']} (Issues: {issues_count}, Contributors: {contributors_count})")
 
     return filtered_repos
 
@@ -92,8 +92,8 @@ def get_repo_details(owner, repo):
             created_at = datetime.strptime(repo_data["created_at"], "%Y-%m-%dT%H:%M:%SZ")
             last_update = datetime.strptime(repo_data["updated_at"], "%Y-%m-%dT%H:%M:%SZ")
             return {
-                "title": repo_data["full_name"],
-                "url": repo_data["html_url"],
+                "repo_name": repo_data["full_name"],
+                "repo_url": repo_data["html_url"],
                 "created_at": created_at,
                 "last_update": last_update,
             }
@@ -132,11 +132,11 @@ def save_to_csv(filtered_repos):
 
     with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
-        writer.writerow(["Title", "URL", "Created At", "Last Update Date", "Issue Count", "Contributor Count"])
+        writer.writerow(["Repository name", "Repository URL", "Created At", "Last Update Date", "Issue Count", "Contributor Count"])
 
         for repo in filtered_repos:
             writer.writerow([
-                repo["title"], repo["url"], repo["created_at"], repo["last_update"],
+                repo["repo_name"], repo["repo_url"], repo["created_at"], repo["last_update"],
                 repo["issues_count"], repo["contributors_count"]
             ])
 

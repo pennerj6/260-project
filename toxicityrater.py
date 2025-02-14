@@ -19,10 +19,12 @@ class ToxicityRater:
             static_discovery=False,
         )
 
-    def get_toxicity_rating(self, comment: str):
+    def get_toxicity_rating(self, comment: str, language="en"):
         analyze_request = {
             'comment': { 'text': comment },
-            'requestedAttributes': {'TOXICITY': {}}
+            'requestedAttributes': {'TOXICITY': {}},
+            'languages': [language]  # Explicitly specify English 
+
         }
 
         response = self.client.comments().analyze(body=analyze_request).execute()

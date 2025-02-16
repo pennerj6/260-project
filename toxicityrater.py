@@ -1,5 +1,6 @@
 from googleapiclient import discovery
-
+from time import sleep
+import numpy as np
 
 """
 Class to compute a toxicity rating on comments, one comment at a time for now.
@@ -20,15 +21,22 @@ class ToxicityRater:
         )
 
     def get_toxicity_rating(self, comment: str, language="en"):
-        analyze_request = {
-            'comment': { 'text': comment },
-            'requestedAttributes': {'TOXICITY': {}},
-            'languages': [language]  # Explicitly specify English 
+        n = 20000
+        comment_chunks = [comment[i:i+n] for i in range(0, len(comment), n)]
+        scores = []
+        for comment_chunk in comment_chunks:
 
-        }
+            analyze_request = {
+                'comment': { 'text': comment_chunk },
+                'requestedAttributes': {'TOXICITY': {}},
+                'languages': [language]  # Explicitly specify English 
 
-        response = self.client.comments().analyze(body=analyze_request).execute()
-        return response['attributeScores']['TOXICITY']['summaryScore']['value']
+            }
+
+            response = self.client.comments().analyze(body=analyze_request).execute()
+            sleep(1)
+            scores.append(response['attributeScores']['TOXICITY']['summaryScore']['value'])
+        return np.mean(scores)
 
 if __name__ == "__main__":
     tr = ToxicityRater()

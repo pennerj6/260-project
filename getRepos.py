@@ -1,10 +1,10 @@
 import os
 import csv
-import time
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
 from toxicityrater import ToxicityRater
+import random
 
 """ get repos which meet the conditions -> data/ github_repos.csv
 
@@ -33,7 +33,7 @@ tr = ToxicityRater()
 def search_repositories():
     # TODO: Condition 1
     params = {
-        "q": "stars:>10 created:>=2020-01-01",
+        "q": "stars:>6 created:>=2020-01-01",
         "sort": "stars",
         "order": "desc",
         "per_page": 20 # number of repositories
@@ -50,79 +50,106 @@ def search_repositories():
         print("API Error: {response.status_code}, {response.text}")
         return []
     
+# Fetch all issues and pull requests from a repository, open or closed
+def get_issues(owner, repo_name):
+    issues = []
+    prs = []
+    page = 1
+    while True:
+        url = f'https://api.github.com/repos/{owner}/{repo_name}/issues?state=all&page={page}&per_page=100'
+        response = requests.get(url, headers=HEADERS)
+        if response.status_code != 200:
+            print(f"Error fetching issues: {response.status_code}")
+            break
+        data = response.json()
+        if not data:
+            break
+        issues.extend(data)
+        page += 1
 
-# Given a repo, return the comments where comment_type can be "Issues" or "Pulls"
-def get_comments(owner, repo, comment_type):
-    url = f"https://api.github.com/repos/{owner}/{repo}/{comment_type}/comments"
-    response = requests.get(url, headers=HEADERS)
-    if response.status_code == 200:
-        return response.json() 
-    else: 
-        return []
+    return issues
+
+# Fetch all comments for a specific issue or PR
+def get_comments(base_url):
+    comments = []
+    page = 1
+    while True:
+        url = f'{base_url}?page={page}&per_page=100'
+        response = requests.get(url, headers=HEADERS)
+        if response.status_code != 200:
+            print(f"Error fetching comments for issue/pull request with URL {base_url}: {response.status_code}")
+            break
+        data = response.json()
+        if not data:
+            break
+        comments.extend(data)
+        page += 1
+    return comments
+
+# Fetch all comments for all issues or PRs
+def get_all_comments(issues_list):
+    comments = []
+    for issue in issues_list:
+        comments.extend(get_comments(issue['comments_url']))
+    return comments
         
-
 # Given a list of comments, return their mean toxicity ranking using the Perspective API
-def analyze_toxicity(metric, comments):
-    if metric == "mean":
-        scores = []
-        for comment in comments:
-            scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
+def analyze_toxicity(comments):
+    scores = []
+    max_score = 0.
+    for comment in comments:
+        score = tr.get_toxicity_rating(comment['body'], language='en' )
+        scores.append(score)
+        max_score = max(max_score, score)
 
-            # Sleep 1s to prevent Perspective API request limit
-            time.sleep(1)
-
-        if scores:
-            return sum(scores) / len(scores) 
-        else:
-            # suspiciously low toxicity
-            print("!!!Possible Issue: 0% toxicity")
-            return 0
-    
-    else: 
-        print("!!!Please include a LISTED metric (ex: mean)")
+    if scores:
+        return sum(scores) / len(scores), max_score
+    else:
+        # suspiciously low toxicity
+        print("!!!Possible Issue: 0% toxicity")
         return 0
 #
 def filter_repositories(repositories):
-    filtered_repos = []
     for repo in repositories:
         owner, name = repo["full_name"].split("/")
         contributors_count = get_count("contributors",owner, name)
-        pr_count = get_count("pulls", owner, name)
-        issues_count = get_count("issues",owner, name)
         details = get_repo_details(owner, name)
         
-        issue_comments = get_comments(owner, name, "issues")
-        pr_comments = get_comments(owner, name, "pulls")
+        issues = get_issues(owner, name)
+        issues_count = len(issues)
+
+        sample_size = 50
         
-
-
-    
-        if details is None:
-            continue
-
-        activity_duration = details["last_update"] - details["created_at"]
-
-        # TODO: something like if (activity_duration.days >= 90) and (activity_duration.days < 180):
-
-
         # TODO: Condition 2
-        # if pr_count >= 10 and contributors_count >= 5 and issues_count>=10 and 90 <= activity_duration.days < 180:
-        if pr_count >= 5:
-            filtered_repos.append({
+        # if contributors_count >= 5 and issues_count>=10 and 90 <= activity_duration.days < 180:
+        if len(issues) > sample_size:
+            issues = random.sample(issues, 50)
+            issue_comments = get_all_comments(issues)
+        
+            if details is None:
+                continue
+
+            activity_duration = details["last_update"] - details["created_at"]
+
+            # TODO: something like if (activity_duration.days >= 90) and (activity_duration.days < 180):
+
+
+
+
+            mean_issue_toxicity, max_issue_toxicity = analyze_toxicity(issue_comments)
+            print(f"Matched: {details['repo_name']} (Issues: {issues_count}, Contributors: {contributors_count})")
+
+            yield {
                 "repo_name": details["repo_name"],
                 "repo_url": details["repo_url"],
                 "created_at": details["created_at"],
                 "last_update": details["last_update"],
-                "pr_count": pr_count,
                 "issues_count": issues_count,
                 "contributors_count": contributors_count,
 
-                "mean_issue_toxicity": analyze_toxicity("mean",issue_comments),
-                "mean_pr_toxicity": analyze_toxicity("mean", pr_comments)
-            })
-            print(f"Matched: {details['repo_name']} (Issues: {issues_count}, Contributors: {contributors_count})")
-
-    return filtered_repos
+                "mean_issue_toxicity": mean_issue_toxicity,
+                "max_issue_toxicity": max_issue_toxicity,
+            }
 
 
 # For filtering repos ====================================
@@ -162,37 +189,52 @@ def get_count(field, owner, repo):
         print("!!!TYPO in get_count(field, ....)")
 # For saving data ====================================
 
-def save_to_csv(filtered_repos):
+def save_to_csv(filtered_repos, overwrite=False):
     csv_filename = "./data/github_data.csv"
-    cnt = len(filtered_repos)
+    cnt = 0
 
-    with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:
-        writer = csv.writer(file)
-        if filtered_repos:
+    # Clear file if overwriting
+    if overwrite:
+        with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:
+            pass
+    # Write one repo at a time so some data is saved on failure
+    for repo in filtered_repos:
+        with open(csv_filename, mode="a", encoding="utf-8", newline="") as file:
+            writer = csv.writer(file)
+            if cnt == 0:
+                writer.writerow(repo.keys())
+            cnt += 1
+            writer.writerow(repo.values())
+
+    # with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:
+    #     writer = csv.writer(file)
+    #     if filtered_repos:
     
-            # Directly write each key/value into CSV
-            writer.writerow(filtered_repos[0].keys())
-            for repo in filtered_repos:
-                writer.writerow(repo.values())
-        else: 
-            print("!!!No Filtered Repos")
+    #         # Directly write each key/value into CSV
+    #         for repo in filtered_repos:
+    #             if cnt == 0:
+    #                 writer.writerow(repo.keys())
+    #             cnt += 1
+    #             writer.writerow(repo.values())
+    #     else:
+    #         print("!!!No Filtered Repos")
         
-            # This was the old write process: (To be DELETED after unless we need to manually rename columns)
-            if 1 == 0:
-                writer.writerow(["Repository name", "Repository URL", "Created At", "Last Update Date", "Issue Count", "Contributor Count"])
+    #         # This was the old write process: (To be DELETED after unless we need to manually rename columns)
+    #         if 1 == 0:
+    #             writer.writerow(["Repository name", "Repository URL", "Created At", "Last Update Date", "Issue Count", "Contributor Count"])
 
-                for repo in filtered_repos:
-                    writer.writerow([
-                        repo["repo_name"], repo["repo_url"], repo["created_at"], repo["last_update"],
-                        repo["issues_count"], repo["contributors_count"]
-                    ])
+    #             for repo in filtered_repos:
+    #                 writer.writerow([
+    #                     repo["repo_name"], repo["repo_url"], repo["created_at"], repo["last_update"],
+    #                     repo["issues_count"], repo["contributors_count"]
+    #                 ])
 
     print(f"found {cnt} repositories -> saved to {csv_filename}")
 
 def main():
     repositories = search_repositories()
     filtered_repos = filter_repositories(repositories)
-    save_to_csv(filtered_repos)
+    save_to_csv(filtered_repos, overwrite=True)
 
 
 if __name__ == "__main__":

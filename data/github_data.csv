@@ -1,19 +1,5 @@
-repo_name,repo_url,created_at,last_update,pr_count,issues_count,contributors_count,mean_issue_toxicity,mean_pr_toxicity
-Significant-Gravitas/AutoGPT,https://github.com/Significant-Gravitas/AutoGPT,2023-03-16 09:21:07,2025-02-14 20:54:57,30,10,30,0.032428323800000006,0.0213592612
-AUTOMATIC1111/stable-diffusion-webui,https://github.com/AUTOMATIC1111/stable-diffusion-webui,2022-08-22 14:05:26,2025-02-14 20:32:23,30,15,30,0.026214349633333335,0.02766444063333333
-labuladong/fucking-algorithm,https://github.com/labuladong/fucking-algorithm,2020-02-19 09:01:23,2025-02-14 14:26:17,30,3,30,0.0733589638333333,0.02965586199333333
-ollama/ollama,https://github.com/ollama/ollama,2023-06-26 19:39:32,2025-02-14 21:06:30,30,18,30,0.02020128738,0.021251174666666667
-f/awesome-chatgpt-prompts,https://github.com/f/awesome-chatgpt-prompts,2022-12-05 13:54:13,2025-02-14 20:22:01,30,0,30,0.03740251356333334,0.05114278356666667
-krahets/hello-algo,https://github.com/krahets/hello-algo,2022-11-04 11:08:34,2025-02-14 17:43:02,20,11,30,0.012492740950000001,0.01949510693
-langchain-ai/langchain,https://github.com/langchain-ai/langchain,2022-10-17 02:58:36,2025-02-14 21:18:19,30,19,30,0.021842754213333336,0.041510977399999996
-yt-dlp/yt-dlp,https://github.com/yt-dlp/yt-dlp,2020-10-26 04:22:55,2025-02-14 21:05:30,30,23,30,0.05381702664999999,0.0293919408
-excalidraw/excalidraw,https://github.com/excalidraw/excalidraw,2020-01-02 01:04:43,2025-02-14 21:19:27,30,21,30,0.016620909793333333,0.05613851113333333
-microsoft/Web-Dev-For-Beginners,https://github.com/microsoft/Web-Dev-For-Beginners,2020-11-10 02:44:00,2025-02-14 21:19:57,30,11,30,0.020127628216666672,0.026646175629999994
-deepseek-ai/DeepSeek-V3,https://github.com/deepseek-ai/DeepSeek-V3,2024-12-26 09:52:40,2025-02-14 21:13:41,26,23,18,0.03434779555,0.020290269349999997
-shadcn-ui/ui,https://github.com/shadcn-ui/ui,2023-01-04 12:43:27,2025-02-14 20:53:58,30,13,30,0.01987948171333333,0.021690679449999997
-ChatGPTNextWeb/NextChat,https://github.com/ChatGPTNextWeb/NextChat,2023-03-10 18:27:54,2025-02-14 20:31:17,30,27,30,0.006840126153333332,0.02901412416333333
-openai/whisper,https://github.com/openai/whisper,2022-09-16 20:02:54,2025-02-14 21:18:22,30,0,30,0.026536961676666672,0.022959023933333333
-oven-sh/bun,https://github.com/oven-sh/bun,2021-04-14 00:48:17,2025-02-14 18:56:25,30,26,30,0.022095764416666667,0.02388150655
-deepseek-ai/DeepSeek-R1,https://github.com/deepseek-ai/DeepSeek-R1,2025-01-20 11:57:28,2025-02-14 21:26:18,30,26,6,0.017633751833333332,0.0211347332
-ggerganov/llama.cpp,https://github.com/ggerganov/llama.cpp,2023-03-10 18:58:00,2025-02-14 21:26:21,30,20,30,0.0233885988,0.022491816883333328
-open-webui/open-webui,https://github.com/open-webui/open-webui,2023-10-06 22:08:27,2025-02-14 21:27:57,23,16,30,0.019045985646666666,0.02070173193666666
+repo_name,repo_url,created_at,last_update,pr_count,issues_count,contributors_count,locked_issues_count,mean_issue_toxicity,mean_pr_toxicity
+avelino/awesome-go,https://github.com/avelino/awesome-go,2014-07-06 13:42:15,2025-02-15 19:30:16,30,4,30,1,0.020502675046666665,0.021859990866666665
+topjohnwu/Magisk,https://github.com/topjohnwu/Magisk,2016-09-08 12:42:53,2025-02-15 18:59:53,7,23,30,3,0.02280280045,0.041876426803333325
+DIYgod/RSSHub,https://github.com/DIYgod/RSSHub,2018-04-02 14:43:21,2025-02-15 19:46:51,24,12,30,2,0.016145428186666668,0.01144857221666667
+python-telegram-bot/python-telegram-bot,https://github.com/python-telegram-bot/python-telegram-bot,2015-07-07 15:30:39,2025-02-15 20:34:38,8,15,30,7,0.01783115934666667,0.018990072933333334

@@ -37,10 +37,10 @@ def main():
 def search_repositories():
     # TODO: Condition 1
     params = {
-        "q": "stars:>5 created:>=2013-04-07",
-        "sort": "stars",
+        "q": "followers:>100 created:>=2005-01-01",
+        "sort": "followers",
         "order": "desc",
-        "per_page": 3000 # number of repositories
+        "per_page": 3000000 # number of repositories
     }
 
     response = requests.get(GITHUB_API_URL, params=params)
@@ -71,7 +71,7 @@ def filter_repositories(repositories):
 
         # TODO: Condition 2
         # if pr_count >= 10 and contributors_count >= 5 and issues_count>=10 and 90 <= activity_duration.days < 180:
-        if pr_count >= 5 and flagged_issues_count > 2 and contributors_count >=10:
+        if pr_count >= 5  and flagged_issues_count >= 1 and contributors_count >=5:
             filtered_repos.append({
                 "repo_name": details["repo_name"],
                 "repo_url": details["repo_url"],
@@ -84,7 +84,7 @@ def filter_repositories(repositories):
             })
             print(f"Matched: {details['repo_name']} (Flagged Issues: {flagged_issues_count}, Contributors: {contributors_count})")
 
-    filtered_repos.sort(key=lambda x: x["flagged_issues_count"], reverse=True)
+    # filtered_repos.sort(key=lambda x: x["flagged_issues_count"], reverse=True)
 
     return filtered_repos
 
@@ -142,7 +142,7 @@ def get_issues(owner, repo):
     response = requests.get(issues_url, headers=HEADERS)
 
     if response.status_code != 200:
-        print(f"❌ Failed to fetch issues from {owner}/{repo}. Status Code: {response.status_code}")
+        print(f"Failed to fetch issues from {owner}/{repo}. Status Code: {response.status_code}")
         return []
 
     return response.json()
@@ -175,7 +175,7 @@ def get_pull_requests_count(owner, repo):
 # For saving data ====================================
 
 def save_to_csv(filtered_repos):
-    csv_filename = "./data/github_data.csv"
+    csv_filename = "./data/toxic_repo.csv"
     cnt = len(filtered_repos)
 
     with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:

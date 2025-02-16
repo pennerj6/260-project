@@ -112,7 +112,7 @@ def analyze_toxicity(metric, comments):
             scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
 
             # Sleep 1s to prevent Perspective API request limit
-            #time.sleep(1)
+            time.sleep(1)
 
         if scores:
             return sum(scores) / len(scores) 
@@ -127,7 +127,7 @@ def analyze_toxicity(metric, comments):
             scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
 
             # Sleep 1s to prevent Perspective API request limit
-            #time.sleep(1)
+            time.sleep(1)
 
         if scores:
             return max(scores)

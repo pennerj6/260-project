@@ -105,25 +105,42 @@ def search_repositories(page, per_page):
 
 # Given a list of comments, return their mean toxicity ranking using the Perspective API
 def analyze_toxicity(metric, comments):
-    if metric not in ["mean"]:
-        print("!!!Please include a LISTED metric (ex: mean)")
-        return 0
+    
+    if metric == "mean":
+        scores = []
+        for comment in comments:
+            scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
+
+            # Sleep 1s to prevent Perspective API request limit
+            #time.sleep(1)
+
+        if scores:
+            return sum(scores) / len(scores) 
+        else:
+            # suspiciously low toxicity
+            print("!!!Possible Issue: 0% toxicity")
+            return 0
+        
+    elif metric == "max":
+        scores = []
+        for comment in comments:
+            scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
+
+            # Sleep 1s to prevent Perspective API request limit
+            #time.sleep(1)
+
+        if scores:
+            return max(scores)
+        else:
+            # suspiciously low toxicity
+            print("!!!Possible Issue: 0% toxicity")
+            return 0
+        
 
     
     
-    scores = []
-    for comment in comments:
-        scores.append(tr.get_toxicity_rating(comment['body'], language='en' ))
-
-        # Sleep 1s to prevent Perspective API request limit
-        time.sleep(1)
-
-    if scores:
-        return sum(scores) / len(scores) 
-    else:
-        # suspiciously low toxicity
-        print("!!!Possible Issue: 0% toxicity")
-        return 0
+    print("!!!Please include a LISTED metric (ex: mean)")
+    return 0
 
 #
 def get_repo_details(owner, repo):
@@ -212,15 +229,16 @@ def filter_repositories(repositories):
 
                 "locked_issues_count": len(locked_issues),
 
-
                 "mean_issue_toxicity": analyze_toxicity("mean",issue_comments),
-                "mean_pr_toxicity": analyze_toxicity("mean", pr_comments)
+                "mean_pr_toxicity": analyze_toxicity("mean", pr_comments),
+
+                "max_issue_toxicity": analyze_toxicity("max",issue_comments),
+                "max_pr_toxicity": analyze_toxicity("max", pr_comments)
             })
             #print(f"Matched: {details['repo_name']} (Issues: {issues_count}, Contributors: {contributors_count})")
             print(f"Matched: {details['repo_name']} (Contributors: {contributors_count}, Locked Issues: {len(locked_issues)})")
 
     return filtered_repos
-
 
 
 
@@ -253,41 +271,70 @@ def save_to_csv(filtered_repos):
 
     print(f"found {cnt} repositories -> saved to {csv_filename}")
 
+import re
+
+def parse_repo_identifier(repo_str):
+    """
+    Given a repository string that could be in the form "owner/repo" or a full GitHub URL,
+    this function returns the "owner/repo" format.
+    """
+    # If it looks like a URL, extract the owner and repo using a regex.
+    if repo_str.startswith("http"):
+        pattern = r"github\.com/([^/]+/[^/]+)"
+        match = re.search(pattern, repo_str)
+        if match:
+            return match.group(1)
+        else:
+            print(f"Warning: Could not parse repository from URL: {repo_str}")
+            return None
+    else:
+        # Assume it's already in the "owner/repo" format. (probably not)
+        return repo_str
+
 def main():
+    # Manually chosen repositories.
+    my_repos = [
+        "https://github.com/avelino/awesome-go",
+        "https://github.com/microsoft/terminal",
+        "https://github.com/django/django"
+    ]
 
-    target_repo_count = 20 # TODO: change here to how many repos we want 
-    all_filtered_repos = []
-    page = 1
-    # How many repos to fetch per page
-    per_page = 100 #20
+    if my_repos:
+        print("Using manually defined repositories...")
+        # Convert each repository string to the "owner/repo" format
+        repositories = []
+        for repo in my_repos:
+            repo_id = parse_repo_identifier(repo)
+            if repo_id:
+                repositories.append({"full_name": repo_id})
+        filtered_repos = filter_repositories(repositories)
+    else:
+        print("Searching for repositories...")
+        target_repo_count = 20  # Change as needed
+        all_filtered_repos = []
+        page = 1
+        per_page = 100  # Number of repositories per page
 
-    while len(all_filtered_repos) < target_repo_count:
-        repositories = search_repositories(page, per_page)
-        if not repositories:
-            print("No more repositories found from the search API.")
-            break
-        
-        filtered = filter_repositories(repositories)
-        all_filtered_repos.extend(filtered)
-        print(f"Total filtered repos so far: {len(all_filtered_repos)}")
-        
-        # Increase page number for pagination
-        page += 1
-        
-        # Optional: Sleep to avoid hitting rate limits on the search API.
-        time.sleep(2)
+        while len(all_filtered_repos) < target_repo_count:
+            repositories = search_repositories(page, per_page)
+            if not repositories:
+                print("No more repositories found from the search API.")
+                break
 
-        # Slice the list to exactly the target count.
-        final_repos = all_filtered_repos[:target_repo_count]
-        save_to_csv(final_repos)
-        
-    
-    
-    #repositories = search_repositories()
-    #filtered_repos = filter_repositories(repositories)
-    #save_to_csv(filtered_repos)
+            filtered = filter_repositories(repositories)
+            all_filtered_repos.extend(filtered)
+            print(f"Total filtered repos so far: {len(all_filtered_repos)}")
 
+            page += 1
+            #time.sleep(2)  # To avoid hitting rate limits
+
+        filtered_repos = all_filtered_repos[:target_repo_count]
+
+    save_to_csv(filtered_repos)
 
 if __name__ == "__main__":
     main()
-    
+
+
+
+

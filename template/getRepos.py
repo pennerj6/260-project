@@ -4,7 +4,7 @@ import time
 import requests
 from datetime import datetime
 from dotenv import load_dotenv
-from toxicityrater import ToxicityRater
+from template.toxicityrater import ToxicityRater
 
 """ get repos which meet the conditions -> data/ github_repos.csv
 

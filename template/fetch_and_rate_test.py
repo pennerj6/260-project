@@ -1,5 +1,5 @@
 from github import Github, Auth
-from toxicityrater import ToxicityRater
+from template.toxicityrater import ToxicityRater
 
 ACCESS_TOKEN="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"
 tr = ToxicityRater()

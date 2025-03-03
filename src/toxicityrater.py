@@ -1,4 +1,7 @@
 from googleapiclient import discovery
+from googleapiclient.errors import HttpError
+
+import time
 
 
 """
@@ -26,9 +29,16 @@ class ToxicityRater:
             'languages': [language]  # Explicitly specify English 
 
         }
+        try:
+            response = self.client.comments().analyze(body=analyze_request).execute()
+            time.sleep(1)  # Add a 1-second delay between requests
+            return response['attributeScores']['TOXICITY']['summaryScore']['value']
+        except HttpError as e:
+            print(f"Error analyzing comment: {e}")
+            return 0
 
-        response = self.client.comments().analyze(body=analyze_request).execute()
-        return response['attributeScores']['TOXICITY']['summaryScore']['value']
+        # response = self.client.comments().analyze(body=analyze_request).execute()
+        # return response['attributeScores']['TOXICITY']['summaryScore']['value']
 
 if __name__ == "__main__":
     tr = ToxicityRater()

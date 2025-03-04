@@ -37,7 +37,7 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
     
     # Create DataFrame and export
     commit_df = pd.DataFrame(commit_records)
-    commit_df.to_csv('powerbi_commit_data.csv', index=False)
+    commit_df.to_csv('commit_data.csv', index=False)
     
     # 2. Summary statistics by issue and toxic comment
     summary_records = []
@@ -87,15 +87,15 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
     
     # Create DataFrame and export
     summary_df = pd.DataFrame(summary_records)
-    summary_df.to_csv('powerbi_summary_data.csv', index=False)
+    summary_df.to_csv('summary_data.csv', index=False)
     
     # 3. Toxic comment details
     toxic_df = pd.DataFrame(all_toxic_comments)
-    toxic_df.to_csv('powerbi_toxic_comments.csv', index=False)
+    toxic_df.to_csv('toxic_comments.csv', index=False)
     
-    print(f"Exported {len(commit_records)} commit records to powerbi_commit_data.csv")
-    print(f"Exported {len(summary_records)} summary records to powerbi_summary_data.csv")
-    print(f"Exported {len(all_toxic_comments)} toxic comments to powerbi_toxic_comments.csv")
+    print(f"Exported {len(commit_records)} commit records to commit_data.csv")
+    print(f"Exported {len(summary_records)} summary records to summary_data.csv")
+    print(f"Exported {len(all_toxic_comments)} toxic comments to toxic_comments.csv")
 
 # Percent change btween 2 vals (neg means decreased, 0 means same , pos means inreased)
 def calculate_percentage_change(old_value, new_value):

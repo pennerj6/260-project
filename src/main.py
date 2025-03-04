@@ -96,10 +96,10 @@ def main():
             contributor_analysis = analyze_contributor_experience_toxicity(repo_owner, repo_name)
             issue_details[issue_url]['contributor_analysis'] = contributor_analysis
 
-    # Generate enhanced CSV files for PowerBI
+    # Generate enhanced CSV files for analysis (i might use PBI)
     if all_results:
         export_csv(all_results, all_toxic_comments, issue_details, discussion_metrics)
-        print("Generated enhanced CSV files for PowerBI analysis")
+        print("Generated enhanced CSV files for analysis")
         
         # Create summary of the research questions
         export_research_summary(issue_details)
@@ -107,4 +107,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

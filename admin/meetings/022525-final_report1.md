@@ -73,7 +73,7 @@ Haochen Dong
     <ul>
         <li>After Sahil met with the TA after last class, TA said it was okay to cherry pick repos that have toxicity, so we will use the dataset that Manami sent, which includes links to repos that were closed for being "too heated".</li>
         <li>Sahil and Jordan discussed about working on getting the code updated, given that.</li>
-        **<li>OUR CHECK IN with the TA is on 3/6/2025 @18:30 to 18:45 (around 6pm to 7pm).</li>**
+        <b><li>OUR CHECK IN with the TA is on 3/6/2025 @18:30 to 18:45 (around 6pm to 7pm).</li></b>
     </ul>
     
 </ul>

@@ -87,3 +87,33 @@ def get_issue_comments(issue_url):
         comments_url = issue_url
     
     return get_all_pages(comments_url)
+
+# return all comments of a specific user in the repo
+def get_user_comments_in_repo(repo_owner, repo_name, username):
+    # First, get all issues/PRs in the repository
+    issues_url = f"{BASE_URL}/repos/{repo_owner}/{repo_name}/issues"
+    params = {
+        'state': 'all',  # Get both open and closed issues
+        'per_page': 100  # Maximum allowed per page
+    }
+    
+    all_issues = get_all_pages(issues_url, params)
+    all_comments = []
+    
+    # For each issue, get all comments and filter by username
+    for issue in all_issues:
+        comments_url = issue['comments_url']
+        comments = get_all_pages(comments_url)
+        
+        # Filter to only this user's comments
+        user_comments = [c for c in comments if c['user']['login'] == username]
+        all_comments.extend(user_comments)
+    
+    # Also check PR review comments, which are separate from issue comments
+    pr_comments_url = f"{BASE_URL}/repos/{repo_owner}/{repo_name}/pulls/comments"
+    pr_comments = get_all_pages(pr_comments_url)
+    
+    user_pr_comments = [c for c in pr_comments if c['user']['login'] == username]
+    all_comments.extend(user_pr_comments)
+    
+    return all_comments

@@ -23,6 +23,15 @@ class ToxicityRater:
         )
 
     def get_toxicity_rating(self, comment: str, language="en"):
+        # Hnadle Perspective API text length limit error 
+        max_bytes = 20480  # Perspective API's limit 
+        if len(comment.encode('utf-8')) > max_bytes:
+            # Truncate the comment to the first 20,480 bytes
+            truncated_text = comment.encode('utf-8')[:max_bytes].decode('utf-8', errors='ignore')
+            print(f"Truncated comment from {len(comment.encode('utf-8'))} bytes to {len(truncated_text.encode('utf-8'))} bytes")
+            comment = truncated_text
+        
+        
         analyze_request = {
             'comment': { 'text': comment },
             'requestedAttributes': {'TOXICITY': {}},

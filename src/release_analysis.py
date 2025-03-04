@@ -53,24 +53,23 @@ def get_issues_in_timeframe(repo_owner, repo_name, start_date, end_date):
 
 # Went to OH, TA Kunal suggest we look at the toxicity around realeases too, so ..
 # Anazlyses the toxicity around releases (with our intuition of toxicity being higher right before a release, due to tension/stress/etc)
-def analyze_toxicity_around_releases(repo_owner, repo_name, window_days=release_window_days):
-    #release_window_days is defined in congig, to be changed
+def analyze_toxicity_around_releases(repo_owner, repo_name, window_days=14):
     print(f"Analyzing toxicity patterns around releases for {repo_owner}/{repo_name}...")
     
+    #release_window_days is defined in congig, to be changed
     # Get all releases for the repository
     releases_url = f"{BASE_URL}/repos/{repo_owner}/{repo_name}/releases"
-    releases = get_all_pages(releases_url)
+    print("CHANGE THIS AFTER TESTING")
+    # the :5 part
+    releases = get_all_pages(releases_url)[:5]  # Analyze only the last 5 releases
     
     if not releases:
         print(f"No releases found for {repo_owner}/{repo_name}")
         return None
     
-    # Sort releases by date
-    sorted_releases = sorted(releases, key=lambda x: parser.parse(x['published_at']))
-    
     release_toxicity = []
     
-    for release in sorted_releases:
+    for release in releases:
         release_date = parser.parse(release['published_at'])
         print(f"Analyzing release {release['tag_name']} (published {release_date.strftime('%Y-%m-%d')})")
         

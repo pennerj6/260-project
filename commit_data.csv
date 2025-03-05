@@ -1,0 +1,223 @@
+repository,issue_number,issue_title,toxic_comment_id,toxic_comment_user,toxic_comment_date,toxicity_score,commit_date,days_from_toxic_comment,period,commit_author,commit_email,commit_message
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-05,-1,before,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2364 from franmomu/add_types_3
+
+Add property type hints to functional tests"
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,before,Fran Moreno,franmomu@gmail.com,Add property type hints to functional tests
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2363 from franmomu/add_types_2
+
+Add more missing property type hints"
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add more missing property type hints
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add missing property type hints
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add missing array keys
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,after,Fran Moreno,franmomu@gmail.com,Add return type hints to tests
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-09,3,after,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2365 from franmomu/add_types_4
+
+Finish adding property type hints"
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-08,2,after,Ion Bazan,ion.bazan@gmail.com,fix ClassMetadata generic docblock type for filters (#2367)
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,after,Fran Moreno,franmomu@gmail.com,finish adding missing property typehints
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461106,leehambley,2013-04-16T18:02:11Z,0.6342749,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+
+>        --mirror
+           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
+           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
+           are overwritten by a git remote update in the target repository."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461276,leehambley,2013-04-16T18:04:33Z,0.4269174,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+
+>        --mirror
+           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
+           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
+           are overwritten by a git remote update in the target repository."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461378,knocte,2013-04-16T18:06:12Z,0.2922276,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+
+>        --mirror
+           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
+           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
+           are overwritten by a git remote update in the target repository."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461791,knocte,2013-04-16T18:13:30Z,0.11419344,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+
+>        --mirror
+           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
+           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
+           are overwritten by a git remote update in the target repository."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16462166,leehambley,2013-04-16T18:20:44Z,0.07212844,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+
+>        --mirror
+           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
+           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
+           are overwritten by a git remote update in the target repository."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,before,Kir Shatrov,shatrov@me.com,"Merge pull request #37 from mkempe/typos
+
+Fixed typos in release announcement."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,before,Kir Shatrov,shatrov@me.com,"Merge pull request #38 from kirs/fix-upgrade-guide
+
+Don't advise users to use :all role"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #757 from blackxored/with-revision-sha
+
+Release SHA status information missing"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,seenmyfate,seenmyfate@gmail.com,Prepare for v3.1.0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,seenmyfate,seenmyfate@gmail.com,"Merge branch '3.1.x'
+
+Conflicts:
+	CHANGELOG.md
+	README.md
+	lib/capistrano/tasks/git.rake
+	lib/capistrano/templates/deploy.rb.erb"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Cosmetic: indentation
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Extract capturing revisions to generator-like method
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,Prepare for v3.0.1
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #40 from nathanvda/patch-1
+
+Capistrano v3 _is_ on rubygems.org"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Underscore example application name
+
+As the Cucumber features use this template, this prevents the git helper task failing when using the application name as part of the path"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #736 from mpapis/bugfix/allow_multiuser_deploy
+
+move the git ssh helper to application path"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Nathan Van der Auwera,nathan@dixis.com,Capistrano v3 _is_ on rubygems.org
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #759 from bsnape/master
+
+fixed a few minor typos and grammar"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #758 from capistrano/fix/before-namespacing
+
+Correctly infer namespace in task enhancements"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Add SHA of current revision to revisions.log
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Store previous and current SHA
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #738 from kirs/3.1.x-changelog
+
+Changelog entries for 3.1.x release"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Ben Snape,ben.snape@itv.com,fixed typos and grammar
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,"Correctly infer namespace in task enhancements
+
+Previously, defining a task using the `after` syntax within a namespace
+block ignored the namespace, now the following examples are equivalent:
+
+      # within namespace
+      namespace :deploy do
+        task :my_task do
+          #
+        end
+
+        after :starting, :my_task
+      end
+
+      # outside of namespace
+      after 'deploy:starting', 'deploy:my_task'
+
+This resolves #541"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Kir Shatrov,shatrov@me.com,Changelog entries for 3.1.x release
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #756 from capistrano/feature/deploy-failure-task
+
+Add hook for deploy failure"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,"Add hook for deploy failure
+
+If an error is raised during a deploy, the task `deploy:failed` will be
+triggered.  Custom tasks can hook into this using `after`:
+
+    after 'deploy:failed', :send_for_help do
+      #
+    end
+
+I've also taken the opportunity to provide a marginally more useful
+error message before triggering the task.
+
+By default, this 'deploy:failed' will only be triggered when running
+`cap <stage> deploy` - to trigger after individual tasks use `set
+:deploying, true`
+
+This closes #708 and replaces
+https://github.com/capistrano/capistrano/pull/720"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-30,-4,before,Kir Shatrov,shatrov@me.com,"Don't advise users to use :all role
+Shame on me. Of course, :all is a meta role:
+https://github.com/capistrano/capistrano/issues/746"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-29,-5,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #718 from mattdbridges/import-flow
+
+Only import deployment flow"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-29,-5,before,Bryan Taylor,bryan.taylor@sabre.com,Fix split command argument leading to error raised and incorrect path returned
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Matt Bridges,mbridges.91@gmail.com,Oops. Missed one
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Maik Kempe,mkempe@nrolla.com,[✔] Fixed typos.
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Matt Bridges,mbridges.91@gmail.com,Rename to framework rather than flow
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Michal Papis,mpapis@gmail.com,use lambda for late evaluation of :application
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Update README.md
+
+Add CodeClimate badge"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #730 from kirs/no-restart-task-hardcoded
+
+Don't hardcode :restart task in deploy cycle"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #726 from mpapis/bugfix/remove-binstubs
+
+remove binstubs"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #717 from capistrano/feature/no-release
+
+Introduce `no_release` server option"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-10,7,after,Kir Shatrov,shatrov@me.com,"Merge pull request #41 from aackerman/fix-typos
+
+Fix release announcement typos"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-10,7,after,Aaron Ackerman,theron17@gmail.com,Fix release announcement typos
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-07,4,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #771 from andyl/master
+
+Update README.md"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-07,4,after,andyl,andy@r210.com,"Update README.md
+
+removed reference to git_https_username and git_https_password"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-05,2,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #769 from danoc/fix-ask-example
+
+Fix ask example in readme per issues #768 and #747"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-05,2,after,Daniel O'Connor,daniel@danoc.me,Fix ask example in readme per issues #768 and #747
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-04,1,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #764 from boosty/fix_cpaistrano_rails_links
+
+Fix broken links to capistrano/rails repo"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-04,1,after,Sebastian Röbke,sebastian.roebke@xing.com,Fix broken links to capistrano/rails repo
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,after,Kir Shatrov,shatrov@me.com,Keep fresh version of Capistrano in README
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378936727,octoxan,2018-04-05T13:31:54Z,0.051068526,2018-04-03,-2,before,William Johnston,william@johnstonhaus.us,"Merge pull request #1975 from capistrano/fix-any-arity-test-failure
+
+Fix intermittent test failure due to any? DSL"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378936727,octoxan,2018-04-05T13:31:54Z,0.051068526,2018-03-29,-7,before,Matt Brictson,matt@mattbrictson.com,"Fix intermittent test failure due to any? DSL
+
+Capistrano's `any?` DSL method, as a convenience, will delegate a zero-
+arity call to `any?` for the object stored in the variable that is being
+interrogated. For example, `any?(:ssh_options)` will first fetch the
+value of the variable `:ssh_options`, and then call `any?` on it with
+zero arguments.
+
+The bug stems from the fact that we were not checking the arity of
+`any?` before calling it. So if the object being interrogated has an
+`any?` method that requires an argument, the method invocation will fail
+with an `ArgumentError`.
+
+For whatever reason, under certain circumstances related to test order,
+the stub object provided by Rspec would sometimes have an `any?` method
+on it (inherited from `Capistrano::DSL`) that required an argument.
+Hence we would occasionally see test failures.
+
+There isn't a reliable way to check the arity of `any?` (it is `-1` for
+forwarded or native methods), so the fix is to simply rescue the
+`ArgumentError` and fallback to non-`any?` behavior."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378988513,leehambley,2018-04-05T16:05:02Z,0.063423134,2018-04-03,-2,before,William Johnston,william@johnstonhaus.us,"Merge pull request #1975 from capistrano/fix-any-arity-test-failure
+
+Fix intermittent test failure due to any? DSL"
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378988513,leehambley,2018-04-05T16:05:02Z,0.063423134,2018-03-29,-7,before,Matt Brictson,matt@mattbrictson.com,"Fix intermittent test failure due to any? DSL
+
+Capistrano's `any?` DSL method, as a convenience, will delegate a zero-
+arity call to `any?` for the object stored in the variable that is being
+interrogated. For example, `any?(:ssh_options)` will first fetch the
+value of the variable `:ssh_options`, and then call `any?` on it with
+zero arguments.
+
+The bug stems from the fact that we were not checking the arity of
+`any?` before calling it. So if the object being interrogated has an
+`any?` method that requires an argument, the method invocation will fail
+with an `ArgumentError`.
+
+For whatever reason, under certain circumstances related to test order,
+the stub object provided by Rspec would sometimes have an `any?` method
+on it (inherited from `Capistrano::DSL`) that required an argument.
+Hence we would occasionally see test failures.
+
+There isn't a reliable way to check the arity of `any?` (it is `-1` for
+forwarded or native methods), so the fix is to simply rescue the
+`ArgumentError` and fallback to non-`any?` behavior."
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",535014772,mattbrictson,2019-09-25T13:10:53Z,0.06263174,2019-09-29,4,after,Matt Brictson,matt@mattbrictson.com,Preparing v3.11.2

@@ -1,0 +1,17 @@
+{
+    "total_issues_analyzed": 2,
+    "issue_resolution": {
+        "avg_toxic_resolution_time": 4166.932222222223,
+        "avg_non_toxic_resolution_time": 2310.745972222222,
+        "toxic_abandonment_rate": 0.5,
+        "non_toxic_abandonment_rate": 0.2
+    },
+    "release_toxicity": {
+        "avg_pre_release_toxicity": 10.504329004329005,
+        "avg_post_release_toxicity": 0.0
+    },
+    "contributor_experience": {
+        "avg_new_contributor_toxicity": 0,
+        "avg_experienced_contributor_toxicity": 0
+    }
+}

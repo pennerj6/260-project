@@ -1,0 +1,11 @@
+repository,issue_number,issue_title,toxic_comment_id,toxic_comment_user,toxic_comment_date,toxicity_score,commits_before,commits_after,commit_percent_change,commit_absolute_change,comments_before,comments_after,comment_percent_change,participants_before,participants_after,response_time_before,response_time_after
+doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,6,4,-33.33333333333333,-2,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461106,leehambley,2013-04-16T18:02:11Z,0.6342749,0,1,100.0,1,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461276,leehambley,2013-04-16T18:04:33Z,0.4269174,0,1,100.0,1,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461378,knocte,2013-04-16T18:06:12Z,0.2922276,0,1,100.0,1,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461791,knocte,2013-04-16T18:13:30Z,0.11419344,0,1,100.0,1,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16462166,leehambley,2013-04-16T18:20:44Z,0.07212844,0,1,100.0,1,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,36,9,-75.0,-27,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378936727,octoxan,2018-04-05T13:31:54Z,0.051068526,2,0,-100.0,-2,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378988513,leehambley,2018-04-05T16:05:02Z,0.063423134,2,0,-100.0,-2,0,0,N/A,0,0,0.0,0
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",535014772,mattbrictson,2019-09-25T13:10:53Z,0.06263174,0,1,100.0,1,24,1,-95.83333333333334,5,1,2454.616920289855,0

@@ -1,0 +1,10 @@
+Research Question,Metric,Value
+General,Total Issues Analyzed,2
+Issue Resolution,Avg Toxic Resolution Time (hours),4166.932222222223
+Issue Resolution,Avg Non-Toxic Resolution Time (hours),2310.745972222222
+Issue Resolution,Toxic Abandonment Rate,0.5
+Issue Resolution,Non-Toxic Abandonment Rate,0.2
+Release Toxicity,Avg Pre-Release Toxicity (%),10.504329004329005
+Release Toxicity,Avg Post-Release Toxicity (%),0.0
+Contributor Experience,Avg New Contributor Toxicity (%),0
+Contributor Experience,Avg Experienced Contributor Toxicity (%),0

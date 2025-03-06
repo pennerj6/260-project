@@ -113,7 +113,7 @@ def main():
     
     # save
     analysis_df = pd.DataFrame(analysis_results)
-    csv_filename = "productivityData_aroundToxicComment.csv"
+    csv_filename = "data/productivityData_aroundToxicComment.csv"
     analysis_df.to_csv(csv_filename, index=False)
     print(f"Data extracted: {csv_filename}")
 

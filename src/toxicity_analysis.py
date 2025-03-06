@@ -15,13 +15,21 @@ tr = ToxicityRater()
 # Given list of comments, return only the comments that are toxic
 # the toxicity threshold is in config (need to change)
 def identify_toxic_comments(comments):
+    if not comments:
+        return []
+    
+    # Get toxicity scores for all comments in one batch 
+    comment_bodies = [comment['body'] for comment in comments if 'body' in comment]
+    toxicity_scores = tr.get_toxicity_ratings(comment_bodies)
+    
+    # Filter out toxic comments
     toxic_comments = []
+    score_index = 0
     for comment in comments:
-        if 'body' in comment and comment['body']:
-            # tr uses Perspective API to calc hte toxicitiy of comment from 0 to 1
-            toxicity_score = tr.get_toxicity_rating(comment['body'])
-            time.sleep(1)
-            # threshold is determined in congif            
+        if 'body' in comment:
+            toxicity_score = toxicity_scores[score_index]
+            score_index += 1
+            
             if toxicity_score > toxicity_threshold:
                 toxic_comment = {
                     'id': comment['id'],
@@ -44,39 +52,35 @@ def calculate_toxicity_metrics(issues, start_date, end_date):
     for issue in issues:
         comments = get_comments_in_timeframe(issue['url'], start_date, end_date)
         
-        for comment in comments:
-            comment_text = comment['body']
-
+        # Extract comment texts
+        comment_texts = [comment['body'] for comment in comments if 'body' in comment]
+        
+        # Batch process all comments
+        if comment_texts:
             try:
-                # using Perspective API
-                toxicity_score = tr.get_toxicity_rating(comment_text)
-                time.sleep(1)
-
-            # used gpt to help w rate limit error handling
-            except HttpError as e:
-                if e.resp.status == 429:  # Rate limit error
-                    print("Rate limit exceeded. Retrying after 60 seconds...")
-                    time.sleep(60)  # Wait for 60 seconds before retrying
-                    toxicity_score = tr.get_toxicity_rating(comment_text)  # Retry the request
-                    time.sleep(1)
-                else:
-                    # Handle other HTTP errors
-                    print(f"An error occurred: {e}")
-
-            # Sleep to avoid hitting the rate limit
-            time.sleep(1)
-
-            all_comments.append({
-                'comment': comment,
-                'toxicity_score': toxicity_score
-            })
-            
-            if toxicity_score > toxicity_threshold:
-                toxic_comments.append({
-                    'comment': comment,
-                    'toxicity_score': toxicity_score
-                })
-                total_toxicity_score += toxicity_score
+                toxicity_scores = tr.get_toxicity_ratings(comment_texts)
+                
+                # Process the results
+                score_index = 0
+                for comment in comments:
+                    if 'body' in comment:
+                        toxicity_score = toxicity_scores[score_index]
+                        score_index += 1
+                        
+                        all_comments.append({
+                            'comment': comment,
+                            'toxicity_score': toxicity_score
+                        })
+                        
+                        if toxicity_score > toxicity_threshold:
+                            toxic_comments.append({
+                                'comment': comment,
+                                'toxicity_score': toxicity_score
+                            })
+                            total_toxicity_score += toxicity_score
+                
+            except Exception as e:
+                print(f"Error processing comments: {e}")
     
     total_comments = len(all_comments)
     toxic_count = len(toxic_comments)
@@ -102,11 +106,9 @@ def get_comments_in_timeframe(issue_url, start_date, end_date):
     
     return filtered_comments
 
-
-
-# ------
 # Get non-toxic issues for comparison
 def get_non_toxic_issues(repo_owner, repo_name, count=10):
+    print("Entered get_non_toxic_issues")
     issues_url = f"{BASE_URL}/repos/{repo_owner}/{repo_name}/issues"
     params = {
         'state': 'all',
@@ -125,15 +127,14 @@ def get_non_toxic_issues(repo_owner, repo_name, count=10):
             
         comments = get_issue_comments(issue['comments_url'])
         
+        # Extract comment bodies
+        comment_bodies = [comment['body'] for comment in comments if 'body' in comment and comment['body']]
+        
         # Check if any comments are toxic
         is_toxic = False
-        for comment in comments:
-            if 'body' in comment and comment['body']:
-                toxicity_score = tr.get_toxicity_rating(comment['body'])
-                time.sleep(1)  # Add a 1-second delay between toxicity checks
-                if toxicity_score > toxicity_threshold:
-                    is_toxic = True
-                    break
+        if comment_bodies:
+            toxicity_scores = tr.get_toxicity_ratings(comment_bodies)
+            is_toxic = any(score > toxicity_threshold for score in toxicity_scores)
         
         if not is_toxic:
             non_toxic_issues.append(issue)
@@ -144,6 +145,8 @@ def get_non_toxic_issues(repo_owner, repo_name, count=10):
 
 # compare toxic vs nontoxic
 def analyze_issue_resolution_metrics(repo_owner, repo_name, issues_with_toxicity, issues_without_toxicity):
+    print("Entered analyze_issue_resolution_metrics")
+    
     resolution_metrics = {
         'toxic': {
             'time_to_close': [],
@@ -165,7 +168,7 @@ def analyze_issue_resolution_metrics(repo_owner, repo_name, issues_with_toxicity
             resolution_time = (closed_at - created_at).total_seconds() / 3600  # hours
             resolution_metrics['toxic']['time_to_close'].append(resolution_time)
         else:
-            # Count as abandoned if open for more than 90 days (change to 30?)
+            # Count as abandoned if open for more than 90 days
             created_at = parser.parse(issue['created_at'])
             if (datetime.now(created_at.tzinfo) - created_at).days > 90:
                 resolution_metrics['toxic']['abandonment_rate'] += 1
@@ -183,9 +186,9 @@ def analyze_issue_resolution_metrics(repo_owner, repo_name, issues_with_toxicity
             resolution_time = (closed_at - created_at).total_seconds() / 3600  # hours
             resolution_metrics['non_toxic']['time_to_close'].append(resolution_time)
         else:
-            # Count as abandoned if open for more than 90 days (change to 30?)
+            # Count as abandoned if open for more than 90 days
             created_at = parser.parse(issue['created_at'])
-            if (datetime.now(created_at.tzinfo) - created_at).days > 90: 
+            if (datetime.now(created_at.tzinfo) - created_at).days > 90:
                 resolution_metrics['non_toxic']['abandonment_rate'] += 1
                 
         # Get comment count
@@ -200,10 +203,22 @@ def analyze_issue_resolution_metrics(repo_owner, repo_name, issues_with_toxicity
         resolution_metrics['non_toxic']['abandonment_rate'] /= len(issues_without_toxicity)
     
     # Calculate averages
-    resolution_metrics['toxic']['avg_time_to_close'] = np.mean(resolution_metrics['toxic']['time_to_close']) if resolution_metrics['toxic']['time_to_close'] else 0
-    resolution_metrics['non_toxic']['avg_time_to_close'] = np.mean(resolution_metrics['non_toxic']['time_to_close']) if resolution_metrics['non_toxic']['time_to_close'] else 0
+    resolution_metrics['toxic']['avg_time_to_close'] = (
+        sum(resolution_metrics['toxic']['time_to_close']) / len(resolution_metrics['toxic']['time_to_close'])
+        if resolution_metrics['toxic']['time_to_close'] else 0
+    )
+    resolution_metrics['non_toxic']['avg_time_to_close'] = (
+        sum(resolution_metrics['non_toxic']['time_to_close']) / len(resolution_metrics['non_toxic']['time_to_close'])
+        if resolution_metrics['non_toxic']['time_to_close'] else 0
+    )
     
-    resolution_metrics['toxic']['avg_comment_count'] = np.mean(resolution_metrics['toxic']['comment_count']) if resolution_metrics['toxic']['comment_count'] else 0
-    resolution_metrics['non_toxic']['avg_comment_count'] = np.mean(resolution_metrics['non_toxic']['comment_count']) if resolution_metrics['non_toxic']['comment_count'] else 0
+    resolution_metrics['toxic']['avg_comment_count'] = (
+        sum(resolution_metrics['toxic']['comment_count']) / len(resolution_metrics['toxic']['comment_count'])
+        if resolution_metrics['toxic']['comment_count'] else 0
+    )
+    resolution_metrics['non_toxic']['avg_comment_count'] = (
+        sum(resolution_metrics['non_toxic']['comment_count']) / len(resolution_metrics['non_toxic']['comment_count'])
+        if resolution_metrics['non_toxic']['comment_count'] else 0
+    )
     
     return resolution_metrics

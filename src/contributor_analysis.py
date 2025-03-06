@@ -41,25 +41,30 @@ def analyze_contributor_experience_toxicity(repo_owner, repo_name):
         
         # Analyze toxicity in user's comments
         toxic_comments = []
-        toxicity_scores = []
         
-        for comment in user_comments:
-            if 'body' in comment and comment['body']:
-                toxicity_score = tr.get_toxicity_rating(comment['body'])
-                time.sleep(1)
-                toxicity_scores.append(toxicity_score)
-                
-                if toxicity_score > toxicity_threshold:
-                    toxic_comments.append(comment)
+        # Extract comment bodies for batch processing
+        comment_bodies = [comment['body'] for comment in user_comments if 'body' in comment and comment['body']]
+        
+        if not comment_bodies:
+            continue
+            
+        # Get toxicity scores in batch
+        toxicity_scores = tr.get_toxicity_ratings(comment_bodies)
+        
+        # Process the results
+        toxic_count = 0
+        for i, score in enumerate(toxicity_scores):
+            if score > toxicity_threshold:
+                toxic_count += 1
         
         # Calculate metrics
         contributor_metrics.append({
             'username': username,
             'account_age_days': account_age_days,
             'contributions_count': contributions_count,
-            'total_comments': len(user_comments),
-            'toxic_comments': len(toxic_comments),
-            'toxicity_percentage': (len(toxic_comments) / max(1, len(user_comments))) * 100,
+            'total_comments': len(comment_bodies),
+            'toxic_comments': toxic_count,
+            'toxicity_percentage': (toxic_count / max(1, len(comment_bodies))) * 100,
             'avg_toxicity_score': sum(toxicity_scores) / max(1, len(toxicity_scores)) if toxicity_scores else 0
         })
     

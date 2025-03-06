@@ -1,55 +1,43 @@
 id,user,body,created_at,toxicity_score,url
-913845504,Bilge,Imagine thinking anyone cares about design flaws.,2021-09-06T20:37:54Z,0.06421452,https://github.com/doctrine/mongodb-odm/issues/554#issuecomment-913845504
 16461106,leehambley,"> This is a big fuckup IMHO.
 
 Profanity aside, you may have a point. I'll take a patch.
-",2013-04-16T18:02:11Z,0.6342749,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461106
+",2013-04-16T18:02:11Z,0.9503283500671387,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461106
 16461276,leehambley,"Because you don't offer a patch, and profanity really pisses me off.
-",2013-04-16T18:04:33Z,0.4269174,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461276
-16461378,knocte,"Mutable programming pisses me off even more.
+",2013-04-16T18:04:33Z,0.788235604763031,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461276
+349405855,rsbrown,"@linkyndy Do you seriously think @Euraldius did not understand that those labels referred to Ruby objects? Let me slowly explain to you the point that was being made:
 
-Anyway, the point of github issues is to have a bug tracker.
+When engineers use labels such as ""boy""/""girl"" in ways that reinforce toxic gender stereotypes, such engineers show their ignorance and (perhaps unconscious, perhaps latent) misogyny. So, stop. Think about how you use your language. And be considerate.
 
-The contributions comes in the pull-requests tab.
-",2013-04-16T18:06:12Z,0.2922276,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461378
-16461791,knocte,"I understand that latest_release may not have the proper value when it's queried at the wrong time... but CHANGING BEHAVIOUR???? Sorry for the caps, but really finding out this bug has put me on my nerves.
+Another related example: the widespread use of repulsive ""master""/""slave"" labels in software systems.
 
-In regards to your backwards-compatibility policy: fair enough, I understand if you prefer to accept only a patch to fix this in master rather than the 2.0.x branch, but:
+Just fucking think about it for a second... bro.",2017-12-05T18:59:56Z,0.862743079662323,https://github.com/thoughtbot/factory_bot/issues/683#issuecomment-349405855
+217673852,macnibblet,"Sign me upp here, 100mb symmetric connection (Fiber) sloooow as shit, doing 150kb/s
+",2016-05-07T22:55:25Z,0.9331785440444946,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-217673852
+268513565,daryn-k,Help. I have same problem. I can't wait 3 hours! Very slow! Stupid!,2016-12-21T12:39:22Z,0.9692883491516113,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268513565
+268540307,daryn-k,8 hours to download! I hate you all!,2016-12-21T14:47:48Z,0.9140813946723938,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268540307
+268653949,winni2k,"Lol, I hate you too @daryn-k :)",2016-12-21T22:04:56Z,0.6650286912918091,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268653949
+291026688,voycey,"It honestly looks like they dont give a shit, rules this out as an option
+for me!
 
-a) I never proposed to fix it in a branch.
-b) This bug is not fixed yet on any branch, so it should be reopened. Otherwise people confused about it will not be able to find it.
+On 3 Apr 2017 8:15 AM, ""Jacob Gadikian"" <notifications@github.com> wrote:
 
-This is, my friend, how bug trackers work.
-",2013-04-16T18:13:30Z,0.11419344,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461791
-16462166,leehambley,"I won't fix it, and it's been the way it is for five years without anyone running into problems. I can't afford the time to test it, fix it and make sure it's safe before releasing it. That's what it boils down to. Those variables are a source of a lot of confusion, and they are fragile, and have different meanings wherever you call them, anyway.
-
-I'd like to be able to fix it, your profane issue report aside; but the reality is, I simply can't.
-",2013-04-16T18:20:44Z,0.07212844,https://github.com/capistrano/capistrano/issues/440#issuecomment-16462166
-27642117,leehambley,"We have more than 100 obsolete issues  to close, and past experience
-suggests the OPs never reapond
-On 2 Nov 2013 20:36, ""Andres G. Aragoneses"" notifications@github.com
-wrote:
-
-> Ok, then I have not tested that. And I'm afraid I will not be able to test
-> it very soon.
-> 
-> Just one advice: if you want to close issue in order to request feedback
-> from users about new versions, add a comment explaining why you are closing
-> the issue.
-> Thanks
-> 
+> Hey, quick thought:
+>
+> If this uses curl (not libcurl) through some sort of ruby-controlled,
+> bash-mediated process, why not just remove curl for one of:
+>
+>    - ipfs
+>    - aria2
+>
+> Both would do the job better than curl.
+>
 > —
-> Reply to this email directly or view it on GitHubhttps://github.com/capistrano/capistrano/issues/440#issuecomment-27630609
+> You are receiving this because you commented.
+> Reply to this email directly, view it on GitHub
+> <https://github.com/mitchellh/vagrant/issues/5319#issuecomment-291019093>,
+> or mute the thread
+> <https://github.com/notifications/unsubscribe-auth/ABBAihR9ng4t2Jq1XTmAjMyMCnlEFtxRks5rsB4WgaJpZM4Deq5d>
 > .
-",2013-11-03T10:33:11Z,0.06579731,https://github.com/capistrano/capistrano/issues/440#issuecomment-27642117
-378936727,octoxan,"Running into this issue currently I think.
-
-How does one call the current release path that is right now being built?
-
-I have a task running at `after :updated, :build do` and I'm trying to change directories and then run composer install, but changing directories using release_path is giving me the previous release, not the one currently being built.
-
-Is that this issue? If not I'm sorry but the stackoverflow question led me here and I'm going kind of crazy trying to figure out how to change directories and then run a command, without it doing it in the release that's about to be replaced.
-
-",2018-04-05T13:31:54Z,0.051068526,https://github.com/capistrano/capistrano/issues/440#issuecomment-378936727
-378988513,leehambley,"This issue is more than five years old, and refers to a long obsolete version of Capistrano, please open a new issue.",2018-04-05T16:05:02Z,0.063423134,https://github.com/capistrano/capistrano/issues/440#issuecomment-378988513
-535014772,mattbrictson,"This issue is very old and the discussion was not very productive, so I will lock it. If you are a Capistrano v3 user running into an error using the `latest_release` setting please open a new issue.",2019-09-25T13:10:53Z,0.06263174,https://github.com/capistrano/capistrano/issues/440#issuecomment-535014772
+>
+",2017-04-03T00:37:21Z,0.6936478614807129,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-291026688

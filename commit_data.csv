@@ -1,223 +1,268 @@
 repository,issue_number,issue_title,toxic_comment_id,toxic_comment_user,toxic_comment_date,toxicity_score,commit_date,days_from_toxic_comment,period,commit_author,commit_email,commit_message
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-05,-1,before,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2364 from franmomu/add_types_3
-
-Add property type hints to functional tests"
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,before,Fran Moreno,franmomu@gmail.com,Add property type hints to functional tests
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2363 from franmomu/add_types_2
-
-Add more missing property type hints"
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add more missing property type hints
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add missing property type hints
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-02,-4,before,Fran Moreno,franmomu@gmail.com,Add missing array keys
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,after,Fran Moreno,franmomu@gmail.com,Add return type hints to tests
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-09,3,after,Maciej Malarz,malarzm@gmail.com,"Merge pull request #2365 from franmomu/add_types_4
-
-Finish adding property type hints"
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-08,2,after,Ion Bazan,ion.bazan@gmail.com,fix ClassMetadata generic docblock type for filters (#2367)
-doctrine/mongodb-odm,554,References to embedded document collections,913845504,Bilge,2021-09-06T20:37:54Z,0.06421452,2021-09-03,-3,after,Fran Moreno,franmomu@gmail.com,finish adding missing property typehints
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461106,leehambley,2013-04-16T18:02:11Z,0.6342749,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461106,leehambley,2013-04-16T18:02:11Z,0.9503283500671387,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
 
 >        --mirror
            Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
            branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
            are overwritten by a git remote update in the target repository."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461276,leehambley,2013-04-16T18:04:33Z,0.4269174,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461276,leehambley,2013-04-16T18:04:33Z,0.788235604763031,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
 
 >        --mirror
            Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
            branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
            are overwritten by a git remote update in the target repository."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461378,knocte,2013-04-16T18:06:12Z,0.2922276,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-05,-2,before,David O'Rourke,david@scalefactory.com,"prepare_nfs_settings: Try harder to get all machine IPs.
 
->        --mirror
-           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
-           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
-           are overwritten by a git remote update in the target repository."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16461791,knocte,2013-04-16T18:13:30Z,0.11419344,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+Vagrant was not behaving correctly in configurations where there was
+a static IP on a VirtualBox `intnet` interface and a DHCP `:hostonly`
+interface configured.
 
->        --mirror
-           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
-           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
-           are overwritten by a git remote update in the target repository."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",16462166,leehambley,2013-04-16T18:20:44Z,0.07212844,2013-04-17,1,after,Lee Hambley,lee.hambley@gmail.com,"Update git.rake
+Since `machine_ip` attempted to get static addresses `||` dynamic
+addresses, it would simply use the static machine address and
+continue.
 
->        --mirror
-           Set up a mirror of the source repository. This implies --bare. Compared to --bare, --mirror not only maps local branches of the source to local
-           branches of the target, it maps all refs (including remote-tracking branches, notes etc.) and sets up a refspec configuration such that all these refs
-           are overwritten by a git remote update in the target repository."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,before,Kir Shatrov,shatrov@me.com,"Merge pull request #37 from mkempe/typos
+This commit corrects this behaviour by collecting all static and
+dynamic addresses into the `machine_ip` array instead of just one or
+the other.
 
-Fixed typos in release announcement."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,before,Kir Shatrov,shatrov@me.com,"Merge pull request #38 from kirs/fix-upgrade-guide
+The result of this is a correctly generated `/etc/exports` on the
+host machine, allowing NFS mounts to work correctly in this type of
+environment."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-04,-3,before,Seth Vargo,sethvargo@gmail.com,"Merge pull request #7283 from hedinfaok/patch-1
 
-Don't advise users to use :all role"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #757 from blackxored/with-revision-sha
+Adds instructions concerning Bundler versions"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-04,-3,before,Rob Eden,rob.eden@gmail.com,Fixes  incorrect preposition
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-04,-3,before,Rob Eden,rob.eden@gmail.com,Replaces Bundler details with Wiki link
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-04,-3,before,Kierran McPherson,kierranm@gmail.com,"Fix broken test; Add explicit test
 
-Release SHA status information missing"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,seenmyfate,seenmyfate@gmail.com,Prepare for v3.1.0
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,seenmyfate,seenmyfate@gmail.com,"Merge branch '3.1.x'
+Hopefully the explicit test will prevent this from being regressed again in the future"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-04,-3,before,Kierran McPherson,kierranm@gmail.com,"kernel/v2: Reimplement 8655d21 to always forward SSH
 
-Conflicts:
-	CHANGELOG.md
-	README.md
-	lib/capistrano/tasks/git.rake
-	lib/capistrano/templates/deploy.rb.erb"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-02,-1,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Cosmetic: indentation
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Extract capturing revisions to generator-like method
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,Prepare for v3.0.1
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #40 from nathanvda/patch-1
+Fixes #7202
+Always forwards SSH even if WinRM is set"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-03,-4,before,Rob Eden,rob.eden@gmail.com,"Adds instructions concerning Bundler versions
 
-Capistrano v3 _is_ on rubygems.org"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Underscore example application name
+Because Vagrant requires certain versions of Bundler in order to work properly, the correct version of Bundler must be installed manually.  I gathered this information from a couple of sources.
 
-As the Cucumber features use this template, this prevents the git helper task failing when using the application name as part of the path"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,Update CHANGELOG.md
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #736 from mpapis/bugfix/allow_multiuser_deploy
+It's handy to have this information in this specific guide :)"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-02,-5,before,Seth Vargo,sethvargo@gmail.com,Enable enhanced link tracking
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-14,7,after,Seth Vargo,sethvargo@gmail.com,"Fix typo
 
-move the git ssh helper to application path"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Nathan Van der Auwera,nathan@dixis.com,Capistrano v3 _is_ on rubygems.org
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #759 from bsnape/master
+Fixes GH-7315"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-03-06,-62,after,Jon Topper,jon@scalefactory.com,Determine status behaviour based on PS version
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-13,6,after,Jon Topper,jon@scalefactory.com,Add docs detailing the rollback limitations.
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-03-05,-63,after,Jon Topper,jon@scalefactory.com,Add snapshots to Hyper-V driver
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-13,6,after,Eric Pulvino,ericpulvino@gmail.com,Updated the error message for too many adapters.
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-11,4,after,David Siefert,siefert.david@gmail.com,"Adding example of using the preserve_order flag
 
-fixed a few minor typos and grammar"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #758 from capistrano/fix/before-namespacing
+I couldn't really understand how to use this feature.... I might be dumb, didn't rtfm, I dunno.  Here is a PR anyway to help clarify by example."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-10,3,after,David O'Rourke,david@scalefactory.com,prepare_nfs_settings: Add spec test for static/dynamic IP combo
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-10,3,after,David O'Rourke,david@scalefactory.com,"prepare_nfs_settings: Fix add_ips_to_env!, spec test passes again."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-10,3,after,Seth Vargo,sethvargo@gmail.com,"Merge pull request #7299 from tiemevanveen/patch-1
 
-Correctly infer namespace in task enhancements"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Add SHA of current revision to revisions.log
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Adrian Perez,adrianperez.deb@gmail.com,Store previous and current SHA
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #738 from kirs/3.1.x-changelog
+Added 'vagrant reload' info on collision_error"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-10,3,after,Tieme van Veen,tiemevanveen@hotmail.com,Added 'vagrant reload' info on collision_error
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-08,1,after,till,till@php.net,"Change: disable the linux switch (Docker for Mac/Windows, etc.)"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,217673852,macnibblet,2016-05-07T22:55:25Z,0.9331785440444946,2016-05-08,1,after,Eric Pulvino,ericpulvino@gmail.com,"Updated ./plugins/providers/virtualbox/driver/base.rb file, set max_network_adapters to 36 for Virtualbox so all 36 adapters are cleared prior to programming interfaces. This fix is per issue 7286 --> https://github.com/mitchellh/vagrant/issues/7286"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,2016-12-21T12:39:22Z,0.9692883491516113,2016-12-20,-1,before,danielmenezesbr,danielmenezes@gmail.com,"&> is not valid on windows
 
-Changelog entries for 3.1.x release"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Ben Snape,ben.snape@itv.com,fixed typos and grammar
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,"Correctly infer namespace in task enhancements
+The command ""vagrant up --debug &> vagrant.log"" is not valid on Windows.
+On Windows, you need to do: vagrant up --debug > vagrant.log 2>&1"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,2016-12-21T12:39:22Z,0.9692883491516113,2016-12-01,-20,before,Chris Roberts,code@chrisroberts.org,"Use uid/gid from mount_options if provided for synced folders.
 
-Previously, defining a task using the `after` syntax within a namespace
-block ignored the namespace, now the following examples are equivalent:
+This also extracts the gid/uid detection and upstart actions into
+reusable module to provide consistent behavior."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,2016-12-21T12:39:22Z,0.9692883491516113,2016-12-14,-7,before,Bjorn Brala,bjorn@swis.nl,Harden VMCX support. Vagrant now checks if your Windows version has support for vmcx and then uses the VMCX file.
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,2016-12-21T12:39:22Z,0.9692883491516113,2016-12-22,1,after,Michaël Faille,michael@faille.io,"Revert ""Fix `service network restart` on RHEL-7 / Fedora""
 
-      # within namespace
-      namespace :deploy do
-        task :my_task do
-          #
-        end
+`/etc/init.d/network restart` already restart NM and shutdown interfaces.
 
-        after :starting, :my_task
-      end
+In start() :
+```
+        if [ ""$(LANG=C nmcli -t --fields running general status 2>/dev/null)"" = ""running"" ]; then
+                nmcli connection reload
+        fi
 
-      # outside of namespace
-      after 'deploy:starting', 'deploy:my_task'
+```
 
-This resolves #541"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Kir Shatrov,shatrov@me.com,Changelog entries for 3.1.x release
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #756 from capistrano/feature/deploy-failure-task
+In stop() :
 
-Add hook for deploy failure"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-01,-2,before,seenmyfate,seenmyfate@gmail.com,"Add hook for deploy failure
+```
+       for i in $vpninterfaces $xdslinterfaces $bridgeinterfaces $vlaninterfaces $remaining; do
+                unset DEVICE TYPE
+                (. ./ifcfg-$i
+                if [ -z ""$DEVICE"" ] ; then DEVICE=""$i""; fi
 
-If an error is raised during a deploy, the task `deploy:failed` will be
-triggered.  Custom tasks can hook into this using `after`:
+                if ! check_device_down $DEVICE; then
+                   action $""Shutting down interface $i: "" ./ifdown $i boot
+                   [ $? -ne 0 ] && rc=1
+                fi
+                )
+        done
+```
+Where $remaining include all ""others"" interfaces including eth*
 
-    after 'deploy:failed', :send_for_help do
-      #
-    end
+This reverts commit 166d10d4e16836e908be0bd94c2f671cac2b38b4."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,2016-12-21T12:39:22Z,0.9692883491516113,2016-12-21,0,after,ctranstrum,chad@transtrum.net,"Fix typo.
 
-I've also taken the opportunity to provide a marginally more useful
-error message before triggering the task.
+Looks like there was a typo. Fixed."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268540307,daryn-k,2016-12-21T14:47:48Z,0.9140813946723938,2016-12-20,-1,before,danielmenezesbr,danielmenezes@gmail.com,"&> is not valid on windows
 
-By default, this 'deploy:failed' will only be triggered when running
-`cap <stage> deploy` - to trigger after individual tasks use `set
-:deploying, true`
+The command ""vagrant up --debug &> vagrant.log"" is not valid on Windows.
+On Windows, you need to do: vagrant up --debug > vagrant.log 2>&1"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268540307,daryn-k,2016-12-21T14:47:48Z,0.9140813946723938,2016-12-01,-20,before,Chris Roberts,code@chrisroberts.org,"Use uid/gid from mount_options if provided for synced folders.
 
-This closes #708 and replaces
-https://github.com/capistrano/capistrano/pull/720"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-30,-4,before,Kir Shatrov,shatrov@me.com,"Don't advise users to use :all role
-Shame on me. Of course, :all is a meta role:
-https://github.com/capistrano/capistrano/issues/746"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-29,-5,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #718 from mattdbridges/import-flow
+This also extracts the gid/uid detection and upstart actions into
+reusable module to provide consistent behavior."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268540307,daryn-k,2016-12-21T14:47:48Z,0.9140813946723938,2016-12-22,1,after,Michaël Faille,michael@faille.io,"Revert ""Fix `service network restart` on RHEL-7 / Fedora""
 
-Only import deployment flow"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-29,-5,before,Bryan Taylor,bryan.taylor@sabre.com,Fix split command argument leading to error raised and incorrect path returned
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Matt Bridges,mbridges.91@gmail.com,Oops. Missed one
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Maik Kempe,mkempe@nrolla.com,[✔] Fixed typos.
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-28,-6,before,Matt Bridges,mbridges.91@gmail.com,Rename to framework rather than flow
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Michal Papis,mpapis@gmail.com,use lambda for late evaluation of :application
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Update README.md
+`/etc/init.d/network restart` already restart NM and shutdown interfaces.
 
-Add CodeClimate badge"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #730 from kirs/no-restart-task-hardcoded
+In start() :
+```
+        if [ ""$(LANG=C nmcli -t --fields running general status 2>/dev/null)"" = ""running"" ]; then
+                nmcli connection reload
+        fi
 
-Don't hardcode :restart task in deploy cycle"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #726 from mpapis/bugfix/remove-binstubs
+```
 
-remove binstubs"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-10-27,-7,before,Tom Clements,seenmyfate@gmail.com,"Merge pull request #717 from capistrano/feature/no-release
+In stop() :
 
-Introduce `no_release` server option"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-10,7,after,Kir Shatrov,shatrov@me.com,"Merge pull request #41 from aackerman/fix-typos
+```
+       for i in $vpninterfaces $xdslinterfaces $bridgeinterfaces $vlaninterfaces $remaining; do
+                unset DEVICE TYPE
+                (. ./ifcfg-$i
+                if [ -z ""$DEVICE"" ] ; then DEVICE=""$i""; fi
 
-Fix release announcement typos"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-10,7,after,Aaron Ackerman,theron17@gmail.com,Fix release announcement typos
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-07,4,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #771 from andyl/master
+                if ! check_device_down $DEVICE; then
+                   action $""Shutting down interface $i: "" ./ifdown $i boot
+                   [ $? -ne 0 ] && rc=1
+                fi
+                )
+        done
+```
+Where $remaining include all ""others"" interfaces including eth*
 
-Update README.md"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-07,4,after,andyl,andy@r210.com,"Update README.md
+This reverts commit 166d10d4e16836e908be0bd94c2f671cac2b38b4."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268540307,daryn-k,2016-12-21T14:47:48Z,0.9140813946723938,2016-12-21,0,after,ctranstrum,chad@transtrum.net,"Fix typo.
 
-removed reference to git_https_username and git_https_password"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-05,2,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #769 from danoc/fix-ask-example
+Looks like there was a typo. Fixed."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268653949,winni2k,2016-12-21T22:04:56Z,0.6650286912918091,2016-12-20,-1,before,danielmenezesbr,danielmenezes@gmail.com,"&> is not valid on windows
 
-Fix ask example in readme per issues #768 and #747"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-05,2,after,Daniel O'Connor,daniel@danoc.me,Fix ask example in readme per issues #768 and #747
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-04,1,after,Lee Hambley,lee.hambley@gmail.com,"Merge pull request #764 from boosty/fix_cpaistrano_rails_links
+The command ""vagrant up --debug &> vagrant.log"" is not valid on Windows.
+On Windows, you need to do: vagrant up --debug > vagrant.log 2>&1"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268653949,winni2k,2016-12-21T22:04:56Z,0.6650286912918091,2016-12-22,1,after,Michaël Faille,michael@faille.io,"Revert ""Fix `service network restart` on RHEL-7 / Fedora""
 
-Fix broken links to capistrano/rails repo"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-04,1,after,Sebastian Röbke,sebastian.roebke@xing.com,Fix broken links to capistrano/rails repo
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",27642117,leehambley,2013-11-03T10:33:11Z,0.06579731,2013-11-03,0,after,Kir Shatrov,shatrov@me.com,Keep fresh version of Capistrano in README
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378936727,octoxan,2018-04-05T13:31:54Z,0.051068526,2018-04-03,-2,before,William Johnston,william@johnstonhaus.us,"Merge pull request #1975 from capistrano/fix-any-arity-test-failure
+`/etc/init.d/network restart` already restart NM and shutdown interfaces.
 
-Fix intermittent test failure due to any? DSL"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378936727,octoxan,2018-04-05T13:31:54Z,0.051068526,2018-03-29,-7,before,Matt Brictson,matt@mattbrictson.com,"Fix intermittent test failure due to any? DSL
+In start() :
+```
+        if [ ""$(LANG=C nmcli -t --fields running general status 2>/dev/null)"" = ""running"" ]; then
+                nmcli connection reload
+        fi
 
-Capistrano's `any?` DSL method, as a convenience, will delegate a zero-
-arity call to `any?` for the object stored in the variable that is being
-interrogated. For example, `any?(:ssh_options)` will first fetch the
-value of the variable `:ssh_options`, and then call `any?` on it with
-zero arguments.
+```
 
-The bug stems from the fact that we were not checking the arity of
-`any?` before calling it. So if the object being interrogated has an
-`any?` method that requires an argument, the method invocation will fail
-with an `ArgumentError`.
+In stop() :
 
-For whatever reason, under certain circumstances related to test order,
-the stub object provided by Rspec would sometimes have an `any?` method
-on it (inherited from `Capistrano::DSL`) that required an argument.
-Hence we would occasionally see test failures.
+```
+       for i in $vpninterfaces $xdslinterfaces $bridgeinterfaces $vlaninterfaces $remaining; do
+                unset DEVICE TYPE
+                (. ./ifcfg-$i
+                if [ -z ""$DEVICE"" ] ; then DEVICE=""$i""; fi
 
-There isn't a reliable way to check the arity of `any?` (it is `-1` for
-forwarded or native methods), so the fix is to simply rescue the
-`ArgumentError` and fallback to non-`any?` behavior."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378988513,leehambley,2018-04-05T16:05:02Z,0.063423134,2018-04-03,-2,before,William Johnston,william@johnstonhaus.us,"Merge pull request #1975 from capistrano/fix-any-arity-test-failure
+                if ! check_device_down $DEVICE; then
+                   action $""Shutting down interface $i: "" ./ifdown $i boot
+                   [ $? -ne 0 ] && rc=1
+                fi
+                )
+        done
+```
+Where $remaining include all ""others"" interfaces including eth*
 
-Fix intermittent test failure due to any? DSL"
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",378988513,leehambley,2018-04-05T16:05:02Z,0.063423134,2018-03-29,-7,before,Matt Brictson,matt@mattbrictson.com,"Fix intermittent test failure due to any? DSL
+This reverts commit 166d10d4e16836e908be0bd94c2f671cac2b38b4."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268653949,winni2k,2016-12-21T22:04:56Z,0.6650286912918091,2016-12-21,0,after,ctranstrum,chad@transtrum.net,"Fix typo.
 
-Capistrano's `any?` DSL method, as a convenience, will delegate a zero-
-arity call to `any?` for the object stored in the variable that is being
-interrogated. For example, `any?(:ssh_options)` will first fetch the
-value of the variable `:ssh_options`, and then call `any?` on it with
-zero arguments.
+Looks like there was a typo. Fixed."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-02,-1,before,Mikhail Zholobov,legal90@gmail.com,"Escape backward slashes in vbox share name
 
-The bug stems from the fact that we were not checking the arity of
-`any?` before calling it. So if the object being interrogated has an
-`any?` method that requires an argument, the method invocation will fail
-with an `ArgumentError`.
+That fixes invalid share names in Windows guests, where backward slash character is
+used as a path separator."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-30,-4,before,knbnnate,nathanc@alum.bu.edu,Salt ver year.month can have 2-digit month
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8422 from gokhansengun/master
 
-For whatever reason, under certain circumstances related to test order,
-the stub object provided by Rspec would sometimes have an `any?` method
-on it (inherited from `Capistrano::DSL`) that required an argument.
-Hence we would occasionally see test failures.
+Correct box version sorting in box list command's output."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8414 from chrisroberts/fix/deadlocks
 
-There isn't a reliable way to check the arity of `any?` (it is `-1` for
-forwarded or native methods), so the fix is to simply rescue the
-`ArgumentError` and fallback to non-`any?` behavior."
-capistrano/capistrano,440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK",535014772,mattbrictson,2019-09-25T13:10:53Z,0.06263174,2019-09-29,4,after,Matt Brictson,matt@mattbrictson.com,Preparing v3.11.2
+Always provide timeout on thread join to prevent deadlock errors"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8368 from chrisroberts/vmware/whitelist-doc
+
+Add documentation section on whitelisting in VMware boxes"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Gökhan Şengün,gokhansengun@gmail.com,"Correct box version sorting of box list command.
+
+Boxes are already correctly sorted as a result of PRs #7956 and #8334. The extra sort here breaks."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Use colored logo in sidebar
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Remove adroll
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,seth@sethvargo.com,"Merge pull request #8421 from mitchellh/b-vs
+
+website: update vs"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Mitchell Hashimoto,mitchell.hashimoto@gmail.com,website: update vs
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Make downloads responsive
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Fix download link placement
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Fix security.html
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,seth@sethvargo.com,"Merge pull request #8416 from mitchellh/sethvargo/rebrand
+
+Rebrand to match HashiCorp styles"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Cleanup inner VMware pages
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-28,-6,before,Seth Vargo,sethvargo@gmail.com,Rebrand to match HashiCorp styles
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-27,-7,before,Chris Roberts,code@chrisroberts.org,Always provide timeout on thread join to prevent deadlock errors
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-27,-7,before,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-03-27,-7,before,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8410 from chrisroberts/fix/smb-mount
+
+Fix linux guest mount smb capability"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,code@chrisroberts.org,Force wrappers to be generated to prevent invalid version parsing
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Seth Vargo,sethvargo@gmail.com,Import fonts
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Seth Vargo,sethvargo@gmail.com,Add open-graph stuff
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Seth Vargo,sethvargo@gmail.com,Add press-kit and hashicorp logo
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8456 from chrisroberts/update/gem-dep-constraints
+
+Update gem dependency constraints"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,code@chrisroberts.org,Update gem dependency constraints
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8329 from myoung34/master
+
+Update vagrant gem dependencies"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8454 from huntermonk/patch-1
+
+Fix README URL"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-06,3,after,Hunter Maximillion Monk,hunter.monk@gmail.com,Fix README URL
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8451 from chrisroberts/enhancement/port-forward-init
+
+Add note on forwarded_port and include host_ip configuration"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,code@chrisroberts.org,Add note on forwarded_port and include host_ip configuration
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #7425 from tjuerge/6220-mount_shared_folder-via-ssh
+
+Add support for mounting synched folders on windows guest via ssh"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8442 from chrisroberts/fix/bundler-notify-source
+
+Validate plugin sources and report errors if detected."
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,code@chrisroberts.org,Include documentation entry for plugin source errors environment variable
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Anand Suresh,anandsuresh@gmail.com,Add chef_install(ed?) guest capability for freebsd
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-05,2,after,Chris Roberts,code@chrisroberts.org,Validate plugin sources and report errors if detected.
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-04,1,after,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-04,1,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8437 from chrisroberts/enhancement/docker-host-vm
+
+Do not force docker host VM on Darwin or Windows"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-03,0,after,Chris Roberts,code@chrisroberts.org,Do not force docker host VM on Darwin or Windows
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-03,0,after,Chris Roberts,code@chrisroberts.org,Update CHANGELOG
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-03,0,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #7840 from pstengel/bugfix/7651
+
+Do better at finding ssh_info for Docker"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-03,0,after,Chris Roberts,chrisroberts.code@gmail.com,"Merge pull request #8436 from justincampbell/www-ngrok-description
+
+website: Add ngrok description and link"
+hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,2017-04-03,0,after,Justin Campbell,justin@justincampbell.me,website: Add ngrok description and link

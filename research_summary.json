@@ -1,13 +1,13 @@
 {
-    "total_issues_analyzed": 2,
+    "total_issues_analyzed": 10,
     "issue_resolution": {
-        "avg_toxic_resolution_time": 4166.932222222223,
-        "avg_non_toxic_resolution_time": 2310.745972222222,
-        "toxic_abandonment_rate": 0.5,
-        "non_toxic_abandonment_rate": 0.2
+        "avg_toxic_resolution_time": 16530.829814814813,
+        "avg_non_toxic_resolution_time": 3419.200746527778,
+        "toxic_abandonment_rate": 0.0,
+        "non_toxic_abandonment_rate": 0.07999999999999999
     },
     "release_toxicity": {
-        "avg_pre_release_toxicity": 10.504329004329005,
+        "avg_pre_release_toxicity": 0.0,
         "avg_post_release_toxicity": 0.0
     },
     "contributor_experience": {

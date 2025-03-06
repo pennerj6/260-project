@@ -13,14 +13,48 @@ HEADERS = {
 }
 
 
-# https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/issue_threads.csv
-issue_threads_df = pd.read_csv('data/issue_threads.csv')
-# https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/annotated_issue_level.csv
-annotated_issue_level_df = pd.read_csv('data/annotated_issue_level.csv')
 
-issue_threads_df['created_at'] = pd.to_datetime(issue_threads_df['created_at'])
-annotated_issue_level_df['created_at'] = pd.to_datetime(annotated_issue_level_df['created_at'])
+def get_github_data(url):
+    response = requests.get(url, headers=HEADERS)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"Failed to fetch {url}: {response.status_code}")
+        return None
 
-merged_df = pd.merge(issue_threads_df, annotated_issue_level_df, on='issue_id', suffixes=('_thread', '_toxic'))
+def extract_repo_info(issue_url):
+    parsed_url = urlparse(issue_url)
+    path_parts = parsed_url.path.strip("/").split("/")
+    if len(path_parts) >= 4:
+        owner, repo, _, issue_number = path_parts
+        return owner, repo, issue_number
+    return None, None, None
 
+def main():
+    # https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/issue_threads.csv
+    issue_threads_df = pd.read_csv('data/issue_threads.csv')
+    # https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/annotated_issue_level.csv
+    annotated_issue_level_df = pd.read_csv('data/annotated_issue_level.csv')
 
+    issue_threads_df['created_at'] = pd.to_datetime(issue_threads_df['created_at'])
+    annotated_issue_level_df['created_at'] = pd.to_datetime(annotated_issue_level_df['created_at'])
+
+    merged_df = pd.merge(issue_threads_df, annotated_issue_level_df, on='issue_id', suffixes=('_thread', '_toxic'))
+    
+    # toxic comment +- 3days
+    time_delta = timedelta(days=3)
+    
+    analysis_results = []
+    for _, row in merged_df.iterrows():
+        result = process_issue_row(row, time_delta)
+        if result:
+            analysis_results.append(result)
+    
+    # save
+    analysis_df = pd.DataFrame(analysis_results)
+    csv_filename = "productivityData_aroundToxicComment.csv"
+    analysis_df.to_csv(csv_filename, index=False)
+    print(f"Data extracted: {csv_filename}")
+
+if __name__ == "__main__":
+    main()

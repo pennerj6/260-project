@@ -10,7 +10,7 @@ GITHUB_ACCESS_TOKEN = os.getenv('GITHUB_ACCESS_TOKEN')
 BASE_URL = "https://api.github.com"
 
 # Variables that we can mess around with
-toxicity_threshold = 0.05 #0.01  # Threshold for classifying a comment as toxic (0.01 for now for testing)
+toxicity_threshold = 0.30 #0.05 #0.01  # Threshold for classifying a comment as toxic (0.01 for now for testing)
 analysis_window_days = 7  # Days before/after toxic comment to analyze
 release_window_days = 14  # Days before release to analyze for toxicity increase
 
@@ -24,7 +24,7 @@ issue_urls = data['url'].tolist()
 
 # LIMIT HOW MANY URLS WE USE
 # WE WILL SPLIT THIS UP bc its slow
-issue_urls = issue_urls[0:2]
+issue_urls = issue_urls[0:10]
 
 # issue_urls = [
 #       "https://api.github.com/repos/doctrine/mongodb-odm/issues/554"

@@ -30,6 +30,67 @@ def extract_repo_info(issue_url):
         return owner, repo, issue_number
     return None, None, None
 
+def get_commits_info(owner, repo, start_date, end_date):
+    commits_url = f"https://api.github.com/repos/{owner}/{repo}/commits?since={start_date.isoformat()}Z&until={end_date.isoformat()}Z"
+    commits_data = get_github_data(commits_url)
+    if not commits_data:
+        return 0, [], 0, 0
+
+    # data type 
+    commits = len(commits_data)
+    timestamps = [commit['commit']['author']['date'] for commit in commits_data]
+    contributors = len(set(commit['author']['login'] for commit in commits_data if commit.get('author')))
+    
+
+    lines_of_code = 0
+    for commit in commits_data:
+        commit_url = commit['url']
+        commit_data = get_github_data(commit_url)
+        if commit_data and 'stats' in commit_data:
+            lines_of_code += commit_data['stats'].get('total', 0)
+    
+    return commits, timestamps, contributors, lines_of_code
+
+def get_release_dates(owner, repo):
+    releases_url = f"https://api.github.com/repos/{owner}/{repo}/releases"
+    releases_data = get_github_data(releases_url)
+    if not releases_data:
+        return []
+    release_dates = [release['published_at'] for release in releases_data if 'published_at' in release]
+    return release_dates
+
+def process_issue_row(row, time_delta):
+
+    toxic_date = row['created_at_toxic']
+    issue_id = row['issue_id']
+    issue_url = row['issue_url']
+    
+    owner, repo, issue_number = extract_repo_info(issue_url)
+    if not owner or not repo:
+        return None
+
+    print(f"Processing: {owner}/{repo} - Issue {issue_number}")
+
+    start_date = toxic_date - time_delta
+    end_date = toxic_date + time_delta
+
+    commits, timestamps, contributors, lines_of_code = get_commits_info(owner, repo, start_date, end_date)
+    release_dates = get_release_dates(owner, repo)
+
+    return {
+        'issue_id': issue_id,
+        'repo': f"{owner}/{repo}",
+        'toxic_date': toxic_date,
+        'start_date': start_date,
+        'end_date': end_date,
+        'commits': commits,
+        'contributors': contributors,
+        'timestamps': timestamps,
+        'release_dates': release_dates,
+        'lines_of_code': lines_of_code
+    }
+
+
 def main():
     # https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/issue_threads.csv
     issue_threads_df = pd.read_csv('data/issue_threads.csv')

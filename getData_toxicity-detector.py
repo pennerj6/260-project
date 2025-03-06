@@ -20,7 +20,8 @@ def get_github_data(url):
     else:
         print(f"Failed to fetch {url}: {response.status_code}")
         return None
-
+    
+# toxic date
 def fetch_issue_details(issue_url):
     issue_data = get_github_data(issue_url)
     if not issue_data:
@@ -39,6 +40,7 @@ def construct_issue_url(row):
     repo = row["repo"]
     return f"https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}"
 
+# contributors, commits, lines of code
 def get_daily_commits_info(owner, repo, toxic_date, delta_days=3):
     window_start = toxic_date - timedelta(days=delta_days)
     window_end = toxic_date + timedelta(days=delta_days)
@@ -87,6 +89,7 @@ def get_release_dates(owner, repo):
     if not releases_data:
         return []
     return [release["published_at"] for release in releases_data if "published_at" in release]
+
 
 def collect_data(row, delta_days):
 

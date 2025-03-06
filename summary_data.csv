@@ -7,3 +7,19 @@ hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268513565,daryn-k,20
 hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268540307,daryn-k,2016-12-21T14:47:48Z,0.9140813946723938,2,2,0.0,0,0,0,N/A,0,0,0,0
 hashicorp/vagrant,5319,Vagrant box downloads extremely slow,268653949,winni2k,2016-12-21T22:04:56Z,0.6650286912918091,1,2,100.0,1,0,0,N/A,0,0,0,0
 hashicorp/vagrant,5319,Vagrant box downloads extremely slow,291026688,voycey,2017-04-03T00:37:21Z,0.6936478614807129,21,26,23.809523809523807,5,0,0,N/A,0,0,0,0
+gabordemooij/redbean,450,Add Signify / GnuPG signatures to download package,419863669,maxymajzr,2018-09-10T10:21:23Z,0.649350643157959,1,10,900.0,9,0,0,N/A,0,0,0,0
+qbittorrent/qBittorrent,3369,File extension filter,304447200,Symbai,2017-05-27T11:49:03Z,0.933741569519043,33,29,-12.121212121212121,-4,0,0,N/A,0,0,0,0
+qbittorrent/qBittorrent,3369,File extension filter,622429807,ArtBond,2020-05-01T15:18:05Z,0.953022301197052,35,28,-20.0,-7,0,0,N/A,0,0,0,0
+telegramdesktop/tdesktop,1333,Hover-activated buttons yes/no?,375202780,YanDoroshenko,2018-03-22T07:23:01Z,0.4610864222049713,10,11,10.0,1,0,0,N/A,0,0,0,0
+telegramdesktop/tdesktop,1333,Hover-activated buttons yes/no?,377779599,Kirrrr,2018-04-01T11:13:56Z,0.34522566199302673,12,7,-41.66666666666667,-5,0,0,N/A,0,0,0,0
+telegramdesktop/tdesktop,1333,Hover-activated buttons yes/no?,394128255,S-U-M-1,2018-06-03T01:27:15Z,0.5941071510314941,32,115,259.375,83,0,0,N/A,0,0,0,0
+rails/rails,22424,Decimal: Check attribute has value (with attrname?),160176995,Sega100500,2015-11-27T17:07:36Z,0.753501296043396,72,65,-9.722222222222223,-7,0,0,N/A,0,0,0,0
+rails/rails,22424,Decimal: Check attribute has value (with attrname?),160188274,Sega100500,2015-11-27T18:45:26Z,0.3684197962284088,70,66,-5.714285714285714,-4,0,0,N/A,0,0,0,0
+ansible/ansible,26190,Allow decrypting of files with vaulted variables,500969741,fzink,2019-06-11T18:36:23Z,0.8300327658653259,142,126,-11.267605633802818,-16,0,0,N/A,0,0,0,0
+libretro/RetroArch,5989,Makefile: Fix debug builds.,354485178,orbea,2017-12-29T18:48:30Z,0.31623896956443787,140,264,88.57142857142857,124,0,0,N/A,0,0,0,0
+microsoft/vscode,42890,Marketplace: searching by an extension's name is practically broken,423753315,Almenon,2018-09-22T15:50:45Z,0.5313295722007751,354,277,-21.75141242937853,-77,0,0,N/A,0,0,0,0
+openzfs/zfs,7194,use the encryptionroot property to load keys,367147796,lxguest,2018-02-20T22:46:35Z,0.85414057970047,8,29,262.5,21,0,0,N/A,0,0,0,0
+npm/npm,19886,ayuda porfavor! la pantalla tiembla! |  please help! the screen shakes!,367729931,diestrin,2018-02-22T16:06:42Z,0.6929947137832642,38,3,-92.10526315789474,-35,0,0,N/A,0,0,0,0
+gradle/gradle,4658,到此一游,371713942,hooklife,2018-03-09T04:59:56Z,0.9977558255195618,245,193,-21.224489795918366,-52,0,0,N/A,0,0,0,0
+gradle/gradle,4658,到此一游,371715784,ihainan,2018-03-09T05:14:42Z,0.6537903547286987,245,193,-21.224489795918366,-52,0,0,N/A,0,0,0,0
+gradle/gradle,4660,Go to this tour by sbyxlmm,371716027,kinosang,2018-03-09T05:16:38Z,0.9487030506134033,245,193,-21.224489795918366,-52,0,0,N/A,0,0,0,0

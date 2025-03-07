@@ -1,102 +1,25 @@
-id,user,body,created_at,toxicity_score,url
-16461106,leehambley,"> This is a big fuckup IMHO.
+id,user,body,created_at,toxicity_score,url,status
+1283448682,wqreytuk,"Do you know why there is a GFW in China? cause CCP sucks, these SOBs are afraid of their people knowning or telling the truth, all words published on China's social media/platform are reviewed strictly, anything CCP doesn't like will be banned, and on the other side, they claim that there is something called FREE-SPEECH is existed in China, so F*CK them",2022-10-19T05:25:44Z,0.984157919883728,https://github.com/microsoft/vscode/issues/163798#issuecomment-1283448682,Toxic
+1283632363,Williamren97,crazy,2022-10-19T08:34:08Z,0.5777804255485535,https://github.com/microsoft/vscode/issues/163798#issuecomment-1283632363,Toxic
+1283637722,kooriookami,F**k Baidu,2022-10-19T08:37:12Z,0.9948843121528625,https://github.com/microsoft/vscode/issues/163798#issuecomment-1283637722,Toxic
+1283640223,emojiiii,die laughing,2022-10-19T08:39:19Z,0.8647507429122925,https://github.com/microsoft/vscode/issues/163798#issuecomment-1283640223,Toxic
+1284821136,Jsonpig,"> Do you know why there is a GFW in China? cause CCP sucks, these SOBs are afraid of their people knowning or telling the truth, all words published on China's social media/platform are reviewed strictly, anything CCP doesn't like will be banned, and on the other side, they claim that there is something called FREE-SPEECH is existed in China, so F*CK them
 
-Profanity aside, you may have a point. I'll take a patch.
-",2013-04-16T18:02:11Z,0.9503283500671387,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461106
-16461276,leehambley,"Because you don't offer a patch, and profanity really pisses me off.
-",2013-04-16T18:04:33Z,0.788235604763031,https://github.com/capistrano/capistrano/issues/440#issuecomment-16461276
-349405855,rsbrown,"@linkyndy Do you seriously think @Euraldius did not understand that those labels referred to Ruby objects? Let me slowly explain to you the point that was being made:
+omg,Do you have any sense in saying that？LOL.",2022-10-20T02:25:06Z,0.854822039604187,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284821136,Toxic
+1284825949,gaokun,"If a beginner can not recognize that shit, it would be the first lesson they need to learn.  ^_^",2022-10-20T02:31:24Z,0.8980814814567566,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284825949,Toxic
+1284975065,netbuggang,"> That's the most fabulous CHINA, most successful business model. Lots of similar business models on the Chineses Internet. It's a big pity for citizens(oh, we are just _""韭菜""_, never be a true citizens ever ) here. FUCK CCP!
 
-When engineers use labels such as ""boy""/""girl"" in ways that reinforce toxic gender stereotypes, such engineers show their ignorance and (perhaps unconscious, perhaps latent) misogyny. So, stop. Think about how you use your language. And be considerate.
+你小子号没了",2022-10-20T05:50:27Z,0.9309003353118896,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284975065,Toxic
+1284976295,h7ml,"> That's the most fabulous CHINA, most successful business model. Lots of similar business models on the Chineses Internet. It's a big pity for citizens(oh, we are just _""韭菜""_, never be a true citizens ever ) here. FUCK CCP!
 
-Another related example: the widespread use of repulsive ""master""/""slave"" labels in software systems.
+危",2022-10-20T05:51:54Z,0.9556599259376526,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284976295,Toxic
+1284978885,Yinboan,"> That's the most fabulous CHINA, most successful business model. Lots of similar business models on the Chineses Internet. It's a big pity for citizens(oh, we are just _""韭菜""_, never be a true citizens ever ) here. FUCK CCP!
 
-Just fucking think about it for a second... bro.",2017-12-05T18:59:56Z,0.862743079662323,https://github.com/thoughtbot/factory_bot/issues/683#issuecomment-349405855
-217673852,macnibblet,"Sign me upp here, 100mb symmetric connection (Fiber) sloooow as shit, doing 150kb/s
-",2016-05-07T22:55:25Z,0.9331785440444946,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-217673852
-268513565,daryn-k,Help. I have same problem. I can't wait 3 hours! Very slow! Stupid!,2016-12-21T12:39:22Z,0.9692883491516113,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268513565
-268540307,daryn-k,8 hours to download! I hate you all!,2016-12-21T14:47:48Z,0.9140813946723938,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268540307
-268653949,winni2k,"Lol, I hate you too @daryn-k :)",2016-12-21T22:04:56Z,0.6650286912918091,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-268653949
-291026688,voycey,"It honestly looks like they dont give a shit, rules this out as an option
-for me!
+危",2022-10-20T05:55:12Z,0.9556599259376526,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284978885,Toxic
+1284988692,liguonan888,"> That's the most fabulous CHINA, most successful business model. Lots of similar business models on the Chineses Internet. It's a big pity for citizens(oh, we are just _""韭菜""_, never be a true citizen ever ) here. FUCK CCP.
 
-On 3 Apr 2017 8:15 AM, ""Jacob Gadikian"" <notifications@github.com> wrote:
 
-> Hey, quick thought:
->
-> If this uses curl (not libcurl) through some sort of ruby-controlled,
-> bash-mediated process, why not just remove curl for one of:
->
->    - ipfs
->    - aria2
->
-> Both would do the job better than curl.
->
-> —
-> You are receiving this because you commented.
-> Reply to this email directly, view it on GitHub
-> <https://github.com/mitchellh/vagrant/issues/5319#issuecomment-291019093>,
-> or mute the thread
-> <https://github.com/notifications/unsubscribe-auth/ABBAihR9ng4t2Jq1XTmAjMyMCnlEFtxRks5rsB4WgaJpZM4Deq5d>
-> .
->
-",2017-04-03T00:37:21Z,0.6936478614807129,https://github.com/hashicorp/vagrant/issues/5319#issuecomment-291026688
-419863669,maxymajzr,"> Updates often introduce new bugs and new vulnerabilities. So your just replacing old bugs with new bugs. 
 
-Updates also fix bugs and old vulnerabilities. Using a dependency manager lets you lock down to a specific version of a library. I can fork a library, perform changes, tag it, point my `composer.json` to it. I don't have to do anything manually. If I want to know which *version* I use, I don't have to dig through files.
-
-I could literally go through every single word you wrote and try to argue with you but it's pointless. You suffer from NIH syndrome, your practices are bad and as you wrote - you don't give a shit.
-
-You are spreading dangerous blatant lies in order to justify something you wish were true. That's the problem. The second problem, which is your personal problem, is your attitude. I know there's absolutely no way we can have a discussion, your opinion is set and I can tell you'll do anything to defend your POV. Yes, this is your project, you are entitled to opinion but in your world 1 + 1 yield 75, not 2. Ego is a dangerous thing. I won't insult you, there's no merit to that, we should be civilized after all. 
-
-I'll just kindly ask you, just ASSUME you might be wrong. Just for abstract thinking's sake. I really believe there's no malicious intent behind what you wrote, but could there be a possibility you don't have all the information at hand to make statements such as ""dependencies suck"" or ""dependencies in libraries suck""? What would be the point of a library then? If I deal with SAML or OAuth2, I require a library which in turn requires encryption primitives. Should I rewrite those primitives and libraries to deal with SAML and OAuth2 so I'm ""safe"" and not an idiot?",2018-09-10T10:21:23Z,0.649350643157959,https://github.com/gabordemooij/redbean/issues/450#issuecomment-419863669
-304447200,Symbai,"2015? :-( This will very likely never added then, that sucks.",2017-05-27T11:49:03Z,0.933741569519043,https://github.com/qbittorrent/qBittorrent/issues/3369#issuecomment-304447200
-622429807,ArtBond,2015-2020 is not create this function. qBit - Shit!,2020-05-01T15:18:05Z,0.953022301197052,https://github.com/qbittorrent/qBittorrent/issues/3369#issuecomment-622429807
-375202780,YanDoroshenko,"I'm here because of the stupid emoji menu that annoys the living daylight out of me. I NEVER use emoji or stickers or gifs, so the only purpose the emoji popup has for me is to drive me insane.",2018-03-22T07:23:01Z,0.4610864222049713,https://github.com/telegramdesktop/tdesktop/issues/1333#issuecomment-375202780
-377779599,Kirrrr,"It is just unbelievable...
-The only thing many people here need is a configurable hover timeout for damned emoji button. No bloody UI filosophy or UX ideology. Just one configurable timeout value. What the heck?",2018-04-01T11:13:56Z,0.34522566199302673,https://github.com/telegramdesktop/tdesktop/issues/1333#issuecomment-377779599
-394128255,S-U-M-1,How has it taken nearly 3 years to just add a simple 250ms delay on that damn emoji button?,2018-06-03T01:27:15Z,0.5941071510314941,https://github.com/telegramdesktop/tdesktop/issues/1333#issuecomment-394128255
-160176995,Sega100500,"@sivagollapalli 
-Are you crazy?
-
-```
-  create_table :products do |t| 
-    t.string :price
-  end 
-```
-
-At BEGIN
-
-```
-t.decimal :price, precision: 12, scale: 2
-```
-",2015-11-27T17:07:36Z,0.753501296043396,https://github.com/rails/rails/issues/22424#issuecomment-160176995
-160188274,Sega100500,"@anujaware 
-
-Pure Ruby code:
-
-```
-p (0.9 === Numeric)
-p (0.9 !~ /[^0-9]/)
-p (0.9).to_i.zero?
-```
-
-result:
-
-```
-false
-true
-true
-```
-
-And now turn on the brain!
-",2015-11-27T18:45:26Z,0.3684197962284088,https://github.com/rails/rails/issues/22424#issuecomment-160188274
-500969741,fzink,"Running into this issue again and it sucks. Please guys, this issue has been open for almost 2 years now and for people who really use ansible-vault, this is a major pain the butt.",2019-06-11T18:36:23Z,0.8300327658653259,https://github.com/ansible/ansible/issues/26190#issuecomment-500969741
-354485178,orbea,"Can you please untag my PR with that ridiculous bs? Changes will not be made because this is the correct behavior and you just broke it, seriously why can't you just accept that you are wrong?",2017-12-29T18:48:30Z,0.31623896956443787,https://github.com/libretro/RetroArch/pull/5989#issuecomment-354485178
-423753315,Almenon,"Holy crap changing my extension name to ""AREPL for python"" moved it to the *third* position in the search rankings when searching for python.  Thanks for the tip @eamodio and @gaurav42  !",2018-09-22T15:50:45Z,0.5313295722007751,https://github.com/microsoft/vscode/issues/42890#issuecomment-423753315
-367147796,lxguest,"no better place becaus you ban me from IRC. respond to criticism is lies, everyone who do not think like yourself you consider stupid",2018-02-20T22:46:35Z,0.85414057970047,https://github.com/openzfs/zfs/pull/7194#issuecomment-367147796
-367729931,diestrin,"Abriendo* 
-WTF dude?",2018-02-22T16:06:42Z,0.6929947137832642,https://github.com/npm/npm/issues/19886#issuecomment-367729931
-371713942,hooklife,Fuck You,2018-03-09T04:59:56Z,0.9977558255195618,https://github.com/gradle/gradle/issues/4658#issuecomment-371713942
-371715784,ihainan,Shame on you.,2018-03-09T05:14:42Z,0.6537903547286987,https://github.com/gradle/gradle/issues/4658#issuecomment-371715784
-371716027,kinosang,"`Issues` is for issues tracking, not for spamming or showing how stupid you are. Stop doing that.",2018-03-09T05:16:38Z,0.9487030506134033,https://github.com/gradle/gradle/issues/4660#issuecomment-371716027
+你是狗? 滚你妈的hi , 
+这些东西是某些无良公司的作为,请你不要上升到这个层面. 
+小心生孩子没屁眼. 出门被大货车压死",2022-10-20T06:07:00Z,0.8125302195549011,https://github.com/microsoft/vscode/issues/163798#issuecomment-1284988692,Toxic

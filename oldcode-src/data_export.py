@@ -28,7 +28,7 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
                 'toxicity_score': toxic_comment['toxicity_score'],
                 'commit_date': commit_data['date'],
                 'days_from_toxic_comment': commit_data['days_from_comment'],
-                'period': commit_data['period'],
+                'period': commit_data['period'],  # Now includes 'before', 'day_of', and 'after'
                 'commit_author': commit_data['author'],
                 'commit_email': commit_data['email'],
                 'commit_message': commit_data['message']
@@ -39,6 +39,10 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
     commit_df = pd.DataFrame(commit_records)
     commit_df.to_csv('commit_data.csv', index=False)
     
+
+
+
+
     # 2. Summary statistics by issue and toxic comment
     summary_records = []
     
@@ -53,7 +57,7 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
         toxic_comment = result['toxic_comment']
         
         # Get associated discussion metrics if available
-        if isinstance(discussion_metrics, dict) and discussion_metrics.get('toxic_comment_id') == toxic_comment['id']:
+        if discussion_metrics and isinstance(discussion_metrics, dict) and discussion_metrics.get('toxic_comment_id') == toxic_comment['id']:
             discussion_data = discussion_metrics
         else:
             discussion_data = {}
@@ -69,7 +73,9 @@ def export_csv(all_results, all_toxic_comments, issue_details, discussion_metric
             # Commit metrics
             'commits_before': result['before_count'],
             'commits_after': result['after_count'],
-            'commit_percent_change': result['percent_change'],
+            'commits_day_of': result['day_of_count'],  # Add this line
+            'commit_percent_change_before_to_after': result['percent_change_before_to_after'],  # Update this line
+            'commit_percent_change_before_to_day_of': result['percent_change_before_to_day_of'],  # Add this line
             'commit_absolute_change': result['after_count'] - result['before_count'],
             # Discussion metrics
             'comments_before': discussion_data.get('before', {}).get('comment_count', 0),
@@ -105,7 +111,6 @@ def calculate_percentage_change(old_value, new_value):
     return ((new_value - old_value) / old_value) * 100
 
 
-# Craete summary of our findings from all analyzed issues
 def export_research_summary(issue_details):
     summary_data = {
         'total_issues_analyzed': len(issue_details),
@@ -137,13 +142,13 @@ def export_research_summary(issue_details):
             toxic_abandonment_rate += details['resolution_metrics']['toxic']['abandonment_rate']
             non_toxic_abandonment_rate += details['resolution_metrics']['non_toxic']['abandonment_rate']
         
-        # Extract release toxicity metrics
-        if 'release_toxicity' in details:
+        # Extract release toxicity metrics (if available)
+        if 'release_toxicity' in details and details['release_toxicity'] is not None:
             for release in details['release_toxicity']:
                 pre_release_toxicity.append(release['pre_release_window']['toxicity_percentage'])
                 post_release_toxicity.append(release['normal_window']['toxicity_percentage'])
         
-        # Extract contributor experience metrics
+        # Extract contributor experience metrics (if available)
         if 'contributor_analysis' in details:
             new_contributor_toxicity.append(details['contributor_analysis']['new_contributor_toxicity'])
             experienced_contributor_toxicity.append(details['contributor_analysis']['experienced_contributor_toxicity'])

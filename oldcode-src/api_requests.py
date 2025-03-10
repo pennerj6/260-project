@@ -65,7 +65,7 @@ def get_all_pages(url, params=None):
             break
             
         page += 1
-        time.sleep(1)  # sleep to avoid API timeout
+        ### time.sleep(1)  # sleep to avoid API timeout
     
     return all_items
 

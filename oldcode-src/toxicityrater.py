@@ -94,49 +94,6 @@ class ToxicityRater:
         
         return all_scores
 
-    def get_toxicity_ratings_batched(self, comments, batch_size=8):
-        """
-        A batched version that processes multiple comments at once for better performance.
-        Only use this if the individual processing is too slow and you're willing to risk some errors.
-        """
-        if not comments:
-            return []
-
-        all_scores = []
-        
-        # Process in batches
-        for i in range(0, len(comments), batch_size):
-            batch = comments[i:i + batch_size]
-            truncated_batch = []
-            
-            # Properly truncate each comment in the batch
-            for comment in batch:
-                # Use the tokenizer's built-in truncation
-                encoding = self.tokenizer(
-                    comment, 
-                    truncation=True, 
-                    max_length=self.max_length - 10,  # Extra safety margin
-                    return_tensors="pt"
-                )
-                truncated_text = self.tokenizer.decode(
-                    encoding['input_ids'][0], 
-                    skip_special_tokens=True
-                )
-                truncated_batch.append(truncated_text)
-            
-            try:
-                # Process the batch
-                results = self.toxicity_pipeline(truncated_batch)
-                # Extract scores
-                batch_scores = [result['score'] if result['label'] == 'toxic' else 0 for result in results]
-                all_scores.extend(batch_scores)
-            except Exception as e:
-                print(f"Error in batch processing: {e}")
-                # Fall back to individual processing
-                individual_scores = self.get_toxicity_ratings(batch, batch_size=1)
-                all_scores.extend(individual_scores)
-                
-        return all_scores
 
 if __name__ == "__main__":
     # Test the ToxicityRater
@@ -159,7 +116,7 @@ if __name__ == "__main__":
         
     # Optional: Test batch processing (faster but less reliable)
     print("\nBatch processing:")
-    batch_scores = tr.get_toxicity_ratings_batched(comments)
+    batch_scores = tr.get_toxicity_ratings(comments)
     for comment, toxicity in zip(comments, batch_scores):
         print(f"Comment: {comment[:50]}... | Toxicity: {toxicity}")
 # USING PERSPECTIVE API: (super slow)

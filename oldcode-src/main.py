@@ -15,6 +15,7 @@ import cProfile # for checking which part of the code is slow (its was expected:
 
 # Fetch issue details and comments in parallel.
 def fetch_issue_details(issue_url):
+    # Return the data associated with issue url
     issue = get_issue_details(issue_url)
     if not issue:
         return None
@@ -52,41 +53,51 @@ def main():
                 'updated_at': issue['updated_at']
             }
             
-            # Identify toxic comments
-            toxic_comments = identify_toxic_comments(comments)
-            print(f"Found {len(toxic_comments)} toxic comments")
+            # Filter out the toxic comments
+            both_toxic_comments = identify_both_toxic_comments(comments)
             
-            if not toxic_comments:
+            # Separate the toxic and non-toxic comments into different lists
+            toxic_comments_list = [comment for comment in both_toxic_comments if comment['status'] == 'Toxic']
+            non_toxic_comments_list = [comment for comment in both_toxic_comments if comment['status'] == 'Non-Toxic']
+
+            # Count the number of toxic and non-toxic comments
+            toxic_count = len(toxic_comments_list)
+            non_toxic_count = len(non_toxic_comments_list)
+
+            # Optionally, you can print the lists or use them for further processing
+            print("Toxic Comments:", toxic_count)
+            print("Non-Toxic Comments:", non_toxic_count)
+
+            if not toxic_comments_list:
                 continue
                 
-            all_toxic_comments.extend(toxic_comments)
+            all_toxic_comments.extend(toxic_comments_list)
             
             # Analyze productivity change for each toxic comment
-            for toxic_comment in toxic_comments:
+            for toxic_comment in toxic_comments_list:
                 result = analyze_productivity(repo_owner, repo_name, toxic_comment['created_at'])
                 result['issue_url'] = issue_url
                 result['toxic_comment'] = toxic_comment
                 all_results.append(result)
             
-            # Get a control group of non-toxic issues
-            non_toxic_issues = get_non_toxic_issues(repo_owner, repo_name)
-            
             # Analyze issue resolution metrics
             issue_resolution_metrics = analyze_issue_resolution_metrics(
                 repo_owner, repo_name,
-                [issue],
-                non_toxic_issues
+                [issue], # i chnaged this to be a list of 1 so we can loop thru 1 issue at a time
+                toxic_comments_list, # all the "toxic" comments in the curr issue
+                non_toxic_comments_list # all the "nontoxic" comments in the curr issue (in quotes bc we determine the threshaold in config)
             )
             issue_details[issue_url]['resolution_metrics'] = issue_resolution_metrics
             
             # Analyze toxicity around releases
             release_toxicity = analyze_toxicity_around_releases(repo_owner, repo_name)
             issue_details[issue_url]['release_toxicity'] = release_toxicity
+         
+            # Calculate or define discussion_metrics
+            discussion_metrics = analyze_discussion_activity(issue_url, toxic_comments_list)
     
     # Generate enhanced CSV files for analysis
     if all_results:
-        # Calculate or define discussion_metrics
-        discussion_metrics = {}  # Replace this with actual discussion metrics
         export_csv(all_results, all_toxic_comments, issue_details, discussion_metrics)
         export_research_summary(issue_details)
 

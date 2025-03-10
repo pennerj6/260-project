@@ -6,94 +6,108 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 from concurrent.futures import ThreadPoolExecutor
+import logging
 
 # Load environment variables from .env file
 load_dotenv()
 
-# # GitHub API settings (for additional API calls if needed)
-# GITHUB_API_URL = "https://api.github.com"
-# GITHUB_TOKENS = os.getenv("GITHUB_ACCESS_TOKENS").split(",")  # Load tokens from .env
-# token_pool = cycle(GITHUB_TOKENS)  # Create a token pool for rotation
-# headers = {
-#     "Accept": "application/vnd.github.v3+json"
-# }
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-# def get_next_token():
-#     """Get the next token from the pool."""
-#     return next(token_pool)
-'''
 def fetch_gharchive_data(date, hour):
     """Fetch and process GHArchive data for a specific date and hour."""
-    # Construct the URL for the GH Archive file
     url = f"https://data.gharchive.org/{date}-{hour}.json.gz"
-    
-    # Send a GET request to download the file
     response = requests.get(url, stream=True)
-    
-    # Check if the request was successful
     if response.status_code != 200:
         raise Exception(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
-    
-    # Decompress the gzipped content and process each event
-    with gzip.GzipFile(fileobj=BytesIO(response.content)) as gz_file:
-        for line in gz_file:
-            event = json.loads(line)
-            if event["type"] in ["IssueCommentEvent", "PushEvent"]:  # Filter relevant events
-                yield event
-'''
 
-def fetch_gharchive_data(date, hour):
-    url = f"https://data.gharchive.org/{date}-{hour}.json.gz"
-    response = requests.get(url, stream=True)
-    if response.status_code != 200:
-        raise Exception(f"Failed to fetch data. HTTP Status Code: {response.status_code}")
-    
     with gzip.GzipFile(fileobj=BytesIO(response.content)) as gz_file:
         with ThreadPoolExecutor() as executor:
             events = list(executor.map(json.loads, gz_file))
             return [event for event in events if event["type"] in ["IssueCommentEvent", "PushEvent"]]
-        
+
 def parse_gharchive_data(date, hour):
     """Parse GHArchive data for a specific date and hour into DataFrames."""
     issue_comments = []
     commits = []
-    
-    for event in fetch_gharchive_data(date, hour):
-        # Extract issue comments
-        if event["type"] == "IssueCommentEvent":
-            issue_comments.append({
-                "repo": event["repo"]["name"],
-                "issue_number": event["payload"]["issue"]["number"],
-                "comment_body": event["payload"]["comment"]["body"],
-                "comment_author": event["actor"]["login"],
-                "created_at": event["payload"]["comment"]["created_at"],
-            })
-        
-        # Extract commits
-        if event["type"] == "PushEvent":
-            for commit in event["payload"]["commits"]:
-                commits.append({
-                    "repo": event["repo"]["name"],
-                    "sha": commit["sha"],
-                    "author": commit["author"]["name"],
-                    "date": event["created_at"],
+
+    # Repos likely to have more heated discussions
+    high_interest_repos = [
+        "kubernetes/kubernetes",
+        "tensorflow/tensorflow",
+        "rust-lang/rust",
+        "golang/go",
+        "facebook/react",
+        "nodejs/node",
+        "microsoft/vscode",
+        "torvalds/linux",
+        "bitcoin/bitcoin",
+        "ethereum/go-ethereum",
+        "ansible/ansible",
+        "dotnet/runtime",
+        "angular/angular",
+        "python/cpython"
+    ]
+
+    try:
+        for event in fetch_gharchive_data(date, hour):
+            # Extract issue comments
+            if event["type"] == "IssueCommentEvent":
+                # Look for signals of potential conflict
+                comment_body = event["payload"]["comment"]["body"]
+
+                # Check if this is a closed/rejected issue (where conflict might occur)
+                issue_state = event["payload"]["issue"]["state"]
+                issue_title = event["payload"]["issue"]["title"].lower()
+
+                # Check for keywords that might indicate disagreement
+                conflict_keywords = ["wrong", "incorrect", "disagree", "not working", "bug",
+                                     "error", "won't fix", "wontfix", "rejected", "closed",
+                                     "can't reproduce", "!important", "garbage", "useless",
+                                     "terrible", "awful", "never", "stupid", "ridiculous",
+                                     "please don't", "stop", "hate", "impossible", "absurd"]
+
+                has_keywords = any(keyword in comment_body.lower() for keyword in conflict_keywords)
+
+                repo_name = event["repo"]["name"]
+                is_high_interest = repo_name in high_interest_repos
+
+                # Check for closed PRs which often have higher confrontation
+                is_closed_pr = issue_state == "closed" and ("pr" in issue_title or "pull request" in issue_title)
+
+                # Save all comments for analysis, but flag potential high-toxicity ones
+                issue_comments.append({
+                    "repo": repo_name,
+                    "issue_number": event["payload"]["issue"]["number"],
+                    "comment_body": comment_body,
+                    "comment_author": event["actor"]["login"],
+                    "created_at": event["payload"]["comment"]["created_at"],
+                    "issue_state": issue_state,
+                    "has_conflict_keywords": has_keywords,
+                    "high_interest_repo": is_high_interest,
+                    "is_closed_pr": is_closed_pr,
+                    "comment_length": len(comment_body)
                 })
-    
-    return pd.DataFrame(issue_comments), pd.DataFrame(commits)
+
+            # Extract commits
+            if event["type"] == "PushEvent":
+                for commit in event["payload"]["commits"]:
+                    commits.append({
+                        "repo": event["repo"]["name"],
+                        "sha": commit["sha"],
+                        "author": commit["author"]["name"],
+                        "date": event["created_at"],
+                    })
+    except Exception as e:
+        logging.error(f"Error processing {date}-{hour}: {str(e)}")
+
+    issue_df = pd.DataFrame(issue_comments) if issue_comments else pd.DataFrame()
+    commits_df = pd.DataFrame(commits) if commits else pd.DataFrame()
+    return issue_df, commits_df
 
 def save_data(issues_data, commits_data):
     """Save data to CSV files."""
-    if issues_data is not None:
+    if issues_data is not None and not issues_data.empty:
         issues_data.to_csv("issue_comments.csv", index=False)
-    if commits_data is not None:
+    if commits_data is not None and not commits_data.empty:
         commits_data.to_csv("commits.csv", index=False)
-
-if __name__ == "__main__":
-    # Example usage
-    date = "2023-10-01"  # Replace with your desired date
-    hour = "15"          # Replace with your desired hour (0-23)
-
-    print(f"Fetching and parsing GHArchive data for {date}-{hour}...")
-    issue_comments_df, commits_df = parse_gharchive_data(date, hour)
-    save_data(issue_comments_df, commits_df)
-    print("Data saved to issue_comments.csv and commits.csv.")

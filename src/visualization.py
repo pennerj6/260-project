@@ -68,22 +68,25 @@ def visualize_data():
             size="comment_length" if "comment_length" in toxic_df.columns else None,
             sizes=(20, 200)
         )
-        plt.title("Toxicity vs. Productivity (Toxic Comments Only)", fontsize=16)
+        plt.title("Toxicity Score vs. Commit Count for Toxic Comments", fontsize=16)
         plt.xlabel("Toxicity Score", fontsize=14)
         plt.ylabel("Commit Count", fontsize=14)
+        plt.legend(title="Has Conflict Keywords", bbox_to_anchor=(1.05, 1), loc='upper left')
         plt.savefig(os.path.join(vis_dir, "toxicity_vs_productivity_toxic.png"), dpi=300, bbox_inches="tight")
+        plt.close()
 
         # 2. Toxicity distribution (All Comments)
         plt.figure(figsize=(10, 6))
         if "toxicity_level" in merged_df.columns:
             sns.countplot(x="toxicity_level", data=merged_df, palette="viridis")
-            plt.title("Distribution of Comment Toxicity Levels", fontsize=16)
+            plt.title("Distribution of Toxicity Levels for All Comments", fontsize=16)
         else:
-            sns.histplot(merged_df["toxicity_score"], bins=15, kde=True)
+            sns.histplot(merged_df["toxicity_score"], bins=15, kde=True, palette="viridis")
             plt.title("Distribution of Toxicity Scores", fontsize=16)
-        plt.xlabel("Toxicity", fontsize=14)
-        plt.ylabel("Count", fontsize=14)
+        plt.xlabel("Toxicity Level", fontsize=14)
+        plt.ylabel("Count of Comments", fontsize=14)
         plt.savefig(os.path.join(vis_dir, "toxicity_distribution.png"), dpi=300, bbox_inches="tight")
+        plt.close()
 
         # 3. Average Toxicity by Repository (Toxic Comments Only)
         if "repo" in toxic_df.columns:
@@ -93,12 +96,13 @@ def visualize_data():
 
             plt.figure(figsize=(14, 8))
             sns.barplot(x=repo_toxicity.index, y=repo_toxicity["mean"], palette="viridis")
-            plt.title("Average Toxicity by Repository (Toxic Comments Only)", fontsize=16)
-            plt.xticks(rotation=90)
+            plt.title("Average Toxicity Score by Repository for Toxic Comments", fontsize=16)
+            plt.xticks(rotation=45, ha="right")
             plt.xlabel("Repository", fontsize=14)
             plt.ylabel("Average Toxicity Score", fontsize=14)
             plt.tight_layout()
             plt.savefig(os.path.join(vis_dir, "repo_toxicity_toxic.png"), dpi=300, bbox_inches="tight")
+            plt.close()
 
         # 4. Correlation Heatmap (Toxic Comments Only)
         if len(toxic_df.columns) > 5:
@@ -110,10 +114,11 @@ def visualize_data():
                 plt.figure(figsize=(10, 8))
                 corr_matrix = toxic_df[corr_cols].corr()
                 mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
-                sns.heatmap(corr_matrix, mask=mask, annot=True, cmap="coolwarm", center=0)
-                plt.title("Correlation Matrix of Metrics (Toxic Comments Only)", fontsize=16)
+                sns.heatmap(corr_matrix, mask=mask, annot=True, cmap="coolwarm", center=0, fmt=".2f", annot_kws={"size": 10})
+                plt.title("Correlation Matrix of Metrics for Toxic Comments", fontsize=16)
                 plt.tight_layout()
                 plt.savefig(os.path.join(vis_dir, "correlation_matrix_toxic.png"), dpi=300, bbox_inches="tight")
+                plt.close()
 
         # 5. Toxicity Over Time (Toxic Comments Only)
         if "created_at" in toxic_df.columns:
@@ -126,12 +131,13 @@ def visualize_data():
 
                 plt.figure(figsize=(14, 6))
                 sns.lineplot(x="date", y="toxicity_score", data=daily_toxicity)
-                plt.title("Daily Average Toxicity (Toxic Comments Only)", fontsize=16)
+                plt.title("Daily Average Toxicity Score Over Time for Toxic Comments", fontsize=16)
                 plt.xlabel("Date", fontsize=14)
                 plt.ylabel("Average Toxicity Score", fontsize=14)
                 plt.xticks(rotation=45)
                 plt.tight_layout()
                 plt.savefig(os.path.join(vis_dir, "toxicity_over_time_toxic.png"), dpi=300, bbox_inches="tight")
+                plt.close()
             except Exception as e:
                 logging.error(f"Error in time-based analysis: {str(e)}")
 
@@ -143,12 +149,15 @@ def visualize_data():
                 y="toxicity_score",
                 data=toxic_df,
                 alpha=0.6,
-                hue="toxicity_level" if "toxicity_level" in toxic_df.columns else None
+                hue="toxicity_level" if "toxicity_level" in toxic_df.columns else None,
+                palette="viridis"
             )
-            plt.title("Comment Length vs. Toxicity (Toxic Comments Only)", fontsize=16)
-            plt.xlabel("Comment Length (characters)", fontsize=14)
+            plt.title("Comment Length vs. Toxicity Score for Toxic Comments", fontsize=16)
+            plt.xlabel("Comment Length (Characters)", fontsize=14)
             plt.ylabel("Toxicity Score", fontsize=14)
+            plt.legend(title="Toxicity Level", bbox_to_anchor=(1.05, 1), loc='upper left')
             plt.savefig(os.path.join(vis_dir, "length_vs_toxicity_toxic.png"), dpi=300, bbox_inches="tight")
+            plt.close()
 
         # 7. Activity Ratio vs. Toxicity (Toxic Comments Only)
         if "activity_ratio" in toxic_df.columns:
@@ -160,12 +169,15 @@ def visualize_data():
                 alpha=0.6,
                 hue="toxicity_level" if "toxicity_level" in toxic_df.columns else None,
                 size="commit_count" if "commit_count" in toxic_df.columns else None,
-                sizes=(20, 200)
+                sizes=(20, 200),
+                palette="viridis"
             )
-            plt.title("Developer Activity Ratio vs. Toxicity (Toxic Comments Only)", fontsize=16)
-            plt.xlabel("Activity Ratio (active days / total days)", fontsize=14)
+            plt.title("Developer Activity Ratio vs. Toxicity Score for Toxic Comments", fontsize=16)
+            plt.xlabel("Activity Ratio (Active Days / Total Days)", fontsize=14)
             plt.ylabel("Toxicity Score", fontsize=14)
+            plt.legend(title="Toxicity Level", bbox_to_anchor=(1.05, 1), loc='upper left')
             plt.savefig(os.path.join(vis_dir, "activity_vs_toxicity_toxic.png"), dpi=300, bbox_inches="tight")
+            plt.close()
 
         logging.info(f"Visualization complete. Images saved to {vis_dir} directory.")
 

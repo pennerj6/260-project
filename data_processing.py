@@ -1,9 +1,11 @@
 import pandas as pd
 import os
 import dask.dataframe as dd
-from .config import DEFAULT_CONFIG
+from config import DEFAULT_CONFIG
 import logging
 
+# Setup logging instead of print statments to show currnent TIME 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 def save_to_csv(df, path):

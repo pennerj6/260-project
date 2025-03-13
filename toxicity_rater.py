@@ -8,6 +8,8 @@ from joblib import Parallel, delayed
 from transformers import pipeline, AutoTokenizer
 import time
 
+# Setup logging instead of print statments to show currnent TIME 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 class ToxicityRater:

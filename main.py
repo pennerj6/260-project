@@ -28,14 +28,29 @@ def main():
     analyzer.collect_data()
 
     # Process toxicity
+    # toxicity_scores.csv 
+    # id, toxicity_score, is_toxic
     analyzer.process_toxicity(rater)
-
+    
+# -------------------
+    # RQ1:
+        # productivity_analysis.csv 
+        # type, created_at, payload.issue.number
+        # issue# is a double isntead of an int (will figure out later if becomes an issue)
+    analyzer.analyze_toxicity_productivity_correlation()
+    
+    # RQ2
+        # releases_path.csv
+        # created_at, is_toxic
+        # Issue that i am handlign, if no releases it will add the event w 0 toxicity
+    analyzer.analyze_toxicity_release_correlation()
+    
+    # RQ3
+    analyzer.analyze_experience_toxicity_correlation()
+    
     if 1==0:
         # IN PROGRESS 
         # Analyze RQs
-        analyzer.analyze_toxicity_productivity_correlation()
-        analyzer.analyze_toxicity_release_correlation()
-        analyzer.analyze_experience_toxicity_correlation()
 
         # Save results
         analyzer.save_results(output_dir)

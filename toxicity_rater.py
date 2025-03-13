@@ -11,7 +11,7 @@ import time
 logger = logging.getLogger(__name__)
 
 class ToxicityRater:
-    def __init__(self, use_sampling=False, sample_size=None):
+    def __init__(self, use_sampling, sample_size):
         # Jordan found Perspective API, btu the issue with that was the api rate limit timing out constantly 
         # Used gpt to give a few differnt suggestions for toxicity calcualtors that DONT have a rate limit
         # This one from HuggingFace seems to do the trick https://huggingface.co/unitary/toxic-bert

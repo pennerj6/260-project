@@ -124,7 +124,7 @@ class GitHubArchiveAnalyzer:
                         flattened_record = self._flatten_dict(record)
 
                         # CLEANing, only keep the data that is good (no missing columns, there are comments, etc..)
-                        if 'type' in flattened_record and flattened_record['type'] in ['IssueCommentEvent', 'PushEvent', 'IssuesEvent', 'ReleaseEvent']:
+                        if ('type' in flattened_record) and (flattened_record['type'] in ['IssueCommentEvent', 'PushEvent', 'IssuesEvent', 'ReleaseEvent']):
                             # Check if the current record has all required fields based onthe type
                             is_valid = True
 
@@ -133,16 +133,16 @@ class GitHubArchiveAnalyzer:
                                 is_valid = False
 
                             # IssueCommentEvent, make sure there is a comment (body)
-                            if is_valid and flattened_record['type'] == 'IssueCommentEvent':
+                            if (is_valid) and (flattened_record['type'] == 'IssueCommentEvent'):
                                 # TODO: mayber we can check the toxicity score here??
                                 # and drop it if it is below hte toxicity threshold
-                                if 'payload.comment.body' not in flattened_record:
+                                if ('payload.comment.body' not in flattened_record) and ('payload.issue.number' not in flattened_record):
                                     is_valid = False
 
                             # IssuesEvent, make sure there is a issue # and action (i think action is a dictionary w other fields within)
-                            if is_valid and flattened_record['type'] == 'IssuesEvent':
-                                if not ('payload.issue.number' in flattened_record and
-                                        'payload.action' in flattened_record):
+                            if (is_valid) and (flattened_record['type'] == 'IssuesEvent'):
+                                if ('payload.issue.number' not in flattened_record) and ('payload.action' not in flattened_record):
+                                
                                     is_valid = False
 
                             # PushEvent, make sure REPO NAME is there
@@ -398,9 +398,8 @@ class GitHubArchiveAnalyzer:
 
 
                             
-    # gpt reccommende we do something like this
-    # we have the username so we can use github API to get their account AGE details
-    # MIGHT consider this so i will leave it commented, CONS: this will be slow computationally i think (and rate limit  issues)
+    # we have the username so we can use github API to get their account AGE details (gpt reccommende we do something like this)
+    # MIGHT consider this for account age so i will leave it commented, CONS: this will be slow computationally i think (and rate limit  issues)
     '''
     def _fetch_user_account_age(self, user):
        """Fetch account age for a GitHub user with caching."""

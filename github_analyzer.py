@@ -18,8 +18,9 @@ from toxicity_rater import ToxicityRater
 import psutil
 
 
+# Setup logging instead of print statments to show currnent TIME 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-
 
 # Instead of using Github API directly for data and rinning into api rate limit issues
 #Get data from a GH Archive, which has the data stored already, i just need:
@@ -427,22 +428,28 @@ class GitHubArchiveAnalyzer:
         # Default value if we can't get the real age
         return 0
     '''
+    # for RQ1
     def analyze_toxicity_productivity_correlation(self):
         """Analyze how toxic communication affects productivity."""
         productivity_path = os.path.join(DEFAULT_CONFIG['output_dir'], 'productivity_analysis.csv')
 
         if os.path.exists(productivity_path):
-            logger.info("Loading productivity analysis results from disk...")
+            logger.info("Loading productivity analysis results from FOLDER")
             try:
                 productivity_df = pd.read_csv(productivity_path)
+                # its alr loaded, nothing else todo
             except Exception as e:
                 logger.error(f"Error loading productivity analysis: {str(e)}")
                 productivity_df = pd.DataFrame()
         else:
-            logger.info("Analyzing toxicity-productivity correlation...")
+            logger.info("Analyzing toxicity-productivity correlation")
 
             try:
-                columns = ['type', 'created_at', 'payload.issue.number', 'is_toxic']
+                # print("vvv")
+                # print(self.ddf.columns)
+                # print("^^^")
+                columns = ['id','type', 'created_at', 'payload.issue.number', 'is_toxic']
+                
                 available_columns = [col for col in columns if col in self.ddf.columns]
                 meta = pd.DataFrame(columns=available_columns)
 
@@ -459,34 +466,54 @@ class GitHubArchiveAnalyzer:
                 logger.error(f"Error in productivity analysis: {str(e)}")
                 productivity_df = pd.DataFrame()
 
+    # for RQ2
     def analyze_toxicity_release_correlation(self):
-        """Analyze correlation between toxic communication and software releases."""
+        """Analyze correlation between toxic communication and software releases"""
         releases_path = os.path.join(DEFAULT_CONFIG['output_dir'], 'releases_analysis.csv')
 
         if os.path.exists(releases_path):
-            logger.info("Loading release analysis from disk...")
+            logger.info("Loading release analysis from FOLDER")
             try:
                 releases_df = pd.read_csv(releases_path)
             except Exception as e:
                 logger.error(f"Error loading release analysis: {str(e)}")
         else:
-            logger.info("Analyzing toxicity-release correlation...")
+            logger.info("Analyzing toxicity-release correlation")
+            releases = pd.DataFrame()
 
             try:
-                columns = ['type', 'created_at', 'is_toxic']
-                column_subset = self.ddf[columns]
+                
+                # ERROR THER IS NO is_toxic ->columns = ['type', 'created_at', 'is_toxic']
+                # columns = ['type', 'created_at', 'is_toxic']                
+                # column_subset = self.ddf[columns]
+                # df = column_subset.compute()
+
+                # we cab get is_toxic value via toxicity_scores.csv VIA the id # 
+                # issues would come up if the id number DNE in the csv file (but that is an edge case that shouldnt happen)
+                
+                # First load the toxicity_scores.csv to get the is_toxic values
+                toxicity_df = pd.read_csv('output/toxicity_scores.csv')
+
+                # Join w the main dataframe using the 'id' column
+                column_subset = self.ddf[['id', 'type', 'created_at']]
                 df = column_subset.compute()
 
+                # Merge with toxicity data
+                df = df.merge(toxicity_df[['id', 'is_toxic']], on='id', how='left')
+
+                
                 if 'ReleaseEvent' in df['type'].unique():
                     releases = df[df['type'] == 'ReleaseEvent']
                     releases.to_csv(os.path.join(DEFAULT_CONFIG['output_dir'], 'releases.csv'), index=False)
                 else:
                     logger.warning("No 'ReleaseEvent' records found. Skipping release analysis.")
-                    releases = pd.DataFrame()
+                #     releases = pd.DataFrame()
 
+                # Group by created_at and calculate mean toxicity
                 toxicity_rates = df.groupby('created_at')['is_toxic'].mean()
                 toxicity_rates.to_csv(os.path.join(DEFAULT_CONFIG['output_dir'], 'toxicity_rates.csv'), index=True)
 
+                # Handle the output logic
                 if not releases.empty or not isinstance(toxicity_rates, pd.Series) or not toxicity_rates.empty:
                     results = []
                     if not releases.empty:
@@ -496,34 +523,48 @@ class GitHubArchiveAnalyzer:
 
                     if results:
                         combined_df = pd.concat(results, ignore_index=True)
-                        combined_df.to_csv(releases_path, index=False)
-
+                        combined_df.to_csv(os.path.join(DEFAULT_CONFIG['output_dir'], 'releases_path.csv'), index=False)
             except Exception as e:
                 logger.error(f"Error in release analysis: {str(e)}")
 
+    # for RQ3
     def analyze_experience_toxicity_correlation(self):
-        """Analyze correlation between contributor experience and toxic communication."""
+        """Analyze correlation between contributor experience and toxic communication"""
         experience_path = os.path.join(DEFAULT_CONFIG['output_dir'], 'experience_analysis.csv')
 
         if os.path.exists(experience_path):
-            logger.info("Loading experience analysis from disk...")
+            logger.info("Loading experience analysis FOLDER")
             try:
                 experience_df = pd.read_csv(experience_path)
+                # alr exists nothing to do
             except Exception as e:
                 logger.error(f"Error loading experience analysis: {str(e)}")
         else:
-            logger.info("Analyzing experience-toxicity correlation...")
+            logger.info("Analyzing experience-toxicity correlation")
 
-            try:
-                required_columns = ['actor.login', 'is_toxic']
-                missing_columns = [col for col in required_columns if col not in self.ddf.columns]
+            try:                
+                # We only need id and actor.login 
+                required_columns = ['id', 'actor.login']
 
-                if missing_columns:
-                    logger.warning(f"Missing columns: {missing_columns}. Skipping experience-toxicity analysis.")
-                    return
+                # missing_columns = [col for col in required_columns if col not in self.ddf.columns]
 
+                # if missing_columns:
+                #     logger.warning(f"Missing columns: {missing_columns}. Skipping experience-toxicity analysis.")
+                #     return
+                # id to get is_toxic value
+
+                toxicity_df = pd.read_csv(os.path.join(DEFAULT_CONFIG['output_dir'], 'toxicity_scores.csv'))
+                # Get columns 
                 column_subset = self.ddf[required_columns]
                 df = column_subset.compute()
+
+                # Merge with toxicity data to get is_toxic
+                df = df.merge(toxicity_df[['id', 'is_toxic']], on='id', how='left')
+
+                # Check if we have the needed columns after merge
+                if 'is_toxic' not in df.columns:
+                    logger.warning("is_toxic column not available after merge. Skipping analysis.")
+                    return
 
                 # Save to CSV
                 df.to_csv(experience_path, index=False)

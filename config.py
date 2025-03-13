@@ -1,7 +1,7 @@
 # Default configuration parameters
 DEFAULT_CONFIG = {
     'start_date': '2024-01-01',
-    'end_date': '2024-01-02',
+    'end_date': '2024-01-07',
     'hours': range(6, 22),  # Only look at these hours in a day, hopefilly speeds things iup
     'output_dir': 'output',
     'toxicity_threshold': 0.5,  # set toxicity threshfold to 0.5

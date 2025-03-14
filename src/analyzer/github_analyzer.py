@@ -1083,7 +1083,7 @@ class GitHubToxicityAnalyzer:
                 non_toxic_times = issue_df[~issue_df['has_toxic_comments']]['resolution_time_hours']
                 
                 if len(toxic_times) > 0 and len(non_toxic_times) > 0:
-                    # t-test to see if the difference is statistically significant
+                    # t-test to see if the difference is statly significant
                     t_stat, p_value = stats.ttest_ind(toxic_times, non_toxic_times, equal_var=False)
                     
 
@@ -1114,7 +1114,7 @@ class GitHubToxicityAnalyzer:
             return results
             
         except Exception as e:
-            logger.error(f"Error in statistical productivity analysis: {str(e)}")
+            logger.error(f"Error in stat productivity analysis: {str(e)}")
             import traceback
             logger.error(traceback.format_exc())
             return results
@@ -1151,10 +1151,112 @@ class GitHubToxicityAnalyzer:
             # Analyze productivity changes
             dev_productivity = []
             
-            # More analysis code...
+            # for each affected developer's productivity before and after toxic comments
+            for repo, dev_login in affected_devs:
+                # Get all toxic comments this developer received
+                dev_toxic_comments = toxic_comments[
+                    (toxic_comments['repo'] == repo) &
+                    (toxic_comments['user_login'] == dev_login)
+                ]
+                
+                if dev_toxic_comments.empty:
+                    continue
+                    
+                # earliest and latest toxic comment dates for this developer
+                first_toxic_date = dev_toxic_comments['created_at'].min()
+                last_toxic_date = dev_toxic_comments['created_at'].max()
+                
+                # 1 month (30 days)
+                window_days = self.analysis_window_days
+                
+                # Get commits before the first toxic comment
+                before_window_start = first_toxic_date - pd.Timedelta(days=window_days)
+                commits_before = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['author_login'] == dev_login) &
+                    (commits_df['date'] >= before_window_start) &
+                    (commits_df['date'] < first_toxic_date)
+                ]
+                
+                # Get commits after the last toxic comment
+                after_window_end = last_toxic_date + pd.Timedelta(days=window_days)
+                commits_after = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['author_login'] == dev_login) &
+                    (commits_df['date'] > last_toxic_date) &
+                    (commits_df['date'] <= after_window_end)
+                ]
+                
+                
+                commits_per_day_before = len(commits_before) / window_days
+                commits_per_day_after = len(commits_after) / window_days
+                
+                
+                productivity_change_pct = ((commits_per_day_after - commits_per_day_before) / 
+                                        max(commits_per_day_before, 0.001)) * 100
+                
+                
+                avg_toxicity = dev_toxic_comments['toxicity_score'].mean()
+                max_toxicity = dev_toxic_comments['toxicity_score'].max()
+                
+                dev_productivity.append({
+                    'repo': repo,
+                    'developer': dev_login,
+                    'first_toxic_date': first_toxic_date,
+                    'last_toxic_date': last_toxic_date,
+                    'toxic_comments_count': len(dev_toxic_comments),
+                    'avg_toxicity': avg_toxicity,
+                    'max_toxicity': max_toxicity,
+                    'commits_before': len(commits_before),
+                    'commits_after': len(commits_after),
+                    'commits_per_day_before': commits_per_day_before,
+                    'commits_per_day_after': commits_per_day_after,
+                    'productivity_change_pct': productivity_change_pct,
+                    'analysis_window_days': window_days
+                })
+            
+            if dev_productivity:
+                results['developer_productivity_impact'] = pd.DataFrame(dev_productivity)
+                
+                # Calculate aggregate statistics
+                avg_prod_change = results['developer_productivity_impact']['productivity_change_pct'].mean()
+                median_prod_change = results['developer_productivity_impact']['productivity_change_pct'].median()
+                
+                # Conduct stat test to determine significance
+                if len(dev_productivity) > 5:  # Only if we have enough samples
+                    try:
+                        from scipy import stats
+                        t_stat, p_value = stats.ttest_1samp(
+                            results['developer_productivity_impact']['productivity_change_pct'],
+                            0  # Testing whether the change is significantly different from zero
+                        )
+                        
+                        results['productivity_stats'] = {
+                            'average_productivity_change_pct': avg_prod_change,
+                            'median_productivity_change_pct': median_prod_change,
+                            'developers_analyzed': len(dev_productivity),
+                            't_statistic': t_stat,
+                            'p_value': p_value,
+                            'is_significant': p_value < 0.05
+                        }
+                    except:
+                        logger.error("Error computing stat significance for productivity change")
+                        
+                        results['productivity_stats'] = {
+                            'average_productivity_change_pct': avg_prod_change,
+                            'median_productivity_change_pct': median_prod_change,
+                            'developers_analyzed': len(dev_productivity)
+                        }
+                else:
+                    results['productivity_stats'] = {
+                        'average_productivity_change_pct': avg_prod_change,
+                        'median_productivity_change_pct': median_prod_change,
+                        'developers_analyzed': len(dev_productivity),
+                        'note': 'Too few samples for stat significance test'
+                    }
+            
             return results
             
         except Exception as e:
             logger.error(f"Error analyzing developer productivity impact: {str(e)}")
             return {}
-    

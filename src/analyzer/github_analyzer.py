@@ -8,6 +8,7 @@ import logging
 import random
 import glob
 from concurrent.futures import ThreadPoolExecutor, as_completed # this speeds up our code BUT, im pretty sure our github api limit will get used more (thats ok tho, sahil met with TA he said we dont need to anaylze as much repos as we thought)
+import scipy.stats as stats
 
 from toxicity_rater import ToxicityRater
 from helper import get_issue_number
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 # thiso is meant to get the data from githib and get the toxicity score
 class GitHubToxicityAnalyzer:
-    def __init__(self, repos, github_tokens, test_mode=False):
+    def __init__(self, repos, github_tokens, test_mode=False, analysis_window_days=30):
        
         # ur gonna need to import the toxicity rater from somewhere once we find one that doesnt hit hte rate limit every 5 seconds
         # this is where we wud normally import it but i'll keep what i have so far 
@@ -38,6 +39,9 @@ class GitHubToxicityAnalyzer:
             'releases': [],
             'contributors': []
         }
+
+
+        self.analysis_window_days = analysis_window_days
 
         # kept getting token error, was told to implement a token chekcer/validator to make sure valid token & the ratelimit stats
         self._validate_tokens()
@@ -1001,3 +1005,156 @@ class GitHubToxicityAnalyzer:
             if combined_df is not None and not combined_df.empty:
                 combined_df.to_csv(os.path.join(results_dir, f"combined_{analysis_type}.csv"), index=False)
                 logger.info(f"Created combined results file for {analysis_type} with {len(combined_df)} rows")
+
+
+
+
+
+
+    
+    # ====RQ 1 STATS ====
+    def analyze_productivity_stats(self):
+        # try to get for toxic comments & prodiuciotvity (comments/commit/issues)
+        #-  significance tests
+        # - correlation coefficients
+        logger.info("Performing STATS analysis on toxicity vs productivity")
+        results = {}
+        
+        try:
+            dfs = self.convert_to_dataframes()
+            if not all(k in dfs for k in ['comments', 'commits', 'issues']):
+                logger.error("Required data missing for STATS productivity analysis")
+                return results
+                
+            comments_df = dfs['comments']
+            commits_df = dfs['commits']
+            issues_df = dfs['issues']
+            
+            comments_df['toxicity_score'] = comments_df['toxicity'].apply(
+                lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
+            )
+            
+            issue_toxicity = {}
+            for _, comment in comments_df.iterrows():
+                repo = comment['repo']
+                issue_number = comment['issue_number']
+                toxicity = comment['toxicity_score']
+                
+                key = (repo, issue_number)
+                if key not in issue_toxicity:
+                    issue_toxicity[key] = []
+                issue_toxicity[key].append(toxicity)
+            
+            # Get issue resolution time and correlate w toxicity
+            issue_data = []
+            for _, issue in issues_df.iterrows():
+                if pd.isna(issue['closed_at']):
+                    continue  
+                    
+                repo = issue['repo']
+                issue_number = issue['issue_number']
+                key = (repo, issue_number)
+                
+                # get resolution time in hr
+                resolution_time = (issue['closed_at'] - issue['created_at']).total_seconds() / 3600
+                
+                # Get toxicity 
+                toxicity_values = issue_toxicity.get(key, [0])
+                max_toxicity = max(toxicity_values) if toxicity_values else 0
+                avg_toxicity = sum(toxicity_values) / len(toxicity_values) if toxicity_values else 0
+                has_toxic_comments = max_toxicity > TOXICITY_THRESHOLD
+                
+                issue_data.append({
+                    'repo': repo,
+                    'issue_number': issue_number,
+                    'resolution_time_hours': resolution_time,
+                    'max_toxicity': max_toxicity,
+                    'avg_toxicity': avg_toxicity,
+                    'has_toxic_comments': has_toxic_comments,
+                    'comments_count': issue['comments_count']
+                })
+            
+            if issue_data:
+                issue_df = pd.DataFrame(issue_data)
+                results['issue_resolution'] = issue_df
+                
+                # STATS (importing the algorithms, no need to go thru the struggle of coding the algorithm)
+                toxic_times = issue_df[issue_df['has_toxic_comments']]['resolution_time_hours']
+                non_toxic_times = issue_df[~issue_df['has_toxic_comments']]['resolution_time_hours']
+                
+                if len(toxic_times) > 0 and len(non_toxic_times) > 0:
+                    # t-test to see if the difference is statistically significant
+                    t_stat, p_value = stats.ttest_ind(toxic_times, non_toxic_times, equal_var=False)
+                    
+
+                    # spearman vs pearson correlation comment from reddit :pearson measures the linearity of your data, spearman is computed on ranks and measures the monotonicity of your data (doesn't necessarily have to be linear). it depends on which you care about measuring // Spearman focuses on a more loose definition of correlation because of the ranks. What matters is simply that when one variable increases the other always go in a specific direction but the amount can vary. If you have a linear relationship on the logarithm of Y for example, the Spearman correlation will detect a correlation between X and Y stronger than Pearson. Like if LogX =Y then Spearman will always show 1 and Pearson will show something lower depending on what data points you use.
+                    # using pearsons correlation for now (correlation between toxicity and resolution time)
+                    # will switch to spearman later
+                    correlation, corr_p_value = stats.pearsonr(
+                        issue_df['max_toxicity'], 
+                        issue_df['resolution_time_hours']
+                    )
+                    
+                    results['resolution_statistics'] = {
+                        'toxic_issues_count': len(toxic_times),
+                        'non_toxic_issues_count': len(non_toxic_times),
+                        'toxic_mean_resolution_hours': toxic_times.mean(),
+                        'non_toxic_mean_resolution_hours': non_toxic_times.mean(),
+                        'resolution_time_difference': toxic_times.mean() - non_toxic_times.mean(),
+                        'ttest_statistic': t_stat,
+                        'ttest_p_value': p_value,
+                        'correlation_coefficient': correlation,
+                        'correlation_p_value': corr_p_value
+                    }
+            
+            developer_impact = self._analyze_developer_productivity_impact()
+            if developer_impact:
+                results.update(developer_impact)
+                
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error in statistical productivity analysis: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            return results
+    
+    def _analyze_developer_productivity_impact(self):
+        # helper fxn for the main one above
+        results = {}
+        try:
+            dfs = self.convert_to_dataframes()
+            comments_df = dfs['comments']
+            commits_df = dfs['commits']
+            
+            # Get developers who have toxic comments, same as before
+            comments_df['toxicity_score'] = comments_df['toxicity'].apply(
+                lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
+            )
+            toxic_comments = comments_df[comments_df['toxicity_score'] > TOXICITY_THRESHOLD]
+            
+            affected_devs = set()
+            for _, comment in toxic_comments.iterrows():
+                issue_url = comment.get('issue_url', '')
+                issue_number = self._extract_issue_number(issue_url)
+                repo = comment['repo']
+                
+                # Find the issue creator
+                matching_issues = dfs['issues'][
+                    (dfs['issues']['repo'] == repo) & 
+                    (dfs['issues']['issue_number'] == issue_number)
+                ]
+                
+                if not matching_issues.empty:
+                    affected_devs.add((repo, matching_issues.iloc[0]['user_login']))
+            
+            # Analyze productivity changes
+            dev_productivity = []
+            
+            # More analysis code...
+            return results
+            
+        except Exception as e:
+            logger.error(f"Error analyzing developer productivity impact: {str(e)}")
+            return {}
+    

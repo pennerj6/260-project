@@ -602,3 +602,149 @@ class GitHubToxicityAnalyzer:
             return results
 
 
+    # 2) Is there any correlation between toxic communication and software releases? (Spearman correlation)
+    def analyze_toxicity_vs_releases(self):
+        # TODO: analyze toxicit against release
+        logger.info("Analyzing toxicity vs releases")
+        results = {}
+
+        try:
+            dfs = self.convert_to_dataframes()
+            if 'comments' not in dfs or 'releases' not in dfs:
+                logger.error("Required data missing for toxicity vs releases analysis")
+                return results
+
+            comments_df = dfs['comments']
+            releases_df = dfs['releases']
+
+            # same as other fxns 
+            # GET toxicity scores
+            comments_df['toxicity_score'] = comments_df['toxicity'].apply(
+                lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
+            )
+
+            if releases_df.empty:
+                logger.warning("No release data available for analysis")
+                return results
+
+            # look into toxicity 2 weeks before/after reslease
+            release_toxicity_data = []
+            window_days = 14  
+
+            for _, release in releases_df.iterrows():
+                repo = release['repo']
+                release_date = release['published_at']
+
+                # before release
+                before_window_start = release_date - pd.Timedelta(days=window_days)
+                comments_before = comments_df[
+                    (comments_df['repo'] == repo) &
+                    (comments_df['created_at'] >= before_window_start) &
+                    (comments_df['created_at'] < release_date)
+                ]
+
+                # after release
+                after_window_end = release_date + pd.Timedelta(days=window_days)
+                comments_after = comments_df[
+                    (comments_df['repo'] == repo) &
+                    (comments_df['created_at'] >= release_date) &
+                    (comments_df['created_at'] <= after_window_end)
+                ]
+
+                # Calculate metrics to get rought picutre of toxicity around relaeses
+                avg_toxicity_before = comments_before['toxicity_score'].mean() if not comments_before.empty else 0
+                avg_toxicity_after = comments_after['toxicity_score'].mean() if not comments_after.empty else 0
+
+                # max is mainly for testing since most repos have 1 toxic comment, the non-toxic drown the mean down
+                max_toxicity_before = comments_before['toxicity_score'].max() if not comments_before.empty else 0
+                max_toxicity_after = comments_after['toxicity_score'].max() if not comments_after.empty else 0
+
+                # count of toxicity before / after release 
+                toxic_comments_before = comments_before[comments_before['toxicity_score'] > TOXICITY_THRESHOLD]
+                toxic_comments_after = comments_after[comments_after['toxicity_score'] > TOXICITY_THRESHOLD]
+
+                # not neccessary, but can show pie chart or smthing showing the % increase/decrease of comments before/after
+                toxic_pct_before = (len(toxic_comments_before) / len(comments_before) * 100) if not comments_before.empty else 0
+                toxic_pct_after = (len(toxic_comments_after) / len(comments_after) * 100) if not comments_after.empty else 0
+
+                release_toxicity_data.append({
+                    'repo': repo,
+                    'release_id': release['id'],
+                    'tag_name': release['tag_name'],
+                    'release_name': release['name'],
+                    'release_date': release_date,
+                    'comments_before': len(comments_before),
+                    'comments_after': len(comments_after),
+                    'avg_toxicity_before': avg_toxicity_before,
+                    'avg_toxicity_after': avg_toxicity_after,
+                    'max_toxicity_before': max_toxicity_before,
+                    'max_toxicity_after': max_toxicity_after,
+                    'toxic_comments_before': len(toxic_comments_before),
+                    'toxic_comments_after': len(toxic_comments_after),
+                    'toxic_pct_before': toxic_pct_before,
+                    'toxic_pct_after': toxic_pct_after,
+                    'toxicity_change': avg_toxicity_after - avg_toxicity_before
+                })
+
+            if release_toxicity_data:
+                results['release_toxicity'] = pd.DataFrame(release_toxicity_data)
+
+            # look into any toxicity trends over releases for each repo
+            for repo in releases_df['repo'].unique():
+                # for a repo, get the releases
+                repo_releases = releases_df[releases_df['repo'] == repo].sort_values('published_at')
+
+                # issue edge case, handled by making sure there was gurrentteed 2 releases in the repo
+                if len(repo_releases) < 2:
+                    continue  
+
+                release_cycle_data = []
+                for i in range(len(repo_releases) - 1):
+                    current_release = repo_releases.iloc[i]
+                    next_release = repo_releases.iloc[i + 1]
+
+                    # Get comments between releases
+                    cycle_comments = comments_df[
+                        (comments_df['repo'] == repo) &
+                        (comments_df['created_at'] >= current_release['published_at']) &
+                        (comments_df['created_at'] < next_release['published_at'])
+                    ]
+
+                    # Calculate toxicity metrics so we can see if there was major toxicity changes
+                    
+                    avg_toxicity = cycle_comments['toxicity_score'].mean() if not cycle_comments.empty else 0
+                    toxic_comments = cycle_comments[cycle_comments['toxicity_score'] > TOXICITY_THRESHOLD]
+                    # - oercebt means decreased, + increaed, 0 same
+                    toxic_pct = (len(toxic_comments) / len(cycle_comments) * 100) if not cycle_comments.empty else 0
+
+                    # duraction of the release (time from release 1 to release 2)
+                    cycle_duration_days = (next_release['published_at'] - current_release['published_at']).total_seconds() / (3600 * 24)
+
+                    release_cycle_data.append({
+                        'repo': repo,
+                        'from_release': current_release['tag_name'],
+                        'to_release': next_release['tag_name'],
+                        'cycle_start': current_release['published_at'],
+                        'cycle_end': next_release['published_at'],
+                        'cycle_duration_days': cycle_duration_days,
+                        'comments_count': len(cycle_comments),
+                        'avg_toxicity': avg_toxicity,
+                        'toxic_comments': len(toxic_comments),
+                        'toxic_pct': toxic_pct
+                    })
+
+                if release_cycle_data:
+                    if 'release_cycles' not in results:
+                        results['release_cycles'] = pd.DataFrame(release_cycle_data)
+                    else:
+                        results['release_cycles'] = pd.concat([results['release_cycles'], pd.DataFrame(release_cycle_data)])
+
+            return results
+
+
+        except Exception as e:
+            logger.error(f"Error in toxicity vs releases analysis: {str(e)}")
+            return results
+
+    
+    

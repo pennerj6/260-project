@@ -166,3 +166,207 @@ class GitHubToxicityAnalyzer:
         return all_items
 
 
+    def fetch_data(self):
+        # w threads, get all needed data from github api
+        # multiple requests happending at a time w threads might hit rate limit faster (thats why i made multiple github tokens)
+        logger.info("Starting data fetching")
+        # in class professor mentioned threading to speed things up, used gpt to help implement this w 5 workers (dont want to hit rate limit so kept it at 5, might increase)
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            
+            futures = {}
+
+            # we need to have these run in seperate loops to avoid mem error issue
+            
+            # comment fetching
+            for repo in self.repos:
+                futures[executor.submit(self._fetch_comments, repo)] = f"comments_{repo}"
+            
+            # commit fetching
+            for repo in self.repos:
+                futures[executor.submit(self._fetch_commits, repo)] = f"commits_{repo}"
+            
+            # issue fetching
+            for repo in self.repos:
+                futures[executor.submit(self._fetch_issues, repo)] = f"issues_{repo}"
+            
+            # release fetching
+            for repo in self.repos:
+                futures[executor.submit(self._fetch_releases, repo)] = f"releases_{repo}"
+            
+            # contributor fetching
+            for repo in self.repos:
+                futures[executor.submit(self._fetch_contributors, repo)] = f"contributors_{repo}"
+            
+            # process data
+            for future in as_completed(futures):
+                task_name = futures[future]
+                try:
+                    future.result()
+                    logger.info(f"Completed task: {task_name}")
+                except Exception as e:
+                    logger.error(f"Error in task {task_name}: {e}")
+
+        logger.info("Data fetching complete")
+        
+    def _fetch_comments(self, repo):
+        #given a REPO get comments from issues and PRs, only a sample size from _paginated_request (the number is set in config)
+        logger.info(f"Fetching comments for repository: {repo}")
+        try:
+            # get issue comments
+            issue_comments_url = f"{self.base_url}/repos/{repo}/issues/comments"
+            params = {'per_page': 100} # not sure what happends if i change to 1000
+            issue_comments = self._paginated_request(issue_comments_url, params) # this should return samplesize(1000 i think) comments or less
+
+            # get PR review comments
+            pr_comments_url = f"{self.base_url}/repos/{repo}/pulls/comments" # same as issues, just request w pulls/comments
+            pr_comments = self._paginated_request(pr_comments_url, params)  
+
+            # mErge the issue and pullrequests comments
+            all_comments = issue_comments + pr_comments
+            # For each comment, load/process it to be used later
+            for comment in all_comments:
+                if 'body' in comment and comment['body']:
+                    try:
+                        toxicity = self.rater.get_toxicity(comment['body'])
+                        if not isinstance(toxicity, dict) or 'score' not in toxicity:
+                            logger.error(f"Invalid toxicity score format for comment: {comment['id']}")
+                            continue
+
+                        comment_data = {
+                            'repo': repo,
+                            'comment_id': comment['id'],
+                            'user_id': comment['user']['id'],
+                            'user_login': comment['user']['login'],
+                            'created_at': comment['created_at'],
+                            'updated_at': comment.get('updated_at'),
+                            'body': comment['body'],
+                            'toxicity': toxicity,
+                            'type': 'issue_comment' if 'issue_url' in comment else 'pr_comment',
+                            'issue_number': get_issue_number(comment.get('issue_url', comment.get('pull_request_url', '')))
+                        }
+                        self.data['comments'].append(comment_data)
+                    except Exception as e:
+                        logger.error(f"Error calculating toxicity for comment {comment['id']}: {e}")
+
+            logger.info(f"Fetched {len(all_comments)} comments for repository: {repo}")
+
+        except Exception as e:
+            logger.error(f"Error fetching comments for repository {repo}: {e}")
+
+    def _fetch_commits(self, repo):
+        # Same as commets, but get commits instead (sample size amoutn)
+        logger.info(f"Fetching commits for repository: {repo}")
+        commits_url = f"{self.base_url}/repos/{repo}/commits"
+        params = {'per_page': 100}
+        commits = self._paginated_request(commits_url, params)
+        logger.info(f"Fetched {len(commits)} commits for repository: {repo}")
+
+        # for eac commit, store data in format to be used later
+        for commit in commits:
+            if commit.get('author') and commit.get('commit'):
+                commit_data = {
+                    'repo': repo,
+                    'sha': commit['sha'],
+                    'author_id': commit['author']['id'] if commit.get('author') else None,
+                    'author_login': commit['author']['login'] if commit.get('author') else None,
+                    'date': commit['commit']['author']['date'],
+                    'message': commit['commit']['message']
+                }
+                self.data['commits'].append(commit_data)
+
+    def _fetch_issues(self, repo):
+        # same as above fxns, but w issues but we are skipping issues in pull requests
+        issues_url = f"{self.base_url}/repos/{repo}/issues"
+        params = {'state': 'all', 'per_page': 100}
+        issues = self._paginated_request(issues_url, params)
+
+        #For each issue, store the data in format to be used later
+        for issue in issues:
+            # dont want issue data form PR
+            if 'pull_request' in issue:
+                continue  
+
+            issue_data = {
+                'repo': repo,
+                'issue_number': issue['number'],
+                'title': issue['title'],
+                'user_id': issue['user']['id'],
+                'user_login': issue['user']['login'],
+                'state': issue['state'],
+                'created_at': issue['created_at'],
+                'closed_at': issue.get('closed_at'),
+                'comments_count': issue['comments']
+            }
+            self.data['issues'].append(issue_data)
+
+    def _fetch_releases(self, repo):
+        # like above, we get relase info
+        releases_url = f"{self.base_url}/repos/{repo}/releases"
+        params = {'per_page': 100} # i might make this a variable in congif, so if i mess around it will dynamically chage everywhere (thats probably better practice to do hat as well)
+        releases = self._paginated_request(releases_url, params)
+
+        # for each release , store data in nice format
+        for release in releases:
+            release_data = {
+                'repo': repo,
+                'id': release['id'],
+                'tag_name': release['tag_name'],
+                'name': release['name'],
+                'created_at': release['created_at'],
+                'published_at': release['published_at'],
+                'author_id': release['author']['id'],
+                'author_login': release['author']['login']
+            }
+            self.data['releases'].append(release_data)
+
+    def _fetch_contributors(self, repo):
+        # get contributor data, similar to other fxn
+        '''
+            # could we do all these _fetch_ fxns in 1 big function?
+            # theres alot of code im repeating i just dont know how to effectivley restrucutre that (in some readings i did i know in SE theres different patterns/adapters that might apply to reduce all the code into 1 or 2 functions/classes)
+        '''
+        contributors_url = f"{self.base_url}/repos/{repo}/contributors"
+        params = {'per_page': 100} # do we want to limit this obe?
+        contributors = self._paginated_request(contributors_url, params)
+
+        # get data for each contribior
+        for contributor in contributors:
+            user_url = f"{self.base_url}/users/{contributor['login']}"
+            
+            # for every contributor, we try max 3 times for api connection (should probably do this in above fxns too)
+            retry_count = 0
+            max_retries = 3
+            while retry_count <= max_retries:
+                user_response = requests.get(user_url, headers=self.headers, timeout=API_REQUEST_TIMEOUT)
+
+                if user_response.status_code == 401:
+                    logger.error(f"Authentication error with token {self.current_token_index + 1}")
+                    self._rotate_token()
+                    retry_count += 1
+                    continue
+
+                if user_response.status_code == 403 and 'rate limit exceeded' in user_response.text.lower():
+                    self._rotate_token()
+                    retry_count += 1
+                    continue
+
+                if user_response.status_code == 200:
+                    user_data = user_response.json()
+                    contributor_data = {
+                        'repo': repo,
+                        'user_id': contributor['id'],
+                        'user_login': contributor['login'],
+                        'contributions': contributor['contributions'],
+                        'account_created_at': user_data.get('created_at'),
+                        'public_repos': user_data.get('public_repos', 0),
+                        'followers': user_data.get('followers', 0)
+                    }
+                    self.data['contributors'].append(contributor_data)
+                    break
+                else:
+                    logger.error(f"Error {user_response.status_code} for user {contributor['login']}: {user_response.text}")
+                    break
+
+            # randonm sleep for rate limit
+            time.sleep(random.uniform(0.1, 0.5))
+

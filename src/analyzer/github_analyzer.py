@@ -7,7 +7,7 @@ import os
 import logging
 import random
 import glob
-from concurrent.futures import ThreadPoolExecutor, as_completed # this speeds up our code BUT, im pretty sure our github api limit will get used more (thats ok tho, met with TA he said we dont need to anaylze as much repos as we thought)
+from concurrent.futures import ThreadPoolExecutor, as_completed # this speeds up our code BUT, im pretty sure our github api limit will get used more (thats ok tho, sahil met with TA he said we dont need to anaylze as much repos as we thought)
 
 from toxicity_rater import ToxicityRater
 from helper import get_issue_number
@@ -170,7 +170,7 @@ class GitHubToxicityAnalyzer:
         # w threads, get all needed data from github api
         # multiple requests happending at a time w threads might hit rate limit faster (thats why i made multiple github tokens)
         logger.info("Starting data fetching")
-        # in class professor mentioned threading to speed things up, used gpt to help implement this w 5 workers (dont want to hit rate limit so kept it at 5, might increase)
+        # in class professor mentioned threading to speed things up-sahil, also i used gpt to help implement this w 5 workers (dont want to hit rate limit so kept it at 5, might increase)
         with ThreadPoolExecutor(max_workers=5) as executor:
             
             futures = {}
@@ -388,4 +388,137 @@ class GitHubToxicityAnalyzer:
         logger.info(f"Created dataframes: {list(dataframes.keys())}")
         return dataframes
     
+    
+    ''' 
+    UPDATED RQ's after sahil went to office hours (big help with #2, overall before the questions i made we good, but he just helped gather thoughts and reprahse to better/clear way)
+
+        1) Does toxic communication in OSS communities negatively affect programmer productivity, measured through commits, issue resolutions, and discussion activity?
+
+        2) Is there any correlation between toxic communication and software releases? (Spearman correlation)
+
+        3) How does the level of experience of the contributors (measured by the age of the account and previous contributions) correlate with their likelihood of engaging in toxic communication within OSS communities? (Spearman correlation)
+    '''
+    
+    # 1) Does toxic communication in OSS communities negatively affect programmer productivity, measured through commits, issue resolutions, and discussion activity?
+    def analyze_toxicity_vs_productivity(self):
+        # TODO: analyze toxicity against "productivty"
+        # measured through  
+            # shuffled it in the code to first get comments(disucssion) , commits, then issue resolution
+            # B) commits, 
+            # C) issue resolutions, and 
+            # A) discussion activity --------------- sahil went to OH for help on this, he said we can use COMMENTS bc that includes non-developers (like project managers) so we can see if they have affect on toxicity (TA; say smthing laong lines of " we know XYZ have affects on team dyanmic, do they have affect on toxicity?" ill clean that sentence up later)
+        # along w scatter blots/boxplots/barcharts, we can probably do Spearman correlation too
+
+        logger.info("Analyzing toxicity vs productivity")
+        results = {}
+
+        try:
+            # hasmap to pandas df
+            dfs = self.convert_to_dataframes()
+            
+            # we should be filtering our data to ONLY keep the ones w the requored fields
+            # sahil went to OH and got it approved that we can drop insufficient data for our report
+            if 'comments' not in dfs or 'commits' not in dfs or 'issues' not in dfs:
+                logger.error("Required data missing for toxicity vs productivity analysis")
+                return results
+
+            comments_df = dfs['comments']
+            commits_df = dfs['commits']
+            issues_df = dfs['issues']
+
+
+            # the code that was giving me toruble:
+            # reason was i was trying to access comments_df[toxicity][score]
+            # and i didnt consider that comments_df[toxicity] gives a whole LIST of scores for all the comments , used ai to help me fix it and they reccommend to use a lambda gneerator which worked!
+        # (A) DISCUSSION - (comments)
+            comments_df['toxicity_score'] = comments_df['toxicity'].apply(
+                lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
+            )
+            # Filter toxic and non-toxic comments via the threshold i set in config 
+            # idk what we will use non_toxic comments for (bc the ratio is like 1 million nontoxic to 1 toxic, TA said to focus on just the toxic)
+            toxic_comments = comments_df[comments_df['toxicity_score'] > TOXICITY_THRESHOLD].copy()
+            non_toxic_comments = comments_df[comments_df['toxicity_score'] <= TOXICITY_THRESHOLD].copy()
+
+        # (B) COMMITS 
+            # given the toxic comment, whats the toxicity look like 7 days before and 7 days after
+            commit_impact_data = []
+            window_days = 7  # might increase
+
+            for _, toxic_comment in toxic_comments.iterrows():
+                repo = toxic_comment['repo']
+                issue_number = toxic_comment['issue_number']
+                comment_date = toxic_comment['created_at']
+
+                # Get commits 7 days before and after the toxic comment
+                before_window_start = comment_date - pd.Timedelta(days=window_days)
+                commits_before = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['date'] >= before_window_start) &
+                    (commits_df['date'] <= comment_date)
+                ]
+
+                after_window_end = comment_date + pd.Timedelta(days=window_days)
+                commits_after = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['date'] > comment_date) &
+                    (commits_df['date'] <= after_window_end)
+                ]
+
+                commit_impact_data.append({
+                    'repo': repo,
+                    'issue_number': issue_number,
+                    'comment_id': toxic_comment['comment_id'],
+                    'comment_date': comment_date,
+                    'toxicity': toxic_comment['toxicity'],
+                    'commits_before': len(commits_before),
+                    'commits_after': len(commits_after),
+                    'commit_change_pct': ((len(commits_after) - len(commits_before)) / max(1, len(commits_before))) * 100
+                })
+
+            if commit_impact_data:
+                results['commit_impact'] = pd.DataFrame(commit_impact_data)
+
+        # (C) ISSUE RESOLITON - (time it takes to close issue, check toxicity compare if toxicity is correlated to resolition time )
+            issue_resolution_data = []
+            for _, issue in issues_df.iterrows():
+                
+                # only consider closed issues
+                if pd.isna(issue['closed_at']):
+                    continue  
+
+                repo = issue['repo']
+                issue_number = issue['issue_number']
+
+                # Check if this issue had toxic comments
+                issue_comments = comments_df[
+                    (comments_df['repo'] == repo) &
+                    (comments_df['issue_number'] == issue_number)
+                ]
+                has_toxic_comments = not issue_comments.empty and (
+                    issue_comments['toxicity_score'] > TOXICITY_THRESHOLD
+                ).any()
+
+                # Calculate resolution time
+                resolution_time = (issue['closed_at'] - issue['created_at']).total_seconds() / 3600  # in hours
+
+                issue_resolution_data.append({
+                    'repo': repo,
+                    'issue_number': issue_number,
+                    'created_at': issue['created_at'],
+                    'closed_at': issue['closed_at'],
+                    'resolution_time_hours': resolution_time,
+                    'has_toxic_comments': has_toxic_comments,
+                    'max_toxicity': issue_comments['toxicity_score'].max() if not issue_comments.empty else 0,
+                    'comments_count': issue['comments_count']
+                })
+
+            if issue_resolution_data:
+                results['issue_resolution'] = pd.DataFrame(issue_resolution_data)
+
+            return results
+
+        except Exception as e:
+            logger.error(f"Error in toxicity vs productivity analysis: {str(e)}")
+            return results
+
     

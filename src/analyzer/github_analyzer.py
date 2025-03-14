@@ -747,4 +747,151 @@ class GitHubToxicityAnalyzer:
             return results
 
     
+    # 3) How does the level of experience of the contributors (measured by the age of the account and previous contributions) correlate with their likelihood of engaging in toxic communication within OSS communities? (Spearman correlation)
+    def analyze_experience_vs_toxicity(self):
+        # can use spearman correlation to see if there is a correlation between the account age and toxic communication
+        # age can be determined by their actual github age, or how long they were in the repo, not sure which is easier yet
+        #
+        logger.info("Analyzing experience vs toxicity")
+        results = {}
+
+        try:
+            dfs = self.convert_to_dataframes()
+            if 'comments' not in dfs or 'contributors' not in dfs:
+                logger.error("Required data missing for experience vs toxicity analysis")
+                return results
+
+            comments_df = dfs['comments']
+            contributors_df = dfs['contributors']
+            
+            # Extract toxicity score to a new column
+            comments_df['toxicity_score'] = comments_df['toxicity'].apply(
+                lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
+            )
+
+            # go thru each contribuor (ALL contribuores, non toxic AND toxic comments)
+            contributor_toxicity_data = []
+            for _, contributor in contributors_df.iterrows():
+                repo = contributor['repo']
+                user_login = contributor['user_login']
+                account_created_at = contributor['account_created_at']
+
+                # Get all (all meaning the sample size) comments by this contributor
+                user_comments = comments_df[
+                    (comments_df['repo'] == repo) &
+                    (comments_df['user_login'] == user_login)
+                ]
+
+                if user_comments.empty:
+                    continue
+
+                # baisc metric calc
+                avg_toxicity = user_comments['toxicity_score'].mean()
+                max_toxicity = user_comments['toxicity_score'].max()
+                toxic_comments = user_comments[user_comments['toxicity_score'] > TOXICITY_THRESHOLD]
+                toxic_pct = (len(toxic_comments) / len(user_comments) * 100)
+
+                # For each comment, get theoir account age 
+                for _, comment in user_comments.iterrows():
+                    comment_date = comment['created_at']
+                    account_age_days = (comment_date - account_created_at).total_seconds() / (3600 * 24)
+
+                    contributor_toxicity_data.append({
+                        'repo': repo,
+                        'user_login': user_login,
+                        'user_id': contributor['user_id'],
+                        'comment_id': comment['comment_id'],
+                        'comment_date': comment_date,
+                        'account_created_at': account_created_at,
+                        'account_age_days': account_age_days,
+                        'toxicity_score': comment['toxicity_score'],
+                        'public_repos': contributor['public_repos'],
+                        'followers': contributor['followers'],
+                        'contributions': contributor['contributions']
+                    })
+
+            if contributor_toxicity_data:
+                results['contributor_toxicity'] = pd.DataFrame(contributor_toxicity_data)
+
+                # Creating experience brackets for analysis, which in my opinion isnt necessary but gpt reccommened it and i think its nice to have (might be easier to make visuals from)
+                exp_df = results['contributor_toxicity'].copy()
+                exp_df['experience_bracket'] = pd.cut(
+                    exp_df['account_age_days'],
+                    bins=[0, 90, 365, 365 * 2, 365 * 5, float('inf')],
+                    labels=['<3 months', '3-12 months', '1-2 years', '2-5 years', '>5 years']
+                )
+
+                # group by the experience bracket
+                exp_summary = exp_df.groupby('experience_bracket').agg({
+                    'toxicity_score': ['mean', 'std', 'count'],  
+                    'user_login': 'nunique'
+                })
+                exp_summary.columns = ['avg_toxicity', 'std_toxicity', 'comment_count', 'unique_users']
+                exp_summary = exp_summary.reset_index()
+                results['experience_summary'] = exp_summary
+
+                contrib_df = results['contributor_toxicity'].copy()
+                contrib_df['contribution_bracket'] = pd.cut(
+                    contrib_df['contributions'],
+                    bins=[0, 10, 50, 100, 500, float('inf')],
+                    labels=['<10', '10-50', '50-100', '100-500', '>500']
+                )
+
+                # gorup by the contribution level
+                contrib_summary = contrib_df.groupby('contribution_bracket').agg({
+                    'toxicity_score': ['mean', 'std', 'count'],  # Use toxicity_score instead of toxicity
+                    'user_login': 'nunique'
+                })
+                contrib_summary.columns = ['avg_toxicity', 'std_toxicity', 'comment_count', 'unique_users']
+                contrib_summary = contrib_summary.reset_index()
+                results['contribution_summary'] = contrib_summary
+
+                # first-time contributors versus experienced contributors
+                first_time_data = []
+                for repo in contributors_df['repo'].unique():
+                    repo_contributors = contributors_df[contributors_df['repo'] == repo]
+
+                    for _, contributor in repo_contributors.iterrows():
+                        user_login = contributor['user_login']
+
+                        # Get all comments by this user
+                        user_comments = comments_df[
+                            (comments_df['repo'] == repo) &
+                            (comments_df['user_login'] == user_login)
+                        ]
+
+                        if user_comments.empty:
+                            continue
+
+                        # Determine if first-time contributor (low contribution count)
+                        is_first_time = contributor['contributions'] <= 5
+
+                        avg_toxicity = user_comments['toxicity_score'].mean()
+                        max_toxicity = user_comments['toxicity_score'].max()
+                        toxic_comments = user_comments[user_comments['toxicity_score'] > TOXICITY_THRESHOLD]
+                        toxic_pct = (len(toxic_comments) / len(user_comments) * 100)
+
+                        first_time_data.append({
+                            'repo': repo,
+                            'user_login': user_login,
+                            'is_first_time': is_first_time,
+                            'contributions': contributor['contributions'],
+                            'followers': contributor['followers'],
+                            'public_repos': contributor['public_repos'],
+                            'comments_count': len(user_comments),
+                            'avg_toxicity': avg_toxicity,
+                            'max_toxicity': max_toxicity,
+                            'toxic_comments': len(toxic_comments),
+                            'toxic_pct': toxic_pct
+                        })
+
+                if first_time_data:
+                    results['first_time_vs_experienced'] = pd.DataFrame(first_time_data)
+
+            return results
+        
+        except Exception as e:
+            logger.error(f"Error in experience vs toxicity analysis: {str(e)}")
+            return results
+
     

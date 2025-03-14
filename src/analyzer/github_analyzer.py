@@ -164,50 +164,7 @@ class GitHubToxicityAnalyzer:
                     break
 
         return all_items
-
-
-    def fetch_data(self):
-        # w threads, get all needed data from github api
-        # multiple requests happending at a time w threads might hit rate limit faster (thats why i made multiple github tokens)
-        logger.info("Starting data fetching")
-        # in class professor mentioned threading to speed things up-sahil, also i used gpt to help implement this w 5 workers (dont want to hit rate limit so kept it at 5, might increase)
-        with ThreadPoolExecutor(max_workers=5) as executor:
-            
-            futures = {}
-
-            # we need to have these run in seperate loops to avoid mem error issue
-            
-            # comment fetching
-            for repo in self.repos:
-                futures[executor.submit(self._fetch_comments, repo)] = f"comments_{repo}"
-            
-            # commit fetching
-            for repo in self.repos:
-                futures[executor.submit(self._fetch_commits, repo)] = f"commits_{repo}"
-            
-            # issue fetching
-            for repo in self.repos:
-                futures[executor.submit(self._fetch_issues, repo)] = f"issues_{repo}"
-            
-            # release fetching
-            for repo in self.repos:
-                futures[executor.submit(self._fetch_releases, repo)] = f"releases_{repo}"
-            
-            # contributor fetching
-            for repo in self.repos:
-                futures[executor.submit(self._fetch_contributors, repo)] = f"contributors_{repo}"
-            
-            # process data
-            for future in as_completed(futures):
-                task_name = futures[future]
-                try:
-                    future.result()
-                    logger.info(f"Completed task: {task_name}")
-                except Exception as e:
-                    logger.error(f"Error in task {task_name}: {e}")
-
-        logger.info("Data fetching complete")
-        
+  
     def _fetch_comments(self, repo):
         #given a REPO get comments from issues and PRs, only a sample size from _paginated_request (the number is set in config)
         logger.info(f"Fetching comments for repository: {repo}")
@@ -894,4 +851,153 @@ class GitHubToxicityAnalyzer:
             logger.error(f"Error in experience vs toxicity analysis: {str(e)}")
             return results
 
-    
+    def save_results_to_csv(self, results_dict, base_filename):
+        try:
+            os.makedirs(os.path.dirname(base_filename), exist_ok=True)
+            for key, df in results_dict.items():
+                if df is not None and not df.empty:
+                    filename = f"{base_filename}_{key}.csv"
+                    df.to_csv(filename, index=False)
+                    logger.info(f"Saved {len(df)} rows to {filename}")
+        except Exception as e:
+            logger.error(f"Error saving results to CSV: {str(e)}")
+
+    # get data and save EACH to CSV
+    def fetch_data(self):        
+        logger.info("Starting incremental data fetching")
+        
+        for repo in self.repos:
+            logger.info(f"Processing repository: {repo}")
+            
+            # Clear previous data for this repo
+            for key in self.data:
+                self.data[key] = [item for item in self.data[key] if item.get('repo') != repo]
+            
+            try:
+                self._fetch_comments(repo)
+                logger.info(f"Completed fetching comments for {repo}")
+                
+                self._fetch_commits(repo)
+                logger.info(f"Completed fetching commits for {repo}")
+                
+                self._fetch_issues(repo)
+                logger.info(f"Completed fetching issues for {repo}")
+                
+                self._fetch_releases(repo)
+                logger.info(f"Completed fetching releases for {repo}")
+                
+                self._fetch_contributors(repo)
+                logger.info(f"Completed fetching contributors for {repo}")
+                
+                # Save to CSV file, this will create ALOT of CSV files which is fine bc i need to see the data genreatedfor testing/debugging
+                temp_dfs = self.convert_to_dataframes()
+                for key, df in temp_dfs.items():
+                    # Filter for just this repo
+                    repo_df = df[df['repo'] == repo]
+                    if not repo_df.empty:
+                        os.makedirs(DATA_DIR, exist_ok=True)
+                        filename = f"{DATA_DIR}/{repo.replace('/', '_')}_{key}.csv"
+                        repo_df.to_csv(filename, index=False)
+                        logger.info(f"Saved {len(repo_df)} {key} rows for {repo}")
+                
+                # Run analysis just for this repo
+                logger.info(f"Running analysis for {repo}")
+                
+                # Filter data to only include this repo
+                repo_data = {key: [item for item in items if item.get('repo') == repo] 
+                            for key, items in self.data.items()}
+                
+                # temp analyzer to hold curr repo data
+                temp_analyzer = GitHubToxicityAnalyzer([repo], self.github_tokens, test_mode=False)
+                temp_analyzer.data = repo_data
+                
+                # Run and save analyses
+                toxicity_vs_productivity = temp_analyzer.analyze_toxicity_vs_productivity()
+                temp_analyzer.save_results_to_csv(toxicity_vs_productivity, f"{RESULTS_DIR}/{repo.replace('/', '_')}_toxicity_vs_productivity")
+                
+                toxicity_vs_releases = temp_analyzer.analyze_toxicity_vs_releases()
+                temp_analyzer.save_results_to_csv(toxicity_vs_releases, f"{RESULTS_DIR}/{repo.replace('/', '_')}_toxicity_vs_releases")
+                
+                experience_vs_toxicity = temp_analyzer.analyze_experience_vs_toxicity()
+                temp_analyzer.save_results_to_csv(experience_vs_toxicity, f"{RESULTS_DIR}/{repo.replace('/', '_')}_experience_vs_toxicity")
+                
+                logger.info(f"Completed all processing for {repo}")
+
+            except Exception as e:
+                logger.error(f"Error processing repository {repo}: {str(e)}")
+                import traceback
+                logger.error(traceback.format_exc())
+        
+        logger.info("Incremental data fetching and analysis complete")
+
+        # after all repos are processed, combine results
+        try:
+            # this is where the "nice" data will be with ALL repos instead of individual
+            self._combine_results()
+        except Exception as e:
+            logger.error(f"Error combining results: {str(e)}")
+
+
+    def _combine_results(self):
+        logger.info("Combining results from all repositories")
+        
+        # make folders if not there
+        data_dir = "data_combined"
+        results_dir = "results"
+        os.makedirs(data_dir, exist_ok=True)
+        os.makedirs(results_dir, exist_ok=True)
+        
+        # Combine raw data files
+        data_types = ['comments', 'commits', 'issues', 'releases', 'contributors']
+        for data_type in data_types:
+            combined_df = None
+            pattern = f"*_{data_type}.csv"
+            files = glob.glob(os.path.join(data_dir, pattern))
+            
+            for file in files:
+                try:
+                    df = pd.read_csv(file)
+                    if combined_df is None:
+                        combined_df = df
+                    else:
+                        combined_df = pd.concat([combined_df, df], ignore_index=True)
+                except Exception as e:
+                    logger.error(f"Error reading {file}: {str(e)}")
+            
+            if combined_df is not None and not combined_df.empty:
+                combined_df.to_csv(os.path.join(data_dir, f"combined_{data_type}.csv"), index=False)
+                logger.info(f"Created combined data file for {data_type} with {len(combined_df)} rows")
+        
+        # Combine analysis results
+        analysis_types = [
+            "toxicity_vs_productivity_commit_impact",
+            "toxicity_vs_productivity_issue_resolution",
+            "toxicity_vs_productivity_developer_activity",
+            
+            "toxicity_vs_releases_release_toxicity",
+            "toxicity_vs_releases_release_cycles",
+            
+            "experience_vs_toxicity_contributor_toxicity",
+            "experience_vs_toxicity_experience_summary",
+            "experience_vs_toxicity_contribution_summary",
+            "experience_vs_toxicity_first_time_vs_experienced"
+        ]
+        
+        for analysis_type in analysis_types:
+            combined_df = None
+            pattern = f"*_{analysis_type}.csv"
+            files = glob.glob(os.path.join(results_dir, pattern))
+            
+            for file in files:
+                try:
+                    df = pd.read_csv(file)
+                    if combined_df is None:
+                        combined_df = df
+                    else:
+                        combined_df = pd.concat([combined_df, df], ignore_index=True)
+                except Exception as e:
+                    logger.error(f"Error reading {file}: {str(e)}")
+            
+            if combined_df is not None and not combined_df.empty:
+                combined_df.to_csv(os.path.join(results_dir, f"combined_{analysis_type}.csv"), index=False)
+                logger.info(f"Created combined results file for {analysis_type} with {len(combined_df)} rows")

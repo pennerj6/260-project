@@ -370,3 +370,22 @@ class GitHubToxicityAnalyzer:
             # randonm sleep for rate limit
             time.sleep(random.uniform(0.1, 0.5))
 
+    def convert_to_dataframes(self):
+        # convert data to pandas df
+        # i personally dont like to use pandas datafram bc idk the syntax but, professor reccommeneded it (and its well know/easyier to debug w so we will use it!)
+        dataframes = {}
+        for key, items in self.data.items():
+            logger.info(f"Converting {len(items)} {key} items to DataFrame")
+            if items:
+                dataframes[key] = pd.DataFrame(items)
+                
+                #str to daatetime
+                for col in dataframes[key].columns:
+                    # might edge case for ifinstatnce not string
+                    if 'date' in col or col.endswith('_at'):
+                        dataframes[key][col] = pd.to_datetime(dataframes[key][col])
+        
+        logger.info(f"Created dataframes: {list(dataframes.keys())}")
+        return dataframes
+    
+    

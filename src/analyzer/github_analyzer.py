@@ -394,7 +394,7 @@ class GitHubToxicityAnalyzer:
 
         1) Does toxic communication in OSS communities negatively affect programmer productivity, measured through commits, issue resolutions, and discussion activity?
 
-        2) Is there any correlation between toxic communication and software releases? (Spearman correlation)
+        2) Is there any correlation between toxic communication and software releases? (Spearman correlation mentined in OH)
 
         3) How does the level of experience of the contributors (measured by the age of the account and previous contributions) correlate with their likelihood of engaging in toxic communication within OSS communities? (Spearman correlation)
     '''
@@ -404,9 +404,9 @@ class GitHubToxicityAnalyzer:
         # TODO: analyze toxicity against "productivty"
         # measured through  
             # shuffled it in the code to first get comments(disucssion) , commits, then issue resolution
-            # B) commits, 
-            # C) issue resolutions, and 
-            # A) discussion activity --------------- sahil went to OH for help on this, he said we can use COMMENTS bc that includes non-developers (like project managers) so we can see if they have affect on toxicity (TA; say smthing laong lines of " we know XYZ have affects on team dyanmic, do they have affect on toxicity?" ill clean that sentence up later)
+            # A) commits, 
+            # B) issue resolutions, and 
+            # C) discussion activity --------------- sahil went to OH for help on this, he said we can use COMMENTS or basic activity history(emails, etc) bc that includes non-developers (like project managers) so we can see if they have affect on toxicity (TA; say smthing laong lines of " we know XYZ have affects on team dyanmic, do they have affect on toxicity?" ill clean that sentence up later)
         # along w scatter blots/boxplots/barcharts, we can probably do Spearman correlation too
 
         logger.info("Analyzing toxicity vs productivity")
@@ -430,7 +430,7 @@ class GitHubToxicityAnalyzer:
             # the code that was giving me toruble:
             # reason was i was trying to access comments_df[toxicity][score]
             # and i didnt consider that comments_df[toxicity] gives a whole LIST of scores for all the comments , used ai to help me fix it and they reccommend to use a lambda gneerator which worked!
-        # (A) DISCUSSION - (comments)
+            # GET COMMENTS (toxicity part)
             comments_df['toxicity_score'] = comments_df['toxicity'].apply(
                 lambda x: x['score'] if isinstance(x, dict) and 'score' in x else 0
             )
@@ -439,7 +439,7 @@ class GitHubToxicityAnalyzer:
             toxic_comments = comments_df[comments_df['toxicity_score'] > TOXICITY_THRESHOLD].copy()
             non_toxic_comments = comments_df[comments_df['toxicity_score'] <= TOXICITY_THRESHOLD].copy()
 
-        # (B) COMMITS 
+        # (A) COMMITS 
             # given the toxic comment, whats the toxicity look like 7 days before and 7 days after
             commit_impact_data = []
             window_days = 7  # might increase
@@ -478,7 +478,7 @@ class GitHubToxicityAnalyzer:
             if commit_impact_data:
                 results['commit_impact'] = pd.DataFrame(commit_impact_data)
 
-        # (C) ISSUE RESOLITON - (time it takes to close issue, check toxicity compare if toxicity is correlated to resolition time )
+        # (B) ISSUE RESOLITON - (time it takes to close issue, check toxicity compare if toxicity is correlated to resolition time )
             issue_resolution_data = []
             for _, issue in issues_df.iterrows():
                 
@@ -515,10 +515,90 @@ class GitHubToxicityAnalyzer:
             if issue_resolution_data:
                 results['issue_resolution'] = pd.DataFrame(issue_resolution_data)
 
-            return results
+    
+        #(C) DISCUSSION ACTIVITY - for not developers
+            developer_activity_data = []
+            # issue solved, no more duplicate developers, usong set not list
+            developers_with_toxic_exp = set()
 
+            # for each toxic comment
+            for _, comment in toxic_comments.iterrows():
+                issue_num = comment['issue_number']
+                repo = comment['repo']
+                matching_issues = issues_df[
+                    (issues_df['repo'] == repo) &
+                    (issues_df['issue_number'] == issue_num)
+                ]
+                # get the username of all users involved in toxic comments
+                if not matching_issues.empty:
+                    developers_with_toxic_exp.add((repo, matching_issues.iloc[0]['user_login']))
+
+            for repo, dev_login in developers_with_toxic_exp:
+                # go thru each person and their toxic comments
+                dev_toxic_comments = toxic_comments[
+                    (toxic_comments['repo'] == repo) &
+                    (comments_df['issue_number'].isin(
+                        issues_df[(issues_df['repo'] == repo) &
+                                (issues_df['user_login'] == dev_login)]['issue_number']
+                    ))
+                ]
+
+                if dev_toxic_comments.empty:
+                    continue # should not bethe case
+
+                first_toxic_date = dev_toxic_comments['created_at'].min()
+                last_toxic_date = dev_toxic_comments['created_at'].max()
+
+                # Activity before first toxic interaction (30 days)
+                before_period_start = first_toxic_date - pd.Timedelta(days=30)
+                commits_before = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['author_login'] == dev_login) &
+                    (commits_df['date'] >= before_period_start) &
+                    (commits_df['date'] < first_toxic_date)
+                ]
+                issues_before = issues_df[
+                    (issues_df['repo'] == repo) &
+                    (issues_df['user_login'] == dev_login) &
+                    (issues_df['created_at'] >= before_period_start) &
+                    (issues_df['created_at'] < first_toxic_date)
+                ]
+
+                # Activity after last toxic interaction (30 days)
+                after_period_end = last_toxic_date + pd.Timedelta(days=30)
+                commits_after = commits_df[
+                    (commits_df['repo'] == repo) &
+                    (commits_df['author_login'] == dev_login) &
+                    (commits_df['date'] > last_toxic_date) &
+                    (commits_df['date'] <= after_period_end)
+                ]
+                issues_after = issues_df[
+                    (issues_df['repo'] == repo) &
+                    (issues_df['user_login'] == dev_login) &
+                    (issues_df['created_at'] > last_toxic_date) &
+                    (issues_df['created_at'] <= after_period_end)
+                ]
+
+                developer_activity_data.append({
+                    'repo': repo,
+                    'developer': dev_login,
+                    'first_toxic_date': first_toxic_date,
+                    'last_toxic_date': last_toxic_date,
+                    'toxic_comments_received': len(dev_toxic_comments),
+                    'commits_before': len(commits_before),
+                    'commits_after': len(commits_after),
+                    'issues_before': len(issues_before),
+                    'issues_after': len(issues_after),
+                    'commit_change_pct': ((len(commits_after) - len(commits_before)) / max(1, len(commits_before))) * 100,
+                    'issue_change_pct': ((len(issues_after) - len(issues_before)) / max(1, len(issues_before))) * 100
+                })
+
+            if developer_activity_data:
+                results['developer_activity'] = pd.DataFrame(developer_activity_data)
+            
+            return results
         except Exception as e:
             logger.error(f"Error in toxicity vs productivity analysis: {str(e)}")
             return results
 
-    
+

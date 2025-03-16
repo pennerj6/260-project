@@ -496,32 +496,9 @@ def get_data_main(repos):
                     
                     # file -> comments , [{}, {},{}]
                     
-                    save_csv2(file, all_data[file])
+                    save_csv(file, all_data[file])
                     
                 print("")
-                '''
-                rq1_data_frag = rq1_clean_data()
-                rq2_data_frag = rq2_clean_data()
-                rq3_data_frag = rq3_clean_data()
-                
-                save_csv(rq1_data_frag, f"data_fragments/rq1_{repo.replace('/', '_')}")
-                save_csv(rq2_data_frag, f"data_fragments/rq2_{repo.replace('/', '_')}")
-                save_csv(rq3_data_frag, f"data_fragments/rq3_{repo.replace('/', '_')}")
-                
-                
-                logger.info(f"Completed all processing for {repo}")
-
-                rq1_prod(convert_to_dataframes(rq1_data_frag))
-                rq2_release(convert_to_dataframes(rq2_data_frag))
-                rq3_experience(convert_to_dataframes(rq3_data_frag))
-                
-                # rq1_prod(convert_to_dataframes(self.all_data.items()))
-                # rq2_release(convert_to_dataframes(self.all_data.items()))
-                # rq3_experience(convert_to_dataframes(self.all_data.items()))
-
-                dfs = self.convert_to_dataframes()
-                '''
-
             except Exception as e:
                 logger.error(f"Error processing repository {repo}: {str(e)}")
                 import traceback

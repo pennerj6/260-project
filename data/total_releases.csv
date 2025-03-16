@@ -3201,3 +3201,732 @@ home-assistant/core,18302825,0.95.2,0.95.2,2019-06-28T17:30:01Z,2019-06-28T19:47
 home-assistant/core,18271784,0.95.1,0.95.1,2019-06-27T15:55:10Z,2019-06-27T15:55:30Z,1444314,balloob
 home-assistant/core,18249726,0.95.0,0.95.0,2019-06-26T17:41:11Z,2019-06-26T20:52:30Z,15338540,pvizeli
 home-assistant/core,18220462,0.95.0b4,0.95.0b4,2019-06-25T05:23:41Z,2019-06-25T20:19:23Z,15338540,pvizeli
+microsoft/vscode,205645537,1.98.2,February 2025 Recovery 2,2025-03-12T13:24:52Z,2025-03-13T16:47:44Z,2230985,connor4312
+microsoft/vscode,204834300,1.98.1,February 2025 Recovery 1,2025-03-10T15:26:31Z,2025-03-10T20:15:42Z,2230985,connor4312
+microsoft/vscode,203925835,1.98.0,February 2025,2025-03-04T18:57:48Z,2025-03-05T17:44:15Z,6461412,aeschli
+microsoft/vscode,200205683,1.97.2,January 2025 Recovery 2,2025-02-12T14:18:30Z,2025-02-13T18:04:51Z,2230985,connor4312
+microsoft/vscode,199679394,1.97.1,January 2025 Recovery 1,2025-02-10T13:07:56Z,2025-02-11T18:09:59Z,2230985,connor4312
+microsoft/vscode,198877577,1.97.0,January 2025,2025-02-04T18:19:16Z,2025-02-06T16:57:06Z,2230985,connor4312
+microsoft/vscode,195234780,1.96.4,November 2024 Recovery 4,2025-01-16T00:03:51Z,2025-01-16T23:26:14Z,30305945,joyceerhl
+microsoft/vscode,194435633,1.96.3,November 2024 Recovery 3,2025-01-09T15:35:11Z,2025-01-13T14:09:12Z,1931590,dbaeumer
+microsoft/vscode,191730414,1.96.2,November 2024 Recovery 2,2024-12-19T10:13:25Z,2024-12-19T19:04:30Z,30305945,joyceerhl
+microsoft/vscode,191500700,1.96.1,November 2024 Recovery 1,2024-12-17T17:46:06Z,2024-12-18T17:41:53Z,1931590,dbaeumer
+microsoft/vscode,190282879,1.96.0,November 2024,2024-12-10T22:22:47Z,2024-12-11T19:13:33Z,30305945,joyceerhl
+microsoft/vscode,185530462,1.95.3,October 2024 Recovery 3,2024-11-13T14:45:08Z,2024-11-14T22:20:37Z,30305945,joyceerhl
+microsoft/vscode,184258993,1.95.2,October 2024 Recovery 2,2024-11-07T11:01:40Z,2024-11-07T23:10:05Z,30305945,joyceerhl
+microsoft/vscode,183016531,1.95.1,October 2024 Recovery 1,2024-10-31T05:10:14Z,2024-10-31T22:10:39Z,30305945,joyceerhl
+microsoft/vscode,182523912,1.95.0,October 2024,2024-10-28T16:08:10Z,2024-10-29T17:15:45Z,7199958,rzhao271
+microsoft/vscode,179341265,1.94.2,September Recovery 2,2024-10-09T09:20:17Z,2024-10-10T14:29:41Z,900690,bpasero
+microsoft/vscode,178954173,1.94.1,September Recovery 1,2024-10-08T17:25:57Z,2024-10-08T17:30:36Z,900690,bpasero
+microsoft/vscode,178259340,1.94.0,September 2024,2024-10-02T12:59:59Z,2024-10-03T17:02:27Z,900690,bpasero
+microsoft/vscode,174811451,1.93.1,August 2024 Recovery 1,2024-09-11T17:13:36Z,2024-09-12T17:09:57Z,2193314,Tyriar
+microsoft/vscode,173695787,1.93.0,August 2024,2024-09-04T12:53:09Z,2024-09-05T17:09:47Z,2193314,Tyriar
+microsoft/vscode,170407271,1.92.2,July 2024 Recovery 2,2024-08-14T17:23:32Z,2024-08-15T17:44:40Z,2931520,hediet
+microsoft/vscode,169369196,1.92.1,July 2024 Recovery 1,2024-08-07T20:11:03Z,2024-08-08T16:22:05Z,12552271,Yoyokrazy
+microsoft/vscode,168291552,1.92.0,July 2024,2024-07-31T20:26:36Z,2024-08-01T17:05:58Z,12552271,Yoyokrazy
+microsoft/vscode,165004015,1.91.1,June 2024 Recovery 1,2024-07-09T12:51:23Z,2024-07-11T13:39:39Z,44439583,benibenj
+microsoft/vscode,163868610,1.91.0,June 2024,2024-07-01T13:21:17Z,2024-07-03T18:23:00Z,12552271,Yoyokrazy
+microsoft/vscode,161326740,1.90.2,May 2024 Recovery 2,2024-06-18T20:06:05Z,2024-06-19T16:32:31Z,4544166,lramos15
+microsoft/vscode,160346297,1.90.1,May 2024 Recovery 1,2024-06-11T20:10:12Z,2024-06-13T17:27:10Z,44439583,benibenj
+microsoft/vscode,159075980,1.90.0,May 2024,2024-06-05T21:09:24Z,2024-06-05T21:14:57Z,4544166,lramos15
+microsoft/vscode,154983536,1.89.1,April 2024 Recovery 1,2024-05-06T15:42:24Z,2024-05-09T17:30:52Z,12552271,Yoyokrazy
+microsoft/vscode,153873284,1.89.0,April 2024,2024-05-04T15:25:08Z,2024-05-02T17:48:57Z,4544166,lramos15
+microsoft/vscode,150797079,1.88.1,March 2024 Recovery 1,2024-04-10T16:31:46Z,2024-04-11T17:09:23Z,7199958,rzhao271
+microsoft/vscode,149814200,1.88.0,March 2024,2024-04-03T11:03:33Z,2024-04-04T17:04:20Z,964386,deepak1556
+microsoft/vscode,146100846,1.87.2,February 2024 Recovery 2,2024-03-08T14:18:51Z,2024-03-12T17:50:43Z,54879025,justschen
+microsoft/vscode,145323317,1.87.1,February 2024 Recovery 1,2024-03-05T15:59:58Z,2024-03-07T18:28:15Z,54879025,justschen
+microsoft/vscode,144055742,1.87.0,February 2024,2024-02-27T22:50:23Z,2024-02-28T18:32:24Z,54879025,justschen
+microsoft/vscode,142158503,1.86.2,January 2024 Recovery 2,2024-02-13T17:10:22Z,2024-02-15T13:50:04Z,61460952,aiday-mar
+microsoft/vscode,140525002,1.86.1,January 2024 Recovery 1,2024-02-07T08:28:46Z,2024-02-08T13:42:40Z,61460952,aiday-mar
+microsoft/vscode,139501858,1.86.0,January 2024,2024-01-31T22:36:21Z,2024-02-01T13:22:53Z,61460952,aiday-mar
+microsoft/vscode,137595644,1.85.2,November 2023 Recovery 2,2024-01-17T20:15:12Z,2024-01-18T18:11:02Z,54879025,justschen
+microsoft/vscode,133791083,1.85.1,November 2023 Recovery 1,2023-12-13T09:08:58Z,2023-12-13T18:05:32Z,54879025,justschen
+microsoft/vscode,132979603,1.85.0,November 2023,2023-12-06T10:36:56Z,2023-12-07T19:05:49Z,54879025,justschen
+microsoft/vscode,135728221,1.84.2,October 2023 Recovery 2,2023-11-09T10:14:15Z,2024-01-03T19:27:54Z,25044782,bhavyaus
+microsoft/vscode,128197191,1.84.1,October 2023 Recovery 1,2023-11-06T11:52:58Z,2023-11-06T18:18:20Z,25044782,bhavyaus
+microsoft/vscode,127569793,1.84.0,October 2023,2023-11-01T09:39:20Z,2023-11-01T18:06:29Z,16353531,ulugbekna
+microsoft/vscode,124696615,1.83.1,September 2023 Recovery 1,2023-10-10T23:05:55Z,2023-10-11T21:28:30Z,25044782,bhavyaus
+microsoft/vscode,123736439,1.83.0,September 2023,2023-10-03T13:06:11Z,2023-10-04T18:15:27Z,25044782,bhavyaus
+microsoft/vscode,123355143,1.82.3,August 2023 Recovery 3,2023-10-02T10:12:19Z,2023-10-02T15:38:34Z,9205389,chrmarti
+microsoft/vscode,121480572,1.82.2,August 2023 Recovery 2,2023-09-14T05:02:21Z,2023-09-18T06:17:02Z,9205389,chrmarti
+microsoft/vscode,120835552,1.82.1,August 2023 Recovery 1,2023-09-08T07:56:06Z,2023-09-12T17:14:14Z,9205389,chrmarti
+microsoft/vscode,120333378,1.82.0,August 2023,2023-09-06T21:00:17Z,2023-09-07T18:40:12Z,9205389,chrmarti
+microsoft/vscode,115963844,1.81.1,July 2023 Recovery 1,2023-08-09T21:15:31Z,2023-08-10T17:07:50Z,31675041,andreamah
+microsoft/vscode,115015295,1.81.0,July 2023,2023-08-02T11:59:07Z,2023-08-03T18:15:27Z,31675041,andreamah
+microsoft/vscode,113907434,1.80.2,June 2023 Recovery 2,2023-07-27T19:26:03Z,2023-07-27T23:43:45Z,29464607,meganrogge
+microsoft/vscode,112148927,1.80.1,June 2023 Recovery 1,2023-07-12T16:45:52Z,2023-07-13T17:08:30Z,29464607,meganrogge
+microsoft/vscode,111301684,1.80.0,June 2023 ,2023-07-04T10:23:33Z,2023-07-06T18:01:05Z,29464607,meganrogge
+microsoft/vscode,108764918,1.79.2,May 2023 Recovery 2,2023-06-14T08:28:08Z,2023-06-15T17:01:41Z,29464607,meganrogge
+microsoft/vscode,108419575,1.79.1,May 2023 Recovery 1,2023-06-12T15:48:17Z,2023-06-13T20:03:45Z,29464607,meganrogge
+microsoft/vscode,107875358,1.79.0,May 2023,2023-06-07T13:23:47Z,2023-06-08T18:19:42Z,29464607,meganrogge
+microsoft/vscode,102722107,1.78.2,April 2023 Recovery 2,2023-05-10T14:00:06Z,2023-05-12T01:25:34Z,323878,roblourens
+microsoft/vscode,102384496,1.78.1,April 2023 Recovery 1,2023-05-04T09:13:35Z,2023-05-09T17:56:22Z,10746682,sandy081
+microsoft/vscode,101788867,1.78.0,April 2023,2023-05-03T19:37:04Z,2023-05-03T22:03:22Z,323878,roblourens
+microsoft/vscode,99179067,1.77.3,March 2023 Recovery 3,2023-04-12T17:20:33Z,2023-04-12T17:21:53Z,2644648,TylerLeonhardt
+microsoft/vscode,98954070,1.77.2,March 2023 Recovery 2,2023-04-11T17:09:09Z,2023-04-11T17:11:19Z,2644648,TylerLeonhardt
+microsoft/vscode,98217566,1.77.1,March 2023 Recovery 1,2023-04-04T22:49:54Z,2023-04-05T16:19:37Z,2644648,TylerLeonhardt
+microsoft/vscode,97531004,1.77.0,March 2023,2023-03-30T17:48:59Z,2023-03-30T18:57:19Z,2644648,TylerLeonhardt
+microsoft/vscode,95724132,1.76.2,February 2023 Recovery 2,2023-03-14T17:20:47Z,2023-03-15T16:03:56Z,2644648,TylerLeonhardt
+microsoft/vscode,95113631,1.76.1,February 2023 Recovery,2023-03-08T16:01:24Z,2023-03-09T18:23:30Z,2644648,TylerLeonhardt
+microsoft/vscode,94139371,1.76.0,February 2023,2023-02-28T11:07:20Z,2023-03-01T20:01:28Z,2644648,TylerLeonhardt
+microsoft/vscode,91935081,1.75.1,January 2023 Recovery 1,2023-02-08T21:05:19Z,2023-02-09T19:07:49Z,323878,roblourens
+microsoft/vscode,91182971,1.75.0,January 2023,2023-02-01T13:32:54Z,2023-02-02T19:50:12Z,323878,roblourens
+microsoft/vscode,88483006,1.74.3,November 2022 Recovery 3,2023-01-09T16:16:14Z,2023-01-10T18:08:35Z,6461412,aeschli
+microsoft/vscode,86689083,1.74.2,November 2022 Recovery 2,2022-12-20T10:02:24Z,2022-12-20T19:06:11Z,6461412,aeschli
+microsoft/vscode,86140126,1.74.1,November 2022 Recovery 1,2022-12-14T10:05:52Z,2022-12-15T09:58:35Z,6461412,aeschli
+microsoft/vscode,85353072,1.74.0,November 2022,2022-12-07T20:11:23Z,2022-12-07T20:14:22Z,876920,rebornix
+microsoft/vscode,82594810,1.73.1,October 2022 Recovery,2022-11-09T19:20:41Z,2022-11-09T19:22:33Z,876920,rebornix
+microsoft/vscode,81875229,1.73.0,October 2022,2022-11-02T20:36:31Z,2022-11-02T20:40:28Z,876920,rebornix
+microsoft/vscode,79815982,1.72.2,September 2022 Recovery 2,2022-10-12T10:08:52Z,2022-12-15T10:00:23Z,12821956,mjbvz
+microsoft/vscode,79559974,1.72.1,September 2022 Recovery,2022-10-10T16:59:55Z,2022-10-11T17:19:31Z,12821956,mjbvz
+microsoft/vscode,79195907,1.72.0,September 2022,2022-10-04T22:54:23Z,2022-10-06T18:14:48Z,12821956,mjbvz
+microsoft/vscode,77323275,1.71.2,August 2022 Recovery 2,2022-09-14T20:35:22Z,2022-09-15T18:03:36Z,12821956,mjbvz
+microsoft/vscode,77034280,1.71.1,August 2022 Recovery 1,2022-09-13T17:48:38Z,2022-09-13T17:54:25Z,12821956,mjbvz
+microsoft/vscode,76071146,1.71.0,August 2022 (version 1.71.0),2022-09-01T07:05:32Z,2022-09-01T18:08:15Z,12821956,mjbvz
+microsoft/vscode,74651367,1.70.2,July 2022 Recovery 2,2022-08-15T17:13:44Z,2022-08-17T18:11:27Z,2230985,connor4312
+microsoft/vscode,74130772,1.70.1,July 2022 Recovery 1,2022-08-09T20:02:34Z,2022-08-10T18:03:03Z,2230985,connor4312
+microsoft/vscode,73681305,1.70.0,July 2022 (version 1.70),2022-08-03T05:14:29Z,2022-08-04T17:56:13Z,2230985,connor4312
+microsoft/vscode,72267785,1.69.2,June 2022 Recovery 2,2022-07-18T15:55:11Z,2022-07-18T20:40:08Z,2230985,connor4312
+microsoft/vscode,71824091,1.69.1,June 2022 Recovery 1,2022-07-12T05:58:14Z,2022-07-12T17:04:19Z,2230985,connor4312
+microsoft/vscode,71502038,1.69.0,June 2022 (version 1.69),2022-07-05T18:15:23Z,2022-07-07T18:08:20Z,2230985,connor4312
+microsoft/vscode,69548231,1.68.1,May 2022 Recovery 1,2022-06-14T10:55:41Z,2022-06-15T17:53:22Z,30305945,joyceerhl
+microsoft/vscode,69088479,1.68.0,May 2022 (version 1.68),2022-06-08T11:20:55Z,2022-06-09T18:07:27Z,30305945,joyceerhl
+microsoft/vscode,67208072,1.67.2,April 2022 Recovery 2,2022-05-16T17:42:35Z,2022-05-18T18:05:13Z,30305945,joyceerhl
+microsoft/vscode,66499794,1.67.1,April 2022 Recovery 1,2022-05-06T12:20:52Z,2022-05-10T17:37:51Z,30305945,joyceerhl
+microsoft/vscode,66150183,1.67.0,April 2022 (version 1.67),2022-05-04T11:47:11Z,2022-05-05T18:10:06Z,30305945,joyceerhl
+microsoft/vscode,64270464,1.66.2,March 2022 Recovery 2,2022-04-11T07:30:00Z,2022-04-12T17:13:55Z,2644648,TylerLeonhardt
+microsoft/vscode,63892925,1.66.1,March 2022 Recovery,2022-04-07T15:31:17Z,2022-04-07T17:43:02Z,2644648,TylerLeonhardt
+microsoft/vscode,63185929,1.66.0,March 2022 (version 1.66),2022-03-29T15:21:16Z,2022-03-30T18:08:24Z,2193314,Tyriar
+microsoft/vscode,61529769,1.65.2,February 2022 Recovery 2,2022-03-10T14:14:09Z,2022-03-10T18:57:31Z,323878,roblourens
+microsoft/vscode,61302351,1.65.1,February 2022 Recovery 1,2022-03-08T01:48:17Z,2022-03-08T18:05:09Z,2931520,hediet
+microsoft/vscode,60929829,1.65.0,February 2022 (version 1.65),2022-03-02T02:35:20Z,2022-03-03T19:03:26Z,2193314,Tyriar
+microsoft/vscode,59258028,1.64.2,January 2022 Recovery 2,2022-02-09T21:24:27Z,2022-02-10T18:00:09Z,2931520,hediet
+microsoft/vscode,59039716,1.64.1,January 2022 Recovery,2022-02-07T16:59:04Z,2022-02-08T18:08:52Z,2931520,hediet
+microsoft/vscode,58631352,1.64.0,January 2022,2022-02-02T16:57:24Z,2022-02-03T19:14:53Z,4544166,lramos15
+microsoft/vscode,55479840,1.63.2,November 2021 Recovery 2,2021-12-15T09:23:15Z,2021-12-16T17:51:28Z,964386,deepak1556
+microsoft/vscode,55299055,1.63.1,November 2021 Recovery,2021-12-14T01:45:12Z,2021-12-14T18:03:19Z,964386,deepak1556
+microsoft/vscode,54908167,1.63.0,November 2021,2021-12-08T21:19:32Z,2021-12-08T21:42:46Z,4544166,lramos15
+microsoft/vscode,53665953,1.62.3,October 2021 Recovery 3,2021-11-18T18:44:54Z,2021-11-18T18:55:14Z,4544166,lramos15
+microsoft/vscode,53207412,1.62.2,October 2021 Recovery 2,2021-11-12T15:55:27Z,2021-11-11T23:44:43Z,4544166,lramos15
+microsoft/vscode,53026736,1.62.1,October 2021 Recovery,2021-11-05T08:51:48Z,2021-11-09T18:09:53Z,38270282,alexr00
+microsoft/vscode,52713427,1.62.0,October 2021,2021-11-04T16:42:23Z,2021-11-04T16:59:47Z,4544166,lramos15
+microsoft/vscode,51646803,1.61.2,September 2021 Recovery 2,2021-10-19T18:08:25Z,2021-10-19T19:04:01Z,4544166,lramos15
+microsoft/vscode,51383547,1.61.1,September 2021 Recovery,2021-10-14T18:16:51Z,2021-10-14T18:30:23Z,4544166,lramos15
+microsoft/vscode,50995570,1.61.0,September 2021,2021-10-07T20:53:47Z,2021-10-07T21:07:55Z,4544166,lramos15
+microsoft/vscode,50724198,1.60.2,August 2021 Recovery 2,2021-09-22T11:45:58Z,2021-10-04T08:32:56Z,10746682,sandy081
+microsoft/vscode,49545491,1.60.1,August 2021 Recovery,2021-09-10T16:45:00Z,2021-09-14T17:07:11Z,7199958,rzhao271
+microsoft/vscode,48909216,1.60.0,August 2021,2021-09-01T10:25:58Z,2021-09-02T17:02:56Z,7199958,rzhao271
+microsoft/vscode,48147681,1.59.1,July 2021 Recovery,2021-08-18T23:34:31Z,2021-08-19T22:46:49Z,7199958,rzhao271
+microsoft/vscode,47380908,1.59.0,July 2021,2021-08-04T20:11:41Z,2021-08-05T17:58:24Z,7199958,rzhao271
+microsoft/vscode,46269305,1.58.2,June 2021 Recovery 2,2021-07-14T21:51:05Z,2021-07-15T16:29:14Z,29464607,meganrogge
+microsoft/vscode,46137151,1.58.1,June 2021 Recovery,2021-07-13T06:04:54Z,2021-07-13T17:08:09Z,29464607,meganrogge
+microsoft/vscode,45923262,1.58.0,June 2021,2021-07-07T11:18:25Z,2021-07-08T17:58:00Z,29464607,meganrogge
+microsoft/vscode,44831232,1.57.1,May 2021 Recovery,2021-06-17T12:10:36Z,2021-06-17T21:48:30Z,29464607,meganrogge
+microsoft/vscode,44431897,1.57.0,May 2021,2021-06-09T10:16:30Z,2021-06-10T17:42:05Z,29464607,meganrogge
+microsoft/vscode,42914761,1.56.2,April 2021 Recovery 2,2021-05-13T17:02:33Z,2021-05-13T17:05:13Z,2644648,TylerLeonhardt
+microsoft/vscode,42788476,1.56.1,April 2021 Recovery,2021-05-06T09:54:30Z,2021-05-11T17:17:10Z,5047891,alexdima
+microsoft/vscode,42503695,1.56.0,April 2021,2021-05-05T20:48:28Z,2021-05-05T21:04:25Z,2644648,TylerLeonhardt
+microsoft/vscode,41368481,1.55.2,March 2021 Recovery,2021-04-13T17:03:27Z,2021-04-13T17:06:06Z,2644648,TylerLeonhardt
+microsoft/vscode,41141564,1.55.1,March 2021 Recovery,2021-04-08T18:05:26Z,2021-04-08T18:25:24Z,2644648,TylerLeonhardt
+microsoft/vscode,40776715,1.55.0,March 2021,2021-03-31T17:17:53Z,2021-03-31T18:05:32Z,2644648,TylerLeonhardt
+microsoft/vscode,39843725,1.54.3,February 2021 Recovery 3,2021-03-15T10:37:30Z,2021-03-15T21:12:22Z,6561887,sbatten
+microsoft/vscode,39688865,1.54.2,February 2021 Recovery 2,2021-03-11T00:40:17Z,2021-03-12T00:06:14Z,6561887,sbatten
+microsoft/vscode,39312361,1.54.1,February 2021 Recovery,2021-03-04T22:21:59Z,2021-03-05T00:16:33Z,6561887,sbatten
+microsoft/vscode,39294083,1.54.0,February 2021,2021-03-02T18:39:23Z,2021-03-04T18:22:34Z,876920,rebornix
+microsoft/vscode,37943605,1.53.2,January 2021 Recovery 2,2021-02-11T11:31:56Z,2021-02-11T20:56:47Z,6561887,sbatten
+microsoft/vscode,37817301,1.53.1,January 2021 Recovery,2021-02-08T22:59:27Z,2021-02-09T18:20:49Z,6561887,sbatten
+microsoft/vscode,37367812,1.53.0,January 2021,2021-02-03T15:33:23Z,2021-02-04T17:41:43Z,6561887,sbatten
+microsoft/vscode,35387575,1.52.1,November 2020 Recovery,2020-12-16T14:57:12Z,2020-12-16T23:39:07Z,3672607,RMacfarlane
+microsoft/vscode,35149146,1.52.0,November 2020,2020-12-10T22:10:40Z,2020-12-11T11:50:07Z,3372902,lszomoru
+microsoft/vscode,33823625,1.51.1,October 2020 Recovery,2020-11-10T22:57:26Z,2020-11-11T20:31:47Z,8586769,JacksonKearl
+microsoft/vscode,33546606,1.51.0,October 2020,2020-11-04T15:29:23Z,2020-11-06T09:59:02Z,900690,bpasero
+microsoft/vscode,32601048,1.50.1,September 2020 Recovery,2020-10-13T14:05:48Z,2020-10-15T06:42:47Z,900690,bpasero
+microsoft/vscode,32335192,1.50.0,September 2020,2020-10-07T00:27:02Z,2020-10-08T17:44:24Z,8586769,JacksonKearl
+microsoft/vscode,32109812,1.49.3,August 2020 Recovery 3,2020-10-02T16:06:59Z,2020-10-02T20:02:49Z,8586769,JacksonKearl
+microsoft/vscode,31787992,1.49.2,August 2020 Recovery 2,2020-09-22T23:07:58Z,2020-09-24T22:33:50Z,3672607,RMacfarlane
+microsoft/vscode,31501109,1.49.1,August 2020 Recovery,2020-09-16T22:42:06Z,2020-09-17T22:56:09Z,3672607,RMacfarlane
+microsoft/vscode,31079809,1.49.0,August 2020,2020-09-09T07:40:32Z,2020-09-10T19:03:28Z,3672607,RMacfarlane
+microsoft/vscode,30117194,1.48.2,July 2020 Recovery 2,2020-08-25T09:40:01Z,2020-08-25T18:00:32Z,641685,eamodio
+microsoft/vscode,29943788,1.48.1,July 2020 Recovery,2020-08-19T16:42:26Z,2020-08-20T18:33:31Z,641685,eamodio
+microsoft/vscode,29667450,1.48.0,July 2020,2020-08-11T22:43:16Z,2020-08-13T18:31:13Z,641685,eamodio
+microsoft/vscode,29000675,1.47.3,June 2020 Recovery 3,2020-07-21T14:27:11Z,2020-07-27T19:08:02Z,641685,eamodio
+microsoft/vscode,28651284,1.47.2,June 2020 Recovery 2,2020-07-15T16:15:21Z,2020-07-16T21:07:33Z,641685,eamodio
+microsoft/vscode,28555111,1.47.1,June 2020 Recovery,2020-07-13T22:10:22Z,2020-07-14T17:46:29Z,641685,eamodio
+microsoft/vscode,28417435,1.47.0,June 2020,2020-07-08T08:51:14Z,2020-07-09T20:08:19Z,641685,eamodio
+microsoft/vscode,27695397,1.46.1,May 2020 Recovery,2020-06-17T20:06:31Z,2020-06-18T17:33:17Z,2230985,connor4312
+microsoft/vscode,27442374,1.46.0,May 2020,2020-06-09T17:02:22Z,2020-06-19T06:58:40Z,22350,joaomoreno
+microsoft/vscode,27261197,1.45.1,April 2020 Recovery,2020-05-14T07:59:12Z,2020-06-05T12:21:25Z,22350,joaomoreno
+microsoft/vscode,27261017,1.45.0,April 2020,2020-05-05T21:48:19Z,2020-06-05T12:15:45Z,22350,joaomoreno
+microsoft/vscode,20947282,1.39.2,September 2019 Recovery 2,2019-10-15T15:03:50Z,2019-10-24T12:52:12Z,22350,joaomoreno
+microsoft/vscode,20947264,1.39.1,September 2019 Recovery,2019-10-10T23:02:59Z,2019-10-24T12:51:44Z,22350,joaomoreno
+microsoft/vscode,20947235,1.39.0,September 2019,2019-10-08T16:10:44Z,2019-10-24T12:50:45Z,22350,joaomoreno
+nodejs/node,205721791,v23.10.0,"2025-03-13, Version 23.10.0 (Current), @aduh95",2025-03-13T20:44:30Z,2025-03-13T23:54:12Z,14309773,aduh95
+nodejs/node,205574643,v20.19.0,"2025-03-13, Version 20.19.0 'Iron' (LTS), @marco-ippolito",2025-03-13T13:06:02Z,2025-03-13T13:17:28Z,36735501,marco-ippolito
+nodejs/node,202597270,v23.9.0,"2025-02-26, Version 23.9.0 (Current), @targos",2025-02-26T16:33:16Z,2025-02-26T16:38:17Z,2352663,targos
+nodejs/node,201386823,v18.20.7,"2025-02-20, Version 18.20.7 'Hydrogen' (LTS), @aduh95",2025-02-20T09:32:28Z,2025-02-20T10:20:15Z,14309773,aduh95
+nodejs/node,200201103,v23.8.0,"2025-02-13, Version 23.8.0 (Current), @targos",2025-02-13T17:28:09Z,2025-02-13T17:42:48Z,2352663,targos
+nodejs/node,199575416,v22.14.0,"2025-02-11, Version 22.14.0 'Jod' (LTS), @aduh95",2025-02-11T10:10:47Z,2025-02-11T10:51:25Z,14309773,aduh95
+nodejs/node,199381620,v20.18.3,"2025-02-10, Version 20.18.3 'Iron' (LTS), @marco-ippolito",2025-02-10T13:39:09Z,2025-02-10T13:57:54Z,36735501,marco-ippolito
+nodejs/node,197635946,v23.7.0,"2025-01-30, Version 23.7.0 (Current), @aduh95",2025-01-30T17:57:34Z,2025-01-30T18:07:22Z,14309773,aduh95
+nodejs/node,195896321,v23.6.1,"2025-01-21, Version 23.6.1 (Current), @RafaelGSS",2025-01-21T16:18:47Z,2025-01-21T17:00:14Z,26234614,RafaelGSS
+nodejs/node,195896832,v22.13.1,"2025-01-21, Version 22.13.1 'Jod' (LTS), @RafaelGSS",2025-01-21T12:43:45Z,2025-01-21T17:02:58Z,26234614,RafaelGSS
+nodejs/node,195896945,v20.18.2,"2025-01-21, Version 20.18.2 'Iron' (LTS), @RafaelGSS",2025-01-21T12:36:12Z,2025-01-21T17:03:36Z,26234614,RafaelGSS
+nodejs/node,195897056,v18.20.6,"2025-01-21, Version 18.20.6 'Hydrogen' (LTS), @RafaelGSS",2025-01-21T12:21:50Z,2025-01-21T17:04:10Z,26234614,RafaelGSS
+nodejs/node,193546156,v23.6.0,"2025-01-07, Version 23.6.0 (Current), @marco-ippolito",2025-01-07T17:09:03Z,2025-01-07T17:31:23Z,36735501,marco-ippolito
+nodejs/node,193569891,v22.13.0,"2025-01-07, Version 22.13.0 'Jod' (LTS), @ruyadorno",2025-01-07T19:18:08Z,2025-01-07T19:59:47Z,220900,ruyadorno
+nodejs/node,191729344,v23.5.0,"2024-12-19, Version 23.5.0 (Current), @aduh95",2024-12-19T18:50:10Z,2024-12-19T18:57:09Z,14309773,aduh95
+nodejs/node,189997541,v23.4.0,"2024-12-10, Version 23.4.0 (Current), @aduh95 prepared by @targos",2024-12-10T15:11:32Z,2024-12-10T16:00:03Z,14309773,aduh95
+nodejs/node,188806369,v22.12.0,"2024-12-03, Version 22.12.0 'Jod' (LTS), @ruyadorno",2024-12-03T19:23:30Z,2024-12-03T21:10:20Z,220900,ruyadorno
+nodejs/node,186524374,v23.3.0,"2024-11-20, Version 23.3.0 (Current), @RafaelGSS",2024-11-20T22:52:49Z,2024-11-20T23:00:59Z,26234614,RafaelGSS
+nodejs/node,186432351,v20.18.1,"2024-11-20, Version 20.18.1 'Iron' (LTS), @marco-ippolito",2024-11-20T14:22:24Z,2024-11-20T14:40:28Z,36735501,marco-ippolito
+nodejs/node,184982700,v18.20.5,"2024-11-12, Version 18.20.5 'Hydrogen' (LTS), @aduh95",2024-11-12T21:33:51Z,2024-11-12T21:41:28Z,14309773,aduh95
+nodejs/node,184757458,v23.2.0,"2024-11-11, Version 23.2.0 (Current), @aduh95",2024-11-11T20:21:20Z,2024-11-11T20:44:31Z,14309773,aduh95
+nodejs/node,182496844,v22.11.0,"2024-10-29, Version 22.11.0 'Jod' (LTS), @richardlau",2024-10-29T13:05:49Z,2024-10-29T15:11:08Z,5445507,richardlau
+nodejs/node,181820833,v23.1.0,"2024-10-24, Version 23.1.0 (Current), @aduh95",2024-10-24T21:25:19Z,2024-10-24T21:30:47Z,14309773,aduh95
+nodejs/node,180266217,v23.0.0,"2024-10-16, Version 23.0.0 (Current), @RafaelGSS",2024-10-16T14:01:27Z,2024-10-16T15:42:27Z,26234614,RafaelGSS
+nodejs/node,180335599,v22.10.0,"2024-10-16, Version 22.10.0 (Current), @aduh95",2024-10-16T22:28:19Z,2024-10-16T22:49:29Z,14309773,aduh95
+nodejs/node,178270325,v20.18.0,"2024-10-03, Version 20.18.0 'Iron' (LTS), @targos",2024-10-03T17:41:28Z,2024-10-03T18:00:54Z,2352663,targos
+nodejs/node,175545388,v22.9.0,"2024-09-17, Version 22.9.0 (Current), @RafaelGSS",2024-09-17T20:49:43Z,2024-09-17T21:07:54Z,26234614,RafaelGSS
+nodejs/node,173222787,v22.8.0,"2024-09-03, Version 22.8.0 (Current), @RafaelGSS",2024-09-03T13:40:54Z,2024-09-03T13:46:44Z,26234614,RafaelGSS
+nodejs/node,171489012,v22.7.0,"2024-08-22, Version 22.7.0 (Current), @RafaelGSS",2024-08-22T14:11:57Z,2024-08-22T14:18:42Z,26234614,RafaelGSS
+nodejs/node,171313148,v20.17.0,"2024-08-21, Version 20.17.0 'Iron' (LTS), @marco-ippolito",2024-08-21T16:04:36Z,2024-08-21T16:32:46Z,36735501,marco-ippolito
+nodejs/node,168962644,v22.6.0,"2024-08-06, Version 22.6.0 (Current), @RafaelGSS",2024-08-06T16:55:07Z,2024-08-06T18:04:23Z,26234614,RafaelGSS
+nodejs/node,166891793,v20.16.0,"2024-07-24, Version 20.16.0 'Iron' (LTS), @marco-ippolito",2024-07-24T11:56:28Z,2024-07-24T12:14:55Z,36735501,marco-ippolito
+nodejs/node,166244859,v22.5.1,"2024-07-19, Version 22.5.1 (Current), @richardlau",2024-07-19T13:36:58Z,2024-07-19T13:55:37Z,5445507,richardlau
+nodejs/node,165885448,v22.5.0,"2024-07-17, Version 22.5.0 (Current), @RafaelGSS prepared by @aduh95",2024-07-17T15:07:16Z,2024-07-17T16:08:06Z,26234614,RafaelGSS
+nodejs/node,164465440,v22.4.1,"2024-07-08, Version 22.4.1 (Current), @RafaelGSS",2024-07-08T15:52:23Z,2024-07-08T18:28:17Z,26234614,RafaelGSS
+nodejs/node,164465341,v20.15.1,"2024-07-08, Version 20.15.1 'Iron' (LTS), @RafaelGSS",2024-07-08T16:10:28Z,2024-07-08T18:27:35Z,26234614,RafaelGSS
+nodejs/node,164465245,v18.20.4,"2024-07-08, Version 18.20.4 'Hydrogen' (LTS), @RafaelGSS",2024-07-08T16:03:39Z,2024-07-08T18:26:51Z,26234614,RafaelGSS
+nodejs/node,163519845,v22.4.0,"2024-07-02, Version 22.4.0 (Current), @targos",2024-07-02T08:46:59Z,2024-07-02T09:10:51Z,2352663,targos
+nodejs/node,161515608,v20.15.0,"2024-06-20, Version 20.15.0 'Iron' (LTS), @marco-ippolito",2024-06-20T15:47:09Z,2024-06-20T16:03:08Z,36735501,marco-ippolito
+nodejs/node,159954497,v22.3.0,"2024-06-11, Version 22.3.0 (Current), @RafaelGSS",2024-06-11T18:47:37Z,2024-06-11T19:05:25Z,26234614,RafaelGSS
+nodejs/node,157837399,v20.14.0,"2024-05-28, Version 20.14.0 'Iron' (LTS), @marco-ippolito",2024-05-28T16:28:24Z,2024-05-28T16:55:37Z,36735501,marco-ippolito
+nodejs/node,156681043,v18.20.3,"2024-05-21, Version 18.20.3 'Hydrogen' (LTS), @richardlau",2024-05-21T11:51:19Z,2024-05-21T12:18:22Z,5445507,richardlau
+nodejs/node,155949043,v22.2.0,"2024-05-15, Version 22.2.0 (Current), @targos",2024-05-15T18:57:42Z,2024-05-15T19:28:44Z,2352663,targos
+nodejs/node,154918144,v20.13.1,"2024-05-09, Version 20.13.1 'Iron' (LTS), @marco-ippolito",2024-05-09T10:25:12Z,2024-05-09T10:45:41Z,36735501,marco-ippolito
+nodejs/node,154613267,v20.13.0,"2024-05-07, Version 20.13.0 'Iron' (LTS), @marco-ippolito",2024-05-07T15:06:20Z,2024-05-07T15:53:05Z,36735501,marco-ippolito
+nodejs/node,153841117,v22.1.0,"2024-05-02, Version 22.1.0 (Current), @targos prepared by @aduh95",2024-05-02T13:49:31Z,2024-05-02T14:40:16Z,2352663,targos
+nodejs/node,152672614,v22.0.0,"2024-04-24, Version 22.0.0 (Current), @RafaelGSS and @marco-ippolito",2024-04-24T18:14:50Z,2024-04-24T18:25:49Z,26234614,RafaelGSS
+nodejs/node,150616234,v21.7.3,"2024-04-10, Version 21.7.3 (Current), @RafaelGSS",2024-04-10T16:06:56Z,2024-04-10T16:35:50Z,26234614,RafaelGSS
+nodejs/node,150616094,v20.12.2,"2024-04-10, Version 20.12.2 'Iron' (LTS), @RafaelGSS",2024-04-10T16:15:40Z,2024-04-10T16:35:10Z,26234614,RafaelGSS
+nodejs/node,150615985,v18.20.2,"2024-04-10, Version 18.20.2 'Hydrogen' (LTS), @RafaelGSS",2024-04-10T16:23:39Z,2024-04-10T16:34:41Z,26234614,RafaelGSS
+nodejs/node,149599544,v21.7.2,"2024-04-03, Version 21.7.2 (Current), @RafaelGSS prepared by @marco-ippolito",2024-04-03T13:33:23Z,2024-04-03T14:26:30Z,26234614,RafaelGSS
+nodejs/node,149599207,v20.12.1,"2024-04-03, Version 20.12.1 'Iron' (LTS), @RafaelGSS",2024-04-03T13:43:17Z,2024-04-03T14:25:27Z,26234614,RafaelGSS
+nodejs/node,149599065,v18.20.1,"2024-04-03, Version 18.20.1 'Hydrogen' (LTS), @RafaelGSS",2024-04-03T13:56:20Z,2024-04-03T14:24:59Z,26234614,RafaelGSS
+nodejs/node,148536205,v20.12.0,"2024-03-26, Version 20.12.0 'Iron' (LTS), @richardlau",2024-03-26T17:20:49Z,2024-03-26T18:01:56Z,5445507,richardlau
+nodejs/node,148535981,v18.20.0,"2024-03-26, Version 18.20.0 'Hydrogen' (LTS), @richardlau",2024-03-26T17:19:29Z,2024-03-26T18:00:46Z,5445507,richardlau
+nodejs/node,145569236,v21.7.1,"2024-03-08, Version 21.7.1 (Current), @targos",2024-03-08T21:45:11Z,2024-03-08T22:06:04Z,2352663,targos
+nodejs/node,145121296,v21.7.0,"2024-03-06, Version 21.7.0 (Current), @RafaelGSS prepared by @marco-ippolito",2024-03-06T18:32:20Z,2024-03-06T18:52:28Z,26234614,RafaelGSS
+nodejs/node,142025320,v21.6.2,"2024-02-14, Version 21.6.2 (Current), @RafaelGSS",2024-02-14T16:58:07Z,2024-02-14T17:43:37Z,26234614,RafaelGSS
+nodejs/node,142025270,v20.11.1,"2024-02-14, Version 20.11.1 'Iron' (LTS), @RafaelGSS prepared by @marco-ippolito",2024-02-14T16:54:34Z,2024-02-14T17:43:12Z,26234614,RafaelGSS
+nodejs/node,142025211,v18.19.1,"2024-02-14, Version 18.19.1 'Hydrogen' (LTS), @RafaelGSS prepared by @marco-ippolito",2024-02-14T16:47:31Z,2024-02-14T17:42:38Z,26234614,RafaelGSS
+nodejs/node,138037236,v21.6.1,"2024-01-22, Version 21.6.1 (Current), @RafaelGSS",2024-01-22T19:14:34Z,2024-01-22T19:26:47Z,26234614,RafaelGSS
+nodejs/node,137078534,v21.6.0,"2024-01-15, Version 21.6.0 (Current), @RafaelGSS",2024-01-15T14:46:41Z,2024-01-15T14:54:41Z,26234614,RafaelGSS
+nodejs/node,136482197,v20.11.0,"2024-01-09, Version 20.11.0 'Iron' (LTS), @UlisesGascon",2024-01-09T20:04:41Z,2024-01-10T12:46:46Z,5110813,UlisesGascon
+nodejs/node,134525953,v21.5.0,"2023-12-19, Version 21.5.0 (Current), @RafaelGSS",2023-12-19T18:59:29Z,2023-12-19T19:15:16Z,26234614,RafaelGSS
+nodejs/node,132632296,v21.4.0,"2023-12-05, Version 21.4.0 (Current), @targos",2023-12-05T09:21:35Z,2023-12-05T09:31:22Z,2352663,targos
+nodejs/node,132154835,v21.3.0,"2023-11-30, Version 21.3.0 (Current), @RafaelGSS",2023-11-30T17:31:21Z,2023-11-30T17:43:58Z,26234614,RafaelGSS
+nodejs/node,131959414,v18.19.0,"2023-11-29, Version 18.19.0 'Hydrogen' (LTS), @targos",2023-11-29T16:54:01Z,2023-11-29T17:31:05Z,2352663,targos
+nodejs/node,131017137,v20.10.0,"2023-11-22, Version 20.10.0 'Iron' (LTS), @targos",2023-11-22T14:43:51Z,2023-11-22T15:31:52Z,2352663,targos
+nodejs/node,129412461,v21.2.0,"2023-11-14, Version 21.2.0 (Current), @targos",2023-11-14T17:57:42Z,2023-11-14T18:23:41Z,2352663,targos
+nodejs/node,126423877,v21.1.0,"2023-10-24, Version 21.1.0 (Current), @targos",2023-10-24T13:10:35Z,2023-10-24T14:00:29Z,2352663,targos
+nodejs/node,126435427,v20.9.0,"2023-10-24, Version 20.9.0 'Iron' (LTS), @richardlau",2023-10-24T12:40:37Z,2023-10-24T14:50:41Z,5445507,richardlau
+nodejs/node,125458626,v21.0.0,"2023-10-17, Version 21.0.0 (Current), @RafaelGSS and @targos",2023-10-17T15:40:05Z,2023-10-17T16:11:27Z,26234614,RafaelGSS
+nodejs/node,125054535,v20.8.1,"2023-10-13, Version 20.8.1 (Current), @RafaelGSS",2023-10-13T20:09:53Z,2023-10-13T21:09:38Z,26234614,RafaelGSS
+nodejs/node,125054432,v18.18.2,"2023-10-13, Version 18.18.2 'Hydrogen' (LTS), @RafaelGSS",2023-10-13T20:41:04Z,2023-10-13T21:08:22Z,26234614,RafaelGSS
+nodejs/node,124465449,v18.18.1,"2023-10-10, Version 18.18.1 'Hydrogen' (LTS), @richardlau",2023-10-10T15:32:45Z,2023-10-10T17:11:12Z,5445507,richardlau
+nodejs/node,123061982,v20.8.0,"2023-09-28, Version 20.8.0 (Current), @ruyadorno",2023-09-29T02:57:25Z,2023-09-29T03:44:47Z,220900,ruyadorno
+nodejs/node,121584038,v20.7.0,"2023-09-18, Version 20.7.0 (Current), @UlisesGascon",2023-09-18T16:55:59Z,2023-09-18T19:01:31Z,5110813,UlisesGascon
+nodejs/node,121603533,v18.18.0,"2023-09-18, Version 18.18.0 'Hydrogen' (LTS), @ruyadorno",2023-09-18T21:20:01Z,2023-09-18T22:00:28Z,220900,ruyadorno
+nodejs/node,120464590,v20.6.1,"2023-09-08, Version 20.6.1 (Current), @ruyadorno and @RafaelGSS",2023-09-08T15:35:50Z,2023-09-08T16:49:50Z,220900,ruyadorno
+nodejs/node,119857826,v20.6.0,"2023-09-04, Version 20.6.0 (Current), @juanarbol prepared by @UlisesGascon",2023-09-02T23:44:22Z,2023-09-04T20:30:32Z,5110813,UlisesGascon
+nodejs/node,115803740,v20.5.1,"2023-08-09, Version 20.5.1 (Current), @RafaelGSS",2023-08-09T17:15:57Z,2023-08-09T17:58:37Z,26234614,RafaelGSS
+nodejs/node,115803697,v18.17.1,"2023-08-09, Version 18.17.1 'Hydrogen' (LTS), @RafaelGSS",2023-08-09T16:57:08Z,2023-08-09T17:58:12Z,26234614,RafaelGSS
+nodejs/node,115803638,v16.20.2,"2023-08-09, Version 16.20.2 'Gallium' (LTS), @RafaelGSS",2023-08-09T16:28:18Z,2023-08-09T17:57:38Z,26234614,RafaelGSS
+nodejs/node,113038724,v20.5.0,"2023-07-18, Version 20.5.0 (Current), @juanarbol",2023-07-20T21:15:44Z,2023-07-20T21:41:03Z,17013303,juanarbol
+nodejs/node,112722577,v18.17.0,"2023-07-18, Version 18.17.0 'Hydrogen' (LTS), @danielleadams",2023-07-18T19:11:23Z,2023-07-18T20:05:00Z,6271256,danielleadams
+nodejs/node,111134564,v20.4.0,"2023-07-05, Version 20.4.0 (Current), @RafaelGSS",2023-07-05T13:49:00Z,2023-07-05T15:12:26Z,26234614,RafaelGSS
+nodejs/node,109285710,v20.3.1,"2023-06-20, Version 20.3.1 (Current), @RafaelGSS",2023-06-20T19:58:37Z,2023-06-20T20:15:09Z,26234614,RafaelGSS
+nodejs/node,109287719,v18.16.1,"2023-06-20, Version 18.16.1 'Hydrogen' (LTS), @RafaelGSS",2023-06-20T20:18:09Z,2023-06-20T20:35:49Z,26234614,RafaelGSS
+nodejs/node,109280190,v16.20.1,"2023-06-20, Version 16.20.1 'Gallium' (LTS), @RafaelGSS",2023-06-20T19:08:02Z,2023-06-20T19:29:52Z,26234614,RafaelGSS
+nodejs/node,107863794,v20.3.0,"2023-06-08, Version 20.3.0 (Current), @targos",2023-06-08T15:57:16Z,2023-06-08T16:34:44Z,26234614,RafaelGSS
+nodejs/node,103155904,v20.2.0,"2023-05-16, Version 20.2.0 (Current), @targos",2023-05-16T12:37:41Z,2023-05-16T12:50:06Z,2352663,targos
+nodejs/node,101745552,v20.1.0,"2023-05-03, Version 20.1.0 (Current), @targos",2023-05-03T15:37:08Z,2023-05-03T15:48:03Z,2352663,targos
+nodejs/node,99938945,v20.0.0,"2023-04-18, Version 20.0.0 (Current), @RafaelGSS",2023-04-18T16:01:08Z,2023-04-18T16:11:43Z,26234614,RafaelGSS
+nodejs/node,99251186,v18.16.0,"2023-04-12, Version 18.16.0 'Hydrogen' (LTS), @danielleadams",2023-04-12T23:16:25Z,2023-04-13T00:50:23Z,6271256,danielleadams
+nodejs/node,98854595,v19.9.0,"2023-04-10, Version 19.9.0 (Current), @RafaelGSS",2023-04-11T00:07:06Z,2023-04-11T00:35:42Z,26234614,RafaelGSS
+nodejs/node,97376721,v16.20.0,"2023-03-29, Version 16.20.0 'Gallium' (LTS), @BethGriggs",2023-03-29T17:39:39Z,2023-03-29T20:14:10Z,8297234,BethGriggs
+nodejs/node,95735924,v19.8.1,"2023-03-15, Version 19.8.1 (Current), @targos",2023-03-15T17:09:39Z,2023-03-15T17:18:54Z,2352663,targos
+nodejs/node,95608394,v19.8.0,"2023-03-14, Version 19.8.0 (Current), @targos",2023-03-14T18:47:31Z,2023-03-14T19:05:10Z,2352663,targos
+nodejs/node,94833393,v18.15.0,"2023-03-07, Version 18.15.0 'Hydrogen' (LTS), @BethGriggs prepared by @juanarbol",2023-03-07T19:16:03Z,2023-03-07T20:59:31Z,17013303,juanarbol
+nodejs/node,93199084,v19.7.0,"2023-02-21, Version 19.7.0 (Current), @MylesBorins",2023-02-21T18:06:27Z,2023-02-21T18:18:33Z,498775,MylesBorins
+nodejs/node,93199017,v18.14.2,"2023-02-21, Version 18.14.2 'Hydrogen' (LTS), @MylesBorins",2023-02-21T18:05:57Z,2023-02-21T18:17:56Z,498775,MylesBorins
+nodejs/node,92774697,v19.6.1,"2023-02-16, Version 19.6.1 (Current), @RafaelGSS",2023-02-16T20:54:57Z,2023-02-16T22:25:58Z,26234614,RafaelGSS
+nodejs/node,92774665,v18.14.1,"2023-02-16, Version 18.14.1 'Hydrogen' (LTS), @RafaelGSS prepared by @juanarbol",2023-02-16T21:12:52Z,2023-02-16T22:25:20Z,26234614,RafaelGSS
+nodejs/node,92774651,v16.19.1,"2023-02-16, Version 16.19.1 'Gallium' (LTS), @richardlau",2023-02-16T20:36:10Z,2023-02-16T22:25:13Z,5445507,richardlau
+nodejs/node,92774534,v14.21.3,"2023-02-16, Version 14.21.3 'Fermium' (LTS), @richardlau",2023-02-16T20:20:47Z,2023-02-16T22:23:38Z,5445507,richardlau
+nodejs/node,91181111,v18.14.0,"2023-02-02, Version 18.14.0 'Hydrogen' (LTS), @BethGriggs prepared by @juanarbol",2023-02-02T18:39:02Z,2023-02-02T19:44:44Z,17013303,juanarbol
+nodejs/node,91159979,v19.6.0,"2023-02-02, Version 19.6.0 (Current), @ruyadorno",2023-02-01T23:00:53Z,2023-02-02T16:40:42Z,220900,ruyadorno
+nodejs/node,90111557,v19.5.0,"2023-01-24, Version 19.5.0 (Current), @RafaelGSS",2023-01-24T21:10:40Z,2023-01-24T22:36:03Z,26234614,RafaelGSS
+nodejs/node,88126427,v19.4.0,"2023-01-06, Version 19.4.0 (Current), @RafaelGSS",2023-01-06T12:51:44Z,2023-01-06T13:22:27Z,26234614,RafaelGSS
+nodejs/node,88079289,v18.13.0,"2023-01-05, Version 18.13.0 'Hydrogen' (LTS), @danielleadams",2023-01-06T00:26:51Z,2023-01-06T01:13:24Z,6271256,danielleadams
+nodejs/node,86031961,v19.3.0,"2022-12-14, Version 19.3.0 (Current), @targos",2022-12-14T13:45:36Z,2022-12-14T14:02:36Z,2352663,targos
+nodejs/node,85866249,v16.19.0,"2022-12-13, Version 16.19.0 'Gallium' (LTS), @richardlau",2022-12-13T12:51:14Z,2022-12-13T13:24:19Z,5445507,richardlau
+nodejs/node,85865994,v14.21.2,"2022-12-13, Version 14.21.2 'Fermium' (LTS), @richardlau",2022-12-13T12:31:50Z,2022-12-13T13:21:56Z,5445507,richardlau
+nodejs/node,84493680,v19.2.0,"2022-11-29, Version 19.2.0 (Current), @ruyadorno",2022-11-29T19:02:03Z,2022-11-29T19:31:26Z,220900,ruyadorno
+nodejs/node,82995340,v19.1.0,"2022-11-14, Version 19.1.0 (Current), @RafaelGSS",2022-11-14T13:23:32Z,2022-11-14T14:41:44Z,26234614,RafaelGSS
+nodejs/node,82117031,v19.0.1,"2022-11-04, Version 19.0.1 (Current), @RafaelGSS",2022-11-04T17:00:10Z,2022-11-04T18:07:34Z,26234614,RafaelGSS
+nodejs/node,82295361,v18.12.1,"2022-11-04, Version 18.12.1 'Hydrogen' (LTS), @juanarbol",2022-11-04T19:36:14Z,2022-11-07T16:59:32Z,17013303,juanarbol
+nodejs/node,82116064,v16.18.1,"2022-11-04, Version 16.18.1 'Gallium' (LTS), @BethGriggs",2022-11-04T16:20:22Z,2022-11-04T17:57:26Z,8297234,BethGriggs
+nodejs/node,82116031,v14.21.1,"2022-11-04, Version 14.21.1 'Fermium' (LTS), @BethGriggs",2022-11-04T16:05:27Z,2022-11-04T17:56:49Z,8297234,BethGriggs
+nodejs/node,81723791,v14.21.0,"2022-11-01, Version 14.21.0 'Fermium' (LTS), @danielleadams",2022-11-01T21:14:08Z,2022-11-01T21:44:58Z,6271256,danielleadams
+nodejs/node,80977808,v18.12.0,"2022-10-25, Version 18.12.0 'Hydrogen' (LTS), @ruyadorno and @RafaelGSS",2022-10-25T21:11:12Z,2022-10-25T21:43:11Z,220900,ruyadorno
+nodejs/node,80229150,v19.0.0,"2022-10-18, Version 19.0.0 (Current), @RafaelGSS and @ruyadorno",2022-10-18T14:09:21Z,2022-10-18T16:00:44Z,26234614,RafaelGSS
+nodejs/node,79849614,v18.11.0,"2022-10-13, Version 18.11.0 (Current), @danielleadams",2022-10-13T19:52:05Z,2022-10-13T23:44:30Z,6271256,danielleadams
+nodejs/node,79659948,v16.18.0,"2022-10-12, Version 16.18.0 'Gallium' (LTS), @juanarbol",2022-10-12T14:00:58Z,2022-10-12T15:02:30Z,17013303,juanarbol
+nodejs/node,78484294,v18.10.0,"2022-09-28, Version 18.10.0 (Current), @RafaelGSS",2022-09-28T17:29:46Z,2022-09-28T17:43:49Z,26234614,RafaelGSS
+nodejs/node,78003987,v18.9.1,"2022-09-23, Version 18.9.1 (Current), @RafaelGSS",2022-09-23T15:15:17Z,2022-09-23T16:11:52Z,26234614,RafaelGSS
+nodejs/node,78003975,v16.17.1,"2022-09-23, Version 16.17.1 'Gallium' (LTS), @ruyadorno",2022-09-23T15:01:56Z,2022-09-23T16:11:39Z,220900,ruyadorno
+nodejs/node,78003790,v14.20.1,"2022-09-23, Version 14.20.1 'Fermium' (LTS), @bengl",2022-09-23T14:47:39Z,2022-09-23T16:09:36Z,110455,bengl
+nodejs/node,76607893,v18.9.0,"2022-09-08, Version 18.9.0 (Current), @RafaelGSS",2022-09-08T14:28:10Z,2022-09-08T15:08:10Z,26234614,RafaelGSS
+nodejs/node,75244183,v18.8.0,"2022-08-24, Version 18.8.0 (Current), @ruyadorno",2022-08-24T15:14:33Z,2022-08-24T16:17:03Z,220900,ruyadorno
+nodejs/node,74504821,v16.17.0,"2022-08-16, Version 16.17.0 'Gallium' (LTS), @targos",2022-08-16T10:15:56Z,2022-08-16T11:08:32Z,2352663,targos
+nodejs/node,72905711,v18.7.0,"2022-07-26, Version 18.7.0 (Current), @danielleadams",2022-07-26T22:03:09Z,2022-07-26T22:28:55Z,6271256,danielleadams
+nodejs/node,71942912,v18.6.0,"2022-07-13, Version 18.6.0 (Current), @targos",2022-07-13T20:49:37Z,2022-07-13T20:59:45Z,2352663,targos
+nodejs/node,71488083,v18.5.0,"2022-07-07, Version 18.5.0 (Current), @RafaelGSS",2022-07-07T13:32:06Z,2022-07-07T15:29:52Z,26234614,RafaelGSS
+nodejs/node,71487713,v16.16.0,"2022-07-07, Version 16.16.0 'Gallium' (LTS), @danielleadams",2022-07-07T13:37:18Z,2022-07-07T15:25:55Z,6271256,danielleadams
+nodejs/node,71488502,v14.20.0,"2022-07-07, Version 14.20.0 'Fermium' (LTS), @danielleadams prepared by @juanarbol",2022-07-07T13:27:25Z,2022-07-07T15:34:08Z,17013303,juanarbol
+nodejs/node,69621907,v18.4.0,"2022-06-16, Version 18.4.0 (Current), @danielleadams",2022-06-16T13:33:52Z,2022-06-16T13:54:52Z,6271256,danielleadams
+nodejs/node,68409232,v18.3.0,"2022-06-01, Version 18.3.0 (Current), @bengl",2022-06-02T03:10:56Z,2022-06-02T03:39:50Z,110455,bengl
+nodejs/node,68400280,v17.9.1,"2022-06-01, Version 17.9.1 (Current), @ruyadorno",2022-06-02T00:26:47Z,2022-06-02T01:06:05Z,220900,ruyadorno
+nodejs/node,68396025,v16.15.1,"2022-06-01, Version 16.15.1 'Gallium' (LTS), @BethGriggs prepared by @juanarbol",2022-06-01T21:43:14Z,2022-06-01T23:34:02Z,17013303,juanarbol
+nodejs/node,67095142,v18.2.0,"2022-05-17, Version 18.2.0 (Current), @BethGriggs prepared by @RafaelGSS",2022-05-17T15:22:29Z,2022-05-17T15:54:43Z,26234614,RafaelGSS
+nodejs/node,67108560,v14.19.3,"2022-05-17, Version 14.19.3 'Fermium' (LTS), @richardlau",2022-05-17T18:25:32Z,2022-05-17T18:47:17Z,5445507,richardlau
+nodejs/node,66044883,v14.19.2,"2022-05-04, Version 14.19.2 'Fermium' (LTS), @BethGriggs prepared by @juanarbol",2022-05-04T16:39:24Z,2022-05-04T17:23:49Z,17013303,juanarbol
+nodejs/node,65903525,v18.1.0,"2022-05-03, Version 18.1.0 (Current), @targos",2022-05-03T11:49:59Z,2022-05-03T12:01:41Z,2352663,targos
+nodejs/node,65419869,v16.15.0,"2022-04-26, Version 16.15.0 'Gallium' (LTS), @danielleadams",2022-04-26T22:49:21Z,2022-04-27T01:19:29Z,6271256,danielleadams
+nodejs/node,64758326,v18.0.0,"2022-04-19, Version 18.0.0 (Current), @BethGriggs",2022-04-19T13:23:17Z,2022-04-19T16:14:54Z,8297234,BethGriggs
+nodejs/node,63927468,v17.9.0,"2022-04-07, Version 17.9.0 (Current), @BethGriggs prepared by @juanarbol",2022-04-07T22:29:07Z,2022-04-07T23:12:34Z,8297234,BethGriggs
+nodejs/node,63621469,v12.22.12,"2022-04-05, Version 12.22.12 'Erbium' (LTS), @richardlau",2022-04-05T12:08:12Z,2022-04-05T12:28:08Z,5445507,richardlau
+nodejs/node,62463785,v17.8.0,"2022-03-22, Version 17.8.0 (Current), @bengl",2022-03-22T14:25:24Z,2022-03-22T14:56:25Z,110455,bengl
+nodejs/node,62151566,v17.7.2,"2022-03-17, Version 17.7.2 (Current), @richardlau",2022-03-18T00:57:50Z,2022-03-18T01:13:26Z,5445507,richardlau
+nodejs/node,62151530,v16.14.2,"2022-03-17, Version 16.14.2 'Gallium' (LTS), @richardlau",2022-03-18T00:45:30Z,2022-03-18T01:12:20Z,5445507,richardlau
+nodejs/node,62150400,v14.19.1,"2022-03-17, Version 14.19.1 'Fermium' (LTS), @richardlau",2022-03-17T23:28:19Z,2022-03-18T00:42:28Z,5445507,richardlau
+nodejs/node,62150365,v12.22.11,"2022-03-17, Version 12.22.11 'Erbium' (LTS), @richardlau",2022-03-17T23:12:14Z,2022-03-18T00:41:34Z,5445507,richardlau
+nodejs/node,61955463,v16.14.1,"2022-03-15, Version 16.14.1 'Gallium' (LTS), @danielleadams",2022-03-16T02:01:19Z,2022-03-16T02:54:44Z,6271256,danielleadams
+nodejs/node,61538543,v17.7.1,"2022-03-10, Version 17.7.1 (Current), @BethGriggs prepared by @sxa",2022-03-10T19:06:13Z,2022-03-10T20:53:08Z,8297234,BethGriggs
+nodejs/node,61407379,v17.7.0,"2022-03-09, Version 17.7.0 (Current), @BethGriggs prepared by @sxa",2022-03-09T16:04:15Z,2022-03-09T18:09:23Z,8297234,BethGriggs
+nodejs/node,60183292,v17.6.0,"2022-02-22, Version 17.6.0 (Current), @BethGriggs prepared by @bengl",2022-02-22T23:34:14Z,2022-02-23T01:02:03Z,8297234,BethGriggs
+nodejs/node,59265320,v17.5.0,"2022-02-10, Version 17.5.0 (Current), @ruyadorno",2022-02-10T04:49:52Z,2022-02-10T18:51:01Z,220900,ruyadorno
+nodejs/node,59049248,v16.14.0,"2022-02-08, Version 16.14.0 'Gallium' (LTS), @danielleadams",2022-02-08T19:01:00Z,2022-02-08T19:51:47Z,6271256,danielleadams
+nodejs/node,58428318,v14.19.0,"2022-02-01, Version 14.19.0 'Fermium' (LTS), @richardlau",2022-02-01T13:12:06Z,2022-02-01T13:40:46Z,5445507,richardlau
+nodejs/node,58464691,v12.22.10,"2022-02-01, Version 12.22.10 'Erbium' (LTS), @ruyadorno",2022-02-01T20:01:00Z,2022-02-01T20:37:18Z,220900,ruyadorno
+nodejs/node,57378935,v17.4.0,"2022-01-18, Version 17.4.0 (Current), @targos",2022-01-18T14:59:49Z,2022-01-18T15:09:57Z,2352663,targos
+nodejs/node,56785147,v17.3.1,"2022-01-10, Version 17.3.1 (Current), @BethGriggs",2022-01-10T20:49:11Z,2022-01-11T00:49:31Z,8297234,BethGriggs
+nodejs/node,56785072,v16.13.2,"2022-01-10, Version 16.13.2 'Gallium' (LTS), @danielleadams",2022-01-10T22:51:06Z,2022-01-11T00:47:25Z,6271256,danielleadams
+nodejs/node,56782210,v14.18.3,"2022-01-10, Version 14.18.3 'Fermium' (LTS), @richardlau",2022-01-10T22:54:42Z,2022-01-10T23:29:02Z,5445507,richardlau
+nodejs/node,56782128,v12.22.9,"2022-01-10, Version 12.22.9 'Erbium' (LTS), @richardlau",2022-01-10T22:45:30Z,2022-01-10T23:27:03Z,5445507,richardlau
+nodejs/node,55581354,v17.3.0,"2021-12-17, Version 17.3.0 (Current), @danielleadams",2021-12-17T23:07:13Z,2021-12-17T23:24:48Z,6271256,danielleadams
+nodejs/node,55502264,v12.22.8,"2021-12-16, Version 12.22.8 'Erbium' (LTS), @richardlau",2021-12-16T23:28:57Z,2021-12-16T23:48:41Z,5445507,richardlau
+nodejs/node,54425289,v16.13.1,"2021-12-01, Version 16.13.1 'Gallium' (LTS), @BethGriggs",2021-12-01T14:21:48Z,2021-12-01T16:23:48Z,8297234,BethGriggs
+nodejs/node,54346066,v17.2.0,"2021-11-30, Version 17.2.0 (Current), @targos",2021-11-30T17:42:01Z,2021-11-30T17:51:53Z,2352663,targos
+nodejs/node,54339222,v14.18.2,"2021-11-30, Version 14.18.2 'Fermium' (LTS), @richardlau",2021-11-30T16:05:18Z,2021-11-30T16:30:20Z,5445507,richardlau
+nodejs/node,53031005,v17.1.0,"2021-11-09, Version 17.1.0 (Current), @targos",2021-11-09T19:01:19Z,2021-11-09T19:13:09Z,2352663,targos
+nodejs/node,52073616,v16.13.0,"2021-10-26, Version 16.13.0 'Gallium' (LTS), @richardlau",2021-10-26T16:04:58Z,2021-10-26T16:22:38Z,5445507,richardlau
+nodejs/node,51738704,v17.0.1,"2021-10-20, Version 17.0.1 (Current), @targos",2021-10-20T19:41:55Z,2021-10-20T20:28:42Z,2352663,targos
+nodejs/node,51714216,v16.12.0,"2021-10-20, Version 16.12.0 (Current), @richardlau",2021-10-20T14:15:47Z,2021-10-20T15:09:02Z,5445507,richardlau
+nodejs/node,51634350,v17.0.0,"2021-10-19, Version 17.0.0 (Current), @BethGriggs",2021-10-19T13:35:42Z,2021-10-19T16:02:29Z,8297234,BethGriggs
+nodejs/node,51222918,v16.11.1,"2021-10-12, Version 16.11.1 (Current), @danielleadams",2021-10-12T13:59:04Z,2021-10-12T15:55:06Z,6271256,danielleadams
+nodejs/node,51222978,v14.18.1,"2021-10-12, Version 14.18.1 'Fermium' (LTS), @danielleadams",2021-10-12T14:02:33Z,2021-10-12T15:56:00Z,6271256,danielleadams
+nodejs/node,51223075,v12.22.7,"2021-10-12, Version 12.22.7 'Erbium' (LTS), @danielleadams",2021-10-12T14:04:57Z,2021-10-12T15:57:11Z,6271256,danielleadams
+nodejs/node,51050645,v16.11.0,"2021-10-08, Version 16.11.0 (Current), @danielleadams",2021-10-08T16:42:24Z,2021-10-08T17:18:26Z,6271256,danielleadams
+nodejs/node,50389298,v14.18.0,"2021-09-28, Version 14.18.0 'Fermium' (LTS), @targos",2021-09-28T10:50:31Z,2021-09-28T11:39:39Z,2352663,targos
+nodejs/node,50089677,v16.10.0,"2021-09-22, Version 16.10.0 (Current), @BethGriggs",2021-09-22T20:23:02Z,2021-09-22T21:01:00Z,8297234,BethGriggs
+nodejs/node,49370957,v16.9.1,"2021-09-10, Version 16.9.1 (Current), @richardlau",2021-09-10T19:30:41Z,2021-09-10T19:53:49Z,5445507,richardlau
+nodejs/node,49117430,v16.9.0,"2021-09-07, Version 16.9.0 (Current), @targos",2021-09-07T09:58:21Z,2021-09-07T10:11:15Z,2352663,targos
+nodejs/node,48753179,v14.17.6,"2021-08-31, Version 14.17.6 'Fermium' (LTS), @MylesBorins",2021-08-31T14:48:21Z,2021-08-31T15:00:44Z,498775,MylesBorins
+nodejs/node,48753123,v12.22.6,"2021-08-31, Version 12.22.6 'Erbium' (LTS), @MylesBorins",2021-08-31T14:52:58Z,2021-08-31T15:00:07Z,498775,MylesBorins
+nodejs/node,48460161,v16.8.0,"2021-08-25, Version 16.8.0 (Current), @targos",2021-08-25T20:48:35Z,2021-08-25T21:13:37Z,2352663,targos
+nodejs/node,48013171,v16.7.0,"2021-08-17, Version 16.7.0 (Current), @danielleadams",2021-08-18T01:05:31Z,2021-08-18T01:22:08Z,6271256,danielleadams
+nodejs/node,47688488,v16.6.2,"2021-08-11, Version 16.6.2 (Current), @BethGriggs",2021-08-11T15:17:41Z,2021-08-11T16:52:49Z,8297234,BethGriggs
+nodejs/node,47688463,v14.17.5,"2021-08-11, Version 14.17.5 'Fermium' (LTS), @BethGriggs",2021-08-11T15:11:52Z,2021-08-11T16:52:16Z,8297234,BethGriggs
+nodejs/node,47688416,v12.22.5,"2021-08-11, Version 12.22.5 'Erbium' (LTS), @BethGriggs",2021-08-11T15:02:29Z,2021-08-11T16:51:35Z,8297234,BethGriggs
+nodejs/node,47206974,v16.6.1,"2021-08-03, Version 16.6.1 (Current), @targos",2021-08-03T07:57:17Z,2021-08-03T08:10:44Z,2352663,targos
+nodejs/node,47012153,v16.6.0,"2021-07-29, Version 16.6.0 (Current), @BethGriggs",2021-07-29T22:41:14Z,2021-07-29T23:20:28Z,8297234,BethGriggs
+nodejs/node,46993398,v14.17.4,"2021-07-29, Version 14.17.4 'Fermium' (LTS), @richardlau",2021-07-29T13:58:24Z,2021-07-29T17:04:02Z,5445507,richardlau
+nodejs/node,46993339,v12.22.4,"2021-07-29, Version 12.22.4 'Erbium' (LTS), @richardlau",2021-07-29T13:57:15Z,2021-07-29T17:02:46Z,5445507,richardlau
+nodejs/node,46174084,v16.5.0,"2021-07-14, Version 16.5.0 (Current), @targos",2021-07-14T09:05:52Z,2021-07-14T09:15:43Z,2352663,targos
+nodejs/node,45729778,v16.4.2,"2021-07-05, Version 16.4.2 (Current), @BethGriggs",2021-07-05T15:39:05Z,2021-07-05T17:37:29Z,8297234,BethGriggs
+nodejs/node,45730497,v14.17.3,"2021-07-05, Version 14.17.3 'Fermium' (LTS), @richardlau",2021-07-05T15:58:39Z,2021-07-05T18:01:05Z,5445507,richardlau
+nodejs/node,45730462,v12.22.3,"2021-07-05, Version 12.22.3 'Erbium' (LTS), @richardlau",2021-07-05T15:42:53Z,2021-07-05T18:00:05Z,5445507,richardlau
+nodejs/node,45571081,v16.4.1,"2021-07-01, Version 16.4.1 (Current), @BethGriggs",2021-07-01T10:51:12Z,2021-07-01T15:45:28Z,8297234,BethGriggs
+nodejs/node,45570786,v14.17.2,"2021-07-01, Version 14.17.2 'Fermium' (LTS), @richardlau",2021-07-01T13:42:59Z,2021-07-01T15:41:21Z,5445507,richardlau
+nodejs/node,45570736,v12.22.2,"2021-07-01, Version 12.22.2 'Erbium' (LTS), @richardlau",2021-07-01T13:33:42Z,2021-07-01T15:40:35Z,5445507,richardlau
+nodejs/node,45093462,v16.4.0,"2021-06-23, Version 16.4.0 (Current), @danielleadams",2021-06-23T11:33:44Z,2021-06-23T12:10:39Z,6271256,danielleadams
+nodejs/node,44643405,v14.17.1,"2021-06-15, Version 14.17.1 'Fermium' (LTS), @targos",2021-06-15T12:38:10Z,2021-06-15T12:53:28Z,2352663,targos
+nodejs/node,44017044,v16.3.0,"2021-06-02, Version 16.3.0 (Current), @danielleadams",2021-06-03T03:14:18Z,2021-06-03T03:51:12Z,6271256,danielleadams
+nodejs/node,43207113,v16.2.0,"2021-05-19, Version 16.2.0 (Current), @targos",2021-05-19T10:52:53Z,2021-05-19T11:04:09Z,2352663,targos
+nodejs/node,42806127,v14.17.0,"2021-05-11, Version 14.17.0 'Fermium' (LTS), @danielleadams",2021-05-11T22:06:05Z,2021-05-11T23:39:47Z,6271256,danielleadams
+nodejs/node,42423171,v16.1.0,"2021-05-04, Version 16.1.0 (Current), @targos",2021-05-04T15:06:46Z,2021-05-04T15:21:17Z,2352663,targos
+nodejs/node,41723738,v16.0.0,"2021-04-20, Version 16.0.0 (Current), @BethGriggs",2021-04-20T15:39:30Z,2021-04-20T15:59:54Z,8297234,BethGriggs
+nodejs/node,41019635,v15.14.0,"2021-04-06, Version 15.14.0 (Current), @mylesborins",2021-04-06T14:39:33Z,2021-04-06T19:59:32Z,498775,MylesBorins
+nodejs/node,41019606,v14.16.1,"2021-04-06, Version 14.16.1 'Fermium' (LTS), @mylesborins",2021-04-06T14:45:12Z,2021-04-06T19:59:03Z,498775,MylesBorins
+nodejs/node,41019565,v12.22.1,"2021-04-06, Version 12.22.1 'Erbium' (LTS), @mylesborins",2021-04-06T14:44:06Z,2021-04-06T19:58:27Z,498775,MylesBorins
+nodejs/node,41019536,v10.24.1,"2021-04-06, Version 10.24.1 'Dubnium' (LTS), @mylesborins",2021-04-06T14:42:56Z,2021-04-06T19:57:50Z,498775,MylesBorins
+nodejs/node,40763805,v15.13.0,"2021-03-31, Version 15.13.0 (Current), @ruyadorno",2021-03-31T14:02:06Z,2021-03-31T14:33:50Z,220900,ruyadorno
+nodejs/node,40700514,v12.22.0,"2021-03-30, Version 12.22.0 'Erbium' (LTS), @richardlau",2021-03-30T13:45:54Z,2021-03-30T14:23:15Z,5445507,richardlau
+nodejs/node,39972623,v15.12.0,"2021-03-17, Version 15.12.0 (Current), @danielleadams",2021-03-17T22:05:51Z,2021-03-17T22:37:12Z,6271256,danielleadams
+nodejs/node,39162922,v15.11.0,"2021-03-03, Version 15.11.0 (Current), @targos",2021-03-03T06:00:05Z,2021-03-03T06:29:53Z,2352663,targos
+nodejs/node,38485065,v15.10.0,"2021-02-23, Version 15.10.0 (Current), @BethGriggs",2021-02-23T11:36:41Z,2021-02-23T13:13:04Z,8297234,BethGriggs
+nodejs/node,38485036,v14.16.0,"2021-02-23, Version 14.16.0 'Fermium' (LTS), @BethGriggs",2021-02-23T11:35:32Z,2021-02-23T13:12:32Z,8297234,BethGriggs
+nodejs/node,38484819,v12.21.0,"2021-02-23, Version 12.21.0 'Erbium' (LTS), @richardlau",2021-02-23T11:11:44Z,2021-02-23T13:08:15Z,5445507,richardlau
+nodejs/node,38484771,v10.24.0,"2021-02-23, Version 10.24.0 'Dubnium' (LTS), @richardlau",2021-02-23T11:09:04Z,2021-02-23T13:07:26Z,5445507,richardlau
+nodejs/node,38204003,v15.9.0,"2021-02-17, Version 15.9.0 (Current), @danielleadams",2021-02-18T02:13:00Z,2021-02-18T02:41:20Z,6271256,danielleadams
+nodejs/node,37885805,v12.20.2,"2021-02-10, Version 12.20.2 'Erbium' (LTS), @ruyadorno",2021-02-10T20:20:40Z,2021-02-10T20:49:39Z,220900,ruyadorno
+nodejs/node,37812742,v14.15.5,"2021-02-09, Version 14.15.5 'Fermium' (LTS), @BethGriggs",2021-02-09T15:44:36Z,2021-02-09T16:58:40Z,8297234,BethGriggs
+nodejs/node,37830974,v10.23.3,"2021-02-09, Version 10.23.3 'Dubnium' (LTS), @richardlau",2021-02-09T22:48:17Z,2021-02-09T23:14:51Z,5445507,richardlau
+nodejs/node,37261524,v15.8.0,"2021-02-02, Version 15.8.0 (Current), @targos",2021-02-02T20:47:04Z,2021-02-02T20:59:48Z,2352663,targos
+nodejs/node,36923666,v15.7.0,"2021-01-26, Version 15.7.0 (Current), @ruyadorno",2021-01-26T15:57:20Z,2021-01-26T16:26:33Z,220900,ruyadorno
+nodejs/node,36926845,v10.23.2,"2021-01-26, Version 10.23.2 'Dubnium' (LTS), @richardlau",2021-01-26T17:08:24Z,2021-01-26T17:26:05Z,5445507,richardlau
+nodejs/node,36422789,v15.6.0,"2021-01-14, Version 15.6.0 (Current), @danielleadams",2021-01-15T00:39:59Z,2021-01-15T01:18:03Z,6271256,danielleadams
+nodejs/node,35962669,v15.5.1,"2021-01-04, Version 15.5.1 (Current), @BethGriggs",2021-01-04T17:31:43Z,2021-01-04T18:24:36Z,8297234,BethGriggs
+nodejs/node,35962698,v14.15.4,"2021-01-04, Version 14.15.4 'Fermium' (LTS), @BethGriggs",2021-01-04T17:40:55Z,2021-01-04T18:25:18Z,8297234,BethGriggs
+nodejs/node,35962854,v12.20.1,"2021-01-04, Version 12.20.1 'Erbium' (LTS), @richardlau",2021-01-04T16:43:55Z,2021-01-04T18:29:34Z,5445507,richardlau
+nodejs/node,35962807,v10.23.1,"2021-01-04, Version 10.23.1 'Dubnium' (LTS), @richardlau",2021-01-04T16:42:30Z,2021-01-04T18:28:10Z,5445507,richardlau
+nodejs/node,35629014,v15.5.0,"2020-12-22, Version 15.5.0 (Current), @targos",2020-12-22T18:52:29Z,2020-12-22T19:02:28Z,2352663,targos
+nodejs/node,35447452,v14.15.3,"2020-12-17, Version 14.15.3 'Fermium' (LTS), @BethGriggs",2020-12-17T22:08:26Z,2020-12-17T23:36:03Z,8297234,BethGriggs
+nodejs/node,35322608,v14.15.2,"2020-12-15, Version 14.15.2 'Fermium' (LTS), @BethGriggs",2020-12-15T23:33:44Z,2020-12-16T00:07:53Z,8297234,BethGriggs
+nodejs/node,35046128,v15.4.0,"2020-12-09, Version 15.4.0 (Current), @danielleadams",2020-12-09T11:13:37Z,2020-12-09T14:29:05Z,6271256,danielleadams
+nodejs/node,34372608,v15.3.0,"2020-11-24, Version 15.3.0 (Current), @codebytere",2020-11-24T16:03:17Z,2020-11-24T16:33:15Z,2036040,codebytere
+nodejs/node,34373092,v12.20.0,"2020-11-24, Version 12.20.0 'Erbium' (LTS), @mylesborins",2020-11-24T16:18:29Z,2020-11-24T16:42:13Z,498775,MylesBorins
+nodejs/node,34012302,v15.2.1,"2020-11-16, Version 15.2.1 (Current), @targos",2020-11-16T15:18:16Z,2020-11-16T16:24:03Z,2352663,targos
+nodejs/node,34012988,v14.15.1,"2020-11-16, Version 14.15.1 'Fermium' (LTS), @BethGriggs",2020-11-16T15:34:33Z,2020-11-16T16:38:08Z,8297234,BethGriggs
+nodejs/node,34012939,v12.19.1,"2020-11-16, Version 12.19.1 'Erbium' (LTS), @BethGriggs",2020-11-16T15:53:16Z,2020-11-16T16:37:12Z,8297234,BethGriggs
+nodejs/node,33759436,v15.2.0,"2020-11-10, Version 15.2.0 (Current), @danielleadams",2020-11-10T22:27:18Z,2020-11-10T23:17:45Z,6271256,danielleadams
+nodejs/node,33473535,v15.1.0,"2020-11-04, Version 15.1.0 (Current), @targos",2020-11-04T20:38:39Z,2020-11-04T20:58:08Z,2352663,targos
+nodejs/node,33119770,v14.15.0,"2020-10-27, Version 14.15.0 'Fermium' (LTS), @richardlau",2020-10-27T15:47:26Z,2020-10-27T16:18:23Z,5445507,richardlau
+nodejs/node,33119652,v10.23.0,"2020-10-27, Version 10.23.0 'Dubnium' (LTS), @richardlau",2020-10-27T15:14:12Z,2020-10-27T16:15:48Z,5445507,richardlau
+nodejs/node,32885787,v15.0.1,"2020-10-21, Version 15.0.1 (Current), @BethGriggs",2020-10-21T20:09:56Z,2020-10-21T20:32:29Z,8297234,BethGriggs
+nodejs/node,32818073,v15.0.0,"2020-10-20, Version 15.0.0 (Current), @BethGriggs",2020-10-20T14:06:12Z,2020-10-20T15:24:42Z,8297234,BethGriggs
+nodejs/node,32649368,v14.14.0,"2020-10-15, Version 14.14.0 (Current), @MylesBorins",2020-10-16T00:05:36Z,2020-10-16T00:48:25Z,498775,MylesBorins
+nodejs/node,32293126,v14.13.1,"2020-10-07, Version 14.13.1 (Current), @BethGriggs prepared by @danielleadams",2020-10-07T21:09:25Z,2020-10-07T21:43:40Z,6271256,danielleadams
+nodejs/node,32238375,v12.19.0,"2020-10-06, Version 12.19.0 'Erbium' (LTS), @codebytere",2020-10-06T20:05:33Z,2020-10-06T20:41:17Z,2036040,codebytere
+nodejs/node,32195504,v14.13.0,"2020-09-29, Version 14.13.0 (Current), @MylesBorins",2020-09-29T19:43:16Z,2020-10-06T02:50:57Z,498775,MylesBorins
+nodejs/node,31669403,v14.12.0,"2020-09-22, Version 14.12.0 (Current), @ruyadorno",2020-09-22T17:53:57Z,2020-09-22T18:26:59Z,220900,ruyadorno
+nodejs/node,31358163,v14.11.0,"2020-09-15, Version 14.11.0 (Current), @richardlau",2020-09-15T20:22:48Z,2020-09-15T21:24:57Z,5445507,richardlau
+nodejs/node,31357525,v12.18.4,"2020-09-15, Version 12.18.4 'Erbium' (LTS), @BethGriggs prepared by @targos",2020-09-15T20:40:35Z,2020-09-15T21:11:46Z,8297234,BethGriggs
+nodejs/node,31357467,v10.22.1,"2020-09-15, Version 10.22.1 'Dubnium' (LTS), @BethGriggs",2020-09-15T20:32:02Z,2020-09-15T21:10:37Z,8297234,BethGriggs
+nodejs/node,31065600,v14.10.1,"2020-09-10, Version 14.10.1 (Current), @richardlau",2020-09-10T14:42:20Z,2020-09-10T15:28:51Z,5445507,richardlau
+nodejs/node,30920557,v14.10.0,"2020-09-08, Version 14.10.0 (Current), @richardlau",2020-09-08T15:02:59Z,2020-09-08T16:01:41Z,5445507,richardlau
+nodejs/node,30224937,v14.9.0,"2020-08-27, Version 14.9.0 (Current), @BethGriggs prepared by @danielleadams",2020-08-27T14:35:45Z,2020-08-27T14:53:53Z,8297234,BethGriggs
+nodejs/node,29568593,v14.8.0,"2020-08-11, Version 14.8.0 (Current), @codebytere",2020-08-11T16:37:17Z,2020-08-11T16:48:02Z,2036040,codebytere
+nodejs/node,29086357,v14.7.0,"2020-07-29, Version 14.7.0 (Current), @MylesBorins prepared by @ruyadorno",2020-07-29T18:34:14Z,2020-07-29T18:50:46Z,498775,MylesBorins
+nodejs/node,28837218,v12.18.3,"2020-07-22, Version 12.18.3 'Erbium' (LTS), @codebytere",2020-07-22T16:48:06Z,2020-07-22T16:58:49Z,2036040,codebytere
+nodejs/node,28845434,v14.6.0,"2020-07-21, Version 14.6.0 (Current), @MylesBorins",2020-07-21T21:39:26Z,2020-07-22T20:35:19Z,498775,MylesBorins
+nodejs/node,28790919,v10.22.0,"2020-07-21, Version 10.22.0 'Dubnium' (LTS), @BethGriggs prepared by @richardlau",2020-07-21T15:22:44Z,2020-07-21T16:11:29Z,8297234,BethGriggs
+nodejs/node,28091298,v14.5.0,"2020-06-30, Version 14.5.0 (Current), @codebytere",2020-06-30T22:22:18Z,2020-06-30T22:38:27Z,2036040,codebytere
+nodejs/node,28069449,v12.18.2,"2020-06-30, Version 12.18.2 'Erbium' (LTS), @BethGriggs",2020-06-30T10:20:26Z,2020-06-30T13:43:56Z,8297234,BethGriggs
+nodejs/node,27649773,v12.18.1,"2020-06-17, Version 12.18.1 'Erbium' (LTS), @codebytere",2020-06-17T16:16:27Z,2020-06-17T16:31:52Z,2036040,codebytere
+nodejs/node,27149397,v14.4.0,"2020-06-02, Version 14.4.0 (Current), @targos",2020-06-02T18:18:17Z,2020-06-02T18:45:49Z,2352663,targos
+nodejs/node,27149412,v12.18.0,"2020-06-02, Version 12.18.0 'Erbium' (LTS), @targos",2020-06-02T18:27:06Z,2020-06-02T18:46:21Z,2352663,targos
+nodejs/node,27149432,v10.21.0,"2020-06-02, Version 10.21.0 'Dubnium' (LTS), @BethGriggs",2020-06-02T17:54:12Z,2020-06-02T18:46:59Z,8297234,BethGriggs
+nodejs/node,26901944,v12.17.0,"2020-05-26, Version 12.17.0 'Erbium' (LTS), @targos",2020-05-26T13:28:31Z,2020-05-26T14:06:50Z,2352663,targos
+nodejs/node,26689915,v14.3.0,v14.3.0,2020-05-19T21:22:17Z,2020-05-19T21:32:53Z,2036040,codebytere
+nodejs/node,26195389,v14.2.0,"2020-05-05, Version 14.2.0 (Current), @targos",2020-05-05T18:21:52Z,2020-05-05T18:35:22Z,2352663,targos
+nodejs/node,26018613,v14.1.0,"2020-04-29, Version 14.1.0 (Current), @BethGriggs",2020-04-29T18:01:46Z,2020-04-29T18:44:45Z,8297234,BethGriggs
+nodejs/node,26025827,v13.14.0,"2020-04-29, Version 13.14.0 (Current), @BridgeAR",2020-04-29T21:55:36Z,2020-04-29T22:33:30Z,8822573,BridgeAR
+nodejs/node,25963474,v12.16.3,"2020-04-28, Version 12.16.3 'Erbium' (LTS), @targos",2020-04-28T13:11:54Z,2020-04-28T13:30:35Z,2352663,targos
+nodejs/node,25727678,v14.0.0,"2020-04-21, Version 14.0.0 (Current), @BethGriggs",2020-04-21T14:31:37Z,2020-04-21T15:02:58Z,8297234,BethGriggs
+nodejs/node,25499466,v13.13.0,"2020-04-14, Version 13.13.0 (Current), @targos",2020-04-14T18:14:46Z,2020-04-14T18:40:26Z,2352663,targos
+nodejs/node,25427478,v10.20.1,"2020-04-12, Version 10.20.1 'Dubnium' (LTS), @BethGriggs",2020-04-12T12:47:32Z,2020-04-12T13:37:04Z,8297234,BethGriggs
+nodejs/node,25335380,v12.16.2,"2020-04-08, Version 12.16.2 'Erbium' (LTS), @codebytere",2020-04-08T17:56:41Z,2020-04-08T19:29:31Z,2036040,codebytere
+nodejs/node,25331218,v10.20.0,"2020-04-08, Version 10.20.0 'Dubnium' (LTS), @BethGriggs",2020-04-08T15:27:11Z,2020-04-08T17:20:39Z,8297234,BethGriggs
+nodejs/node,24912568,v13.12.0,"2020-03-26, Version 13.12.0 (Current), @mylesborins",2020-03-26T22:45:48Z,2020-03-26T22:56:24Z,498775,MylesBorins
+nodejs/node,24450323,v13.11.0,"2020-03-11, Version 13.11.0 (Current), @MylesBorins",2020-03-12T02:40:56Z,2020-03-12T04:06:39Z,498775,MylesBorins
+nodejs/node,24233350,v13.10.1,"2020-03-04, Version 13.10.1 (Current), @MylesBorins",2020-03-05T01:07:56Z,2020-03-05T01:44:59Z,498775,MylesBorins
+nodejs/node,24221204,v13.10.0,"2020-03-04, Version 13.10.0 (Current), @codebytere",2020-03-04T17:45:11Z,2020-03-04T18:00:58Z,2036040,codebytere
+nodejs/node,23782735,v13.9.0,"2020-02-18, Version 13.9.0 (Current), @codebytere",2020-02-18T20:31:19Z,2020-02-18T21:01:57Z,2036040,codebytere
+nodejs/node,23781179,v12.16.1,"2020-02-18, Version 12.16.1 'Erbium' (LTS), @MylesBorins",2020-02-18T19:33:19Z,2020-02-18T20:14:00Z,498775,MylesBorins
+nodejs/node,23579566,v12.16.0,"2020-02-11, Version 12.16.0 'Erbium' (LTS), @targos",2020-02-11T17:45:02Z,2020-02-11T18:40:37Z,2352663,targos
+nodejs/node,23431645,v13.8.0,"2020-02-06, Version 13.8.0 (Current), @BethGriggs",2020-02-06T02:27:49Z,2020-02-06T03:28:42Z,8297234,BethGriggs
+nodejs/node,23431637,v12.15.0,"2020-02-06, Version 12.15.0 'Erbium' (LTS), @BethGriggs",2020-02-06T02:28:36Z,2020-02-06T03:27:55Z,8297234,BethGriggs
+nodejs/node,23431624,v10.19.0,"2020-02-06, Version 10.19.0 'Dubnium' (LTS), @BethGriggs",2020-02-06T02:29:25Z,2020-02-06T03:27:07Z,8297234,BethGriggs
+nodejs/node,23015947,v13.7.0,"2020-01-21, Version 13.7.0 (Current), @codebytere",2020-01-21T17:18:46Z,2020-01-21T18:52:32Z,2036040,codebytere
+nodejs/node,22727221,v10.18.1,"2020-01-09, Version 10.18.1 'Dubnium' (LTS), @BethGriggs",2020-01-09T20:37:56Z,2020-01-09T22:16:27Z,8297234,BethGriggs
+nodejs/node,22662970,v13.6.0,"2020-01-07, Version 13.6.0 (Current), @BridgeAR",2020-01-07T23:02:17Z,2020-01-07T23:17:53Z,8822573,BridgeAR
+nodejs/node,22655970,v12.14.1,"2020-01-07, Version 12.14.1 'Erbium' (LTS), @BethGriggs",2020-01-07T16:45:38Z,2020-01-07T18:24:08Z,8297234,BethGriggs
+nodejs/node,22333188,v13.5.0,"2019-12-18, Version 13.5.0 (Current), @MylesBorins",2019-12-18T18:49:23Z,2019-12-18T18:58:39Z,498775,MylesBorins
+nodejs/node,22333175,v13.4.0,"2019-12-17, Version 13.4.0 (Current), @MylesBorins",2019-12-17T22:02:15Z,2019-12-18T18:58:18Z,498775,MylesBorins
+nodejs/node,22333128,v12.14.0,"2019-12-17, Version 12.14.0 'Erbium' (LTS), @MylesBorins",2019-12-17T22:02:30Z,2019-12-18T18:56:32Z,498775,MylesBorins
+nodejs/node,22333120,v10.18.0,"2019-12-17, Version 10.18.0 'Dubnium' (LTS), @MylesBorins",2019-12-17T22:02:36Z,2019-12-18T18:56:12Z,498775,MylesBorins
+nodejs/node,22333110,v8.17.0,"2019-12-17, Version 8.17.0 'Carbon' (LTS), @MylesBorins",2019-12-17T22:03:03Z,2019-12-18T18:55:49Z,498775,MylesBorins
+nodejs/node,21944431,v13.3.0,"2019-12-03, Version 13.3.0 (Current), @BridgeAR",2019-12-03T20:18:46Z,2019-12-03T22:02:21Z,8822573,BridgeAR
+nodejs/node,21677996,v13.2.0,"2019-11-21, Version 13.2.0 (Current), @MylesBorins",2019-11-21T22:12:30Z,2019-11-22T08:11:36Z,2352663,targos
+nodejs/node,21580912,v12.13.1,"2019-11-19, Version 12.13.1 'Erbium' (LTS), @targos",2019-11-19T10:46:23Z,2019-11-19T10:55:59Z,2352663,targos
+nodejs/node,21246353,v13.1.0,"2019-11-05, Version 13.1.0 (Current), @targos",2019-11-05T18:36:49Z,2019-11-06T07:56:13Z,2352663,targos
+nodejs/node,20910903,v13.0.1,"2019-10-23, Version 13.0.1 (Current), @targos",2019-10-23T10:30:38Z,2019-10-23T10:40:55Z,2352663,targos
+nodejs/node,20892802,v13.0.0,"2019-10-22, Version 13.0.0 (Current), @BethGriggs",2019-10-22T15:59:47Z,2019-10-22T18:42:30Z,8297234,BethGriggs
+nodejs/node,20894085,v10.17.0,"2019-10-22, Version 10.17.0 'Dubnium' (LTS), @BethGriggs",2019-10-22T18:58:56Z,2019-10-22T19:28:23Z,8297234,BethGriggs
+nodejs/node,20845146,v12.13.0,"2019-10-21, Version 12.13.0 'Erbium' (LTS), @targos",2019-10-21T09:09:27Z,2019-10-21T09:26:09Z,2352663,targos
+nodejs/node,20653157,v12.12.0,"2019-10-11, Version 12.12.0 (Current), @BridgeAR",2019-10-11T19:17:28Z,2019-10-11T22:03:16Z,8822573,BridgeAR
+nodejs/node,20650546,v8.16.2,"2019-10-09, Version 8.16.2 'Carbon' (LTS), @BethGriggs",2019-10-09T20:05:38Z,2019-10-11T19:50:06Z,8297234,BethGriggs
+nodejs/node,20390689,v12.11.1,"2019-10-01, Version 12.11.1 (Current), @targos",2019-10-01T16:41:37Z,2019-10-01T16:49:24Z,2352663,targos
+nodejs/node,20261032,v12.11.0,"2019-09-25, Version 12.11.0 (Current), @BridgeAR",2019-09-25T23:05:07Z,2019-09-25T23:19:17Z,8822573,BridgeAR
+nodejs/node,19757313,v12.10.0,"2019-09-03, Version 12.10.0 (Current), @BridgeAR",2019-09-04T18:13:18Z,2019-09-04T18:18:45Z,8822573,BridgeAR
+nodejs/node,19543344,v12.9.1,"2019-08-26, Version 12.9.1 (Current), @targos",2019-08-26T18:33:10Z,2019-08-26T19:47:01Z,2352663,targos
+nodejs/node,19416832,v12.9.0,"2019-08-20, Version 12.9.0 (Current), @targos",2019-08-20T19:07:52Z,2019-08-20T19:42:20Z,2352663,targos
+nodejs/node,19313127,v12.8.1,"2019-08-15, Version 12.8.1 (Current), @targos",2019-08-15T12:44:44Z,2019-08-15T13:17:42Z,2352663,targos
+nodejs/node,19325892,v10.16.3,"2019-08-15, Version 10.16.3 'Dubnium' (LTS), @BethGriggs",2019-08-15T21:23:00Z,2019-08-15T22:50:57Z,8297234,BethGriggs
+nodejs/node,19325910,v8.16.1,"2019-08-15, Version 8.16.1 'Carbon' (LTS), @BethGriggs",2019-08-15T21:24:53Z,2019-08-15T22:52:23Z,8297234,BethGriggs
+nodejs/node,19120722,v12.8.0,"2019-08-06, Version 12.8.0 (Current), @BridgeAR",2019-08-06T22:19:27Z,2019-08-06T22:32:30Z,8822573,BridgeAR
+nodejs/node,19120834,v10.16.2,"2019-08-06, Version 10.16.2 'Dubnium' (LTS), @BethGriggs",2019-08-06T22:16:50Z,2019-08-06T22:40:49Z,8297234,BethGriggs
+nodejs/node,18995560,v10.16.1,"2019-07-31, Version 10.16.1 'Dubnium' (LTS), @BethGriggs",2019-07-31T18:54:51Z,2019-07-31T19:28:35Z,8297234,BethGriggs
+nodejs/node,18816703,v12.7.0,"2019-07-23, Version 12.7.0 (Current), @targos",2019-07-23T20:51:15Z,2019-07-23T21:01:40Z,2352663,targos
+nodejs/node,18388732,v12.6.0,"2019-07-03, Version 12.6.0 (Current), @targos",2019-07-03T13:50:44Z,2019-07-03T14:00:57Z,2352663,targos
+nodejs/node,18268023,v12.5.0,"2019-06-27, Version 12.5.0 (Current), @BridgeAR",2019-06-27T13:43:58Z,2019-06-27T14:03:56Z,8822573,BridgeAR
+nodejs/node,17771710,v12.4.0,"2019-06-04, Version 12.4.0 (Current), @targos",2019-06-04T13:56:34Z,2019-06-04T14:08:16Z,2352663,targos
+nodejs/node,17642240,v10.16.0,"2019-05-28, Version 10.16.0 'Dubnium' (LTS), @BethGriggs",2019-05-28T22:19:45Z,2019-05-28T23:04:25Z,8297234,BethGriggs
+nodejs/node,17523375,v12.3.1,"2019-05-22, Version 12.3.1 (Current), @BridgeAR",2019-05-22T18:27:00Z,2019-05-22T18:01:58Z,8822573,BridgeAR
+nodejs/node,17497144,v12.3.0,"2019-05-21, Version 12.3.0 (Current), @BridgeAR",2019-05-21T19:17:30Z,2019-05-21T18:46:51Z,8822573,BridgeAR
+nodejs/node,17204349,v12.2.0,"2019-05-07, Version 12.2.0 (Current), @targos",2019-05-07T18:35:03Z,2019-05-07T18:42:59Z,2352663,targos
+nodejs/node,17073861,v11.15.0,"2019-04-30, Version 11.15.0 (Current), @codebytere",2019-04-30T15:20:12Z,2019-04-30T18:03:41Z,2036040,codebytere
+nodejs/node,17042870,v12.1.0,"2019-04-29, Version 12.1.0 (Current), @targos",2019-04-29T14:36:08Z,2019-04-29T14:47:01Z,2352663,targos
+nodejs/node,16925447,v12.0.0,"2019-04-23, Version 12.0.0 (Current), @BethGriggs",2019-04-23T14:52:43Z,2019-04-23T15:52:16Z,8297234,BethGriggs
+nodejs/node,16859404,v8.16.0,"2019-04-16, Version 8.16.0 'Carbon' (LTS), @MylesBorins",2019-04-16T16:44:50Z,2019-04-18T21:25:56Z,498775,MylesBorins
+nodejs/node,16712689,v11.14.0,"2019-04-11, Version 11.14.0 (Current), @BethGriggs",2019-04-11T16:45:55Z,2019-04-11T21:00:26Z,8297234,BethGriggs
+nodejs/node,16538934,v6.17.1,"2019-04-03, Version 6.17.1 'Boron' (LTS), @BethGriggs",2019-04-03T19:11:37Z,2019-04-03T20:00:57Z,8297234,BethGriggs
+nodejs/node,16419924,v11.13.0,"2019-03-28, Version 11.13.0 (Current), @targos",2019-03-28T19:20:36Z,2019-03-28T19:36:18Z,2352663,targos
+nodejs/node,16150736,v11.12.0,"2019-03-15, Version 11.12.0 (Current), @BridgeAR",2019-03-15T18:48:46Z,2019-03-15T21:16:54Z,8822573,BridgeAR
+nodejs/node,15954356,v11.11.0,"2019-03-06, Version 11.11.0 (Current), @BridgeAR",2019-03-06T19:12:57Z,2019-03-06T19:44:17Z,8822573,BridgeAR
+nodejs/node,15926359,v10.15.3,"2019-03-05, Version 10.15.3 'Dubnium' (LTS), @BethGriggs",2019-03-05T16:50:07Z,2019-03-05T17:37:13Z,8297234,BethGriggs
+nodejs/node,15572604,v11.10.0,"2019-02-14, Version 11.10.0 (Current), @targos",2019-02-14T22:51:30Z,2019-02-14T23:03:07Z,2352663,targos
+nodejs/node,15277675,v11.9.0,"2019-01-30, Version 11.9.0 (Current), @targos",2019-01-30T22:01:38Z,2019-01-30T22:13:59Z,2352663,targos
+nodejs/node,15248315,v10.15.1,"2019-01-29, Version 10.15.1 'Dubnium' (LTS), @codebytere",2019-01-29T17:51:09Z,2019-01-29T19:02:00Z,2036040,codebytere
+nodejs/node,15250345,v11.8.0,"2019-01-24, Version 11.8.0 (Current), @MylesBorins",2019-01-25T01:48:34Z,2019-01-29T20:38:32Z,2352663,targos
+nodejs/node,15054766,v11.7.0,"2019-01-17, Version 11.7.0 (Current), @BridgeAR",2019-01-17T22:25:54Z,2019-01-18T13:52:57Z,8822573,BridgeAR
+nodejs/node,14703821,v11.6.0,"2018-12-26, Version 11.6.0 (Current), @MylesBorins",2018-12-26T16:08:31Z,2018-12-26T16:35:28Z,498775,MylesBorins
+nodejs/node,14703815,v10.15.0,"2018-12-26, Version 10.15.0 'Dubnium' (LTS), @MylesBorins",2018-12-26T16:09:27Z,2018-12-26T16:35:03Z,498775,MylesBorins
+nodejs/node,14703810,v8.15.0,"2018-12-26, Version 8.15.0 'Carbon' (LTS), @MylesBorins",2018-12-26T16:11:52Z,2018-12-26T16:34:31Z,498775,MylesBorins
+nodejs/node,14703803,v6.16.0,"2018-12-26, Version 6.16.0 'Boron' (LTS), @MylesBorins",2018-12-26T16:12:45Z,2018-12-26T16:34:04Z,498775,MylesBorins
+nodejs/node,14600057,v11.5.0,"2018-12-18, Version 11.5.0 (Current), @BethGriggs",2018-12-18T16:38:25Z,2018-12-18T19:26:31Z,8297234,BethGriggs
+nodejs/node,14597011,v8.14.1,"2018-12-18, Version 8.14.1 'Carbon' (LTS), @MylesBorins prepared by @BethGriggs",2018-12-18T16:23:42Z,2018-12-18T16:48:51Z,498775,MylesBorins
+nodejs/node,14596990,v10.14.2,"2018-12-11, Version 10.14.2 'Dubnium' (LTS), @MylesBorins prepared by @codebytere",2018-12-11T20:35:24Z,2018-12-18T16:48:10Z,498775,MylesBorins
+nodejs/node,14414819,v11.4.0,"2018-12-07, Version 11.4.0 (Current), @BridgeAR",2018-12-07T17:04:13Z,2018-12-07T18:26:56Z,8822573,BridgeAR
+nodejs/node,14378311,v6.15.1,"2018-12-03, Version 6.15.1 'Boron' (LTS), @rvagg",2018-12-03T14:10:46Z,2018-12-06T04:55:10Z,498775,MylesBorins
+nodejs/node,14378303,v10.14.1,"2018-11-29, Version 10.14.1 'Dubnium' (LTS), @MylesBorins",2018-11-29T16:35:10Z,2018-12-06T04:54:06Z,498775,MylesBorins
+nodejs/node,14378299,v10.14.0,"2018-11-27, Version 10.14.0 'Dubnium' (LTS), @rvagg",2018-11-28T00:18:45Z,2018-12-06T04:53:22Z,498775,MylesBorins
+nodejs/node,14378293,v8.14.0,"2018-11-27, Version 8.14.0 'Carbon' (LTS), @rvagg",2018-11-28T00:18:31Z,2018-12-06T04:52:48Z,498775,MylesBorins
+nodejs/node,14378287,v6.15.0,"2018-11-27, Version 6.15.0 'Boron' (LTS), @rvagg",2018-11-28T00:18:16Z,2018-12-06T04:52:10Z,498775,MylesBorins
+nodejs/node,14378280,v11.3.0,"2018-11-27, Version 11.3.0 (Current), @rvagg",2018-11-27T22:14:00Z,2018-12-06T04:51:29Z,498775,MylesBorins
+nodejs/node,14104138,v8.13.0,"2018-11-20, Version 8.13.0 'Carbon' (LTS), @MylesBorins prepared by @BethGriggs",2018-11-20T15:38:58Z,2018-11-20T18:14:05Z,498775,MylesBorins
+nodejs/node,14031840,v11.2.0,"2018-11-15, Version 11.2.0 (Current), @BridgeAR",2018-11-15T21:06:04Z,2018-11-15T21:24:53Z,2352663,targos
+nodejs/node,13796895,v11.1.0,"2018-11-02, Version 11.1.0 (Current), @targos",2018-11-02T12:27:07Z,2018-11-02T12:37:57Z,2352663,targos
+nodejs/node,13800178,v10.13.0,"2018-10-30, Version 10.13.0 'Dubnium' (LTS), @MylesBorins",2018-10-30T06:36:43Z,2018-11-02T15:19:08Z,498775,MylesBorins
+nodejs/node,13614902,v11.0.0,"2018-10-23, Version 11.0.0 (Current), @jasnell",2018-10-23T17:54:22Z,2018-10-23T18:22:21Z,439929,jasnell
+nodejs/node,13361377,v10.12.0,"2018-10-10, Version 10.12.0 (Current), @targos",2018-10-10T21:12:05Z,2018-10-10T21:32:13Z,2352663,targos
+nodejs/node,13000380,v10.11.0,"2018-09-20, Version 10.11.0 (Current), @targos",2018-09-20T09:50:15Z,2018-09-20T11:50:08Z,2352663,targos
+nodejs/node,12830121,v8.12.0,"2018-09-11, Version 8.12.0 'Carbon' (LTS), @MylesBorins",2018-09-11T05:16:57Z,2018-09-11T05:46:41Z,498775,MylesBorins
+nodejs/node,12773858,v10.10.0,"2018-09-06, Version 10.10.0 (Current), @targos",2018-09-06T21:19:09Z,2018-09-06T22:07:51Z,2352663,targos
+nodejs/node,12426142,v10.9.0,"2018-08-15, Version 10.9.0 (Current), @rvagg",2018-08-16T01:28:58Z,2018-08-16T02:17:58Z,495647,rvagg
+nodejs/node,12426120,v8.11.4,"2018-08-15, Version 8.11.4 'Carbon' (LTS), @rvagg",2018-08-16T01:32:37Z,2018-08-16T02:15:24Z,495647,rvagg
+nodejs/node,12426106,v6.14.4,"2018-08-15, Version 6.14.4 'Boron' (LTS), @rvagg",2018-08-16T01:34:29Z,2018-08-16T02:12:43Z,495647,rvagg
+nodejs/node,12210786,v10.8.0,"2018-08-01, Version 10.8.0 (Current), @targos",2018-08-01T18:50:26Z,2018-08-01T19:14:03Z,2352663,targos
+nodejs/node,11992919,v10.7.0,"2018-07-18, Version 10.7.0 (Current), @targos",2018-07-18T18:12:26Z,2018-07-18T18:36:23Z,2352663,targos
+nodejs/node,11786656,v10.6.0,"2018-07-04, Version 10.6.0 (Current), @targos",2018-07-04T17:54:08Z,2018-07-05T06:32:59Z,2352663,targos
+nodejs/node,11575391,v10.5.0,"2018-06-20, Version 10.5.0 (Current), @targos",2018-06-20T18:33:23Z,2018-06-20T19:25:45Z,2352663,targos
+nodejs/node,11451485,v10.4.1,"2018-06-12, Version 10.4.1 (Current), @evanlucas",2018-06-12T23:21:26Z,2018-06-13T00:25:10Z,677994,evanlucas
+nodejs/node,11451480,v9.11.2,"2018-06-12, Version 9.11.2 (Current), @evanlucas",2018-06-12T23:20:40Z,2018-06-13T00:24:36Z,677994,evanlucas
+nodejs/node,11451475,v8.11.3,"2018-06-12, Version 8.11.3 'Carbon' (LTS), @evanlucas",2018-06-12T23:19:43Z,2018-06-13T00:24:04Z,677994,evanlucas
+nodejs/node,11451465,v6.14.3,"2018-06-12, Version 6.14.3 'Boron' (LTS), @evanlucas",2018-06-12T23:22:06Z,2018-06-13T00:23:10Z,677994,evanlucas
+nodejs/node,11351027,v10.4.0,"2018-06-06, Version 10.4.0 (Current), @MylesBorins",2018-06-06T14:19:25Z,2018-06-06T14:38:58Z,498775,MylesBorins
+nodejs/node,11344623,v10.3.0,"2018-05-29, Version 10.3.0 (Current), @MylesBorins",2018-05-29T17:31:23Z,2018-06-06T08:36:13Z,498775,MylesBorins
+nodejs/node,11344619,v10.2.1,"2018-05-24, Version 10.2.1 (Current), @MylesBorins",2018-05-24T20:06:58Z,2018-06-06T08:35:52Z,498775,MylesBorins
+nodejs/node,11160366,v10.2.0,"2018-05-23, Version 10.2.0 (Current), @MylesBorins",2018-05-23T22:56:16Z,2018-05-24T15:30:05Z,498775,MylesBorins
+nodejs/node,11160347,v8.11.2,"2018-05-15, Version 8.11.2 'Carbon' (LTS), @MylesBorins",2018-05-15T21:24:33Z,2018-05-24T15:29:41Z,498775,MylesBorins
+nodejs/node,11160335,v10.1.0,"2018-05-08, Version 10.1.0 (Current), @MylesBorins",2018-05-09T02:39:23Z,2018-05-24T15:29:11Z,498775,MylesBorins
+nodejs/node,11160309,v6.14.2,"2018-04-30, Version 6.14.2 'Boron' (LTS), @MylesBorins",2018-04-30T17:38:34Z,2018-05-24T15:28:19Z,498775,MylesBorins
+nodejs/node,11160278,v10.0.0,"2018-04-24, Version 10.0.0 (Current), @jasnell",2018-04-24T16:45:36Z,2018-05-24T15:27:41Z,498775,MylesBorins
+nodejs/node,10404032,v9.11.1,"2018-04-05, Version 9.11.1 (Current), @MylesBorins",2018-04-05T05:15:01Z,2018-04-05T07:17:37Z,498775,MylesBorins
+nodejs/node,10404023,v9.11.0,"2018-04-04, Version 9.11.0 (Current), @MylesBorins prepared by @targos",2018-04-04T21:07:56Z,2018-04-05T07:17:08Z,498775,MylesBorins
+nodejs/node,10328575,v9.10.1,"2018-03-29, Version 9.10.1 (Current), @MylesBorins",2018-03-30T03:29:50Z,2018-03-30T03:45:14Z,498775,MylesBorins
+nodejs/node,10328572,v8.11.1,"2018-03-29, Version 8.11.1 'Carbon' (LTS), @MylesBorins",2018-03-30T03:26:56Z,2018-03-30T03:44:55Z,498775,MylesBorins
+nodejs/node,10328570,v6.14.1,"2018-03-29, Version 6.14.1 'Boron' (LTS), @MylesBorins",2018-03-30T03:25:11Z,2018-03-30T03:44:36Z,498775,MylesBorins
+nodejs/node,10328566,v4.9.1,"2018-03-29, Version 4.9.1 'Argon' (Maintenance), @MylesBorins",2018-03-30T03:20:35Z,2018-03-30T03:44:16Z,498775,MylesBorins
+nodejs/node,10302663,v9.10.0,"2018-03-28, Version 9.10.0 (Current), @MylesBorins prepared by @targos",2018-03-28T16:05:39Z,2018-03-28T16:38:05Z,498775,MylesBorins
+nodejs/node,10302649,v8.11.0,"2018-03-28, Version 8.11.0 'Carbon' (LTS), @MylesBorins",2018-03-28T16:09:22Z,2018-03-28T16:37:36Z,498775,MylesBorins
+nodejs/node,10302641,v6.14.0,"2018-03-28, Version 6.14.0 'Boron' (LTS), @MylesBorins",2018-03-28T16:10:18Z,2018-03-28T16:37:11Z,498775,MylesBorins
+nodejs/node,10302633,v4.9.0,"2018-03-28, Version 4.9.0 'Argon' (Maintenance), @MylesBorins",2018-03-28T16:12:03Z,2018-03-28T16:36:44Z,498775,MylesBorins
+nodejs/node,10289508,v9.9.0,"2018-03-21, Version 9.9.0 (Current), @MylesBorins prepared by @targos",2018-03-21T15:43:16Z,2018-03-27T23:14:36Z,498775,MylesBorins
+nodejs/node,10289506,v9.8.0,"2018-03-07, Version 9.8.0 (Current), @MylesBorins",2018-03-08T01:51:37Z,2018-03-27T23:14:14Z,498775,MylesBorins
+nodejs/node,10289498,v8.10.0,"2018-03-06, Version 8.10.0 'Carbon' (LTS), @gibfahn",2018-03-07T00:32:45Z,2018-03-27T23:13:40Z,498775,MylesBorins
+nodejs/node,9967220,v6.13.1,"2018-03-06, Version 6.13.1 'Boron' (LTS), @MylesBorins",2018-03-06T20:00:55Z,2018-03-06T20:11:09Z,498775,MylesBorins
+nodejs/node,9967010,v9.7.1,"2018-03-02, Version 9.7.1 (Current), @rvagg",2018-03-02T02:44:45Z,2018-03-06T19:59:05Z,498775,MylesBorins
+nodejs/node,9967003,v9.7.0,"2018-03-01, Version 9.7.0 (Current), @rvagg prepared by @addaleax",2018-03-01T09:38:57Z,2018-03-06T19:58:46Z,498775,MylesBorins
+nodejs/node,9966993,v9.6.1,"2018-02-22, Version 9.6.1 (Current), @MylesBorins",2018-02-23T04:01:41Z,2018-03-06T19:58:19Z,498775,MylesBorins
+nodejs/node,9966989,v9.6.0,"2018-02-22, Version 9.6.0 (Current), @MylesBorins",2018-02-22T16:58:34Z,2018-03-06T19:57:57Z,498775,MylesBorins
+nodejs/node,9758498,v6.13.0,"2018-02-13, Version 6.13.0 'Boron' (LTS), @MylesBorins",2018-02-13T18:55:42Z,2018-02-20T20:56:53Z,498775,MylesBorins
+nodejs/node,9478334,v9.5.0,"2018-01-31, Version 9.5.0 (Current), @evanlucas",2018-02-01T00:00:49Z,2018-02-01T00:10:13Z,677994,evanlucas
+nodejs/node,9174180,v9.4.0,"2018-01-10, Version 9.4.0 (Current), @MylesBorins",2018-01-10T15:21:12Z,2018-01-10T23:24:01Z,498775,MylesBorins
+nodejs/node,9141033,v8.9.4,"2018-01-02, Version 8.9.4 'Carbon' (LTS), @gibfahn",2018-01-03T03:47:10Z,2018-01-08T06:36:14Z,498775,MylesBorins
+nodejs/node,9141029,v6.12.3,"2018-01-02, Version 6.12.3 'Boron' (LTS), @MylesBorins",2018-01-02T19:05:15Z,2018-01-08T06:35:23Z,498775,MylesBorins
+nodejs/node,8969711,v9.3.0,"2017-12-12, Version 9.3.0 (Current), @MylesBorins",2017-12-12T20:55:41Z,2017-12-19T21:19:45Z,498775,MylesBorins
+nodejs/node,8831391,v9.2.1,"2017-12-08, Version 9.2.1 (Current), @evanlucas",2017-12-08T15:59:10Z,2017-12-08T16:12:25Z,498775,MylesBorins
+nodejs/node,8831370,v8.9.3,"2017-12-08, Version 8.9.3 'Carbon' (LTS), @MylesBorins",2017-12-08T15:56:49Z,2017-12-08T16:11:14Z,498775,MylesBorins
+nodejs/node,8831360,v6.12.2,"2017-12-08, Version 6.12.2 'Boron' (LTS), @MylesBorins",2017-12-08T15:53:47Z,2017-12-08T16:10:42Z,498775,MylesBorins
+nodejs/node,8831354,v4.8.7,"2017-12-08, Version 4.8.7 'Argon' (Maintenance), @MylesBorins",2017-12-08T15:49:03Z,2017-12-08T16:10:08Z,498775,MylesBorins
+nodejs/node,8831347,v8.9.2,"2017-12-05, Version 8.9.2 'Carbon' (LTS), @gibfahn",2017-12-05T21:51:09Z,2017-12-08T16:09:37Z,498775,MylesBorins
+nodejs/node,8831338,v6.12.1,"2017-12-05, Version 6.12.1 'Boron' (LTS), @MylesBorins",2017-12-05T13:58:26Z,2017-12-08T16:08:54Z,498775,MylesBorins
+nodejs/node,8528679,v9.2.0,"2017-11-14, Version 9.2.0 (Current), @evanlucas",2017-11-14T22:45:00Z,2017-11-15T15:30:59Z,498775,MylesBorins
+nodejs/node,8528665,v9.1.0,"2017-11-07, Version 9.1.0 (Current), @cjihrig",2017-11-07T17:48:22Z,2017-11-15T15:30:09Z,498775,MylesBorins
+nodejs/node,8528653,v8.9.1,"2017-11-07, Version 8.9.1 'Carbon' (LTS), @gibfahn",2017-11-07T20:57:22Z,2017-11-15T15:29:36Z,498775,MylesBorins
+nodejs/node,8528643,v6.12.0,"2017-11-07, Version 6.12.0 'Boron' (LTS), @MylesBorins",2017-11-07T17:12:59Z,2017-11-15T15:29:04Z,498775,MylesBorins
+nodejs/node,8528626,v4.8.6,"2017-11-07, Version 4.8.6 'Argon' (Maintenance), @MylesBorins",2017-11-07T17:14:56Z,2017-11-15T15:28:28Z,498775,MylesBorins
+nodejs/node,8369613,v9.0.0,"2017-10-31, Version 9.0.0 (Current), @jasnell",2017-10-31T19:53:20Z,2017-11-03T05:08:48Z,498775,MylesBorins
+nodejs/node,8369612,v8.9.0,"2017-10-31, Version 8.9.0 'Carbon' (LTS), @gibfahn",2017-10-31T18:16:00Z,2017-11-03T05:08:16Z,498775,MylesBorins
+nodejs/node,8369609,v8.8.1,"2017-10-25, Version 8.8.1 (Current), @cjihrig",2017-10-25T21:23:12Z,2017-11-03T05:07:45Z,498775,MylesBorins
+nodejs/node,8257341,v8.8.0,"2017-10-24, Version 8.8.0 (Current), @MylesBorins",2017-10-24T21:47:23Z,2017-10-25T15:49:45Z,498775,MylesBorins
+nodejs/node,8257324,v6.11.5,"2017-10-24, Version 6.11.5 'Boron' (LTS), @MylesBorins",2017-10-24T21:52:21Z,2017-10-25T15:49:04Z,498775,MylesBorins
+nodejs/node,8257266,v4.8.5,"Version 4.8.5 'Argon' (Maintenance), @MylesBorins",2017-10-24T21:57:56Z,2017-10-25T15:45:43Z,498775,MylesBorins
+nodejs/node,8226910,v8.7.0,"2017-10-11, Version 8.7.0 (Current), @MylesBorins",2017-10-11T20:48:25Z,2017-10-23T19:54:09Z,498775,MylesBorins
+nodejs/node,8226903,v6.11.4,"2017-10-03, Version 6.11.4 'Boron' (LTS), @MylesBorins",2017-10-03T20:41:37Z,2017-10-23T19:53:42Z,498775,MylesBorins
+nodejs/node,8226895,v8.6.0,"2017-09-26, Version 8.6.0 (Current), @jasnell",2017-09-26T21:51:33Z,2017-10-23T19:53:12Z,498775,MylesBorins
+nodejs/node,8226886,v8.5.0,"2017-09-12, Version 8.5.0 (Current), @MylesBorins",2017-09-12T15:30:35Z,2017-10-23T19:52:42Z,498775,MylesBorins
+nodejs/node,7643422,v6.11.3,"2017-09-05, Version 6.11.3 'Boron' (LTS), @MylesBorins",2017-09-05T19:42:44Z,2017-09-05T19:57:06Z,498775,MylesBorins
+hashicorp/vagrant,205987482,2.4.4.dev+000413-15ceb75e,2.4.4.dev+000413-15ceb75e,2025-03-14T23:50:54Z,2025-03-15T05:28:06Z,54192515,vagrant-bot
+hashicorp/vagrant,205766505,2.4.4.dev+000412-6cab6801,2.4.4.dev+000412-6cab6801,2025-03-13T17:57:57Z,2025-03-14T05:16:54Z,54192515,vagrant-bot
+hashicorp/vagrant,205667619,2.4.4.dev+000411-e5044903,2.4.4.dev+000411-e5044903,2025-03-13T17:20:35Z,2025-03-13T18:15:00Z,54192515,vagrant-bot
+hashicorp/vagrant,205466420,2.4.4.dev+000410-ce6ebdfe,2.4.4.dev+000410-ce6ebdfe,2025-02-20T23:54:39Z,2025-03-13T04:45:43Z,54192515,vagrant-bot
+hashicorp/vagrant,200320279,2.4.4.dev+000386-a1ceec1d,2.4.4.dev+000386-a1ceec1d,2025-01-16T19:24:57Z,2025-02-14T06:28:11Z,54192515,vagrant-bot
+hashicorp/vagrant,185343648,2.4.4.dev+000330-216835c0,2.4.4.dev+000330-216835c0,2024-11-14T01:23:23Z,2024-11-14T05:28:26Z,54192515,vagrant-bot
+hashicorp/vagrant,185089804,2.4.4.dev+000329-397e620c,2.4.4.dev+000329-397e620c,2024-11-12T19:14:49Z,2024-11-13T05:26:07Z,54192515,vagrant-bot
+hashicorp/vagrant,184984262,v2.4.3,v2.4.3,2024-11-12T19:14:49Z,2024-11-12T21:54:05Z,54192515,vagrant-bot
+hashicorp/vagrant,184480922,2.4.3.dev+000325-280b5d8c,2.4.3.dev+000325-280b5d8c,2024-11-08T16:33:41Z,2024-11-09T04:48:19Z,54192515,vagrant-bot
+hashicorp/vagrant,183856646,2.4.3.dev+000321-ff445c27,2.4.3.dev+000321-ff445c27,2024-11-06T00:02:21Z,2024-11-06T05:24:15Z,54192515,vagrant-bot
+hashicorp/vagrant,183523262,2.4.3.dev+000320-e0161e5b,2.4.3.dev+000320-e0161e5b,2024-11-04T17:03:21Z,2024-11-05T07:04:19Z,54192515,vagrant-bot
+hashicorp/vagrant,183197257,2.4.3.dev+000317-89e67f32,2.4.3.dev+000317-89e67f32,2024-11-01T21:53:08Z,2024-11-02T05:23:00Z,54192515,vagrant-bot
+hashicorp/vagrant,183177819,v2.4.2,v2.4.2,2024-11-01T21:53:08Z,2024-11-01T23:06:36Z,54192515,vagrant-bot
+hashicorp/vagrant,182849999,2.4.2.dev+000315-0001a7e5,2.4.2.dev+000315-0001a7e5,2024-10-30T19:54:32Z,2024-10-31T05:23:54Z,54192515,vagrant-bot
+hashicorp/vagrant,182789677,2.4.2.dev+000314-a82b64d1,2.4.2.dev+000314-a82b64d1,2024-10-30T19:33:13Z,2024-10-30T20:24:02Z,54192515,vagrant-bot
+hashicorp/vagrant,182739448,2.4.2.dev+000313-71150ee3,2.4.2.dev+000313-71150ee3,2024-09-23T19:06:54Z,2024-10-30T16:29:11Z,54192515,vagrant-bot
+hashicorp/vagrant,163677674,2.4.2.dev+000038-26a1ff10,2.4.2.dev+000038-26a1ff10,2024-06-28T22:20:32Z,2024-07-02T21:10:21Z,54192515,vagrant-bot
+hashicorp/vagrant,163694525,2.4.2.dev+000013-26a1ff10,2.4.2.dev+000013-26a1ff10,2024-06-28T22:20:32Z,2024-07-02T23:22:48Z,54192515,vagrant-bot
+hashicorp/vagrant,138272736,2.4.2.dev+000182-d8fdc500,2.4.2.dev+000182-d8fdc500,2024-01-23T21:59:42Z,2024-01-24T06:37:08Z,54192515,vagrant-bot
+hashicorp/vagrant,137831951,2.4.2.dev+000178-d5a28aea,2.4.2.dev+000178-d5a28aea,2024-01-19T20:59:13Z,2024-01-20T05:26:25Z,54192515,vagrant-bot
+hashicorp/vagrant,137806683,v2.4.1,v2.4.1,2024-01-19T20:59:12Z,2024-01-19T21:53:52Z,54192515,vagrant-bot
+hashicorp/vagrant,137664904,2.4.1.dev+000177-600eef07,2.4.1.dev+000177-600eef07,2024-01-19T01:59:03Z,2024-01-19T05:27:56Z,54192515,vagrant-bot
+hashicorp/vagrant,137505614,2.4.1.dev+000176-4ca49e57,2.4.1.dev+000176-4ca49e57,2024-01-18T00:57:08Z,2024-01-18T06:54:39Z,54192515,vagrant-bot
+hashicorp/vagrant,136921955,2.4.1.dev+000171-55ec0d43,2.4.1.dev+000171-55ec0d43,2024-01-13T01:11:44Z,2024-01-13T05:50:20Z,54192515,vagrant-bot
+hashicorp/vagrant,137466104,2.4.1.dev+000101-55ec0d43,2.4.1.dev+000101-55ec0d43,2024-01-13T01:11:44Z,2024-01-17T22:36:59Z,54192515,vagrant-bot
+hashicorp/vagrant,136604038,2.4.1.dev+000169-b3c9f0d5,2.4.1.dev+000169-b3c9f0d5,2024-01-11T00:49:44Z,2024-01-11T06:42:34Z,54192515,vagrant-bot
+hashicorp/vagrant,135923314,2.4.1.dev+000163-673f42b5,2.4.1.dev+000163-673f42b5,2024-01-04T17:25:02Z,2024-01-05T06:09:43Z,54192515,vagrant-bot
+hashicorp/vagrant,135891388,2.4.1.dev+000162-b79acc36,2.4.1.dev+000162-b79acc36,2024-01-04T02:05:07Z,2024-01-04T21:10:21Z,54192515,vagrant-bot
+hashicorp/vagrant,125879725,2.4.1.dev+000100-f33ac0bc,2.4.1.dev+000100-f33ac0bc,2023-10-19T18:31:03Z,2023-10-19T21:41:03Z,54192515,vagrant-bot
+hashicorp/vagrant,125863122,2.4.1.dev+000066-f33ac0bc,2.4.1.dev+000066-f33ac0bc,2023-10-19T18:31:03Z,2023-10-19T19:27:54Z,54192515,vagrant-bot
+hashicorp/vagrant,125547752,2.4.1.dev+000140-b8f9efb0,2.4.1.dev+000140-b8f9efb0,2023-10-16T16:25:14Z,2023-10-18T06:09:38Z,54192515,vagrant-bot
+hashicorp/vagrant,125302496,v2.4.0,v2.4.0,2023-10-16T16:20:13Z,2023-10-16T19:23:22Z,54192515,vagrant-bot
+hashicorp/vagrant,124914550,2.3.8.dev+000134-ba10fe9e,2.3.8.dev+000134-ba10fe9e,2023-10-09T23:04:30Z,2023-10-13T00:49:54Z,54192515,vagrant-bot
+hashicorp/vagrant,124165708,2.3.8.dev+000125-c8fc8b3a,2.3.8.dev+000125-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-08T04:43:58Z,54192515,vagrant-bot
+hashicorp/vagrant,124133132,2.3.8.dev+000124-c8fc8b3a,2.3.8.dev+000124-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-07T06:30:45Z,54192515,vagrant-bot
+hashicorp/vagrant,123975637,2.3.8.dev+000123-c8fc8b3a,2.3.8.dev+000123-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-06T05:23:32Z,54192515,vagrant-bot
+hashicorp/vagrant,123795503,2.3.8.dev+000122-c8fc8b3a,2.3.8.dev+000122-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-05T04:44:01Z,54192515,vagrant-bot
+hashicorp/vagrant,123611243,2.3.8.dev+000121-c8fc8b3a,2.3.8.dev+000121-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-04T04:43:59Z,54192515,vagrant-bot
+hashicorp/vagrant,123525975,2.3.8.dev+000120-c8fc8b3a,2.3.8.dev+000120-c8fc8b3a,2023-10-02T22:38:02Z,2023-10-03T15:35:13Z,54192515,vagrant-bot
+hashicorp/vagrant,123282959,2.3.8.dev+000119-d5f12fd7,2.3.8.dev+000119-d5f12fd7,2023-09-27T20:24:55Z,2023-10-02T05:28:24Z,54192515,vagrant-bot
+hashicorp/vagrant,123237000,2.3.8.dev+000118-d5f12fd7,2.3.8.dev+000118-d5f12fd7,2023-09-27T20:24:55Z,2023-10-01T05:10:56Z,54192515,vagrant-bot
+hashicorp/vagrant,123200581,2.3.8.dev+000117-d5f12fd7,2.3.8.dev+000117-d5f12fd7,2023-09-27T20:24:55Z,2023-09-30T05:10:53Z,54192515,vagrant-bot
+hashicorp/vagrant,123064325,2.3.8.dev+000116-d5f12fd7,2.3.8.dev+000116-d5f12fd7,2023-09-27T20:24:55Z,2023-09-29T04:44:13Z,54192515,vagrant-bot
+hashicorp/vagrant,122983987,2.3.8.dev+000115-d5f12fd7,2.3.8.dev+000115-d5f12fd7,2023-09-27T20:24:55Z,2023-09-28T14:58:14Z,54192515,vagrant-bot
+hashicorp/vagrant,122719564,2.3.8.dev+000114-2809ef97,2.3.8.dev+000114-2809ef97,2023-09-25T18:01:02Z,2023-09-27T05:12:58Z,54192515,vagrant-bot
+hashicorp/vagrant,122548003,2.3.8.dev+000113-2809ef97,2.3.8.dev+000113-2809ef97,2023-09-25T18:01:02Z,2023-09-26T05:32:25Z,54192515,vagrant-bot
+hashicorp/vagrant,122378410,2.3.8.dev+000112-34092d97,2.3.8.dev+000112-34092d97,2023-09-22T16:25:43Z,2023-09-25T05:06:15Z,54192515,vagrant-bot
+hashicorp/vagrant,122337442,2.3.8.dev+000111-34092d97,2.3.8.dev+000111-34092d97,2023-09-22T16:25:43Z,2023-09-24T05:08:30Z,54192515,vagrant-bot
+hashicorp/vagrant,122304888,2.3.8.dev+000110-34092d97,2.3.8.dev+000110-34092d97,2023-09-22T16:25:43Z,2023-09-23T05:34:40Z,54192515,vagrant-bot
+hashicorp/vagrant,122150391,2.3.8.dev+000109-b1610c10,2.3.8.dev+000109-b1610c10,2023-09-12T00:50:10Z,2023-09-22T05:17:56Z,54192515,vagrant-bot
+hashicorp/vagrant,121981923,2.3.8.dev+000108-b1610c10,2.3.8.dev+000108-b1610c10,2023-09-12T00:50:10Z,2023-09-21T06:44:09Z,54192515,vagrant-bot
+hashicorp/vagrant,121799139,2.3.8.dev+000107-b1610c10,2.3.8.dev+000107-b1610c10,2023-09-12T00:50:10Z,2023-09-20T04:43:46Z,54192515,vagrant-bot
+hashicorp/vagrant,121633076,2.3.8.dev+000106-b1610c10,2.3.8.dev+000106-b1610c10,2023-09-12T00:50:10Z,2023-09-19T05:44:10Z,54192515,vagrant-bot
+hashicorp/vagrant,121477491,2.3.8.dev+000105-b1610c10,2.3.8.dev+000105-b1610c10,2023-09-12T00:50:10Z,2023-09-18T05:19:41Z,54192515,vagrant-bot
+hashicorp/vagrant,121437052,2.3.8.dev+000104-b1610c10,2.3.8.dev+000104-b1610c10,2023-09-12T00:50:10Z,2023-09-17T04:43:40Z,54192515,vagrant-bot
+hashicorp/vagrant,121395744,2.3.8.dev+000103-b1610c10,2.3.8.dev+000103-b1610c10,2023-09-12T00:50:10Z,2023-09-16T05:11:15Z,54192515,vagrant-bot
+hashicorp/vagrant,121248036,2.3.8.dev+000102-b1610c10,2.3.8.dev+000102-b1610c10,2023-09-12T00:50:10Z,2023-09-15T05:50:20Z,54192515,vagrant-bot
+hashicorp/vagrant,121071711,2.3.8.dev+000101-b1610c10,2.3.8.dev+000101-b1610c10,2023-09-12T00:50:10Z,2023-09-14T04:43:57Z,54192515,vagrant-bot
+hashicorp/vagrant,120897322,2.3.8.dev+000100-b1610c10,2.3.8.dev+000100-b1610c10,2023-09-12T00:50:10Z,2023-09-13T04:44:06Z,54192515,vagrant-bot
+hashicorp/vagrant,120737035,2.3.8.dev+000099-b1610c10,2.3.8.dev+000099-b1610c10,2023-09-12T00:50:10Z,2023-09-12T05:27:18Z,54192515,vagrant-bot
+hashicorp/vagrant,120690833,2.3.8.dev+000098-91191982,2.3.8.dev+000098-91191982,2023-09-08T23:19:34Z,2023-09-11T19:10:33Z,54192515,vagrant-bot
+hashicorp/vagrant,120497962,2.3.8.dev+000094-a7135c00,2.3.8.dev+000094-a7135c00,2023-08-11T00:05:19Z,2023-09-08T23:20:46Z,54192515,vagrant-bot
+hashicorp/vagrant,115862573,2.3.8.dev+000086-5fc64cde,2.3.8.dev+000086-5fc64cde,2023-07-31T14:59:17Z,2023-08-10T05:24:29Z,54192515,vagrant-bot
+hashicorp/vagrant,115706433,2.3.8.dev+000085-5fc64cde,2.3.8.dev+000085-5fc64cde,2023-07-31T14:59:17Z,2023-08-09T05:17:14Z,54192515,vagrant-bot
+hashicorp/vagrant,115627751,2.3.8.dev+000084-5fc64cde,2.3.8.dev+000084-5fc64cde,2023-07-31T14:59:17Z,2023-08-08T14:44:35Z,54192515,vagrant-bot
+hashicorp/vagrant,115408283,2.3.8.dev+000083-5fc64cde,2.3.8.dev+000083-5fc64cde,2023-07-31T14:59:17Z,2023-08-07T05:14:37Z,54192515,vagrant-bot
+hashicorp/vagrant,115361490,2.3.8.dev+000082-5fc64cde,2.3.8.dev+000082-5fc64cde,2023-07-31T14:59:17Z,2023-08-06T05:14:04Z,54192515,vagrant-bot
+hashicorp/vagrant,115238799,2.3.8.dev+000081-5fc64cde,2.3.8.dev+000081-5fc64cde,2023-07-31T14:59:17Z,2023-08-05T05:03:16Z,54192515,vagrant-bot
+hashicorp/vagrant,115066478,2.3.8.dev+000080-5fc64cde,2.3.8.dev+000080-5fc64cde,2023-07-31T14:59:17Z,2023-08-04T06:03:56Z,54192515,vagrant-bot
+hashicorp/vagrant,114908199,2.3.8.dev+000079-5fc64cde,2.3.8.dev+000079-5fc64cde,2023-07-31T14:59:17Z,2023-08-03T04:43:17Z,54192515,vagrant-bot
+hashicorp/vagrant,113934216,2.3.8.dev+000071-8004b9e0,2.3.8.dev+000071-8004b9e0,2023-07-13T18:27:02Z,2023-07-28T05:16:44Z,54192515,vagrant-bot
+hashicorp/vagrant,113765242,2.3.8.dev+000070-8004b9e0,2.3.8.dev+000070-8004b9e0,2023-07-13T18:27:02Z,2023-07-27T05:21:26Z,54192515,vagrant-bot
+hashicorp/vagrant,113609656,2.3.8.dev+000069-8004b9e0,2.3.8.dev+000069-8004b9e0,2023-07-13T18:27:02Z,2023-07-26T05:18:51Z,54192515,vagrant-bot
+hashicorp/vagrant,113432846,2.3.8.dev+000068-8004b9e0,2.3.8.dev+000068-8004b9e0,2023-07-13T18:27:02Z,2023-07-25T05:12:32Z,54192515,vagrant-bot
+hashicorp/vagrant,113261560,2.3.8.dev+000067-8004b9e0,2.3.8.dev+000067-8004b9e0,2023-07-13T18:27:02Z,2023-07-24T05:23:14Z,54192515,vagrant-bot
+hashicorp/vagrant,113211108,2.3.8.dev+000066-8004b9e0,2.3.8.dev+000066-8004b9e0,2023-07-13T18:27:02Z,2023-07-23T05:18:37Z,54192515,vagrant-bot
+hashicorp/vagrant,113179743,2.3.8.dev+000065-8004b9e0,2.3.8.dev+000065-8004b9e0,2023-07-13T18:27:02Z,2023-07-22T05:11:54Z,54192515,vagrant-bot
+hashicorp/vagrant,113061840,2.3.8.dev+000064-8004b9e0,2.3.8.dev+000064-8004b9e0,2023-07-13T18:27:02Z,2023-07-21T05:15:37Z,54192515,vagrant-bot
+hashicorp/vagrant,112986490,2.3.8.dev+000063-8004b9e0,2.3.8.dev+000063-8004b9e0,2023-07-13T18:27:02Z,2023-07-20T15:20:56Z,54192515,vagrant-bot
+hashicorp/vagrant,112757467,2.3.8.dev+000062-8004b9e0,2.3.8.dev+000062-8004b9e0,2023-07-13T18:27:02Z,2023-07-19T05:12:13Z,54192515,vagrant-bot
+hashicorp/vagrant,112606506,2.3.8.dev+000061-8004b9e0,2.3.8.dev+000061-8004b9e0,2023-07-13T18:27:02Z,2023-07-18T05:09:42Z,54192515,vagrant-bot
+hashicorp/vagrant,112440938,2.3.8.dev+000060-8004b9e0,2.3.8.dev+000060-8004b9e0,2023-07-13T18:27:02Z,2023-07-17T05:40:15Z,54192515,vagrant-bot
+hashicorp/vagrant,112349779,2.3.8.dev+000058-8004b9e0,2.3.8.dev+000058-8004b9e0,2023-07-13T18:27:02Z,2023-07-15T04:43:54Z,54192515,vagrant-bot
+hashicorp/vagrant,112204413,2.3.8.dev+000057-8004b9e0,2.3.8.dev+000057-8004b9e0,2023-07-13T18:27:02Z,2023-07-14T05:31:20Z,54192515,vagrant-bot
+hashicorp/vagrant,112054255,2.3.8.dev+000056-848f2a7f,2.3.8.dev+000056-848f2a7f,2023-06-27T17:35:43Z,2023-07-13T06:13:17Z,54192515,vagrant-bot
+hashicorp/vagrant,111363021,2.3.8.dev+000055-848f2a7f,2.3.8.dev+000055-848f2a7f,2023-06-27T17:35:43Z,2023-07-07T05:17:17Z,54192515,vagrant-bot
+hashicorp/vagrant,111202519,2.3.8.dev+000054-848f2a7f,2.3.8.dev+000054-848f2a7f,2023-06-27T17:35:43Z,2023-07-06T05:13:56Z,54192515,vagrant-bot
+hashicorp/vagrant,111057690,2.3.8.dev+000053-848f2a7f,2.3.8.dev+000053-848f2a7f,2023-06-27T17:35:43Z,2023-07-05T05:20:36Z,54192515,vagrant-bot
+hashicorp/vagrant,110934975,2.3.8.dev+000052-848f2a7f,2.3.8.dev+000052-848f2a7f,2023-06-27T17:35:43Z,2023-07-04T05:16:15Z,54192515,vagrant-bot
+hashicorp/vagrant,110811959,2.3.8.dev+000051-848f2a7f,2.3.8.dev+000051-848f2a7f,2023-06-27T17:35:43Z,2023-07-03T04:43:35Z,54192515,vagrant-bot
+hashicorp/vagrant,110769150,2.3.8.dev+000050-848f2a7f,2.3.8.dev+000050-848f2a7f,2023-06-27T17:35:43Z,2023-07-02T05:42:36Z,54192515,vagrant-bot
+hashicorp/vagrant,110635344,2.3.8.dev+000049-848f2a7f,2.3.8.dev+000049-848f2a7f,2023-06-27T17:35:43Z,2023-07-01T05:18:46Z,54192515,vagrant-bot
+hashicorp/vagrant,110450322,2.3.8.dev+000048-848f2a7f,2.3.8.dev+000048-848f2a7f,2023-06-27T17:35:43Z,2023-06-30T04:43:49Z,54192515,vagrant-bot
+hashicorp/vagrant,110307184,2.3.8.dev+000047-848f2a7f,2.3.8.dev+000047-848f2a7f,2023-06-27T17:35:43Z,2023-06-29T05:06:17Z,54192515,vagrant-bot
+hashicorp/vagrant,110229080,2.3.8.dev+000046-848f2a7f,2.3.8.dev+000046-848f2a7f,2023-06-27T17:35:43Z,2023-06-28T14:53:21Z,54192515,vagrant-bot
+hashicorp/vagrant,110000904,2.3.8.dev+000045-f056c293,2.3.8.dev+000045-f056c293,2023-06-21T21:39:48Z,2023-06-27T05:00:45Z,54192515,vagrant-bot
+hashicorp/vagrant,109854558,2.3.8.dev+000044-f056c293,2.3.8.dev+000044-f056c293,2023-06-21T21:39:48Z,2023-06-26T05:39:33Z,54192515,vagrant-bot
+hashicorp/vagrant,109800644,2.3.8.dev+000043-f056c293,2.3.8.dev+000043-f056c293,2023-06-21T21:39:48Z,2023-06-25T05:24:49Z,54192515,vagrant-bot
+hashicorp/vagrant,109768943,2.3.8.dev+000042-f056c293,2.3.8.dev+000042-f056c293,2023-06-21T21:39:48Z,2023-06-24T05:02:37Z,54192515,vagrant-bot
+hashicorp/vagrant,109640935,2.3.8.dev+000041-f056c293,2.3.8.dev+000041-f056c293,2023-06-21T21:39:48Z,2023-06-23T04:45:04Z,54192515,vagrant-bot
+hashicorp/vagrant,109588669,2.3.8.dev+000040-f056c293,2.3.8.dev+000040-f056c293,2023-06-21T21:39:48Z,2023-06-22T17:34:06Z,54192515,vagrant-bot
+hashicorp/vagrant,109454792,2.3.8.dev+000032-f72cda8b,2.3.8.dev+000032-f72cda8b,2023-06-21T19:28:05Z,2023-06-21T20:49:13Z,54192515,vagrant-bot
+hashicorp/vagrant,109447816,2.3.8.dev+000031-f72cda8b,2.3.8.dev+000031-f72cda8b,2023-06-21T19:28:05Z,2023-06-21T20:16:03Z,54192515,vagrant-bot
+hashicorp/vagrant,108805778,v2.3.7,v2.3.7,2023-06-15T20:40:35Z,2023-06-15T23:27:27Z,54192515,vagrant-bot
+hashicorp/vagrant,108668364,2.3.7.dev+000032-8a5b57cc,2.3.7.dev+000032-8a5b57cc,2023-06-13T20:58:17Z,2023-06-15T04:42:45Z,54192515,vagrant-bot
+hashicorp/vagrant,108515038,2.3.7.dev+000031-8a5b57cc,2.3.7.dev+000031-8a5b57cc,2023-06-13T20:58:17Z,2023-06-14T04:45:56Z,54192515,vagrant-bot
+hashicorp/vagrant,108314926,2.3.7.dev+000029-8fbbc8f4,2.3.7.dev+000029-8fbbc8f4,2023-06-13T00:26:43Z,2023-06-13T06:05:35Z,54192515,vagrant-bot
+hashicorp/vagrant,107780172,2.3.7.dev+000024-0533386d,2.3.7.dev+000024-0533386d,2023-06-03T00:46:21Z,2023-06-08T04:59:25Z,54192515,vagrant-bot
+hashicorp/vagrant,107609414,2.3.7.dev+000023-0533386d,2.3.7.dev+000023-0533386d,2023-06-03T00:46:21Z,2023-06-07T05:09:40Z,54192515,vagrant-bot
+hashicorp/vagrant,107563165,2.3.7.dev+000022-0533386d,2.3.7.dev+000022-0533386d,2023-06-03T00:46:21Z,2023-06-06T19:05:53Z,54192515,vagrant-bot
+hashicorp/vagrant,107280890,2.3.7.dev+000021-0533386d,2.3.7.dev+000021-0533386d,2023-06-03T00:46:21Z,2023-06-05T04:59:08Z,54192515,vagrant-bot
+hashicorp/vagrant,106928866,2.3.7.dev+000020-0533386d,2.3.7.dev+000020-0533386d,2023-06-03T00:46:21Z,2023-06-04T05:03:17Z,54192515,vagrant-bot
+hashicorp/vagrant,106096435,2.3.7.dev+000019-0533386d,2.3.7.dev+000019-0533386d,2023-06-03T00:46:21Z,2023-06-03T05:24:17Z,54192515,vagrant-bot
+hashicorp/vagrant,105864593,2.3.7.dev+000094-9c83a75b,2.3.7.dev+000094-9c83a75b,2023-06-01T19:53:38Z,2023-06-02T16:52:16Z,54192515,vagrant-bot
+hashicorp/vagrant,105729605,2.3.7.dev+000093-5900771a,2.3.7.dev+000093-5900771a,2023-06-01T17:07:59Z,2023-06-01T18:37:37Z,54192515,vagrant-bot
+hashicorp/vagrant,105789082,2.3.7.dev+000018-9c83a75b,2.3.7.dev+000018-9c83a75b,2023-06-01T19:53:38Z,2023-06-02T05:37:36Z,54192515,vagrant-bot
+hashicorp/vagrant,105446313,2.3.7.dev+000015-8eeaca28,2.3.7.dev+000015-8eeaca28,2023-05-26T16:38:52Z,2023-05-31T00:37:19Z,54192515,vagrant-bot
+hashicorp/vagrant,105623289,2.3.7.dev+000017-1b63ba85,2.3.7.dev+000017-1b63ba85,2023-05-25T22:33:35Z,2023-06-01T05:04:32Z,54192515,vagrant-bot
+hashicorp/vagrant,105460131,2.3.7.dev+000016-1b63ba85,2.3.7.dev+000016-1b63ba85,2023-05-25T22:33:35Z,2023-05-31T04:41:07Z,54192515,vagrant-bot
+hashicorp/vagrant,105437263,2.3.7.dev+000013-1b63ba85,2.3.7.dev+000013-1b63ba85,2023-05-25T22:33:35Z,2023-05-30T21:52:08Z,54192515,vagrant-bot
+hashicorp/vagrant,103649181,v2.3.6,v2.3.6,2023-05-19T16:50:03Z,2023-05-19T18:42:35Z,54192515,vagrant-bot
+hashicorp/vagrant,103529007,2.3.6.dev+000085-9509f43,2.3.6.dev+000085-9509f43,2023-05-18T20:19:17Z,2023-05-18T22:48:20Z,54192515,vagrant-bot
+hashicorp/vagrant,103383910,2.3.6.dev+68b3d94,2.3.6.dev+68b3d94,2023-05-17T20:40:24Z,2023-05-17T21:31:19Z,54192515,vagrant-bot
+hashicorp/vagrant,103394419,2.3.6.dev+66edc80,2.3.6.dev+66edc80,2023-05-17T23:25:43Z,2023-05-18T00:24:33Z,54192515,vagrant-bot
+hashicorp/vagrant,103401115,2.3.6.dev+5009580690-66edc80,2.3.6.dev+5009580690-66edc80,2023-05-17T23:25:43Z,2023-05-18T02:26:57Z,54192515,vagrant-bot
+hashicorp/vagrant,103205077,v2.3.5,v2.3.5,2023-05-15T23:16:22Z,2023-05-16T18:10:32Z,54192515,vagrant-bot
+hashicorp/vagrant,103072157,2.3.5.dev+0365203,2.3.5.dev+0365203,2023-05-15T20:18:45Z,2023-05-15T22:35:54Z,54192515,vagrant-bot
+hashicorp/vagrant,102844171,2.3.5.dev+91884c0,2.3.5.dev+91884c0,2023-05-12T18:52:31Z,2023-05-12T21:26:52Z,54192515,vagrant-bot
+hashicorp/vagrant,102856249,2.3.5.dev+5841744,2.3.5.dev+5841744,2023-05-12T18:49:34Z,2023-05-13T03:00:44Z,54192515,vagrant-bot
+hashicorp/vagrant,102712466,2.3.5.dev+a23be8d,2.3.5.dev+a23be8d,2023-05-10T15:34:00Z,2023-05-11T22:20:04Z,54192515,vagrant-bot
+hashicorp/vagrant,101955275,2.3.5.dev+e6a9dda,2.3.5.dev+e6a9dda,2023-05-04T20:53:58Z,2023-05-05T02:47:31Z,54192515,vagrant-bot
+hashicorp/vagrant,101324444,2.3.5.dev+4903453,2.3.5.dev+4903453,2023-04-28T16:51:07Z,2023-04-28T18:59:23Z,54192515,vagrant-bot
+hashicorp/vagrant,101029073,2.3.5.dev+7e3ffe1,2.3.5.dev+7e3ffe1,2023-04-14T22:51:41Z,2023-04-27T00:58:43Z,54192515,vagrant-bot
+hashicorp/vagrant,85612074,v2.3.4,v2.3.4,2022-12-09T23:28:10Z,2022-12-10T02:09:06Z,266674,chrisroberts
+hashicorp/vagrant,83183628,v2.3.3,v2.3.3,2022-11-15T16:11:53Z,2022-11-15T23:49:18Z,54192515,vagrant-bot
+hashicorp/vagrant,80265541,v2.3.2,v2.3.2,2022-10-18T21:07:55Z,2022-10-18T21:54:34Z,266674,chrisroberts
+hashicorp/vagrant,78964835,v2.3.1,v2.3.1,2022-09-29T21:04:16Z,2022-10-04T15:43:19Z,266674,chrisroberts
+hashicorp/vagrant,74048994,v2.3.0,v2.3.0,2022-08-05T22:16:44Z,2022-08-09T23:53:39Z,266674,chrisroberts

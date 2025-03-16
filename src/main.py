@@ -27,10 +27,11 @@ logger = logging.getLogger(__name__)
 def main():
     # Get GitHub tokens from env to be cycled (somewhat of a solution to the rate limit issue)
     # idk why but i need to call each variable separtely liek this otherwise theres a parsing error
-    x = os.getenv('GITHUB_ACCESS_TOKEN_1')
-    y = os.getenv('GITHUB_ACCESS_TOKEN_2')
-    z = os.getenv('GITHUB_ACCESS_TOKEN_3')
-    github_tokens = [x,y,z]
+    # commented out bc we ise them in get_data.py
+    # x = os.getenv('GITHUB_ACCESS_TOKEN_1')
+    # y = os.getenv('GITHUB_ACCESS_TOKEN_2')
+    # z = os.getenv('GITHUB_ACCESS_TOKEN_3')
+    # github_tokens = [x,y,z]
     
     repos = [
         # got the below 4 repos from get_repos but set the dates to when the Crowdstrike issue happeed last Summer (the global blue screen issue) (it affected my work, along w airlines and stuff so i figured it'd be toxic the day after)
@@ -40,8 +41,11 @@ def main():
         "Fannovel16/ComfyUI-Frame-Interpolation",
         
     ]
-    
+    # get repos from GHArchive && i
     repos = repos + get_repos()
+
+    # print(repos)
+    print(len(repos))
 
     # ADD MORE FROM invinisibilty data set OR the GHArchive code i was working in my local
     #  repos = repos + get_incivility_data()

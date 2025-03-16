@@ -25,6 +25,7 @@ import csv
 def get_repos():
     repo_urls = []
     
+    # GH Archive dataset
     with open('list_of_repos_to_analyze/all_toxic_repos.csv', mode='r', newline='', encoding='utf-8') as file:
         csv_reader = csv.DictReader(file)
         
@@ -34,6 +35,16 @@ def get_repos():
             x = own + '/' + repo                #'Nyanotrasen/Nyanotrasen' this is waht we want 
             repo_urls.append(x)
 
+    # incivilitty dataset
+    with open('list_of_repos_to_analyze/incivility_dataset.csv', mode='r', newline='', encoding='utf-8') as file:
+        csv_reader = csv.DictReader(file)
+        
+        for row in csv_reader:
+            url = row['url'].split('/')
+            
+            repo_name = url[4] + '/' + url[5]
+            repo_urls.append(repo_name)
+            
     # it gonna return this stricture
     # [ [owner,reponame] , [own,rn], [own,rn]]  
     return repo_urls

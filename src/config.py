@@ -9,9 +9,9 @@ DEFAULT_WINDOW_DAYS = 30 # ab a month
 RELEASE_ANALYSIS_WINDOW = 14 # 2 weeks
 
 # save code to these folders
-DATA_DIR = "data"
+# DATA_DIR = "data"
 RESULTS_DIR = "results"
-STATS_RESULTS_DIR = "stats_results"
+STATS_RESULTS_DIR = "results_stats" #"stats_results" changed name so results folders are alpha together
 
 # GitHub API settings
 GITHUB_BASE_URL = "https://api.github.com"

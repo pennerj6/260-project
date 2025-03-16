@@ -1,5 +1,6 @@
 import logging
 import datetime
+from datetime import datetime
 import pandas as pd
 import os
 
@@ -62,27 +63,7 @@ def convert_to_dataframes(hash_map):
     return dataframes
 
 
-def save_csv(results_dict, base_filename):
-    # need to handle 2025-03-14 14:30:52,107 - ERROR - Error saving results to CSV: 'dict' object has no attribute 'empty'
-    try:
-        os.makedirs(os.path.dirname(base_filename), exist_ok=True)
-        for key, df in results_dict.items():
-            if df is not None and hasattr(df, 'empty') and not df.empty:
-                filename = f"{base_filename}_{key}.csv"
-                df.to_csv(filename, index=False)
-                logger.info(f"Saved {len(df)} rows to {filename}")
-            elif isinstance(df, dict):
-                # Handle dictionary data by converting to DataFrame first
-                dict_df = pd.DataFrame([df])
-                filename = f"{base_filename}_{key}.csv"
-                dict_df.to_csv(filename, index=False)
-                logger.info(f"Saved dictionary data to {filename}")
-    except Exception as e:
-        logger.error(f"Error saving results to CSV: {str(e)}")
-
-
-
-def save_csv2(filename, data):   
+def save_csv(filename, data):   
     folder = 'data'
     
     print(data)
@@ -113,3 +94,45 @@ def save_csv2(filename, data):
                     writer.writerow(row)
     except Exception as e:
         print(f"ISSUE WRITING HERE: {e}")
+
+
+
+
+# for the analysis in visuals.py
+def load_csv(filename):
+    """Load a CSV file and return its data as a list of dictionaries"""
+    data = []
+    with open(filename, 'r', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            data.append(row)
+    return data
+
+def parse_date(date_string):
+    # str to sate time
+    if not date_string:
+        return None
+    # return datetime.fromisoformat(date_string.replace('Z', '+00:00'))
+    # datestring is -> 2024-10-06T16:23:02Z
+    # remove the 'Z' if Z is there
+    date_string = date_string.replace('Z', '')
+    try:
+        # return the date time format, gpt helped w error handling and syntax 
+        return datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%S')
+    except ValueError:
+        # If there are microseconds
+        try:
+            return datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%S.%f')
+        except ValueError:
+            print(f"Error parsing date: {date_string}")
+            return None
+
+def get_week_key(date):
+    # make data into year-week rather than year-week-day-time (time was 00 anywasys)
+    # it reutrns string not dataeimte
+    # gpt reccommened i iuse the WEEK (like week 1 is days 1-7, week2.... ) like periods of time
+    if not date:
+        return None
+    year = date.isocalendar()[0]
+    week = date.isocalendar()[1]
+    return f"{year}-{week}"

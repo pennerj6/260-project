@@ -1,13 +1,14 @@
 import pandas as pd
 import numpy as np
-import datetime
+
 import time
 import requests
 import os
 import logging
 import random
 import glob
-from datetime import timedelta
+from datetime import datetime, timedelta
+
 from concurrent.futures import ThreadPoolExecutor, as_completed # this speeds up our code BUT, im pretty sure our github api limit will get used more (thats ok tho, sahil met with TA he said we dont need to anaylze as much repos as we thought)
 
 from toxicity_rater import ToxicityRater
@@ -121,7 +122,9 @@ def get_data_main(repos):
         current_token = github_tokens[current_token_index]
         
         # TODO: instead of 3moths ago, we should probly have it from the created date of the toxic comment in all_roxic_repos.csv
-        three_months_ago = datetime.datetime.now() - datetime.timedelta(days=90)
+        # three_months_ago = datetime.datetime.now() - datetime.timedelta(days=90)
+        three_months_ago = datetime.now() - timedelta(days=90)
+
         params = {
             'per_page' : 100, # 100 issues (or comments...) perpage
             'since': three_months_ago

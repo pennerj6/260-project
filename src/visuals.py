@@ -1,604 +1,782 @@
 import csv
-
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from collections import defaultdict
 from datetime import datetime, timedelta
 
-from collections import defaultdict
-
-import matplotlib.pyplot as plt
-import matplotlib as mpl
+from scipy.stats import ttest_rel
 from scipy.stats import pearsonr, spearmanr
 
 from helper import *
-
 '''
-1) Does toxic communication in OSS communities negatively affect programmer productivity, measured through commits, issue resolutions, and discussion activity?
-
-2) Is there any correlation between toxic communication and software releases?
-
-3) How does the level of experience of the contributors (measured by the age of the account and previous contributions) correlate with their likelihood of engaging in toxic communication within OSS communities?
-
+    used LLM to help configure this file give what i prompted, like stuff along the lines of 
+    given these column names, give me code to calculate if any of them are correlated with toxicity using spearman correlation ( toxicity corellates to comments,commits, etc.)
+    after i noticed almost nothing had a strong correlation ( alot of close to 0 values for toxicity despite the lasrge dataset)
+    llm helped implement using a percentile threshold instead of a hard toxicity threshold to determine if toxic
 '''
 
-# Set a better style for the plots
 plt.style.use('seaborn-v0_8-whitegrid')
-mpl.rcParams['font.size'] = 11
-mpl.rcParams['figure.figsize'] = (12, 8)
-mpl.rcParams['figure.dpi'] = 100
-mpl.rcParams['axes.titlesize'] = 14
-mpl.rcParams['axes.labelsize'] = 12
+plt.rcParams['figure.figsize'] = (10, 6)
 
-# RQ1: Does toxic communication in OSS communities negatively affect programmer productivity?
-def rq1(comments_data, issues_data, commits_data):
-    """
-    Analyze how toxic communication affects productivity metrics:
-    - Commits
-    - Issue resolution time
-    - Discussion activity
-    """
-    print("RQ1: Analyzing toxicity vs. productivity...")
 
-    # Process the comments data
-    comments_by_week = defaultdict(list)
+# Analysis functions
+def analyze_toxicity_distribution(comments_data):
+    toxicity_values = [float(comment['toxicity']) for comment in comments_data]
+    
+    # Gicen the toxicity , vaules, get the percentils
+    percentiles = np.percentile(toxicity_values, [50, 75, 90, 95, 99])
+    
+    # plotinf the data as 2 histograms (gpt helpled with all plotting)
+    if 1 == 1:
+        plt.figure(figsize=(12, 5))
+        
+        # Left: All values
+        plt.subplot(1, 2, 1)
+        plt.hist(toxicity_values, bins=30, color='blue', alpha=0.7)
+        plt.title('All Toxicity Values')
+        plt.xlabel('Toxicity Score')
+        plt.ylabel('Number of Comments')
+        
+        # Right: Non-zero values only
+        plt.subplot(1, 2, 2)
+        # non_zero_values = [t for t in toxicity_values if t > 0.001]
+        # going to force it to be 50 or > (to see better results since data is skewed towards 0. TA said that is fine)
+        non_zero_values = [t for t in toxicity_values if t >= 0.5]
+        if non_zero_values:
+            plt.hist(non_zero_values, bins=30, color='red', alpha=0.7)
+            plt.title('Toxicity Scores >= 0.50')
+            plt.xlabel('Toxicity Score')
+        else:
+            plt.text(0.5, 0.5, 'No values > 0.001', ha='center')
+            plt.title('Non-zero Values (None Found)')
+        
+        plt.tight_layout()
+        plt.savefig('toxicity_distribution.png')
+    
+    return percentiles
+
+def mark_toxic_comments(comments_data, threshold_percentile=90):
+    # For our results all of our data was skewed towards 0 toxicity even after normalizing data, after consulting gpt it rec using a threshold percentile (is it toxic based on the other comments rather than a hard concrete threshold number)
+    toxicity_values = [float(comment['toxicity']) for comment in comments_data]
+    threshold = np.percentile(toxicity_values, threshold_percentile)
+    # print(f"Threshold value: {threshold:.4f}")
+    
+    # Mark comments as toxic or not
     for comment in comments_data:
-        created_at = parse_date(comment['created_at'])
-        week_key = get_week_key(created_at)
-        if week_key:
-            toxicity = float(comment['toxicity'])
-            comments_by_week[week_key].append({
-                'toxicity': toxicity,
-                'comment_id': comment['comment_id'],
-                'repo': comment['repo']
+        comment['is_toxic'] = 1 if float(comment['toxicity']) >= threshold else 0
+    
+    # Count toxic comments by repository
+    toxic_by_repo = defaultdict(int)
+    total_by_repo = defaultdict(int)
+    
+    for comment in comments_data:
+        repo = comment['repo']
+        total_by_repo[repo] += 1
+        toxic_by_repo[repo] += comment['is_toxic']
+    
+    # Find repositories with highest toxic percentage
+    repos_with_enough_comments = []
+    
+    for repo in total_by_repo:
+        if total_by_repo[repo] >= 10:  # At least 10 comments
+            toxic_percent = (toxic_by_repo[repo] / total_by_repo[repo]) * 100
+            repos_with_enough_comments.append({
+                'repo': repo,
+                'toxic_count': toxic_by_repo[repo],
+                'total_comments': total_by_repo[repo],
+                'toxic_percent': toxic_percent
             })
     
-    # Calculate weekly metrics
-    weekly_metrics = {}
-    for week, comments in comments_by_week.items():
-        total_toxicity = sum(comment['toxicity'] for comment in comments)
-        avg_toxicity = total_toxicity / len(comments) if comments else 0
-        weekly_metrics[week] = {
-            'avg_toxicity': avg_toxicity,
-            'comment_count': len(comments)
-        }
+    # Sort by percentage
+    repos_with_enough_comments.sort(key=lambda x: x['toxic_percent'], reverse=True)
+        
+    return comments_data, threshold
+
+def rq1(comments_data, issues_data, commits_data):
     
-    # Process commits data
+    toxic_by_week = defaultdict(int)
+    total_by_week = defaultdict(int)
+    
+    # Process comments to get toxicity by week
+    for comment in comments_data:
+        date = parse_date(comment['created_at'])
+        week = get_week_key(date)
+        if week:
+            total_by_week[week] += 1
+            toxic_by_week[week] += comment['is_toxic']
+    
+    # Toxicity percentage by week
+    weekly_toxicity = {}
+    for week in total_by_week:
+        if total_by_week[week] >= 5:  # At least 5 comments
+            weekly_toxicity[week] = (toxic_by_week[week] / total_by_week[week]) * 100
+    
+    # Count commits by week
     commits_by_week = defaultdict(int)
     for commit in commits_data:
-        commit_date = parse_date(commit['date'])
-        week_key = get_week_key(commit_date)
-        if week_key:
-            commits_by_week[week_key] += 1
+        date = parse_date(commit['date'])
+        week = get_week_key(date)
+        if week:
+            commits_by_week[week] += 1
     
-    # Add commit counts to weekly metrics
-    for week, commit_count in commits_by_week.items():
-        if week not in weekly_metrics:
-            weekly_metrics[week] = {'avg_toxicity': 0, 'comment_count': 0}
-        weekly_metrics[week]['commit_count'] = commit_count
-    
-    # Process issues data - calculate closed issues per week
-    closed_issues_by_week = defaultdict(int)
+    # Count CREATED issues by week (instead of closed)
+    issues_created_by_week = defaultdict(int)
     for issue in issues_data:
-        if issue['closed_at']:  # Only count closed issues
-            closed_at = parse_date(issue['closed_at'])
-            week_key = get_week_key(closed_at)
-            if week_key:
-                closed_issues_by_week[week_key] += 1
+        # Use created_at instead of closed_at
+        if issue.get('created_at'):
+            date = parse_date(issue['created_at'])
+            week = get_week_key(date)
+            if week:
+                issues_created_by_week[week] += 1
     
-    # Add closed issues count to weekly metrics
-    for week, issues_closed in closed_issues_by_week.items():
-        if week not in weekly_metrics:
-            weekly_metrics[week] = {'avg_toxicity': 0, 'comment_count': 0, 'commit_count': 0}
-        weekly_metrics[week]['issues_closed'] = issues_closed
+    # Create data for analysis
+    analysis_data = []
+    for week in weekly_toxicity:
+        if week in commits_by_week or week in issues_created_by_week:
+            analysis_data.append({
+                'week': week,
+                'toxicity': weekly_toxicity[week],
+                'commits': commits_by_week.get(week, 0),
+                'issues_created': issues_created_by_week.get(week, 0),  # New metric
+                'comments': total_by_week[week]
+            })
     
-    # Fill in missing metrics with zeros
-    for week in weekly_metrics:
-        if 'commit_count' not in weekly_metrics[week]:
-            weekly_metrics[week]['commit_count'] = 0
-        if 'issues_closed' not in weekly_metrics[week]:
-            weekly_metrics[week]['issues_closed'] = 0
+    # Create a dataframe
+    df = pd.DataFrame(analysis_data)
     
-    # Calculate correlations
-    weeks_with_all_data = [week for week in weekly_metrics if 
-                          'avg_toxicity' in weekly_metrics[week] and 
-                          'commit_count' in weekly_metrics[week] and
-                          'issues_closed' in weekly_metrics[week]]
+    if len(df) < 10:
+        return None
     
-    toxicity_values = [weekly_metrics[week]['avg_toxicity'] for week in weeks_with_all_data]
-    commit_values = [weekly_metrics[week]['commit_count'] for week in weeks_with_all_data]
-    issue_values = [weekly_metrics[week]['issues_closed'] for week in weeks_with_all_data]
-    comment_values = [weekly_metrics[week]['comment_count'] for week in weeks_with_all_data]
-    
-    # Calculate correlations using scipy
+    # Store correlation results
     correlation_results = {}
-    if len(toxicity_values) > 1:
-        pearson_toxicity_commits, p_value_pearson_commits = pearsonr(toxicity_values, commit_values)
-        # Check if issues_closed has non-zero values before calculating correlation
-        if any(issue_values):
-            pearson_toxicity_issues, p_value_pearson_issues = pearsonr(toxicity_values, issue_values)
-            spearman_toxicity_issues, p_value_spearman_issues = spearmanr(toxicity_values, issue_values)
-        else:
-            pearson_toxicity_issues = p_value_pearson_issues = float('nan')
-            spearman_toxicity_issues = p_value_spearman_issues = float('nan')
-            
-        pearson_toxicity_comments, p_value_pearson_comments = pearsonr(toxicity_values, comment_values)
-        
-        spearman_toxicity_commits, p_value_spearman_commits = spearmanr(toxicity_values, commit_values)
-        spearman_toxicity_comments, p_value_spearman_comments = spearmanr(toxicity_values, comment_values)
-        
-        correlation_results = {
-            'commits': {
-                'pearson': pearson_toxicity_commits,
-                'pearson_p': p_value_pearson_commits,
-                'spearman': spearman_toxicity_commits,
-                'spearman_p': p_value_spearman_commits
-            },
-            'issues': {
-                'pearson': pearson_toxicity_issues,
-                'pearson_p': p_value_pearson_issues,
-                'spearman': spearman_toxicity_issues,
-                'spearman_p': p_value_spearman_issues
-            },
-            'comments': {
-                'pearson': pearson_toxicity_comments,
-                'pearson_p': p_value_pearson_comments,
-                'spearman': spearman_toxicity_comments,
-                'spearman_p': p_value_spearman_comments
+    
+    # Calculate both Spearman and Pearson correlations and store results
+    for metric in ['commits', 'issues_created']:  # Changed from 'issues_closed'
+        # Check if there's variation in the metric data
+        if df[metric].std() == 0:
+            # No variation in the metric, correlation is undefined
+            correlation_results[metric] = {
+                'spearman': {
+                    'correlation': 0,  # Use 0 instead of NaN
+                    'p_value': 1.0,    # No significance
+                    'significant': False,
+                    'no_variation': True  # Flag to indicate no variation
+                },
+                'pearson': {
+                    'correlation': 0,  # Use 0 instead of NaN
+                    'p_value': 1.0,    # No significance
+                    'significant': False,
+                    'no_variation': True  # Flag to indicate no variation
+                }
             }
-        }
-    else:
-        correlation_results = {
-            'commits': {'pearson': 0, 'pearson_p': 1, 'spearman': 0, 'spearman_p': 1},
-            'issues': {'pearson': 0, 'pearson_p': 1, 'spearman': 0, 'spearman_p': 1},
-            'comments': {'pearson': 0, 'pearson_p': 1, 'spearman': 0, 'spearman_p': 1}
-        }
-    
-    # Print results
-    print(f"Pearson correlation between toxicity and commit count: {correlation_results['commits']['pearson']:.4f} (p={correlation_results['commits']['pearson_p']:.4f})")
-    print(f"Pearson correlation between toxicity and issues closed: {correlation_results['issues']['pearson']:.4f} (p={correlation_results['issues']['pearson_p']:.4f})")
-    print(f"Pearson correlation between toxicity and comment activity: {correlation_results['comments']['pearson']:.4f} (p={correlation_results['comments']['pearson_p']:.4f})")
-    
-    print(f"Spearman correlation between toxicity and commit count: {correlation_results['commits']['spearman']:.4f} (p={correlation_results['commits']['spearman_p']:.4f})")
-    print(f"Spearman correlation between toxicity and issues closed: {correlation_results['issues']['spearman']:.4f} (p={correlation_results['issues']['spearman_p']:.4f})")
-    print(f"Spearman correlation between toxicity and comment activity: {correlation_results['comments']['spearman']:.4f} (p={correlation_results['comments']['spearman_p']:.4f})")
-    
-    # Create improved plots
-    fig = plt.figure(figsize=(16, 12))
-    
-    # Get weeks and sort them
-    weeks = sorted(weeks_with_all_data)
-    x_positions = range(len(weeks))
-    
-    # Create a normalized toxicity score for better visualization
-    max_toxicity = max([weekly_metrics[week]['avg_toxicity'] for week in weeks]) or 1
-    normalized_toxicity = [weekly_metrics[week]['avg_toxicity'] / max_toxicity for week in weeks]
-    
-    # Only plot every nth label to avoid overcrowding
-    n = max(1, len(weeks) // 15)  # Show ~15 labels max
-    
-    # First subplot: Toxicity vs Commits
-    ax1 = plt.subplot(2, 1, 1)
-    
-    # Primary Y-axis: Toxicity
-    line1, = ax1.plot(x_positions, normalized_toxicity, 'r-', marker='o', label='Toxicity Score (normalized)', linewidth=2)
-    ax1.set_ylabel('Normalized Toxicity', color='r', fontweight='bold')
-    ax1.tick_params(axis='y', labelcolor='r')
-    
-    # Set x-ticks for every nth week to avoid overcrowding
-    plt.xticks([i for i in x_positions if i % n == 0], 
-               [weeks[i] for i in x_positions if i % n == 0], 
-               rotation=45)
-    
-    # Secondary Y-axis: Commits
-    ax2 = ax1.twinx()
-    commit_counts = [weekly_metrics[week]['commit_count'] for week in weeks]
-    line2, = ax2.plot(x_positions, commit_counts, 'b-', marker='s', label='Commit Count', linewidth=2)
-    ax2.set_ylabel('Number of Commits', color='b', fontweight='bold')
-    ax2.tick_params(axis='y', labelcolor='b')
-    
-    # Add legend for both axes
-    lines = [line1, line2]
-    plt.legend(lines, [line.get_label() for line in lines], loc='upper left')
-    
-    # Set title with correlation coefficients
-    corr_text = (f'Pearson: {correlation_results["commits"]["pearson"]:.2f} ' + 
-                f'(p={correlation_results["commits"]["pearson_p"]:.3f}), ' +
-                f'Spearman: {correlation_results["commits"]["spearman"]:.2f} ' + 
-                f'(p={correlation_results["commits"]["spearman_p"]:.3f})')
-    
-    plt.title(f'Weekly Toxicity vs. Commits\n{corr_text}', fontweight='bold')
-    
-    # Second subplot: Toxicity vs Issue Resolution
-    ax3 = plt.subplot(2, 1, 2)
-    
-    # Primary Y-axis: Toxicity (again)
-    ax3.plot(x_positions, normalized_toxicity, 'r-', marker='o', label='Toxicity Score (normalized)', linewidth=2)
-    ax3.set_ylabel('Normalized Toxicity', color='r', fontweight='bold')
-    ax3.tick_params(axis='y', labelcolor='r')
-    
-    # Set x-ticks for every nth week
-    plt.xticks([i for i in x_positions if i % n == 0], 
-               [weeks[i] for i in x_positions if i % n == 0], 
-               rotation=45)
-    
-    # Secondary Y-axis: Issues Closed
-    ax4 = ax3.twinx()
-    issues_closed = [weekly_metrics[week]['issues_closed'] for week in weeks]
-    ax4.plot(x_positions, issues_closed, 'g-', marker='^', label='Issues Closed', linewidth=2)
-    ax4.set_ylabel('Issues Closed', color='g', fontweight='bold')
-    ax4.tick_params(axis='y', labelcolor='g')
-    
-    # Make sure y-axis doesn't start from 0 if data is sparse
-    if max(issues_closed) > 0:
-        ax4.set_ylim(bottom=0, top=max(issues_closed) * 1.1)
-    else:
-        # If all values are 0, set a small range to avoid error
-        ax4.set_ylim(bottom=0, top=1)
-    
-    # Add correlation coefficient
-    corr_text = (f'Pearson: {correlation_results["issues"]["pearson"]:.2f} ' + 
-                f'(p={correlation_results["issues"]["pearson_p"]:.3f}), ' +
-                f'Spearman: {correlation_results["issues"]["spearman"]:.2f} ' + 
-                f'(p={correlation_results["issues"]["spearman_p"]:.3f})')
-    
-    plt.title(f'Weekly Toxicity vs. Issues Closed\n{corr_text}', fontweight='bold')
-    
-    plt.tight_layout()
-    plt.savefig('rq1.png', dpi=300)
-    print("Saved improved RQ1 visualization to 'rq1.png'")
-    
-    return weekly_metrics, correlation_results
+        else:
+            # Normal case - calculate correlations
+            try:
+                # Spearman correlation
+                spearman_corr, spearman_p_value = spearmanr(df['toxicity'], df[metric])
+                
+                # Pearson correlation
+                pearson_corr, pearson_p_value = pearsonr(df['toxicity'], df[metric])
+                
+                correlation_results[metric] = {
+                    'spearman': {
+                        'correlation': spearman_corr,
+                        'p_value': spearman_p_value,
+                        'significant': spearman_p_value < 0.05,
+                        'no_variation': False
+                    },
+                    'pearson': {
+                        'correlation': pearson_corr,
+                        'p_value': pearson_p_value,
+                        'significant': pearson_p_value < 0.05,
+                        'no_variation': False
+                    }
+                }
+            except:
+                # Handle any other errors in correlation calculation
+                correlation_results[metric] = {
+                    'spearman': {
+                        'correlation': 0, 
+                        'p_value': 1.0,
+                        'significant': False,
+                        'calculation_error': True
+                    },
+                    'pearson': {
+                        'correlation': 0,
+                        'p_value': 1.0,
+                        'significant': False,
+                        'calculation_error': True
+                    }
+                }
+                    
+    # Create PLOT 
+    if 1 == 1:
+        plt.figure(figsize=(12, 8))
+        
+        # Time series plot
+        plt.subplot(2, 1, 1)
+        weeks_ordered = sorted(df['week'])
+        toxicity_values = [df[df['week'] == week]['toxicity'].values[0] for week in weeks_ordered]
+        
+        plt.plot(range(len(weeks_ordered)), toxicity_values, 'r-o', linewidth=2)
+        plt.ylabel('Toxicity %')
+        plt.title('Toxicity Percentage Over Time')
+        
+        # Show some week labels (not all to avoid overcrowding)
+        label_positions = range(0, len(weeks_ordered), max(1, len(weeks_ordered) // 8))
+        plt.xticks(label_positions, [weeks_ordered[i] for i in label_positions], rotation=45)
+        
+        # Scatter plots with correlation info in titles
+        plt.subplot(2, 2, 3)
+        plt.scatter(df['toxicity'], df['commits'])
+        plt.xlabel('Toxicity %')
+        plt.ylabel('Commits')
+        
+        # Add correlation information to title for commits
+        if correlation_results['commits'].get('spearman', {}).get('no_variation', False):
+            plt.title('Toxicity vs. Commits\nNo correlation (no variation in commits)')
+        else:
+            spearman_corr = correlation_results['commits']['spearman']['correlation']
+            spearman_p_val = correlation_results['commits']['spearman']['p_value']
+            spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+            
+            pearson_corr = correlation_results['commits']['pearson']['correlation']
+            pearson_p_val = correlation_results['commits']['pearson']['p_value']
+            pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+            
+            plt.title(f'Toxicity vs. Commits\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+                      f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
 
-# RQ2: Is there any correlation between toxic communication and software releases?
-def rq2(comments_data, releases_data):
-    """
-    Analyze correlation between toxic communication and software releases
-    """
-    print("RQ2: Analyzing toxicity vs. software releases...")
-    
-    # Process comments data with toxicity
+        # Add trend line
+        if len(df) > 1 and df['commits'].std() > 0:
+            z = np.polyfit(df['toxicity'], df['commits'], 1)
+            trend = np.poly1d(z)
+            plt.plot(df['toxicity'], trend(df['toxicity']), "r--")
+        
+        # Issues Created plot (instead of issues closed)
+        plt.subplot(2, 2, 4)
+        plt.scatter(df['toxicity'], df['issues_created'], color='green')  # Changed to issues_created
+        plt.xlabel('Toxicity %')
+        plt.ylabel('Issues Created')  # Updated label
+        
+        # Add correlation information to title for issues created
+        if correlation_results['issues_created'].get('spearman', {}).get('no_variation', False):
+            plt.title('Toxicity vs. Issues Created\nNo correlation (no variation in issues created)')
+        else:
+            spearman_corr = correlation_results['issues_created']['spearman']['correlation']
+            spearman_p_val = correlation_results['issues_created']['spearman']['p_value']
+            spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+            
+            pearson_corr = correlation_results['issues_created']['pearson']['correlation']
+            pearson_p_val = correlation_results['issues_created']['pearson']['p_value']
+            pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+            
+            plt.title(f'Toxicity vs. Issues Created\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+                      f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
+        
+        # Add trend line only if there's variation in issues_created
+        if len(df) > 1 and df['issues_created'].std() > 0:
+            z = np.polyfit(df['toxicity'], df['issues_created'], 1)
+            trend = np.poly1d(z)
+            plt.plot(df['toxicity'], trend(df['toxicity']), "r--")
+        
+        plt.tight_layout()
+        plt.savefig('rq1.png')
+
+        # Return results including correlation data
+        return {
+            'data': df,
+            'correlations': correlation_results
+        }
+
+def rq2(comments_data, releases_data):    
     comments_by_date = defaultdict(list)
     for comment in comments_data:
-        date = parse_date(comment['created_at']).date()
-        comments_by_date[date].append(float(comment['toxicity']))
+        date = parse_date(comment['created_at'])
+        if date:
+            comments_by_date[date.date()].append(comment['is_toxic'])
     
-    # Calculate daily average toxicity
     daily_toxicity = {}
-    for date, toxicity_scores in comments_by_date.items():
-        daily_toxicity[date] = sum(toxicity_scores) / len(toxicity_scores)
+    for date, toxic_list in comments_by_date.items():
+        if len(toxic_list) >= 3:  
+            daily_toxicity[date] = (sum(toxic_list) / len(toxic_list)) * 100
     
-    # Process releases data
+    # get release dates 
     release_dates = []
     for release in releases_data:
-        release_date = parse_date(release['published_at']).date()
-        release_dates.append(release_date)
+        if release.get('published_at'):
+            date = parse_date(release['published_at'])
+            if date:
+                release_dates.append(date.date())
     
-    # Analyze toxicity before and after releases
-    release_window = 7  # days before and after to analyze
-    release_analysis = {}
+    
+    release_dates = sorted(release_dates)
+    
+    # Check 7 days before/after release
+    days_to_check = 7
+    
+    # collect data for before and after release to anylze ( my guess is toxicity is higher before a release and cools down after.... that is if we had ALOT more data of toxic repos)
+    release_comparisons = []
     
     for release_date in release_dates:
-        before_toxicity = []
-        after_toxicity = []
-        
-        # Check toxicity for days before release
-        for i in range(1, release_window + 1):
+        # Before release values
+        before_values = []
+        for i in range(1, days_to_check + 1):
             check_date = release_date - timedelta(days=i)
             if check_date in daily_toxicity:
-                before_toxicity.append(daily_toxicity[check_date])
+                before_values.append(daily_toxicity[check_date])
         
-        # Check toxicity for days after release
-        for i in range(1, release_window + 1):
+        # After release values
+        after_values = []
+        for i in range(1, days_to_check + 1):
             check_date = release_date + timedelta(days=i)
             if check_date in daily_toxicity:
-                after_toxicity.append(daily_toxicity[check_date])
+                after_values.append(daily_toxicity[check_date])
         
-        # Calculate average toxicity before and after
-        avg_before = sum(before_toxicity) / len(before_toxicity) if before_toxicity else 0
-        avg_after = sum(after_toxicity) / len(after_toxicity) if after_toxicity else 0
+        # Only include releases with both before and after data
+        if before_values and after_values:
+            before_avg = sum(before_values) / len(before_values)
+            after_avg = sum(after_values) / len(after_values)
+            
+            # Calculate percentage change
+            if before_avg > 0:
+                pct_change = ((after_avg - before_avg) / before_avg) * 100
+            else:
+                pct_change = 0 if after_avg == 0 else 100  # Handling division by zero
+            
+            release_comparisons.append({
+                'release_date': release_date,
+                'before_avg': before_avg,
+                'after_avg': after_avg,
+                'pct_change': pct_change
+            })
+    
+    # Overall before vs after statistics
+    if release_comparisons:
+        avg_before = sum(r['before_avg'] for r in release_comparisons) / len(release_comparisons)
+        avg_after = sum(r['after_avg'] for r in release_comparisons) / len(release_comparisons)
         
-        release_analysis[release_date] = {
-            'before': avg_before,
-            'after': avg_after,
-            'change': avg_after - avg_before
+        increases = sum(1 for r in release_comparisons if r['after_avg'] > r['before_avg'])
+        decreases = sum(1 for r in release_comparisons if r['after_avg'] < r['before_avg'])
+        no_change = sum(1 for r in release_comparisons if r['after_avg'] == r['before_avg'])
+        
+        # Perform t-test on before/after pairs
+        if len(release_comparisons) > 1:
+            before_vals = [r['before_avg'] for r in release_comparisons]
+            after_vals = [r['after_avg'] for r in release_comparisons]
+            t_stat, p_value = ttest_rel(before_vals, after_vals)
+            
+            before_after_results = {
+                'overall_before_avg': avg_before,
+                'overall_after_avg': avg_after,
+                'overall_change_pct': (avg_after - avg_before) / avg_before * 100 if avg_before > 0 else 0,
+                'increases': increases,
+                'decreases': decreases,
+                'no_change': no_change,
+                'p_value': p_value,
+                'significant': p_value < 0.05
+            }
+    
+    # The rest of your correlation analysis code remains the same
+    proximity_data = []
+    
+    for date in sorted(daily_toxicity.keys()):
+        days_to_nearest = float('inf')
+        for release_date in release_dates:
+            days_diff = (date - release_date).days
+            if abs(days_diff) < abs(days_to_nearest):
+                days_to_nearest = days_diff
+        
+        if abs(days_to_nearest) <= 30:
+            proximity_data.append({
+                'date': date,
+                'days_to_release': days_to_nearest,
+                'toxicity': daily_toxicity[date]
+            })
+    
+    correlation_results = {}
+    if len(proximity_data) >= 10:
+        prox_df = pd.DataFrame(proximity_data)
+        prox_df['distance_from_release'] = prox_df['days_to_release'].abs()
+        
+        # Calculate both Spearman and Pearson correlations
+        spearman_days, spearman_p_days = spearmanr(prox_df['days_to_release'], prox_df['toxicity'])
+        pearson_days, pearson_p_days = pearsonr(prox_df['days_to_release'], prox_df['toxicity'])
+        
+        spearman_distance, spearman_p_distance = spearmanr(prox_df['distance_from_release'], prox_df['toxicity'])
+        pearson_distance, pearson_p_distance = pearsonr(prox_df['distance_from_release'], prox_df['toxicity'])
+        
+        correlation_results = {
+            'days_directional': {
+                'spearman': {
+                    'rho': spearman_days,
+                    'p_value': spearman_p_days,
+                    'significant': spearman_p_days < 0.05
+                },
+                'pearson': {
+                    'r': pearson_days,
+                    'p_value': pearson_p_days,
+                    'significant': pearson_p_days < 0.05
+                }
+            },
+            'absolute_distance': {
+                'spearman': {
+                    'rho': spearman_distance,
+                    'p_value': spearman_p_distance,
+                    'significant': spearman_p_distance < 0.05
+                },
+                'pearson': {
+                    'r': pearson_distance,
+                    'p_value': pearson_p_distance,
+                    'significant': pearson_p_distance < 0.05
+                }
+            }
         }
-    
-    # Print results summary
-    print("\nToxicity analysis around releases:")
-    increases = 0
-    decreases = 0
-    for release_date, data in release_analysis.items():
-        if data['change'] > 0:
-            increases += 1
-        elif data['change'] < 0:
-            decreases += 1
-    
-    print(f"Releases with toxicity increases: {increases}")
-    print(f"Releases with toxicity decreases: {decreases}")
-    print(f"No change: {len(release_analysis) - increases - decreases}")
-    
-    # IMPROVED VISUALIZATION: Focus on more recent releases to avoid overcrowding
-    # Sort release dates
-    release_dates_list = sorted(release_analysis.keys())
-    
-    # Select the most recent N releases to avoid overcrowding
-    max_releases_to_show = 10
-    if len(release_dates_list) > max_releases_to_show:
-        release_dates_list = release_dates_list[-max_releases_to_show:]
-    
-    # Create a figure
-    plt.figure(figsize=(14, 8))
-    
-    # Collect data for selected releases
-    before_values = [release_analysis[date]['before'] for date in release_dates_list]
-    after_values = [release_analysis[date]['after'] for date in release_dates_list]
-    changes = [release_analysis[date]['change'] for date in release_dates_list]
-    
-    # Convert dates to string format for readability
-    date_labels = [date.strftime('%Y-%m-%d') for date in release_dates_list]
-    
-    # Set up bar positions
-    x = range(len(release_dates_list))
-    width = 0.35
-    
-    # Create bar chart with better colors and alpha
-    plt.bar([i - width/2 for i in x], before_values, width, label='Before Release', color='#4878CF', alpha=0.8)
-    plt.bar([i + width/2 for i in x], after_values, width, label='After Release', color='#E34A33', alpha=0.8)
-    
-    # Improve axes and labels
-    plt.xlabel('Release Date', fontweight='bold')
-    plt.ylabel('Average Toxicity Score', fontweight='bold')
-    plt.title('Toxicity Levels Before and After Recent Software Releases', fontweight='bold')
-    plt.xticks(x, date_labels, rotation=45, ha='right')
-    plt.legend(loc='upper left')
-    
-    # Add percentage change annotations with better positioning and format
-    for i, (before, after) in enumerate(zip(before_values, after_values)):
-        if before > 0 and after > 0:
-            pct_change = ((after - before) / before) * 100
-            color = 'green' if pct_change < 0 else 'red'
-            plt.annotate(f"{pct_change:.1f}%", 
-                         xy=(i, max(before, after) * 1.1),
-                         ha='center',
-                         fontweight='bold',
-                         color=color,
-                         bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.7))
-    
-    # Adjust y-axis to ensure annotations are visible
-    y_max = max(max(before_values), max(after_values)) * 1.3 if before_values and after_values else 0.1
-    plt.ylim(0, y_max)
-    
-    plt.tight_layout()
-    plt.savefig('rq2.png', dpi=300)
-    print("Saved improved RQ2 visualization to 'rq2.png'")
-    
-    return release_analysis
+        
+        # Create visualizations
+        fig = plt.figure(figsize=(15, 12))
+        
+        # PLOT 1: Grouped bar chart for each release
+        if release_comparisons:
+            # Show only most recent N releases if there are too many
+            max_releases_to_show = 10
+            recent_releases = release_comparisons[-max_releases_to_show:] if len(release_comparisons) > max_releases_to_show else release_comparisons
+            
+            plt.subplot(2, 1, 1)
+            
+            # Prepare data for grouped bar chart
+            release_dates_str = [r['release_date'].strftime('%Y-%m-%d') for r in recent_releases]
+            before_values = [r['before_avg'] for r in recent_releases]
+            after_values = [r['after_avg'] for r in recent_releases]
+            
+            # Position of bars
+            x = np.arange(len(release_dates_str))
+            width = 0.35
+            
+            # Create the bars
+            # bars1 = plt.bar(x - width/2, before_values, width, label='Before Release', color='royalblue')
+            # bars2 = plt.bar(x + width/2, after_values, width, label='After Release', color='coral')
+            bars1 = plt.bar(x - width/2, before_values, width, label='Before Release', color='#4878CF')
+            bars2 = plt.bar(x + width/2, after_values, width, label='After Release', color='#E34A33')
+            # colors = ['#4878CF', '#E34A33']
 
-# RQ3: How does contributor experience correlate with toxic communication?
+            # Add percentage change labels
+            for i, r in enumerate(recent_releases):
+                pct_change = r['pct_change']
+                # Format change as string with sign
+                change_str = f"{pct_change:.1f}%"
+                
+                # Determine color of label based on change direction
+                color = 'red' if pct_change > 0 else 'green'
+                if abs(pct_change) < 0.1:  # Negligible change
+                    color = 'black'
+                
+                # Position label above the higher of the two bars
+                y_pos = max(before_values[i], after_values[i]) + 0.002  # Small offset
+                
+                # Add the label
+                plt.annotate(change_str,
+                             xy=(x[i], y_pos),
+                             xytext=(0, 2),  # Small vertical offset
+                             textcoords="offset points",
+                             ha='center',
+                             va='bottom',
+                             color=color,
+                             bbox=dict(boxstyle="round,pad=0.2", fc='white', ec=color, alpha=0.7))
+            
+            # Add labels and title
+            plt.xlabel('Release Date')
+            plt.ylabel('Average Toxicity Score')
+            
+            # Set y-axis to start at 0
+            plt.ylim(bottom=0)
+            
+            # Calculate overall significance for title
+            sig_text = "*" if before_after_results.get('significant', False) else "(not significant)"
+            p_value = before_after_results.get('p_value', 1.0)
+            
+            plt.title(f'Toxicity Levels Before and After Recent Software Releases\nn={len(recent_releases)}, p={p_value:.3f} {sig_text}')
+            
+            plt.xticks(x, release_dates_str, rotation=45)
+            plt.legend()
+            plt.grid(True, linestyle='--', alpha=0.7)
+            
+        # The scatter plots remain the same
+        spearman_sig_days = "**" if spearman_p_days < 0.01 else ("*" if spearman_p_days < 0.05 else "")
+        pearson_sig_days = "**" if pearson_p_days < 0.01 else ("*" if pearson_p_days < 0.05 else "")
+        
+        plt.subplot(2, 2, 3)
+        plt.scatter(prox_df['days_to_release'], prox_df['toxicity'], alpha=0.7)
+        plt.axvline(x=0, color='red', linestyle='--')
+        plt.xlabel('Days from Release (- = before, + = after)')
+        plt.ylabel('Toxicity %')
+        plt.title(f'Correlation: Days from Release vs. Toxicity\n'
+                 f'Spearman rho = {spearman_days:.3f} (p = {spearman_p_days:.3f}) {spearman_sig_days}\n'
+                 f'Pearson r = {pearson_days:.3f} (p = {pearson_p_days:.3f}) {pearson_sig_days}')
+        
+        if len(prox_df) > 1:
+            z = np.polyfit(prox_df['days_to_release'], prox_df['toxicity'], 1)
+            trend = np.poly1d(z)
+            plt.plot(prox_df['days_to_release'], trend(prox_df['days_to_release']), "r--")
+        
+        spearman_sig_distance = "**" if spearman_p_distance < 0.01 else ("*" if spearman_p_distance < 0.05 else "")
+        pearson_sig_distance = "**" if pearson_p_distance < 0.01 else ("*" if pearson_p_distance < 0.05 else "")
+        
+        plt.subplot(2, 2, 4)
+        plt.scatter(prox_df['distance_from_release'], prox_df['toxicity'], alpha=0.7, color='green')
+        plt.xlabel('Days Away from Nearest Release')
+        plt.ylabel('Toxicity %')
+        plt.title(f'Correlation: Distance from Release vs. Toxicity\n'
+                 f'Spearman rho = {spearman_distance:.3f} (p = {spearman_p_distance:.3f}) {spearman_sig_distance}\n'
+                 f'Pearson r = {pearson_distance:.3f} (p = {pearson_p_distance:.3f}) {pearson_sig_distance}')
+        
+        if len(prox_df) > 1:
+            z = np.polyfit(prox_df['distance_from_release'], prox_df['toxicity'], 1)
+            trend = np.poly1d(z)
+            plt.plot(prox_df['distance_from_release'], trend(prox_df['distance_from_release']), "r--")
+        
+        plt.tight_layout()
+        plt.savefig('rq2.png')
+        
+        # Return results including correlation data
+        return {
+            'release_comparisons': release_comparisons,
+            'overall_before_after': before_after_results if release_comparisons else None,
+            'correlations': correlation_results,
+            'proximity_data': prox_df.to_dict('records') if len(prox_df) > 0 else None
+        }
+    else:
+        return None
+  
 def rq3(comments_data, contributors_data):
-    """
-    Analyze how contributor experience correlates with toxic communication
-    """
-    print("RQ3: Analyzing contributor experience vs. toxicity...")
-    
-    # Create a lookup dictionary for contributor information
+    # Create a lookup dictionary for quick access to contributor information
     contributor_info = {}
     for contributor in contributors_data:
-        user_id = contributor['user_id']
-        account_created = parse_date(contributor['account_created_at'])
-        contributor_info[user_id] = {
-            'account_age_days': (datetime.now() - account_created).days if account_created else 0,
-            'contributions': int(contributor['contributions']),
-            'followers': int(contributor['followers']),
-            'public_repos': int(contributor['public_repos'])
-        }
+        if contributor.get('user_id'):
+            user_id = contributor['user_id']
+            
+            # Parse account creation date for calculating account age
+            account_created = None
+            if contributor.get('account_created_at'):
+                account_created = parse_date(contributor['account_created_at'])
+            
+            # Safely extract numerical metrics with error handling
+            try:
+                contributions = int(contributor.get('contributions', 0))
+            except:
+                contributions = 0
+                
+            try:
+                followers = int(contributor.get('followers', 0))
+            except:
+                followers = 0
+            
+            # Store contributor metrics for later analysis
+            contributor_info[user_id] = {
+                'account_age_days': (datetime.now() - account_created).days if account_created else 0,
+                'contributions': contributions,
+                'followers': followers
+            }
     
-    # Group comments by user
+    # Organize comments by user to calculate per-user toxicity rates
     user_comments = defaultdict(list)
     for comment in comments_data:
-        user_id = comment['user_id']
-        toxicity = float(comment['toxicity'])
-        user_comments[user_id].append(toxicity)
+        if comment.get('user_id'):
+            user_id = comment['user_id']
+            user_comments[user_id].append(comment['is_toxic'])
     
-    # Calculate average toxicity per user
+    # Calculate toxicity percentage per user, requiring minimum comment threshold
     user_toxicity = {}
-    for user_id, toxicity_scores in user_comments.items():
-        user_toxicity[user_id] = sum(toxicity_scores) / len(toxicity_scores)
+    user_comment_count = {}
+    for user_id, toxic_list in user_comments.items():
+        if len(toxic_list) >= 3:  # Minimum threshold for reliable percentage
+            user_toxicity[user_id] = (sum(toxic_list) / len(toxic_list)) * 100
+            user_comment_count[user_id] = len(toxic_list)
     
-    # Create analysis groups based on experience
-    experience_groups = {
-        'new_users': [],          # Account age < 1 year
-        'intermediate_users': [], # Account age 1-3 years
-        'experienced_users': []   # Account age > 3 years
-    }
-    
-    contribution_groups = {
-        'low_contributions': [],    # < 50 contributions
-        'medium_contributions': [], # 50-500 contributions
-        'high_contributions': []    # > 500 contributions
-    }
-    
-    # Assign users to groups and store their toxicity
-    for user_id, toxicity in user_toxicity.items():
+    # Create comprehensive dataset merging toxicity and contributor metrics
+    user_data = []
+    for user_id in user_toxicity:
         if user_id in contributor_info:
-            # Account age groups
-            account_age_years = contributor_info[user_id]['account_age_days'] / 365
-            if account_age_years < 1:
-                experience_groups['new_users'].append(toxicity)
-            elif account_age_years < 3:
-                experience_groups['intermediate_users'].append(toxicity)
-            else:
-                experience_groups['experienced_users'].append(toxicity)
+            info = contributor_info[user_id]
+            user_data.append({
+                'user_id': user_id,
+                'toxicity': user_toxicity[user_id],
+                'comments': user_comment_count[user_id],
+                'account_age_days': info['account_age_days'],
+                'account_age_years': info['account_age_days'] / 365,  # Convert to years for better interpretation
+                'contributions': info['contributions'],
+                'followers': info['followers']
+            })
+    
+    # Create pandas DataFrame for statistical analysis
+    df = pd.DataFrame(user_data)
+    
+    # Check for minimum data requirements
+    if len(df) < 10:
+        return None
+    
+    # Create categorical experience groups for comparison
+    df['experience_level'] = pd.cut(
+        df['account_age_years'], 
+        bins=[0, 1, 3, float('inf')],  # Dividing users into 3 experience tiers
+        labels=['New (<1 year)', 'Intermediate (1-3 years)', 'Experienced (3+ years)']
+    )
+    
+    # Store correlation results
+    correlation_results = {}
+    
+    # Calculate both Spearman and Pearson correlations between experience metrics and toxicity
+    for metric in ['account_age_days', 'contributions', 'followers']:
+        # Spearman correlation
+        spearman_corr, spearman_p_value = spearmanr(df[metric], df['toxicity'])
+        
+        # Pearson correlation
+        pearson_corr, pearson_p_value = pearsonr(df[metric], df['toxicity'])
+        
+        # Store correlation results
+        correlation_results[metric] = {
+            'spearman': {
+                'rho': spearman_corr,
+                'p_value': spearman_p_value,
+                'significant': spearman_p_value < 0.05
+            },
+            'pearson': {
+                'r': pearson_corr,
+                'p_value': pearson_p_value,
+                'significant': pearson_p_value < 0.05
+            }
+        }
             
-            # Contribution groups
-            contributions = contributor_info[user_id]['contributions']
-            if contributions < 50:
-                contribution_groups['low_contributions'].append(toxicity)
-            elif contributions < 500:
-                contribution_groups['medium_contributions'].append(toxicity)
-            else:
-                contribution_groups['high_contributions'].append(toxicity)
+    # Analyze toxicity by experience group
+    exp_stats = df.groupby('experience_level')['toxicity'].agg(['mean', 'count']).reset_index()
     
-    # Calculate average toxicity by group
-    results = {
-        'account_age': {},
-        'contributions': {}
-    }
+    # Create multi-panel visualization to illustrate findings
+    plt.figure(figsize=(12, 10))
     
-    for group_name, toxicity_values in experience_groups.items():
-        avg_toxicity = sum(toxicity_values) / len(toxicity_values) if toxicity_values else 0
-        results['account_age'][group_name] = {
-            'avg_toxicity': avg_toxicity,
-            'count': len(toxicity_values)
-        }
+    # Scatter plot: account age vs toxicity
+    plt.subplot(2, 2, 1)
+    plt.scatter(df['account_age_years'], df['toxicity'], alpha=0.7)
+    plt.xlabel('Account Age (Years)')
+    plt.ylabel('Toxicity %')
     
-    for group_name, toxicity_values in contribution_groups.items():
-        avg_toxicity = sum(toxicity_values) / len(toxicity_values) if toxicity_values else 0
-        results['contributions'][group_name] = {
-            'avg_toxicity': avg_toxicity,
-            'count': len(toxicity_values)
-        }
+    # Add correlation information to title
+    spearman_corr = correlation_results['account_age_days']['spearman']['rho']
+    spearman_p_val = correlation_results['account_age_days']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    # Print results
-    print("\nToxicity by account age:")
-    for group, data in results['account_age'].items():
-        print(f"{group}: Avg toxicity = {data['avg_toxicity']:.4f} (n={data['count']})")
+    pearson_corr = correlation_results['account_age_days']['pearson']['r']
+    pearson_p_val = correlation_results['account_age_days']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    print("\nToxicity by contribution level:")
-    for group, data in results['contributions'].items():
-        print(f"{group}: Avg toxicity = {data['avg_toxicity']:.4f} (n={data['count']})")
+    plt.title(f'Account Age vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
-    # IMPROVED VISUALIZATION
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
+    # Add trend line to visualize correlation direction
+    if len(df) > 1:
+        z = np.polyfit(df['account_age_years'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['account_age_years'], trend(df['account_age_years']), "r--")
     
-    # Better labels for x-axis
-    age_labels = {
-        'new_users': 'New Users\n(<1 year)',
-        'intermediate_users': 'Intermediate Users\n(1-3 years)',
-        'experienced_users': 'Experienced Users\n(>3 years)'
-    }
+    # Scatter plot: contributions vs toxicity
+    plt.subplot(2, 2, 2)
+    plt.scatter(df['contributions'], df['toxicity'], alpha=0.7, color='green')
+    plt.xlabel('Contributions')
+    plt.ylabel('Toxicity %')
     
-    contrib_labels = {
-        'low_contributions': 'Low\n(<50)',
-        'medium_contributions': 'Medium\n(50-500)',
-        'high_contributions': 'High\n(>500)'
-    }
+    # Add correlation information to title
+    spearman_corr = correlation_results['contributions']['spearman']['rho']
+    spearman_p_val = correlation_results['contributions']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    # First plot: Account Age vs Toxicity
-    groups = list(results['account_age'].keys())
-    toxicity_values = [results['account_age'][group]['avg_toxicity'] for group in groups]
-    counts = [results['account_age'][group]['count'] for group in groups]
+    pearson_corr = correlation_results['contributions']['pearson']['r']
+    pearson_p_val = correlation_results['contributions']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    # Calculate error bars (standard error if we had raw data)
-    # In this case, we'll use a small fixed percentage for visual indication
-    errors = [value * 0.05 for value in toxicity_values]
+    plt.title(f'Contributions vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
-    # Create bar chart with better colors
-    colors = ['#6baed6', '#3182bd', '#08519c']  # Light to dark blue
-    bars = ax1.bar(
-        [age_labels[group] for group in groups], 
-        toxicity_values, 
-        color=colors,
-        yerr=errors,
-        capsize=5
-    )
+    # Add trend line to visualize correlation direction
+    if len(df) > 1:
+        z = np.polyfit(df['contributions'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['contributions'], trend(df['contributions']), "r--")
     
-    # Add count annotations
-    for bar, count in zip(bars, counts):
-        ax1.text(
-            bar.get_x() + bar.get_width()/2, 
-            bar.get_height() + max(toxicity_values) * 0.02, 
-            f"n={count}", 
-            ha='center', va='bottom',
-            fontweight='bold'
-        )
+    # Scatter plot: followers vs toxicity
+    plt.subplot(2, 2, 3)
+    plt.scatter(df['followers'], df['toxicity'], alpha=0.7, color='purple')
+    plt.xlabel('Followers')
+    plt.ylabel('Toxicity %')
     
-    ax1.set_xlabel('Account Age Group', fontweight='bold')
-    ax1.set_ylabel('Average Toxicity Score', fontweight='bold')
-    ax1.set_title('Toxicity by User Account Age', fontweight='bold')
+    # Add correlation information to title
+    spearman_corr = correlation_results['followers']['spearman']['rho']
+    spearman_p_val = correlation_results['followers']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    # For small differences, don't start y-axis at zero
-    y_min = min(toxicity_values) * 0.9 if min(toxicity_values) > 0 else 0
-    y_max = max(toxicity_values) * 1.15
-    ax1.set_ylim(y_min, y_max)
+    pearson_corr = correlation_results['followers']['pearson']['r']
+    pearson_p_val = correlation_results['followers']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    # Add a horizontal line for overall average toxicity
-    all_toxicity = []
-    for group in groups:
-        group_size = results['account_age'][group]['count']
-        group_toxicity = results['account_age'][group]['avg_toxicity']
-        all_toxicity.extend([group_toxicity] * group_size)
+    plt.title(f'Followers vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
-    overall_avg = sum(all_toxicity) / len(all_toxicity) if all_toxicity else 0
-    ax1.axhline(y=overall_avg, color='r', linestyle='-', linewidth=2, 
-                label=f'Overall Avg: {overall_avg:.4f}')
-    ax1.legend()
+    # Add trend line to visualize correlation direction
+    if len(df) > 1:
+        z = np.polyfit(df['followers'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['followers'], trend(df['followers']), "r--")
     
-    # Second plot: Contribution Level vs Toxicity
-    groups = list(results['contributions'].keys())
-    toxicity_values = [results['contributions'][group]['avg_toxicity'] for group in groups]
-    counts = [results['contributions'][group]['count'] for group in groups]
+    # Box plot to show distribution of toxicity by experience level
+    plt.subplot(2, 2, 4)
+    sns.boxplot(x='experience_level', y='toxicity', data=df)
+    plt.xlabel('Experience Level')
+    plt.ylabel('Toxicity %')
+    plt.title('Toxicity by Experience Level')
     
-    # Calculate error bars
-    errors = [value * 0.05 for value in toxicity_values]
-    
-    # Create bar chart with better colors
-    colors = ['#c7e9c0', '#74c476', '#238b45']  # Light to dark green
-    bars = ax2.bar(
-        [contrib_labels[group] for group in groups], 
-        toxicity_values, 
-        color=colors,
-        yerr=errors,
-        capsize=5
-    )
-    
-    # Add count annotations
-    for bar, count in zip(bars, counts):
-        ax2.text(
-            bar.get_x() + bar.get_width()/2, 
-            bar.get_height() + max(toxicity_values) * 0.02, 
-            f"n={count}", 
-            ha='center', va='bottom',
-            fontweight='bold'
-        )
-    
-    ax2.set_xlabel('Contribution Level', fontweight='bold')
-    ax2.set_ylabel('Average Toxicity Score', fontweight='bold')
-    ax2.set_title('Toxicity by Contribution Level', fontweight='bold')
-    
-    # For small differences, don't start y-axis at zero
-    y_min = min(toxicity_values) * 0.9 if min(toxicity_values) > 0 else 0
-    y_max = max(toxicity_values) * 1.15
-    ax2.set_ylim(y_min, y_max)
-    
-    # Add a horizontal line for overall average toxicity
-    all_toxicity = []
-    for group in groups:
-        group_size = results['contributions'][group]['count']
-        group_toxicity = results['contributions'][group]['avg_toxicity']
-        all_toxicity.extend([group_toxicity] * group_size)
-    
-    overall_avg = sum(all_toxicity) / len(all_toxicity) if all_toxicity else 0
-    ax2.axhline(y=overall_avg, color='r', linestyle='-', linewidth=2, 
-                label=f'Overall Avg: {overall_avg:.4f}')
-    ax2.legend()
+    # Add sample size annotations for context
+    for i, exp in enumerate(exp_stats['experience_level']):
+        count = exp_stats[exp_stats['experience_level'] == exp]['count'].values[0]
+        plt.text(i, df[df['experience_level'] == exp]['toxicity'].max() + 2, 
+                f"n={int(count)}", ha='center')
     
     plt.tight_layout()
-    plt.savefig('rq3.png', dpi=300)
-    print("Saved improved RQ3 visualization to 'rq3.png'")
+    plt.savefig('rq3.png')
     
-    return results
+    return {
+        'data': df,
+        'correlations': correlation_results,
+        'experience_groups': exp_stats.to_dict('records')
+    }
 
 def main():
+    # Get the data AFTER running main.py (
+    # ONLY if you changed main.py, otherwise i alr loaded the data from our chosen repos into these datasets
     comments_data = load_csv('data/total_comments.csv')
     issues_data = load_csv('data/total_issues.csv')
     commits_data = load_csv('data/total_commits.csv')
     contributors_data = load_csv('data/total_contributors.csv')
     releases_data = load_csv('data/total_releases.csv')
     
-    # Run analyses for each research question
-    rq1_results, rq1_corr = rq1(comments_data, issues_data, commits_data)
-    rq2_results = rq2(comments_data, releases_data)
-    rq3_results = rq3(comments_data, contributors_data)
-
+    # Step 1: Analyze toxicity distribution
+    percentiles = analyze_toxicity_distribution(comments_data)
+    
+    # Step 2: Mark toxic comments (using 90th percentile)
+    comments_binary, threshold = mark_toxic_comments(comments_data, threshold_percentile=90)
+    
+    # Step 3: Answer research questions
+    print("\nAnalyzing research questions...")
+    
+    # RQ1: Toxicity vs Productivity
+    rq1_results = rq1(comments_binary, issues_data, commits_data)
+    
+    # RQ2: Toxicity around Releases
+    rq2_results = rq2(comments_binary, releases_data)
+    
+    # RQ3: Contributor Experience vs Toxicity
+    rq3_results = rq3(comments_binary, contributors_data)
+    
+    print("\nAnalysis complete! Check the generated PNG files for visualizations.")
 
 if __name__ == "__main__":
     main()

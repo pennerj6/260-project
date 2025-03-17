@@ -1,0 +1,405 @@
+issue_id,total_comments,url,issue_title
+12894489,6,https://api.github.com/repos/doctrine/mongodb-odm/issues/554,References to embedded document collections
+13258430,27,https://api.github.com/repos/capistrano/capistrano/issues/440,"reading the variable ""latest_release"" before ""deploy"" task happens makes capistrano BREAK"
+22814728,4,https://api.github.com/repos/Leaflet/Leaflet/issues/2195,Leaflet JS - Country Boundaries
+24996968,13,https://api.github.com/repos/composer/composer/issues/2545,Support for users without SSH access
+27120442,16,https://api.github.com/repos/mysqljs/mysql/issues/731,Security issue with param escaping?
+30381958,56,https://api.github.com/repos/PCSX2/pcsx2/issues/10,Feature Request: xBR shader and xBRZ filter for GSDX in both PS2 and PSX mode.
+40463575,45,https://api.github.com/repos/openzfs/zfs/issues/2611,rsync and txg_sync blocked for more than 120 seconds
+40896758,28,https://api.github.com/repos/thoughtbot/factory_bot/issues/683,How Factory Girl create association with existing object?
+47049745,37,https://api.github.com/repos/scikit-learn/scikit-learn/issues/3808,loading my own datasets
+57258770,113,https://api.github.com/repos/hashicorp/vagrant/issues/5319,Vagrant box downloads extremely slow
+60472468,17,https://api.github.com/repos/rust-lang/rust/issues/23246,Rust complains about unused type parameter which is only used to parameterize another
+67171304,38,https://api.github.com/repos/Automattic/mongoose/issues/2851,Multi-level discriminators
+74803435,21,https://api.github.com/repos/Sonarr/Sonarr/issues/276,Import new Series from IMDB Watch List
+81567058,41,https://api.github.com/repos/gabordemooij/redbean/issues/450,Add Signify / GnuPG signatures to download package
+93644527,34,https://api.github.com/repos/qbittorrent/qBittorrent/issues/3369,File extension filter
+102234932,12,https://api.github.com/repos/npm/npm/issues/9359,umask setting is ignored for some directories
+105880443,30,https://api.github.com/repos/matplotlib/matplotlib/issues/5047,Don't draw end caps on error bars by default
+119063763,40,https://api.github.com/repos/telegramdesktop/tdesktop/issues/1333,Hover-activated buttons yes/no?
+119143420,35,https://api.github.com/repos/rails/rails/issues/22424,Decimal: Check attribute has value (with attrname?)
+120669472,11,https://api.github.com/repos/doctrine/orm/issues/3649,DDC-2891: Impossible to pass a limit to a subquery
+120671163,44,https://api.github.com/repos/doctrine/orm/issues/4568,DDC-3730: Embeddable hydrates to object instead of null
+124545273,4,https://api.github.com/repos/composer/composer/issues/4745,composer my nightmare
+128495560,7,https://api.github.com/repos/sparklemotion/nokogiri/issues/1419,Problem with 'parse' method
+163697977,3,https://api.github.com/repos/sparklemotion/nokogiri/issues/1504,GEM INSTALLING NOKOGIRI SHOULD JUST WORK
+209725628,32,https://api.github.com/repos/nextcloud/server/issues/3596,Email notifications for pending upgrades
+230340780,19,https://api.github.com/repos/nvm-sh/nvm/issues/1533,Documenting how to install NVM for all users
+232455334,33,https://api.github.com/repos/npm/npm/issues/16813,npm 5 does not preserve range when updates package.json
+235832393,30,https://api.github.com/repos/Leaflet/Leaflet/issues/5560,zIndexOffset for marker is not working as expected
+237547233,11,https://api.github.com/repos/coleifer/peewee/issues/1298,mypy type hints
+239227953,38,https://api.github.com/repos/ansible/ansible/issues/26190,Allow decrypting of files with vaulted variables
+245325788,18,https://api.github.com/repos/pallets/jinja/issues/752,Decide on a consistent naming of either `Jinja` or `Jinja2`
+249811390,41,https://api.github.com/repos/gitextensions/gitextensions/issues/3898,Mocking static dependencies
+257408022,29,https://api.github.com/repos/WedgeServer/wedge/issues/2,Trademark violation
+268049628,84,https://api.github.com/repos/pypa/pipenv/issues/966,Updating only one locked dependency
+271165698,18,https://api.github.com/repos/PyCQA/pycodestyle/issues/703,E722: (bare excepts) too strict (reraise)
+276835188,13,https://api.github.com/repos/Homebrew/homebrew-bundle/issues/308,bundle dump w/ mas resulting in segmentation fault
+284999235,45,https://api.github.com/repos/ansible/ansible/issues/34281,Conditionally import_playbook aka include_playbook
+285132250,10,https://api.github.com/repos/libretro/RetroArch/issues/5989,Makefile: Fix debug builds.
+286791320,17,https://api.github.com/repos/sparklemotion/nokogiri/issues/1709,Make nokogiri compatible to ruby 2.5 on Windows
+286848335,2,https://api.github.com/repos/json-schema-org/json-schema-spec/issues/529,Code of Conduct
+288780107,19,https://api.github.com/repos/silverstripe/silverstripe-framework/issues/7761,Unorthogonal interface TextField Vs. HiddenField
+294122809,41,https://api.github.com/repos/microsoft/vscode/issues/42890,Marketplace: searching by an extension's name is practically broken
+298311894,15,https://api.github.com/repos/openzfs/zfs/issues/7194,use the encryptionroot property to load keys
+299244712,5,https://api.github.com/repos/npm/npm/issues/19886,ayuda porfavor! la pantalla tiembla! | please help! the screen shakes!
+299453048,4,https://api.github.com/repos/npm/npm/issues/19890,Please issue a CVE and mark 5.7.0 as vulnerable
+303710144,4,https://api.github.com/repos/gradle/gradle/issues/4658,____
+303711240,3,https://api.github.com/repos/gradle/gradle/issues/4660,Go to this tour by sbyxlmm
+304302655,5,https://api.github.com/repos/Automattic/mongoose/issues/6231,.save() doesn't throw error if not connected to database
+304422453,17,https://api.github.com/repos/jekyll/jekyll/issues/6844,Twig syntax highlighting broken
+305030419,11,https://api.github.com/repos/git-tfs/git-tfs/issues/1181,gitkraken stuck in an infinite loop on startup
+305129827,32,https://api.github.com/repos/mysqljs/mysql/issues/1962,Fix MySQL 8.0.x incompatibilities
+305814776,3,https://api.github.com/repos/sparklemotion/nokogiri/issues/1736,NOKIGIRI IS HARD PLEZ HELP
+307906799,8,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/2199,Source port is not reset for UDP connections
+312953330,36,https://api.github.com/repos/arduino/Arduino/issues/7451,Please change the color of error output
+313696087,11,https://api.github.com/repos/doctrine/orm/issues/7192,"and, or doesn't work in DQL"
+315577064,6,https://api.github.com/repos/saltstack/salt/issues/47160,pkg.install on Arch upgrades full OS as a default option.
+315863357,28,https://api.github.com/repos/dokuwiki/dokuwiki/issues/2321,GDPR
+320553214,3,https://api.github.com/repos/OpenRA/OpenRA/issues/15118,Artillery Balance Part 1
+320554101,3,https://api.github.com/repos/OpenRA/OpenRA/issues/15119,Artillery Balance Part 2
+326712539,3,https://api.github.com/repos/npm/npm/issues/20769,"using --no-optional, but optionalDep still affect the version of packages"
+327130542,23,https://api.github.com/repos/npm/npm/issues/20791,ERR! 418 I'm a teapot (this is not a joke)
+330697632,22,https://api.github.com/repos/saltstack/salt/issues/48035,Provide python version mismatch solutions
+332965663,6,https://api.github.com/repos/gatling/gatling/issues/3474,gatling stuck when project has other dependencies
+333693227,4,https://api.github.com/repos/jasmine/jasmine/issues/1570,Karma + Jasmine infinite freezing
+338480646,47,https://api.github.com/repos/mrdoob/three.js/issues/14419,SEA3D vs GLTF
+339498894,4,https://api.github.com/repos/gradle/gradle/issues/5911,storage OOM not proper handled by gradle
+340189202,9,https://api.github.com/repos/mojolicious/mojo/issues/1236,Mojo::File::spurt: Wide character in syswrite
+340595516,4,https://api.github.com/repos/mojolicious/mojo/issues/1238,"delay helper is DEPRECATED, but no transition options are given"
+340599374,25,https://api.github.com/repos/npm/npm/issues/21202,ESLint-scope 3.7.2 has been hacked
+340715954,3,https://api.github.com/repos/npm/npm/issues/21206,Feature Request: npm install Should Only Install Exact Versions Unless Explicitly Overridden
+347951340,2,https://api.github.com/repos/composer/composer/issues/7526,Allow multiple package versions to be installed in parallel
+348797250,21,https://api.github.com/repos/HandBrake/HandBrake/issues/1527,HE-AAC support for Linux and Windows
+349736129,38,https://api.github.com/repos/tutao/tutanota/issues/516,Provide a way to set sender name per email address
+352373552,99,https://api.github.com/repos/JuliaLang/julia/issues/28789,Global variable scope rules lead to unintuitive behavior at the REPL/notebook
+352750519,12,https://api.github.com/repos/rails/rails/issues/33677,Replace use of whitelist with allowlist and blacklist with denylist
+354147871,32,https://api.github.com/repos/Automattic/mongoose/issues/6922,Docs page for how to fix deprecation warnings
+356609376,4,https://api.github.com/repos/openzfs/zfs/issues/7861,Trying to build the 'zhack' disable feature commit from a few years ago
+362259981,50,https://api.github.com/repos/phusion/passenger/issues/2122,Ubuntu 18.04 packages fail to install
+364146679,16,https://api.github.com/repos/openzfs/zfs/issues/7960,Can't compile: error: assignment of member ‘name’ in read-only object
+369840190,6,https://api.github.com/repos/diaspora/diaspora/issues/7891,"Templates failed, did no changes"
+370963615,14,https://api.github.com/repos/gatling/gatling/issues/3571,Test summary logged using println
+372256539,2,https://api.github.com/repos/arduino/Arduino/issues/8120,Why Arduino WHY ?
+372714597,5,https://api.github.com/repos/pallets/flask/issues/2959,Tutorial coverage section needs update
+372725525,4,https://api.github.com/repos/gatling/gatling/issues/3580,Expose report generator as public interface
+376348803,10,https://api.github.com/repos/composer/composer/issues/7764,1.7.3. breaks composer.lock
+382189305,3,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/2356,"Could you unsubscribe my email list, it's spam"
+382791162,9,https://api.github.com/repos/php-fig/fig-standards/issues/1120,Remove Symfony
+393681341,10,https://api.github.com/repos/jekyll/jekyll/issues/7432,docs: Add a theme step to Step by Step Tutorial
+393724050,22,https://api.github.com/repos/strapi/strapi/issues/2527,Support for GeoJSON Content Type
+397129620,9,https://api.github.com/repos/openzfs/zfs/issues/8255,Add TRIM support - replaces #5925 and #7363
+397487623,2,https://api.github.com/repos/openzfs/zfs/issues/8258,Linux 5.0: implicit declaration of function current_kernel_time64
+397574283,7,https://api.github.com/repos/openzfs/zfs/issues/8259,"Linux 5.0: _kernel_fpu{begin,end} no longer exported"
+398264957,4,https://api.github.com/repos/magit/magit/issues/3709,Please run `git remote prune origin` in magit-refs buffer when pressing g
+398582372,2,https://api.github.com/repos/doctrine/orm/issues/7568,Bug Report
+406907882,9,https://api.github.com/repos/spring/spring/issues/427,Attempts to add timeout support for lua unit commands
+407645854,11,https://api.github.com/repos/strapi/strapi/issues/2784,Add auto increment option to the model attributes
+409028181,2,https://api.github.com/repos/SFML/SFML/issues/1556,Wow
+421471669,28,https://api.github.com/repos/tidyverse/lubridate/issues/759,daylight saving breaks `+minutes()`
+429401662,2,https://api.github.com/repos/rails/rails/issues/35859,complaint
+430055555,83,https://api.github.com/repos/libretro/RetroArch/issues/8551,Video width and height are switched when a vertically-oriented game is loaded
+432631890,12,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/2611,v3.0.19 fails to build with libressl
+435537996,18,https://api.github.com/repos/libretro/RetroArch/issues/8619,[PLAYLISTS] Add an option to use DETECT instead of CRC
+436303024,8,https://api.github.com/repos/vector-im/element-web/issues/9547,Rename 'kick' as 'remove from chat'
+436467857,2,https://api.github.com/repos/gradle/gradle/issues/9203,[WARNING: RANT] initial value of properties of boxed primitive types
+453440611,26,https://api.github.com/repos/strapi/strapi/issues/3399,Administrator model customization
+457082435,11,https://api.github.com/repos/libretro/RetroArch/issues/8980,What is happening?
+457401238,72,https://api.github.com/repos/CadQuery/cadquery/issues/153,Allow other ways to install cadquery
+458249013,8,https://api.github.com/repos/locustio/locust/issues/1030,"Even with min_wait and max_wait == 0, I cannot break 100 requests per second. Why is that?"
+463261125,5,https://api.github.com/repos/Automattic/mongoose/issues/7952,toJSON or reverseTranslateAliases function to return alias keys
+477798655,1,https://api.github.com/repos/libretro/RetroArch/issues/9260,*redacted*
+483355054,12,https://api.github.com/repos/kaminari/kaminari/issues/1001,BUG: padding must not be negative
+483768936,8,https://api.github.com/repos/kaminari/kaminari/issues/1004,"ALLOW negative pagination, with a warning instead of a halting error"
+484737447,13,https://api.github.com/repos/symfony/symfony/issues/33313,ParamConverterListener takes 5 seconds in dev
+485217326,10,https://api.github.com/repos/symfony/symfony/issues/33338,[Feature Request]Redirect back in controller
+488965754,4,https://api.github.com/repos/django-extensions/django-extensions/issues/1414,why can i meet this question? How can i do to solve it?
+494492439,15,https://api.github.com/repos/saltstack/salt/issues/54508,mount.mounted does not handle blanks properly
+498868764,19,https://api.github.com/repos/hashicorp/nomad/issues/6385,iptables entries are not reconciled
+503273161,5,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/3029,Build failure 3.0.19
+503451343,7,https://api.github.com/repos/ruby-i18n/i18n/issues/492,Replace custom module for refinements with Gorilla Patch gem
+503598709,5,https://api.github.com/repos/AvaloniaUI/Avalonia/issues/3079,PointerPressed captures pointers 1 pixel outside of the control
+510675125,12,https://api.github.com/repos/composer/composer/issues/8387,[RFC] Add autoloader root directory config
+518811026,32,https://api.github.com/repos/mrdoob/three.js/issues/17882,BUG: MeshPhongMaterial flicker with flatShading: false
+522727008,22,https://api.github.com/repos/Sonarr/Sonarr/issues/3394,Prevent Downgrading Language during Quality Upgrade
+524307759,12,https://api.github.com/repos/strapi/strapi/issues/4547,Enable findOne by unique fields GraphQL
+525140367,15,https://api.github.com/repos/php/php-src/issues/4934,Add fraction date constants
+528942466,23,https://api.github.com/repos/chocolate-doom/chocolate-doom/issues/1219,Feature Request: Optionally Raise Some or All Vanilla Engine Limits
+530232265,13,https://api.github.com/repos/doctrine/orm/issues/7933,Do not deprecate useResultCache
+530975624,5,https://api.github.com/repos/doctrine/dbal/issues/3766,"OCI8 - undefined index, CRITICAL !"
+532874644,2,https://api.github.com/repos/hashicorp/vagrant/issues/11235,rsync exclude_to_regexp BC break since 2.2.5
+534580041,1,https://api.github.com/repos/kangax/compat-table/issues/1557,"Revert ""Improve historical Node data"""
+534580474,4,https://api.github.com/repos/kangax/compat-table/issues/1558,"Revert ""Revert ""Improve historical Node data"""""
+534583789,15,https://api.github.com/repos/nim-lang/Nim/issues/12855,Incorrect C code generation when trying to echo a Lock variable
+540979735,11,https://api.github.com/repos/GoldenCheetah/GoldenCheetah/issues/3269,V3.5-RC2X TSS edit.
+542105846,6,https://api.github.com/repos/microsoft/vscode-python/issues/9284,Editor context menu actions feedback
+544017763,2,https://api.github.com/repos/jashkenas/coffeescript/issues/5280,BUG [exp]: =>
+544279140,9,https://api.github.com/repos/pallets/jinja/issues/1121,Rename jinja2 to jinja
+544542483,25,https://api.github.com/repos/strapi/strapi/issues/4878,I can't access custom field from from users/me via GraphQL
+548445007,11,https://api.github.com/repos/GoldenCheetah/GoldenCheetah/issues/3292,Strava Sync funktioniert nicht
+549848681,14,https://api.github.com/repos/tpope/vim-fugitive/issues/1432,Windows gVim :Gwrite symlinked files
+554355383,3,https://api.github.com/repos/ytdl-org/youtube-dl/issues/23819,"[Youtube] Unsupported JS expression '[function(c,d){d=(d';"
+556620312,8,https://api.github.com/repos/rails/rails/issues/38343,cannot require file in lib folder
+565358712,3,https://api.github.com/repos/libretro/RetroArch/issues/10117,qb: Improve the menu checks.
+567185616,12,https://api.github.com/repos/Homebrew/homebrew-bundle/issues/644,Where are the docs?
+569316203,5,https://api.github.com/repos/jekyll/jekyll/issues/8019,feat: Allow custom file extensions
+569895996,7,https://api.github.com/repos/Sitecore/jss/issues/329,docs: Reference
+574196668,7,https://api.github.com/repos/matplotlib/matplotlib/issues/16634,Solution for 16631 : IndexFormatter() doesn't round to the nearest integer
+577744765,22,https://api.github.com/repos/expressjs/express/issues/4210,doc: add section for project captains
+586054883,7,https://api.github.com/repos/memcached/memcached/issues/629,(Remote DOS attack) 0day buffer overflow vulnerability reveal
+595484179,5,https://api.github.com/repos/mitmproxy/mitmproxy/issues/3908,#NAME?
+598170002,11,https://api.github.com/repos/openscad/openscad/issues/3277,2d Projection created by multmatrix can not be extruded.
+603093257,11,https://api.github.com/repos/EasyNetQ/EasyNetQ/issues/1021,Fix deadlock when disposing internal consumers
+608513361,1,https://api.github.com/repos/chef/ohai/issues/1458,Stop using whitelist / backlist terms
+610982272,11,https://api.github.com/repos/jshttp/mime-db/issues/194,JavaScript type should be `text/javascript`
+613337048,33,https://api.github.com/repos/apache/couchdb/issues/2873,Add support for authentication/authorization using cookies containing JWTs
+618265614,11,https://api.github.com/repos/emscripten-core/emscripten/issues/11163,Add Visual Studio IDE integration and Intellisense awareness
+619762251,11,https://api.github.com/repos/symfony/symfony/issues/36849,"Symfony String Inflector - add rules for these words: congress, status"
+620694982,14,https://api.github.com/repos/bigbluebutton/bigbluebutton/issues/9600,"When require moderator approval before joining is set, no user can be promoted to moderator"
+627087857,6,https://api.github.com/repos/libretro/RetroArch/issues/10731,"Are u crazy? How did u make so unusable bloatwared software? Its possible to be simple, wtf do u do?"
+628465400,5,https://api.github.com/repos/pandas-dev/pandas/issues/34513,Release notes still missing for 1.0.4
+631364219,17,https://api.github.com/repos/OpenRA/OpenRA/issues/18235,"Replace the refinery with the ""ERCC"" refinery in the standard game"
+633703607,2,https://api.github.com/repos/rubygems/rubygems/issues/3695,Remove Eric Hodel as a maintainer and a member due to violating CoC
+636440138,2,https://api.github.com/repos/openzfs/zfs/issues/10435,Remove unnecessary references to slavery
+638202113,125,https://api.github.com/repos/nodejs/node/issues/33864,"Rename default branch from ""master"" to ""main"""
+638643486,2,https://api.github.com/repos/openzfs/zfs/issues/10454,This PR should be understand as a protest
+638768339,6,https://api.github.com/repos/openzfs/zfs/issues/10455,Racist code refactoring
+639051823,1,https://api.github.com/repos/openzfs/zfs/issues/10457,remove refences to blacklist/whitelist
+639068210,4,https://api.github.com/repos/openzfs/zfs/issues/10459,request: to stop locking comment sections
+639133998,7,https://api.github.com/repos/rust-lang/rust/issues/73385,Rename master branch to less discriminating name
+643360992,36,https://api.github.com/repos/libretro/RetroArch/issues/10898,Its most awful software
+652371218,2,https://api.github.com/repos/heroku/heroku-buildpack-ruby/issues/1032,"Switch buildpack from ""master"" to ""main"""
+652809371,8,https://api.github.com/repos/angular/angular/issues/37963,"Rename the ""master"" branch to avoid problematic terminology"
+654775761,5,https://api.github.com/repos/ipython/ipython/issues/12431,IPython doesn't follow the XDG base directory specification
+657523246,11,https://api.github.com/repos/sinonjs/sinon/issues/2274,blm
+663559628,2,https://api.github.com/repos/sinonjs/sinon/issues/2278,Rename master branch to primary branch
+669419291,1,https://api.github.com/repos/google/WebFundamentals/issues/8921,Chrome Features.........
+670691047,3,https://api.github.com/repos/rust-lang/rust/issues/75002,LLDB is not able to find default source location
+704818674,49,https://api.github.com/repos/jamulussoftware/jamulus/issues/599,Support single audio mix server mode to support large ensembles and simplify the mixing
+707573131,3,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/3661,rlm_sql_mongo.so is Missing
+708907357,36,https://api.github.com/repos/nextcloud/server/issues/23046,"[Files sharing] Log message: ""/appinfo/app.php is deprecated"""
+709556703,1,https://api.github.com/repos/fluentmigrator/fluentmigrator/issues/1347,"Vacation October 5 - October 20, 2020"
+722281859,3,https://api.github.com/repos/vuepress-theme-hope/vuepress-theme-hope/issues/402,[Roadmap]: V2 plan with VuePress2
+723058396,24,https://api.github.com/repos/doctrine/dbal/issues/4349,Run CI on push to any branch and schedule all workflows hourly
+723862818,22,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/2334,Keyboard shortcuts of VS Code do not work on the internal PDF viewer on Windows
+724775047,27,https://api.github.com/repos/TeamNewPipe/NewPipeExtractor/issues/434,Add support lbry.tv / odysee.com
+727127817,14,https://api.github.com/repos/rubygems/rubygems/issues/4027,Bundler and RubyGems install directory mismatch
+732267627,14,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/3710,update debian/ubuntu systemd service
+741692283,9,https://api.github.com/repos/symfony/symfony/issues/39065,"[ProxyManagerBridge] replace ""ocramius/proxy-manager"" by a more convenient fork"
+747855745,11,https://api.github.com/repos/EbookFoundation/free-programming-books/issues/5176,Mark up look strange on the site when using pipes `|`
+761569005,13,https://api.github.com/repos/Rapptz/discord.py/issues/6149,Support slash commands
+765312275,6,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/2433,Snippet View's position gets wrong when commands collapsed and expanded
+770384781,1,https://api.github.com/repos/flutter/flutter/issues/72555,Check security advisories
+774501385,1,https://api.github.com/repos/deepmodeling/deepmd-kit/issues/314,See here if you want to ask questions
+774727384,64,https://api.github.com/repos/ipython/ipython/issues/12740,"Last jedi release (0.18.0) is incompatible with ipython (7.19 and 7.18 tested); reason - column arg was deprecated, and now removed"
+777338361,9,https://api.github.com/repos/spring/spring/issues/550,Update cleanup.sh so that testversions of engine kept longer for download
+786108116,27,https://api.github.com/repos/pandas-dev/pandas/issues/39171,ENH: Reimplement and undeprecate DataFrame.lookup
+795394794,8,https://api.github.com/repos/flutter/flutter/issues/74833,My app is slow or missing frames (metabug)
+795993177,11,https://api.github.com/repos/doctrine/orm/issues/8444,1k issues! (some of them from 2013) is it doctrine ORM not ACTIVELY maintaining anymore? IS IT DEAD?
+807725060,25,https://api.github.com/repos/rstudio/rstudio/issues/8968,Remove libpq dependency in RStudio Desktop
+814421264,16,https://api.github.com/repos/expressjs/express/issues/4535,Node.js 15+ starts recommending promise based versions by default - Express 5.0 and wrapAsync
+814840135,1,https://api.github.com/repos/microsoft/clrmd/issues/892,"ClrMD will be renaming the ""master"" branch to ""main"""
+831174119,18,https://api.github.com/repos/GTNewHorizons/GT-New-Horizons-Modpack/issues/7628,Alumite recipe oversight
+843213515,37,https://api.github.com/repos/MvvmCross/MvvmCross/issues/4138,Future of MVVMCross with .NET 6.0 and MAUI
+851350444,8,https://api.github.com/repos/symfony/symfony/issues/40714,twig-bundle BC-break from 4.3 to 4.4 due to incorrectly defined dependency constraints
+855420175,2,https://api.github.com/repos/jquery/jquery/issues/4872,[spam]
+857092857,8,https://api.github.com/repos/binogure-studio/city-game-studio-i18n/issues/587,"Suggestion: suggestions,feature request,fixations"
+869840472,3,https://api.github.com/repos/GoldenCheetah/GoldenCheetah/issues/3879,Estimate Power and resulting Normalised Power
+877864027,5,https://api.github.com/repos/nodejs/node/issues/38573,Rename Node-API to something less confusing/misleading
+891698219,3,https://api.github.com/repos/doctrine/orm/issues/8688,OneToOne Field with JoinColumns lacks Entity prefix
+894598837,25,https://api.github.com/repos/Leaflet/Leaflet/issues/7574,map.panTo() does not re-center if point within shown bounds
+896726233,3,https://api.github.com/repos/Leaflet/Leaflet/issues/7576,Tracing Support
+900635226,92,https://api.github.com/repos/hashicorp/terraform/issues/28803,"A way to hide certain expected changes from the ""refresh"" report (""Objects have changed outside of Terraform"")"
+900662967,14,https://api.github.com/repos/SubnauticaNitrox/Nitrox/issues/1489,Ctrl + C is closing the server
+902425731,15,https://api.github.com/repos/frappe/erpnext/issues/25845,fix: production plan not fetching sales order of a variant
+904754673,8,https://api.github.com/repos/rust-lang/rust/issues/85773,Regression in binary_search_by
+906427489,18,https://api.github.com/repos/libretro/RetroArch/issues/12452,[VITA] Collect issues and clean up the port
+907232677,12,https://api.github.com/repos/zeromq/libzmq/issues/4202,"If OPENPGM_FOUND is set, link to libpgm."
+908088395,8,https://api.github.com/repos/pandas-dev/pandas/issues/41754,QST: Inconsistent behaviour in checking number of fields per row while read_csv()
+914128991,27,https://api.github.com/repos/PCSX2/pcsx2/issues/4485,[BUG] God of War 1 - FMV bug after 1.4.0
+917355114,13,https://api.github.com/repos/matplotlib/matplotlib/issues/20401,3.4.2: setuptools build_sphinx command fails
+936567326,23,https://api.github.com/repos/joncampbell123/dosbox-x/issues/2642,LOADS of BUGS unworkable version 0.83.15 - NOT x86 assember/16bit DOS compatible - SANDBOX destroyed.
+941489296,24,https://api.github.com/repos/mozilla/sccache/issues/1019,Please provide a new release
+951429255,40,https://api.github.com/repos/rustdesk/rustdesk/issues/175,Add Linux ARM support
+952956841,5,https://api.github.com/repos/SevenTV/chatterino7/issues/34,"Will you please allow ""notify when online"" notifications without login, or provide a 2.1.0 installer"
+963088392,2,https://api.github.com/repos/PyCQA/pycodestyle/issues/1009,E722 considered harmful
+976125179,14,https://api.github.com/repos/znc/znc/issues/1810,No way to fully disable the http server?
+978528716,6,https://api.github.com/repos/Python-Markdown/markdown/issues/1179,Custom parser interface
+980057113,31,https://api.github.com/repos/WordPress/gutenberg/issues/34325,Consider moving wp-env project to own repository
+985432324,6,https://api.github.com/repos/doctrine/orm/issues/8969,Doctrine does not have a method to convert entities to JSON
+985447779,6,https://api.github.com/repos/symfony/symfony/issues/42833,Service Containers don't work according to the documentation
+986045665,1,https://api.github.com/repos/psf/requests/issues/5923,General doc updates
+993768928,8,https://api.github.com/repos/curl/curl/issues/7703,Wrong error number 61
+997299420,9,https://api.github.com/repos/libretro/RetroArch/issues/12995,Everything Wrong With Retroarch?! A massive complaint to why people think it fucking sucks.
+1004915962,5,https://api.github.com/repos/JodaOrg/joda-time/issues/566,Handle 2021 timezone data set changes
+1011467346,10,https://api.github.com/repos/Python-Markdown/markdown/issues/1182,3.3.4: pytest and tox are failing
+1013314736,4,https://api.github.com/repos/ruby/www.ruby-lang.org/issues/2694,Revert 2690
+1014671924,5,https://api.github.com/repos/ohmyzsh/ohmyzsh/issues/10259,Made some Grammatic correction
+1026512862,48,https://api.github.com/repos/SudhanPlayz/Discord-MusicBot/issues/495,Dependency Dashboard
+1027933041,44,https://api.github.com/repos/flatpak/xdg-desktop-portal/issues/649,Screenshot portal without prompt
+1034748634,3,https://api.github.com/repos/JodaOrg/joda-time/issues/571,KyivNotKiev
+1034782242,9,https://api.github.com/repos/JodaOrg/joda-time/issues/572,Using the correct spelling for the capital of Ukraine (Kyiv instead of Kiev).
+1034926389,2,https://api.github.com/repos/JodaOrg/joda-time/issues/574,KyivNotKiev
+1034930502,2,https://api.github.com/repos/JodaOrg/joda-time/issues/575,Using the correct spelling for the capital of Ukraine (Kyiv instead of Kiev).
+1036757791,5,https://api.github.com/repos/PowerDNS-Admin/PowerDNS-Admin/issues/1032,Updates & Looking for maintainers
+1043368759,10,https://api.github.com/repos/EbookFoundation/free-programming-books/issues/6590,"docs: Homogenize governance (CoC, CONTRIBUTING & HOWTO) across files"
+1047632192,5,https://api.github.com/repos/microsoft/winget-cli/issues/1684,P.S.A. Holidays
+1058585621,30,https://api.github.com/repos/oven-sh/bun/issues/67,Create a build of Bun that doesn’t need AVX2 instructions
+1060667929,22,https://api.github.com/repos/IntellectualSites/PlotSquared/issues/3343,/plot delete - A set block timer is bound to either the current plot or you. Please wait for it to finish.
+1072125460,11,https://api.github.com/repos/libretro/RetroArch/issues/13331,[Core Request] Yuzu Emulator
+1072818585,21,https://api.github.com/repos/scikit-learn/scikit-learn/issues/21906,SGDClassifier breaks down when encountering unseen values?
+1075227076,9,https://api.github.com/repos/google/glog/issues/756,macOS 10.14.6 clang-1100.0.33.17 glog linker error
+1075975020,3,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3005,Viewer doesn't update when using watching compile while being remotly connected to container
+1077325481,6,https://api.github.com/repos/tailscale/tailscale/issues/3550,Security vulnerability in log4j 2 (CVE-2021-44228)
+1084937435,6,https://api.github.com/repos/JuliaLang/julia/issues/43492,Accessing float arrays allocates memory
+1086819542,12,https://api.github.com/repos/dresden-elektronik/deconz-rest-plugin/issues/5599,Pairing Aqara Smart Wireless Switch WXKG11LM not working anymore with version 2.13.X
+1087047886,6,https://api.github.com/repos/npm/cli/issues/4188,see this sh*t
+1087972186,23,https://api.github.com/repos/doitsujin/dxvk/issues/2413,Unable to release video memory
+1089763044,8,https://api.github.com/repos/LGBT-CN/LGBTQIA-In-China/issues/149,讲三个笑话
+1090473508,1,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3026,Drop support for LaTeX Utilities
+1090475055,1,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3027,Magic comments disabled by default
+1092238495,24,https://api.github.com/repos/opnsense/core/issues/5453,radvd does not start up with 22.1
+1093353244,1,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3037,Improve the logging of commands and theirs arguments
+1093916422,8,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3039,Case sensitivity in latex.tools environment variables on Windows
+1096297382,6,https://api.github.com/repos/NickeManarin/ScreenToGif/issues/1044,[Feature Request] Make it more portable
+1097100861,4,https://api.github.com/repos/electron/electron-rebuild/issues/948,unreadable output while using electron-rebuild
+1097421627,2,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3050,Forward SyncTeX moves the panel of the internal PDF viewer into the current editor group
+1100051808,69,https://api.github.com/repos/restsharp/RestSharp/issues/1696,IRestClient interface
+1100433367,8,https://api.github.com/repos/nexe/nexe/issues/952,How to create my own nexe prebuilt binary ?
+1102918184,5,https://api.github.com/repos/spring-projects/spring-framework/issues/27933,Ensure utility classes cannot be instantiated.
+1104666990,35,https://api.github.com/repos/ipython/ipython/issues/13463,Revert “Black by default”
+1107247166,12,https://api.github.com/repos/WordPress/WordPress-Coding-Standards/issues/2024,Issue/trim error
+1107373635,21,https://api.github.com/repos/nvim-treesitter/nvim-treesitter/issues/2293,Notice of Breaking Changes
+1110181012,6,https://api.github.com/repos/doctrine/orm/issues/9416,annotations is required
+1118392130,9,https://api.github.com/repos/MinecraftForge/MinecraftForge/issues/8438,Forge mod causing LuckPerm commands to not register in client
+1127749209,1,https://api.github.com/repos/microsoft/winget-pkgs/issues/45460,[Bug]: Pipelines aren't running
+1128211306,7,https://api.github.com/repos/whatwg/html/issues/7594,Formal complaint: search element standardization
+1134552993,13,https://api.github.com/repos/GTNewHorizons/GT-New-Horizons-Modpack/issues/9732,Allow OP users to bypass ME security
+1136028189,17,https://api.github.com/repos/truecharts/charts/issues/1888,"[qBitTorrent] When using OpenVPN, hostPath mounts do not mount"
+1137539452,5,https://api.github.com/repos/mrdoob/three.js/issues/23493,Any PolyhedronGeometry tanks the GPU
+1137624289,11,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3082,"Change settings scope from ""window"" (default) to ""resource"" for a number of settings"
+1144972959,8,https://api.github.com/repos/golang/go/issues/51277,[removed]
+1145514858,37,https://api.github.com/repos/golang/go/issues/51295,proposal: encoding/base64: add Encoding.EncodeString to match DecodeString
+1149608900,11,https://api.github.com/repos/ViaVersion/ViaVersion/issues/2826,Issues with ViaVersion Spigot injector
+1153731840,9,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3171,No build/view buttons and command keybindings in LaTeX-expl3
+1156931157,2,https://api.github.com/repos/rubygems/rubygems.org/issues/2977,Please support Ukraine 🇺🇦
+1159293958,5,https://api.github.com/repos/ansible/ansible/issues/77204,"Documentation: you changed URLs but are not using redirects, generating 404s - why?"
+1160410716,2,https://api.github.com/repos/reactjs/reactjs.org/issues/4431,dogs_
+1160417956,2,https://api.github.com/repos/reactjs/reactjs.org/issues/4432,"Are you guys the running dogs of the United States? As a technical party, why do you stand in line with Ukraine"
+1160500635,2,https://api.github.com/repos/MicrosoftDocs/Contribute/issues/603,**** you guys
+1161973878,13,https://api.github.com/repos/chalk/chalk/issues/536,Chalk with ESLint & Airbnb Base
+1163541364,9,https://api.github.com/repos/composer/packagist/issues/1267,remove #StandWithUkraine banner to updates
+1165209319,8,https://api.github.com/repos/composer/packagist/issues/1268,Where is #StandWithPalestine ?
+1165300669,1,https://api.github.com/repos/composer/composer/issues/10604,block all russians from using composer
+1165880637,3,https://api.github.com/repos/composer/composer/issues/10606,
+1166060886,1,https://api.github.com/repos/composer/composer/issues/10608,"Sorry [redacted], we do not support double standards! We do not care if you do not support Ukraine"
+1166065051,2,https://api.github.com/repos/composer/composer/issues/10609,CLEAN Composer released
+1166956712,3,https://api.github.com/repos/composer/packagist/issues/1270,feat(peace): remove #StandWithUkraine
+1167187542,2,https://api.github.com/repos/composer/packagist/issues/1271,Remove politics from update banner
+1170768726,8,https://api.github.com/repos/WordPress/WordPress-Coding-Standards/issues/2033,Fixer for missing parentheses adds them to the wrong place in one case
+1173784895,3,https://api.github.com/repos/citizenfx/fivem/issues/1330,Result argument safety in javascript
+1174122161,3,https://api.github.com/repos/composer/packagist/issues/1276,Remove #StandWithUkraine
+1176509018,8,https://api.github.com/repos/cucumber/cucumber-js/issues/1961,Please join to us #standwithukraine
+1181103738,10,https://api.github.com/repos/truecharts/charts/issues/2281,Protonmail-bridge fails to initialise : pass not initialized
+1183333507,9,https://api.github.com/repos/vercel/next.js/issues/35657,[v12.1.1] Multi-line comment at the start of return of the render function breaks app (Minified React error #152)
+1186681963,17,https://api.github.com/repos/citizenfx/fivem/issues/1356,! Exploit crashing players on every server
+1190943329,6,https://api.github.com/repos/cucumber/cucumber-js/issues/1983,Cucumber-js web-site cannot be opened in Belarus
+1190959350,14,https://api.github.com/repos/helium/HIP/issues/382,HIP 100
+1201901612,2,https://api.github.com/repos/James-Yu/LaTeX-Workshop/issues/3248,New release
+1201906086,10,https://api.github.com/repos/sveltejs/kit/issues/4594,Color adjustment asap please - Docs
+1204776791,18,https://api.github.com/repos/LukeSmithxyz/based.cooking/issues/750,Site will be Redone in Hugo
+1208013839,75,https://api.github.com/repos/termux/termux-packages/issues/10226,Mesa: glxgears crashes on 32bit ARM devices
+1210960989,2,https://api.github.com/repos/scikit-learn/scikit-learn/issues/23175,ndcg_score
+1211570918,2,https://api.github.com/repos/pinojs/pino/issues/1411,Can not reuse Pino-pretty before sending message to any target
+1212965768,6,https://api.github.com/repos/google/blockly/issues/6106,Security Policy violation Binary Artifacts
+1213461044,62,https://api.github.com/repos/vuetifyjs/vuetify/issues/14984,[Task] Vuetify 3 Release Checklist
+1215298581,5,https://api.github.com/repos/sherlock-project/sherlock/issues/1322,Noonewilleverusethis
+1221806426,28,https://api.github.com/repos/TryGhost/Ghost/issues/14634,Migration error on newsletter when upgrading past v4.46.0 [MariaDB]
+1227174892,10,https://api.github.com/repos/Python-Markdown/markdown/issues/1252,Allow setting attributes on <ol> and <ul> tags with attr_list extension
+1239779668,9,https://api.github.com/repos/anuraghazra/github-readme-stats/issues/1763,[Sever Problem] Maximum retries exceeded
+1241570951,5,https://api.github.com/repos/anuraghazra/github-readme-stats/issues/1774,New tiny error url does not fit on card
+1242792738,45,https://api.github.com/repos/kubernetes/website/issues/33848,Link to CNCF contributor guide
+1247545715,1,https://api.github.com/repos/sass/node-sass/issues/3274,Fuck node sass
+1248033266,8,https://api.github.com/repos/encode/uvicorn/issues/1501,Gracefully handle HTTP/2 upgrade request
+1251713538,28,https://api.github.com/repos/composer/composer/issues/10807,Any chance to remove the #StandWithUkraine ?
+1252756496,7,https://api.github.com/repos/libsdl-org/SDL/issues/5734,URL is miss leading
+1268409097,10,https://api.github.com/repos/fw876/helloworld/issues/906,必须解决和其它代理的冲突问题！
+1269479010,1,https://api.github.com/repos/citizenfx/fivem/issues/1488,C# NUI Callback TargetInvocationException
+2044991743,6,https://api.github.com/repos/revanced/revanced-patches/issues/2503,ReVanced resets itself when switch to shorts.
+1278268505,10,https://api.github.com/repos/composer/composer/issues/10889,Info from https://repo.packagist.org
+1279826564,9,https://api.github.com/repos/microsoft/vscode/issues/152847,Scrollbar & Extension Minor Bug
+1282455505,22,https://api.github.com/repos/nestjs/nest-cli/issues/1693,generation with nest-cli Error: Unknown argument skipImport. Did you mean skip-import?
+1283290082,4,https://api.github.com/repos/nullworks/cathook/issues/1643,YOU: 😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭
+1285334524,4,https://api.github.com/repos/AdguardTeam/AdguardFilters/issues/122856,Google Play: com.nineyi.shop.s002131
+1291899006,32,https://api.github.com/repos/php/php-src/issues/8906,wish: config option to make undefined array key a notice again
+1294541749,24,https://api.github.com/repos/exercism/python/issues/3132,[Ghost Gobble Arcade Game]: Stub Notes are Confusing
+1299391458,8,https://api.github.com/repos/composer/composer/issues/10931,TU FEZ A PIOR BOSTA QUE ALGUEM JA FEZ
+1300661048,12,https://api.github.com/repos/maxcountryman/flask-login/issues/686,"incompatible with werkzeug 2.2.0, can't import parse_rule"
+1301011966,7,https://api.github.com/repos/elebumm/RedditVideoMakerBot/issues/959,"When Storymode is enabled, the script crashes"
+2044991737,31,https://api.github.com/repos/revanced/revanced-patches/issues/2499,feat: `disable-auto-captions` patch
+1302976360,2,https://api.github.com/repos/MicrosoftDocs/memdocs/issues/2933,Windows 365 CRAP
+1303268876,5,https://api.github.com/repos/neovim/neovim/issues/19350,Tracking issue: treesitter highlighting
+1307091650,6,https://api.github.com/repos/microsoft/TypeScript/issues/49932,"Rename ""tsconfig.json"" to ""tpsconfig.json"" due to transphobia"
+1308973136,7,https://api.github.com/repos/LibreELEC/LibreELEC.tv/issues/6719,[BUG] samba 4.16.x
+1314537659,6,https://api.github.com/repos/mozilla/pdf.js/issues/15207,PDF Text added by Supplier to Template not displaying in iframe
+1317881905,3,https://api.github.com/repos/arduino/Arduino/issues/11811,Bug? VERY predictable output from random()
+1321670019,5,https://api.github.com/repos/johnsoncodehk/volar/issues/1648,"The code hint is really slow in the.vue a slightly larger file, please fix！"
+1329147554,23,https://api.github.com/repos/composer/composer/issues/10983,#stand with ukraine political statement
+1331118596,26,https://api.github.com/repos/expo/expo/issues/18554,MapView from React-Native-Maps appears as a grey block on Android
+1335276663,5,https://api.github.com/repos/citizenfx/fivem/issues/1568,This is not a support platform. Try the forums at https://forum.cfx.re/ instead.
+1335371535,2,https://api.github.com/repos/truecharts/charts/issues/3436,Revert #3426
+1336452733,45,https://api.github.com/repos/osmandapp/OsmAnd/issues/15058,No setting to disable: download sends unique user tracking UUID & number of days since install
+1336666723,12,https://api.github.com/repos/Cog-Creators/Red-DiscordBot/issues/5819,Audio Track Playback Issue
+1345038447,10,https://api.github.com/repos/space-wizards/space-station-14/issues/10717,The eye damage filter makes me want to die
+1345626221,24,https://api.github.com/repos/doctrine/dbal/issues/5609,"Postgres: public should not be considered a ""application schema"" and should be ignored the same as other system schema from `getSchemaNames`"
+2044991734,8,https://api.github.com/repos/revanced/revanced-patches/issues/2497,bug: Wide searchbar doesn't work
+1352488799,9,https://api.github.com/repos/fabricjs/fabric.js/issues/8195,Transformation box for texts
+1353459869,6,https://api.github.com/repos/composer/composer/issues/11031,#StandWithUkraine
+1361207935,13,https://api.github.com/repos/Pradumnasaraf/open-source-with-pradumna/issues/99,"[DOCS] Add process/guide - ""How to create to create GitHub project board"""
+1367665070,7,https://api.github.com/repos/doctrine/orm/issues/10034,Don't look for metadata on standard classes
+1369100843,10,https://api.github.com/repos/netbox-community/netbox/issues/10324,Ability to add custom fields to device templates and module templates
+1388421768,6,https://api.github.com/repos/CastagnaIT/plugin.video.netflix/issues/1428,Plugin HTTP Error - 404 Client Error: Not Found for url
+1391469768,5,https://api.github.com/repos/truecharts/charts/issues/3963,[common/traefik] ingress not working with official traefik chart
+1393703235,2,https://api.github.com/repos/CastagnaIT/plugin.video.netflix/issues/1437,Netflix issue when trying to switch profiles
+1396213107,18,https://api.github.com/repos/anuraghazra/github-readme-stats/issues/2114,Maximum retries exceeded
+1396696603,2,https://api.github.com/repos/CastagnaIT/plugin.video.netflix/issues/1446,[plugin.video.netflix (0)] IPC callback raised exception: 404 Client Error: (Kodi 18)
+1400909737,9,https://api.github.com/repos/freeCodeCamp/freeCodeCamp/issues/47891,Update front end demo project URL's
+1402211429,1,https://api.github.com/repos/Pryaxis/TShock/issues/2708,Support TShock 1.4.4
+1402253291,1,https://api.github.com/repos/Pryaxis/TShock/issues/2710,"Doesn't work for 1.4.4, update it please!"
+1406636959,8,https://api.github.com/repos/freeCodeCamp/freeCodeCamp/issues/48011,Line goes against our challenge document in building a registration form project
+1410698334,183,https://api.github.com/repos/microsoft/vscode/issues/163798,vscode Have you started charging?
+1412007705,3,https://api.github.com/repos/openscad/openscad/issues/4385,Resolves Issue #355 - added a hull example to basic examples
+1414333398,6,https://api.github.com/repos/PrismLauncher/Translations/issues/1,Is new PolyMC?
+2040759060,11,https://api.github.com/repos/revanced/revanced-patches/issues/1921,feat(patch): Force playback speed to every video.
+2044991710,23,https://api.github.com/repos/revanced/revanced-patches/issues/2486,bug: hide-create-button patch causes startup crash
+1418577350,22,https://api.github.com/repos/doctrine/dbal/issues/5784,Deprecate extension via Doctrine Event Manager
+1418948680,9,https://api.github.com/repos/Warzone2100/warzone2100/issues/2916,Balance proposal became a circuis
+2044991706,15,https://api.github.com/repos/revanced/revanced-patches/issues/2484,Videos not reliably loading for UK YouTube users
+1428767280,59,https://api.github.com/repos/Monika-After-Story/MonikaModDev/issues/9699,I really think we should ask the player for permission to delete other chr files.
+1442544013,4,https://api.github.com/repos/flutter/flutter/issues/115007,gradle build broken upgrading from Flutter SDK 2.8.1 -> 3.3
+1444401730,37,https://api.github.com/repos/sumneko/lua-language-server/issues/1686,"undefined global love, and anything defined in files other than main.lua"
+1449702890,6,https://api.github.com/repos/truecharts/charts/issues/4447,Prometheus installation fails with default settings
+1458781974,3,https://api.github.com/repos/rust-lang/rust/issues/104699,[Discussion] Purpose of `PROBLEMATIC_CONSTS`
+1461489700,4,https://api.github.com/repos/laravel/framework/issues/45058,Laravel 9. Migration Silently Fails with SQLite when Dropping and Adding a Column in the Same Modification
+1464916364,10,https://api.github.com/repos/AdguardTeam/AdguardFilters/issues/135799,daft.sex
+1465034831,14,https://api.github.com/repos/Warzone2100/warzone2100/issues/3020,The game is broken
+1473837925,2,https://api.github.com/repos/mate-desktop/caja/issues/1685,Apparently spontaneous crash
+1476730615,2,https://api.github.com/repos/fastify/fastify/issues/4461,The introductory documentation is so sketchy that it is impossible to start a complete demo !
+1498285225,16,https://api.github.com/repos/JuliaPlots/Plots.jl/issues/4597,[BUG] RecipesBase and RecipesPipeline fail to precompile
+1500084349,13,https://api.github.com/repos/zammad/zammad/issues/4431,Missing rake task to fix json values migrated from maria/mysql to postgres
+1524714133,3,https://api.github.com/repos/EasyNetQ/EasyNetQ/issues/1586,Convert message properties to readonly struct
+1530248637,10,https://api.github.com/repos/rubygems/rubygems/issues/6269,Fix `--ext=c` generating buggy code
+1616936787,15,https://api.github.com/repos/ohmyzsh/ohmyzsh/issues/11552,Red-Prompt on new line instead of replacing green one?
+1636711509,7,https://api.github.com/repos/tinymce/tinymce/issues/8582,Self-Hosted Non-Premium v6 integration RTC error
+1656348603,3,https://api.github.com/repos/doctrine/orm/issues/10615,Provide an interface for BaseLifecycleEventArgs childs
+1656534314,8,https://api.github.com/repos/mitmproxy/mitmproxy/issues/6051,Compatibility with newer versions of `cryptography`.
+1659625133,11,https://api.github.com/repos/doctrine/DoctrineFixturesBundle/issues/381,"add ""void"" as a native return type declaration"
+1665591134,6,https://api.github.com/repos/doctrine/orm/issues/10621,BC break from 2.14.1 to 2.14.2 Using (deprecated) short namespace alias
+1687989535,14,https://api.github.com/repos/php/php-src/issues/11150,DateTimeImmutable::createFromFormat parses non-existing timezone offsets
+1843328693,4,https://api.github.com/repos/doctrine/orm/issues/10897,Commit order reversed?
+1863541325,2,https://api.github.com/repos/doctrine/migrations/issues/1357,GlobFinder looking for ONLY Version*.php
+1897778633,2,https://api.github.com/repos/FreeRADIUS/freeradius-server/issues/5182,Question about fixing memory leak
+1906791437,2,https://api.github.com/repos/mozilla/pdf.js/issues/16997,Could you please explain why the default full viewer cannot be directly used??????
+1943190932,7,https://api.github.com/repos/php/php-src/issues/12434,Better name for method Randomizer::nextFloat()
+1958701035,5,https://api.github.com/repos/composer/packagist/issues/1401,Add #StandWithPalestine banner to updates ____
+1959812102,3,https://api.github.com/repos/factor/factor/issues/2903,Update README.md

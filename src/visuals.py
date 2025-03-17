@@ -441,7 +441,7 @@ def rq2(comments_data, releases_data):
         # PLOT 1: Grouped bar chart for each release
         if release_comparisons:
             # Show only most recent N releases if there are too many
-            max_releases_to_show = 10
+            max_releases_to_show = 25
             recent_releases = release_comparisons[-max_releases_to_show:] if len(release_comparisons) > max_releases_to_show else release_comparisons
             
             plt.subplot(2, 1, 1)

@@ -127,7 +127,7 @@ def get_data_main(repos):
 
         params = {
             'per_page' : 100, # 100 issues (or comments...) perpage
-            'since': three_months_ago
+            # 'since': three_months_ago
         }
 
         all_items = []
@@ -395,11 +395,6 @@ def get_data_main(repos):
                     
                     # Fetch user data
                     user_data = github_api_request(user_url)[0]
-                    print("HERERERERERERE")
-                    print("HERERERERERERE")
-                    print("HERERERERERERE")
-                    print("HERERERERERERE")
-                    print("HERERERERERERE")
                     print(user_data)
                     
                     contributor_data = {

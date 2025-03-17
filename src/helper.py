@@ -3,6 +3,8 @@ import datetime
 from datetime import datetime
 import pandas as pd
 import os
+import csv
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -76,9 +78,6 @@ def convert_to_dataframes(hash_map):
 
 def save_csv(filename, data):   
     folder = 'data'
-    
-    print(data)
-    print(data[0])
     # Create output directory if it doesn't exist
     os.makedirs(folder, exist_ok=True)
     
@@ -111,13 +110,48 @@ def save_csv(filename, data):
 
 # for the analysis in visuals.py
 def load_csv(filename):
-    """Load a CSV file and return its data as a list of dictionaries"""
-    data = []
-    with open(filename, 'r', encoding='utf-8') as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            data.append(row)
-    return data
+    
+    # data = []
+    # with open(filename, 'r', encoding='utf-8') as file:
+    #     reader = csv.DictReader(file)
+    #     for row in reader:
+    #         data.append(row)
+    # return data
+
+    # files to big for default csv so were using manually setting the size limit
+    # asked gpt to show how i can implement dynamically rather than a set limit
+    current_limit = 1000000
+    max_attempts = 10
+    attempt = 0
+    
+    while attempt < max_attempts:
+        try:
+            # Set the current field size limit
+            csv.field_size_limit(current_limit)
+            
+            # Try to read the file
+            data = []
+            with open(filename, 'r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    data.append(row)
+            
+            # If we get here, the file was read successfully
+            print(f"Successfully loaded CSV with field size limit: {current_limit}")
+            return data
+            
+        except _csv.Error as e:
+            if "field larger than field limit" in str(e):
+                # Double the limit and try again
+                current_limit *= 2
+                attempt += 1
+                print(f"Increasing field size limit to {current_limit} (attempt {attempt})")
+            else:
+                # If it's a different error, raise it
+                raise
+    
+    # If we've exceeded max attempts
+    raise ValueError(f"Failed to load CSV after {max_attempts} attempts. Last limit tried: {current_limit}")
 
 def parse_date(date_string):
     # str to sate time

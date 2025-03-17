@@ -723,7 +723,7 @@ def rq3(comments_data, contributors_data):
     pearson_p_val = correlation_results['filtered']['contributions']['pearson']['p_value']
     pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    plt.title(f'IQR-Filtered: Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+    plt.title(f'Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
               f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}\n')
     
     # Add trend line
@@ -777,7 +777,7 @@ def rq3(comments_data, contributors_data):
     pearson_p_val = correlation_results['filtered']['followers']['pearson']['p_value']
     pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    plt.title(f'IQR-Filtered: Toxicity vs. Followers\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+    plt.title(f'Toxicity vs. Followers\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
               f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}\n')
     
     # Add trend line

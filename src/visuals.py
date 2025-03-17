@@ -512,7 +512,7 @@ def rq2(comments_data, releases_data):
         plt.axvline(x=0, color='red', linestyle='--')
         plt.xlabel('Days from Release (- = before, + = after)')
         plt.ylabel('Toxicity %')
-        plt.title(f'Correlation: Days from Release vs. Toxicity\n'
+        plt.title(f'Toxicity vs. Days from Release \n'
                  f'Spearman rho = {spearman_days:.3f} (p = {spearman_p_days:.3f}) {spearman_sig_days}\n'
                  f'Pearson r = {pearson_days:.3f} (p = {pearson_p_days:.3f}) {pearson_sig_days}')
         
@@ -551,6 +551,17 @@ def rq2(comments_data, releases_data):
         return None
   
 def rq3(comments_data, contributors_data):
+    """
+    Analyzes the relationship between contributor experience and toxicity levels.
+    Includes specific outlier handling for followers and contributions.
+    
+    Args:
+        comments_data: List of comment dictionaries with toxicity scores
+        contributors_data: List of contributor dictionaries with experience metrics
+        
+    Returns:
+        Dictionary containing analysis results
+    """
     # Create a lookup dictionary for quick access to contributor information
     contributor_info = {}
     for contributor in contributors_data:
@@ -624,19 +635,42 @@ def rq3(comments_data, contributors_data):
         labels=['New (<1 year)', 'Intermediate (1-3 years)', 'Experienced (3+ years)']
     )
     
-    # Store correlation results
+    # TARGETED OUTLIER HANDLING
+    # =========================
+    
+    # Create log transformations for heavily skewed variables
+    df['log_contributions'] = np.log1p(df['contributions'])
+    df['log_followers'] = np.log1p(df['followers'])
+    
+    # Define IQR-based outlier filters for contributions and followers
+    def filter_outliers(df, column):
+        Q1 = df[column].quantile(0.25)
+        Q3 = df[column].quantile(0.75)
+        IQR = Q3 - Q1
+        filter_mask = (df[column] >= (Q1 - 1.5 * IQR)) & (df[column] <= (Q3 + 1.5 * IQR))
+        return df[filter_mask], filter_mask
+    
+    # Create filtered datasets for contributions and followers
+    df_contrib_filtered, contrib_mask = filter_outliers(df, 'contributions')
+    df_followers_filtered, followers_mask = filter_outliers(df, 'followers')
+    
+    # Log information about outlier filtering
+    print(f"Original data: {len(df)} rows")
+    print(f"After filtering contributions: {len(df_contrib_filtered)} rows ({len(df) - len(df_contrib_filtered)} outliers removed)")
+    print(f"After filtering followers: {len(df_followers_filtered)} rows ({len(df) - len(df_followers_filtered)} outliers removed)")
+    
+    # CORRELATION ANALYSIS WITH DIFFERENT APPROACHES
+    # =============================================
+    
+    # Calculate correlations for original, filtered, and log-transformed data
     correlation_results = {}
     
-    # Calculate both Spearman and Pearson correlations between experience metrics and toxicity
-    for metric in ['account_age_days', 'contributions', 'followers']:
-        # Spearman correlation
-        spearman_corr, spearman_p_value = spearmanr(df[metric], df['toxicity'])
+    # Define a function to compute both correlation types
+    def compute_correlations(x, y):
+        spearman_corr, spearman_p_value = spearmanr(x, y)
+        pearson_corr, pearson_p_value = pearsonr(x, y)
         
-        # Pearson correlation
-        pearson_corr, pearson_p_value = pearsonr(df[metric], df['toxicity'])
-        
-        # Store correlation results
-        correlation_results[metric] = {
+        return {
             'spearman': {
                 'rho': spearman_corr,
                 'p_value': spearman_p_value,
@@ -648,11 +682,228 @@ def rq3(comments_data, contributors_data):
                 'significant': pearson_p_value < 0.05
             }
         }
-            
-    # Analyze toxicity by experience group
-    exp_stats = df.groupby('experience_level')['toxicity'].agg(['mean', 'count']).reset_index()
     
-    # Create multi-panel visualization to illustrate findings
+    # Original correlations
+    correlation_results['original'] = {
+        'account_age_days': compute_correlations(df['account_age_days'], df['toxicity']),
+        'contributions': compute_correlations(df['contributions'], df['toxicity']),
+        'followers': compute_correlations(df['followers'], df['toxicity'])
+    }
+    
+    # Log-transformed correlations
+    correlation_results['log_transformed'] = {
+        'log_contributions': compute_correlations(df['log_contributions'], df['toxicity']),
+        'log_followers': compute_correlations(df['log_followers'], df['toxicity'])
+    }
+    
+    # Filtered correlations
+    correlation_results['filtered'] = {
+        'contributions': compute_correlations(df_contrib_filtered['contributions'], df_contrib_filtered['toxicity']),
+        'followers': compute_correlations(df_followers_filtered['followers'], df_followers_filtered['toxicity'])
+    }
+    
+    # VISUALIZATIONS
+    # =============
+    
+    # Create multi-panel figure for toxicity vs. contributions with different outlier handling approaches
+    plt.figure(figsize=(18, 12))
+    
+    # 1. Original data: contributions vs toxicity
+    plt.subplot(2, 2, 1)
+    plt.scatter(df['contributions'], df['toxicity'], alpha=0.7, color='green')
+    plt.xlabel('Contributions')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['original']['contributions']['spearman']['rho']
+    spearman_p_val = correlation_results['original']['contributions']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['original']['contributions']['pearson']['r']
+    pearson_p_val = correlation_results['original']['contributions']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'Original: Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
+    
+    # Add trend line
+    if len(df) > 1:
+        z = np.polyfit(df['contributions'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['contributions'], trend(df['contributions']), "r--")
+    
+    # 2. Log-transformed: contributions vs toxicity
+    plt.subplot(2, 2, 2)
+    plt.scatter(df['log_contributions'], df['toxicity'], alpha=0.7, color='green')
+    plt.xlabel('Log(Contributions + 1)')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['log_transformed']['log_contributions']['spearman']['rho']
+    spearman_p_val = correlation_results['log_transformed']['log_contributions']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['log_transformed']['log_contributions']['pearson']['r']
+    pearson_p_val = correlation_results['log_transformed']['log_contributions']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'Log-Transformed: Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
+    
+    # Add trend line
+    if len(df) > 1:
+        z = np.polyfit(df['log_contributions'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['log_contributions'], trend(df['log_contributions']), "r--")
+    
+    # 3. IQR-filtered: contributions vs toxicity
+    plt.subplot(2, 2, 3)
+    plt.scatter(df_contrib_filtered['contributions'], df_contrib_filtered['toxicity'], alpha=0.7, color='green')
+    plt.xlabel('Contributions (outliers removed)')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['filtered']['contributions']['spearman']['rho']
+    spearman_p_val = correlation_results['filtered']['contributions']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['filtered']['contributions']['pearson']['r']
+    pearson_p_val = correlation_results['filtered']['contributions']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'IQR-Filtered: Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}\n'
+              f'({len(df) - len(df_contrib_filtered)} outliers removed)')
+    
+    # Add trend line
+    if len(df_contrib_filtered) > 1:
+        z = np.polyfit(df_contrib_filtered['contributions'], df_contrib_filtered['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df_contrib_filtered['contributions'], trend(df_contrib_filtered['contributions']), "r--")
+    
+    # 4. Original with outliers highlighted
+    plt.subplot(2, 2, 4)
+    
+    # Plot non-outliers
+    plt.scatter(df[contrib_mask]['contributions'], df[contrib_mask]['toxicity'], 
+                alpha=0.7, color='green', label='Normal data')
+    
+    # Plot outliers in a different color
+    plt.scatter(df[~contrib_mask]['contributions'], df[~contrib_mask]['toxicity'], 
+                alpha=0.7, color='red', marker='x', s=100, label='Outliers')
+    
+    plt.xlabel('Contributions')
+    plt.ylabel('Toxicity %')
+    plt.title(f'Contributions: Outliers Highlighted\n({len(df[~contrib_mask])} outliers in red)')
+    plt.legend()
+    
+    # Set limits to focus on main data cluster while keeping some outliers visible
+    contrib_max = df_contrib_filtered['contributions'].max() * 2
+    plt.xlim(-100, contrib_max)
+    
+    plt.tight_layout()
+    plt.savefig('rq3_contributions_outlier_handling.png')
+    
+    # Create multi-panel figure for toxicity vs. followers with different outlier handling approaches
+    plt.figure(figsize=(18, 12))
+    
+    # 1. Original data: followers vs toxicity
+    plt.subplot(2, 2, 1)
+    plt.scatter(df['followers'], df['toxicity'], alpha=0.7, color='purple')
+    plt.xlabel('Followers')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['original']['followers']['spearman']['rho']
+    spearman_p_val = correlation_results['original']['followers']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['original']['followers']['pearson']['r']
+    pearson_p_val = correlation_results['original']['followers']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'Original: Toxicity vs. Followers\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
+    
+    # Add trend line
+    if len(df) > 1:
+        z = np.polyfit(df['followers'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['followers'], trend(df['followers']), "r--")
+    
+    # 2. Log-transformed: followers vs toxicity
+    plt.subplot(2, 2, 2)
+    plt.scatter(df['log_followers'], df['toxicity'], alpha=0.7, color='purple')
+    plt.xlabel('Log(Followers + 1)')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['log_transformed']['log_followers']['spearman']['rho']
+    spearman_p_val = correlation_results['log_transformed']['log_followers']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['log_transformed']['log_followers']['pearson']['r']
+    pearson_p_val = correlation_results['log_transformed']['log_followers']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'Log-Transformed: Toxicity vs. Followers\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
+    
+    # Add trend line
+    if len(df) > 1:
+        z = np.polyfit(df['log_followers'], df['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df['log_followers'], trend(df['log_followers']), "r--")
+    
+    # 3. IQR-filtered: followers vs toxicity
+    plt.subplot(2, 2, 3)
+    plt.scatter(df_followers_filtered['followers'], df_followers_filtered['toxicity'], alpha=0.7, color='purple')
+    plt.xlabel('Followers (outliers removed)')
+    plt.ylabel('Toxicity %')
+    
+    # Add correlation information to title
+    spearman_corr = correlation_results['filtered']['followers']['spearman']['rho']
+    spearman_p_val = correlation_results['filtered']['followers']['spearman']['p_value']
+    spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
+    
+    pearson_corr = correlation_results['filtered']['followers']['pearson']['r']
+    pearson_p_val = correlation_results['filtered']['followers']['pearson']['p_value']
+    pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
+    
+    plt.title(f'IQR-Filtered: Toxicity vs. Followers\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+              f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}\n'
+              f'({len(df) - len(df_followers_filtered)} outliers removed)')
+    
+    # Add trend line
+    if len(df_followers_filtered) > 1:
+        z = np.polyfit(df_followers_filtered['followers'], df_followers_filtered['toxicity'], 1)
+        trend = np.poly1d(z)
+        plt.plot(df_followers_filtered['followers'], trend(df_followers_filtered['followers']), "r--")
+    
+    # 4. Original with outliers highlighted
+    plt.subplot(2, 2, 4)
+    
+    # Plot non-outliers
+    plt.scatter(df[followers_mask]['followers'], df[followers_mask]['toxicity'], 
+                alpha=0.7, color='purple', label='Normal data')
+    
+    # Plot outliers in a different color
+    plt.scatter(df[~followers_mask]['followers'], df[~followers_mask]['toxicity'], 
+                alpha=0.7, color='red', marker='x', s=100, label='Outliers')
+    
+    plt.xlabel('Followers')
+    plt.ylabel('Toxicity %')
+    plt.title(f'Followers: Outliers Highlighted\n({len(df[~followers_mask])} outliers in red)')
+    plt.legend()
+    
+    # Set limits to focus on main data cluster while keeping some outliers visible
+    followers_max = df_followers_filtered['followers'].max() * 2
+    plt.xlim(-100, followers_max)
+    
+    plt.tight_layout()
+    plt.savefig('rq3_followers_outlier_handling.png')
+    
+    # Create a figure for the original correlations as in the original function
     plt.figure(figsize=(12, 10))
     
     # Scatter plot: account age vs toxicity
@@ -662,15 +913,15 @@ def rq3(comments_data, contributors_data):
     plt.ylabel('Toxicity %')
     
     # Add correlation information to title
-    spearman_corr = correlation_results['account_age_days']['spearman']['rho']
-    spearman_p_val = correlation_results['account_age_days']['spearman']['p_value']
+    spearman_corr = correlation_results['original']['account_age_days']['spearman']['rho']
+    spearman_p_val = correlation_results['original']['account_age_days']['spearman']['p_value']
     spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    pearson_corr = correlation_results['account_age_days']['pearson']['r']
-    pearson_p_val = correlation_results['account_age_days']['pearson']['p_value']
+    pearson_corr = correlation_results['original']['account_age_days']['pearson']['r']
+    pearson_p_val = correlation_results['original']['account_age_days']['pearson']['p_value']
     pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    plt.title(f'Account Age vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+    plt.title(f'Toxicity vs. Account Age\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
               f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
     # Add trend line to visualize correlation direction
@@ -686,15 +937,15 @@ def rq3(comments_data, contributors_data):
     plt.ylabel('Toxicity %')
     
     # Add correlation information to title
-    spearman_corr = correlation_results['contributions']['spearman']['rho']
-    spearman_p_val = correlation_results['contributions']['spearman']['p_value']
+    spearman_corr = correlation_results['original']['contributions']['spearman']['rho']
+    spearman_p_val = correlation_results['original']['contributions']['spearman']['p_value']
     spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    pearson_corr = correlation_results['contributions']['pearson']['r']
-    pearson_p_val = correlation_results['contributions']['pearson']['p_value']
+    pearson_corr = correlation_results['original']['contributions']['pearson']['r']
+    pearson_p_val = correlation_results['original']['contributions']['pearson']['p_value']
     pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    plt.title(f'Contributions vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+    plt.title(f'Toxicity vs. Contributions\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
               f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
     # Add trend line to visualize correlation direction
@@ -710,15 +961,15 @@ def rq3(comments_data, contributors_data):
     plt.ylabel('Toxicity %')
     
     # Add correlation information to title
-    spearman_corr = correlation_results['followers']['spearman']['rho']
-    spearman_p_val = correlation_results['followers']['spearman']['p_value']
+    spearman_corr = correlation_results['original']['followers']['spearman']['rho']
+    spearman_p_val = correlation_results['original']['followers']['spearman']['p_value']
     spearman_sig_symbol = "**" if spearman_p_val < 0.01 else ("*" if spearman_p_val < 0.05 else "")
     
-    pearson_corr = correlation_results['followers']['pearson']['r']
-    pearson_p_val = correlation_results['followers']['pearson']['p_value']
+    pearson_corr = correlation_results['original']['followers']['pearson']['r']
+    pearson_p_val = correlation_results['original']['followers']['pearson']['p_value']
     pearson_sig_symbol = "**" if pearson_p_val < 0.01 else ("*" if pearson_p_val < 0.05 else "")
     
-    plt.title(f'Followers vs Toxicity\nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
+    plt.title(f'Toxicity vs. Followers \nSpearman rho = {spearman_corr:.3f} (p = {spearman_p_val:.3f}) {spearman_sig_symbol}\n'
               f'Pearson r = {pearson_corr:.3f} (p = {pearson_p_val:.3f}) {pearson_sig_symbol}')
     
     # Add trend line to visualize correlation direction
@@ -734,6 +985,9 @@ def rq3(comments_data, contributors_data):
     plt.ylabel('Toxicity %')
     plt.title('Toxicity by Experience Level')
     
+    # Analyze toxicity by experience group
+    exp_stats = df.groupby('experience_level')['toxicity'].agg(['mean', 'median', 'count']).reset_index()
+    
     # Add sample size annotations for context
     for i, exp in enumerate(exp_stats['experience_level']):
         count = exp_stats[exp_stats['experience_level'] == exp]['count'].values[0]
@@ -743,12 +997,18 @@ def rq3(comments_data, contributors_data):
     plt.tight_layout()
     plt.savefig('rq3.png')
     
+    # Compile and return results
     return {
-        'data': df,
-        'correlations': correlation_results,
-        'experience_groups': exp_stats.to_dict('records')
+        'original_correlations': correlation_results['original'],
+        'log_transformed_correlations': correlation_results['log_transformed'],
+        'filtered_correlations': correlation_results['filtered'],
+        'experience_groups': exp_stats.to_dict('records'),
+        'outlier_stats': {
+            'total_contributors': len(df),
+            'contribution_outliers': len(df) - len(df_contrib_filtered),
+            'follower_outliers': len(df) - len(df_followers_filtered)
+        }
     }
-
 def main():
     # Get the data AFTER running main.py (
     # ONLY if you changed main.py, otherwise i alr loaded the data from our chosen repos into these datasets

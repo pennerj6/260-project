@@ -1,0 +1,12 @@
+dask
+numpy
+seaborn
+pandas
+requests
+matplotlib
+python-dotenv
+toxicityrater
+python-dateutil
+
+google-api-python-client==2.160.0
+PyGitHub==2.5.0

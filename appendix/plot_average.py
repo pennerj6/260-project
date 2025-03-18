@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 os.makedirs("plot", exist_ok=True)
 
-df = pd.read_csv('data/productivityData.csv', parse_dates=['toxic_date'])
+df = pd.read_csv('../data/productivityData.csv', parse_dates=['toxic_date'])
 
 
 days = [-3, -2, -1, 0, 1, 2, 3]
@@ -24,5 +24,5 @@ plt.ylabel('Average Value')
 plt.title('Overall Average Productivity Metrics Around Toxic Date')
 plt.legend()
 plt.grid(True)
-plt.savefig('plot/plot_overall_average.png')
+plt.savefig('plot_overall_average.png')
 plt.show()

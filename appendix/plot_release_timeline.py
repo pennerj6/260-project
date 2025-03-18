@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 os.makedirs("plot", exist_ok=True)
 
-df = pd.read_csv('data/productivityData.csv', parse_dates=['toxic_date'])
+df = pd.read_csv('../data/productivityData.csv', parse_dates=['toxic_date'])
 
 diffs = []
 for _, row in df.iterrows():
@@ -31,5 +31,5 @@ if diffs:
     plt.title('Histogram of Release Date Differences Relative to Toxic Date')
 else:
     plt.text(0.5, 0.5, 'No release date data available', horizontalalignment='center', verticalalignment='center')
-plt.savefig('plot/plot_release_timeline.png')
+plt.savefig('plot_release_timeline.png')
 plt.show()

@@ -15,8 +15,8 @@ HEADERS = {
 }
 
 def get_toxic_issues():
-    data_file = 'appendix/data/issue_threads.csv'
-    pickle_file = 'data/toxic_issues.pkl'
+    data_file = '../list_of_repos_to_analyze/incivility_dataset.csv'
+    pickle_file = '../data/toxic_issues.pkl'
     issues_list = pd.read_csv(data_file)
     issues = []
 

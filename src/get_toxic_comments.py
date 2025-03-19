@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 import pickle
-from toxicityrater import ToxicityRater
+from toxicity_rater import ToxicityRater
 import requests
 import time
 import numpy as np
@@ -60,7 +60,7 @@ def get_comments_with_toxicity(issue):
     return comments
 
 def get_toxic_comments(issues):
-    pickle_file = 'data/toxic_comments.pkl'
+    pickle_file = '../data/toxic_comments.pkl'
     if os.path.exists(pickle_file):
         with open(pickle_file, 'rb') as f:
             return pickle.load(f)

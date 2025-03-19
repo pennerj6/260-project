@@ -18,7 +18,7 @@ HEADERS = {
 }
 
 def get_commits_for_issues(issues, num_days):
-    pickle_file = 'data/commits.pkl'
+    pickle_file = '../data/commits.pkl'
     if os.path.exists(pickle_file):
         with open(pickle_file, 'rb') as f:
             return pickle.load(f)
@@ -118,21 +118,11 @@ if __name__ == "__main__":
             weighted_bins = bins
         else:
             weighted_hist += hist
-
-        # weight = 1.0 / len(timestamps)
-        
-        # for timestamp in timestamps:
-        #     balanced_timestamps.append((timestamp, weight))
-    
-    # timestamps_values = [t[0] for t in balanced_timestamps]
-    # timestamps_values /= np.sum(timestamps_values)
-    # weights = [t[1] for t in balanced_timestamps]
     
     plt.figure(figsize=(12, 6))
     
     corr, p_value = spearmanr(weighted_bins[:-1], weighted_hist)
     print(f'\nCorrelation: {corr:.3f} (p={p_value:.3e})')
-    # plt.hist(timestamps_values, weights=weights, bins=100, density=True)
     weighted_hist /= np.sum(weighted_hist)
     plt.hist(weighted_bins[:-1], weighted_bins, weights=weighted_hist)
     plt.title('Commit density around issue lock date')

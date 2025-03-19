@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 os.makedirs("plot", exist_ok=True)
 
-df = pd.read_csv('../data/productivityData.csv', parse_dates=['toxic_date'])
+df = pd.read_csv('appendix/data/productivityData.csv', parse_dates=['toxic_date'])
 
 
 days = [-3, -2, -1, 0, 1, 2, 3]

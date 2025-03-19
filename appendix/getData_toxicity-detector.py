@@ -126,7 +126,7 @@ def collect_data(row, delta_days):
 
 def main():
     # https://github.com/CMUSTRUDEL/toxicity-detector/blob/master/data/training/labeled_test_issues.csv
-    issues_df = pd.read_csv("data/labeled_test_issues.csv")
+    issues_df = pd.read_csv("appendix/data/labeled_test_issues.csv")
     issues_df = issues_df[issues_df["toxicity"] == "y"]
 
     # toxic issue +- 3days

@@ -124,9 +124,9 @@ def collect_data(row, delta_days):
 
 def main():
     # https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/issue_threads.csv
-    issue_threads_df = pd.read_csv('data/issue_threads.csv')
+    issue_threads_df = pd.read_csv('appendix/data/issue_threads.csv')
     # https://github.com/vcu-swim-lab/incivility-dataset/blob/main/dataset/annotated_issue_level.csv
-    annotated_issue_level_df = pd.read_csv('data/annotated_issue_level.csv')
+    annotated_issue_level_df = pd.read_csv('appendix/data/annotated_issue_level.csv')
 
     merged_df = pd.merge(issue_threads_df, annotated_issue_level_df, on='issue_id', suffixes=('_thread', '_toxic'))
     
@@ -141,7 +141,7 @@ def main():
     
     # save
     analysis_df = pd.DataFrame(analysis_results)
-    csv_filename = "data/productivityData_aroundToxicComment.csv"
+    csv_filename = "appendix/data/productivityData_aroundToxicComment.csv"
     analysis_df.to_csv(csv_filename, index=False)
     print(f"Data extracted: {csv_filename}")
 

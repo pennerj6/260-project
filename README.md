@@ -42,6 +42,12 @@ GITHUB_ACCESS_TOKEN_3=''    (leave as '' if no other token)
 - `src/get_commits.py` - Contains code to collect commits to a repository 180 days before and after the date each issue from the Incivility Dataset was locked and generates the plot located in `src/visuals/commits_vs_locked_date.png`. Data is unfiltered and therefore not pushed.
 - `src/get_toxic_comments.py` - Contains redundant code to collect comments from all issues from the Incivility Dataset, retrieves each comment's toxicity rating, and generates the plot located in `src/visuals/toxicity_vs_delay.png`. Data is unfiltered and therefore not pushed.
 
+- `appendix/getData_toxicity-detector.py` - Extract productivity data (contributors, commits, lines of code, release day)
+- `appendix/data/productivityData.csv` -  The time a toxic comment occurred from toxic issues listed in the public dataset
+- `appendix/data/labeled_test_issues.csv` -  Confirm that toxic issues from: https://github.com/CMUSTRUDEL/toxicity-detector/blob/master/data/training/labeled_test_issues.csv (toxicity = y) are accessible.
+- `appendix/plot/`Plot the extracted productivity data using three different graphs: Overall average productivity, productivity heatmap, toxic_date - release day
+
+
 ## Data Sources
 
 As said above, our project uses data from two primary sources:

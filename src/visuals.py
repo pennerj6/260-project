@@ -12,7 +12,7 @@ from scipy.stats import pearsonr, spearmanr
 from helper import *
 '''
     used LLM to help configure this file give what i prompted, like stuff along the lines of 
-    given these column names, give me code to calculate if any of them are correlated with toxicity using spearman correlation ( toxicity corellates to comments,commits, etc.)
+    given these column names, how can i calc correlation with toxicity using spearman correlation, is there a function i can import or do i need to code it myself ( toxicity corellates to comments,commits, etc.)
     after i noticed almost nothing had a strong correlation ( alot of close to 0 values for toxicity despite the lasrge dataset)
     llm helped implement using a percentile threshold instead of a hard toxicity threshold to determine if toxic
 '''
@@ -53,7 +53,7 @@ def analyze_toxicity_distribution(comments_data):
             plt.title('Non-zero Values (None Found)')
         
         plt.tight_layout()
-        plt.savefig('toxicity_distribution.png')
+        plt.savefig('src/visuals/toxicity_distribution.png')
     
     return percentiles
 
@@ -283,7 +283,7 @@ def rq1(comments_data, issues_data, commits_data):
             plt.plot(df['toxicity'], trend(df['toxicity']), "r--")
         
         plt.tight_layout()
-        plt.savefig('rq1.png')
+        plt.savefig('src/visuals/rq1.png')
 
         # Return results including correlation data
         return {
@@ -538,7 +538,7 @@ def rq2(comments_data, releases_data):
             plt.plot(prox_df['distance_from_release'], trend(prox_df['distance_from_release']), "r--")
         
         plt.tight_layout()
-        plt.savefig('rq2.png')
+        plt.savefig('src/visuals/rq2.png')
         
         # Return results including correlation data
         return {
@@ -733,7 +733,7 @@ def rq3(comments_data, contributors_data):
         plt.plot(df_contrib_filtered['contributions'], trend(df_contrib_filtered['contributions']), "r--")
     
     plt.tight_layout()
-    plt.savefig('rq3_contributions_outlier_handling.png')
+    plt.savefig('src/visuals/rq3_contributions.png')
     
     # Create multi-panel figure for toxicity vs. followers
     plt.figure(figsize=(12, 5))
@@ -787,7 +787,7 @@ def rq3(comments_data, contributors_data):
         plt.plot(df_followers_filtered['followers'], trend(df_followers_filtered['followers']), "r--")
     
     plt.tight_layout()
-    plt.savefig('rq3_followers_outlier_handling.png')
+    plt.savefig('src/visuals/rq3_followers.png')
     
     # Create a figure for the original correlations as in the original function
     plt.figure(figsize=(12, 10))
@@ -881,7 +881,7 @@ def rq3(comments_data, contributors_data):
                 f"n={int(count)}", ha='center')
     
     plt.tight_layout()
-    plt.savefig('rq3.png')
+    plt.savefig('src/visuals/rq3.png')
     
     # Compile and return results
     return {
@@ -908,21 +908,19 @@ def main():
     percentiles = analyze_toxicity_distribution(comments_data)
     
     # Step 2: Mark toxic comments (using 90th percentile)
-    comments_binary, threshold = mark_toxic_comments(comments_data, threshold_percentile=90)
+    comm, threshold = mark_toxic_comments(comments_data, threshold_percentile=90)
     
     # Step 3: Answer research questions
     print("\nAnalyzing research questions...")
     
     # RQ1: Toxicity vs Productivity
-    rq1_results = rq1(comments_binary, issues_data, commits_data)
+    rq1_results = rq1(comm, issues_data, commits_data)
     
     # RQ2: Toxicity around Releases
-    rq2_results = rq2(comments_binary, releases_data)
+    rq2_results = rq2(comm, releases_data)
     
     # RQ3: Contributor Experience vs Toxicity
-    rq3_results = rq3(comments_binary, contributors_data)
-    
-    print("\nAnalysis complete! Check the generated PNG files for visualizations.")
+    rq3_results = rq3(comm, contributors_data)
 
 if __name__ == "__main__":
     main()

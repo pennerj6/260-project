@@ -175,7 +175,7 @@ def get_pull_requests_count(owner, repo):
 # For saving data ====================================
 
 def save_to_csv(filtered_repos):
-    csv_filename = "./data/toxic_repo.csv"
+    csv_filename = "appendix/data/toxic_repo.csv"
     cnt = len(filtered_repos)
 
     with open(csv_filename, mode="w", encoding="utf-8", newline="") as file:
